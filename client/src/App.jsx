@@ -1,15 +1,40 @@
-import { useState } from 'react'
 import './App.css'
+import Home from './Components/Home/Home'
+import Asignaturas from './Components/Asignaturas/Asignaturas'
+import Profesores from './Components/Profesores/Profesores'
+import Web_oficial from './Components/Web_oficial/Web_oficial'
+
+
+// Importar el dominio del enrutador React
+import { 
+  createBrowserRouter, 
+  RouterProvider 
+} from 'react-router-dom'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // Crear el enrutador
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Home />,
+    },
+    {
+      path: '/asignaturas',
+      element: <Asignaturas />,
+    },
+    {
+      path: '/profesores',
+      element: <Profesores/>,
+    },
+    {
+      path: '/web',
+      element: <Web_oficial />,
+    },
+  ])
 
-  return(
-    <>
-    </>
+  return (
+    <RouterProvider router={router} />
   )
-    
-  
 }
 
 export default App
