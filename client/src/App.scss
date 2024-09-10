@@ -1,83 +1,68 @@
-
 body {
     width: 100%;
-    height: 100vh; 
+    height: 100vh;
     box-sizing: border-box;
     margin: 0; // Elimina el margen predeterminado
     padding: 0; // Elimina el padding predeterminado
-  }
-  
-  .Homepage {
+}
 
+.Homepage {
 
-    .navbar{
+    .navbar {
         width: 100%;
-    }
-    
 
-    .navbar ul {
-        display: flex;
-        justify-content: center; // Centra los elementos horizontalmente
-        align-items: center; // Alinea los elementos verticalmente
-        list-style-type: none; // Quita los puntos de la lista
-        padding: 15px; // Quita el padding predeterminado
-        margin: 0;
-
-    
-        li{
-            margin: 0 15px; // Agrega espacio horizontal entre los elementos
-
+        li a {
+            color: white;
+            font-weight: bold;
+            margin: 30px;
+            text-decoration: none;
         }
-      }
 
+        ul {
+            display: flex;
+            justify-content: center; // Centra los elementos horizontalmente
+            align-items: center; // Alinea los elementos verticalmente
+            list-style-type: none; // Quita los puntos de la lista
+            padding: 15px; // Quita el padding predeterminado
+            margin: 0;
 
-
-      .navbar li a {
-        color: white;
-        font-weight: bold;
-        margin: 30px;
-        text-decoration: none;
-      }
-
-        .Unitutor {
+            li {
+                margin: 0 15px; // Agrega espacio horizontal entre los elementos
+            }
+        }
+    }
+    .Unitutor {
         background-image: url(img/Fondo1.png);
         width: 100%;
-        height: 100vh; 
-        
+        height: 100vh;
+
         // Propiedades para ajustar la imagen de fondo
         background-size: cover; // Cubre todo el contenedor
         background-position: center; // Centra la imagen
-      
-        h1{
+
+        h1 {
             color: white;
             text-align: center;
             font-size: 50px;
             padding: 30px;
         }
 
-        h2{
+        h2 {
             color: white;
             font-size: 40px;
             margin-left: 20%;
         }
-
-        .cont{
+        
+        .cont {
             color: white;
-
-            h3{
+            h3 {
                 float: right;
                 color: white;
                 margin-right: 20%;
-                
-                
             }
-           
-    
-            h4{
+            h4 {
                 color: white;
             }
         }
-
-        
     }
-  }
+}
