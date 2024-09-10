@@ -55,3 +55,66 @@ body {
 .Homepage .Unitutor .cont h4 {
   color: white;
 }/*# sourceMappingURL=App.css.map */
+
+
+/*# ASIGNATURAS */
+.materias {
+  display: flex;
+}
+
+/*# PROFESORES */
+
+.PROFESORES {
+  background-image: url(img/Fondo1.png);
+  width: 95%;
+  height: 95%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 25px;
+  color: white; 
+  font-family: 'Roboto', sans-serif; 
+  margin: 0 auto; /* Esto centrará el elemento horizontalmente */
+}
+
+/* Estilo específico para el h1 */
+.PROFESORES h1 {
+  font-size: 40px; 
+  padding: 20px;
+}
+
+/* Estilo para las imágenes */
+.prof1, .prof2, .prof3, .prof4 {
+  display: inline-block; 
+  text-align: center;
+  padding: 10px;
+  margin-right: 20px; /* Espacio entre las imágenes */
+  
+
+}
+
+.imagen {
+  background-size: cover;
+  background-position: center;
+  width: 200px;
+  height: 200px;
+}
+
+.prof1 .imagen {
+  border-radius: 30px;
+  background-image: url(img/Photo1.png);
+}
+
+.prof2 .imagen {
+  border-radius: 30px;
+  background-image: url(img/Photo1.png);
+}
+
+.prof3 .imagen {
+  border-radius: 30px;
+  background-image: url(img/Photo1.png);
+}
+
+.prof4 .imagen {
+  border-radius: 30px;
+  background-image: url(img/Photo2.png);
+}

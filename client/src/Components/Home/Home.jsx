@@ -24,12 +24,9 @@ const Home = () => {
 
         <section className="materias">
           <div className="aprendizaje">
-            <h1>¿Dificultad para aprender?</h1>
-            <article>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
-              placeat est odio magni se
-            </article>
+            <h1>ASIGNATURAS</h1>
           </div>
+
           <div className="Desarrollo">
             <article> Desarrollo de Software</article>
             <p>Aumenta tus habilidades de programación.</p>
@@ -46,25 +43,32 @@ const Home = () => {
             <article>Ingles V</article>
             <p>Desarrollo un mejor nivel de ingles.</p>
           </div>
+        </section>
 
-          <div className="profesores">
-            <h1>Nuestros Profesores</h1>
-            <div className="prof1">
-              <h4>Roberto Rudas</h4>
-              <p>Prof. Innovación y emprendimiento</p>
-            </div>
-            <div className="prof2">
-              <h4>Roberto Rudas</h4>
-              <p>Prof. Innovación y emprendimiento</p>
-            </div>
-            <div className="prof3">
-              <h4>Roberto Rudas</h4>
-              <p>Prof. Innovación y emprendimiento</p>
-            </div>
-            <div className="prof4">
-              <h4>Jader Melendez</h4>
-              <p>Prof. Matemática discreta</p>
-            </div>
+        <section className="PROFESORES">
+  <div class="profesores">
+    <h1>Nuestros Profesores</h1>
+    <div class="prof1">
+      <div class="imagen"></div>
+      <h4>Roberto Rudas</h4>
+      <p>Prof. Innovación y emprendimiento</p>
+    </div>
+    <div class="prof2">
+      <div class="imagen"></div>
+      <h4>Roberto Rudas</h4>
+      <p>Prof. Innovación y emprendimiento</p>
+    </div>
+    <div class="prof3">
+      <div class="imagen"></div>
+      <h4>Roberto Rudas</h4>
+      <p>Prof. Innovación y emprendimiento</p>
+    </div>
+    <div class="prof4">
+      <div class="imagen"></div>
+      <h4>Jader Melendez</h4>
+      <p>Prof. Matemática discreta</p>
+    </div>
+
               <div className="profesores2">
                 <h1>¿Porque escoger nuestros profesores?</h1>
                 <article>

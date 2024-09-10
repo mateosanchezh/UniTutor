@@ -35,13 +35,6 @@ function App() {
   return (
     <RouterProvider router={router} />
   )
-<<<<<<< HEAD
-=======
-    
-
-
-
->>>>>>> Mateo
 }
 
 export default App
