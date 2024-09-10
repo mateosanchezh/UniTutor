@@ -1,1 +1,57 @@
-/*# sourceMappingURL=App.css.map */
+body {
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.Homepage .navbar {
+  width: 100%;
+}
+.Homepage .navbar ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  padding: 15px;
+  margin: 0;
+}
+.Homepage .navbar ul li {
+  margin: 0 15px;
+}
+.Homepage .navbar li a {
+  color: white;
+  font-weight: bold;
+  margin: 30px;
+  text-decoration: none;
+}
+.Homepage .Unitutor {
+  background-image: url(img/Fondo1.png);
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+.Homepage .Unitutor h1 {
+  color: white;
+  text-align: center;
+  font-size: 50px;
+  padding: 30px;
+}
+.Homepage .Unitutor h2 {
+  color: white;
+  font-size: 40px;
+  margin-left: 20%;
+}
+.Homepage .Unitutor .cont {
+  color: white;
+}
+.Homepage .Unitutor .cont h3 {
+  float: right;
+  color: white;
+  margin-right: 20%;
+}
+.Homepage .Unitutor .cont h4 {
+  color: white;
+}/*# sourceMappingURL=App.css.map */
