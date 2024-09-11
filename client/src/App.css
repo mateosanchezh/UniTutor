@@ -73,12 +73,13 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 0 auto;
   padding: 20px;
+  
 }
 
 /* Título */
 .PROFESORES h1 {
   font-size: 36px;
-  text-align: center;
+  text-align: left; 
   margin-bottom: 30px;
 }
 
@@ -91,10 +92,18 @@ body {
 }
 
 /* Estilo para cada profesor */
-.prof {
-  text-align: center;
+.prof h4 {
+  text-align: left; 
+  font-size: 30px;
+  margin-bottom: 5px; /* Ajusta el margen inferior */
 }
 
+.prof p {
+  font-size: 16px; /* Asegúrate de que el tamaño sea apropiado */
+  margin-top: 0; /* Elimina margen superior */
+}
+
+/* Imagen de cada profesor */
 .imagen {
   background-size: cover;
   background-position: center;
@@ -104,7 +113,7 @@ body {
   border-radius: 30px;
 }
 
-/* Imagen de cada profesor */
+/* Clases específicas para las imágenes de los profesores */
 .prof1 {
   background-image: url(img/Photo1.png);
 }
@@ -123,19 +132,19 @@ body {
 
 /* Sección de información adicional */
 .profesores2 {
-  text-align: center;
+  text-align: left;
   margin-bottom: 30px;
 }
 
 .profesores2 h1 {
   font-size: 30px;
   margin-bottom: 10px;
+  text-align: left; 
 }
 
 .profesores2 article {
   font-size: 16px;
   max-width: 800px;
-  margin: 0 auto;
   line-height: 1.5;
 }
 
@@ -149,11 +158,12 @@ body {
 
 /* Cuadro de información */
 .cuadro {
-  background: rgba(255, 255, 255, 0.1);
   padding: 20px;
-  border-radius: 15px;
+  border-radius: 30px;
   width: 180px;
   text-align: center;
+  height: 150px;
+  border: 2px solid white; /* Borde blanco */
 }
 
 .cuadro h5 {
