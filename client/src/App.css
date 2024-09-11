@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   width: 100%;
   height: 100vh;
@@ -9,12 +10,29 @@ body {
 .Homepage .navbar {
   width: 100%;
 }
+
 .Homepage .navbar li a {
   color: white;
-  font-weight: bold;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 30px;
   text-decoration: none;
 }
+
+.icono {
+  width: 30px;
+  height: 20px;
+  color: white;
+  border: 2px solid white;
+  padding: 5px;
+  border-radius: 10px;
+  float: right;
+  margin: 10px;
+}
+
+.user {
+  margin-left: 7px;
+}
+
 .Homepage .navbar ul {
   display: flex;
   justify-content: center;
@@ -23,40 +41,104 @@ body {
   padding: 15px;
   margin: 0;
 }
+
 .Homepage .navbar ul li {
   margin: 0 15px;
 }
+
 .Homepage .Unitutor {
   background-image: url(img/Fondo1.png);
   width: 100%;
   height: 100vh;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
 }
-.Homepage .Unitutor h1 {
-  color: white;
-  text-align: center;
-  font-size: 50px;
+
+.Home {
   padding: 30px;
 }
-.Homepage .Unitutor h2 {
-  color: white;
-  font-size: 40px;
-  margin-left: 20%;
-}
-.Homepage .Unitutor .cont {
-  color: white;
-}
-.Homepage .Unitutor .cont h3 {
-  float: right;
-  color: white;
-  margin-right: 20%;
-}
-.Homepage .Unitutor .cont h4 {
-  color: white;
-}/*# sourceMappingURL=App.css.map */
 
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  margin-left: 70px;
+}
 
+.UnitutorLogo {
+  width: 250px;
+  max-width: 500px;
+  margin-right: 20px;
+}
+
+.Unitutor h2 {
+  color: white;
+  margin: 0;
+  font-size: 24px;
+  white-space: nowrap;
+  margin-right: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 900;
+}
+
+.vertical-line {
+  width: 2px;
+  height: 300px;
+  background-color: white;
+  margin: 0 20px;
+}
+
+.Unitutor h1 {
+  color: white;
+  font-size: 50px;
+  margin: 0;
+  padding-left: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .UnitutorLogo {
+    margin-bottom: 20px;
+  }
+  .vertical-line {
+    width: 100%;
+    height: 2px;
+    margin: 20px 0;
+  }
+  .Unitutor h1 {
+    padding-left: 0;
+    font-size: 40px;
+  }
+  .explore-button {
+    width: 200px;
+    height: 35px;
+    margin-left: 35%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background: cornflowerblue;
+    border: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 700;
+    transition: all ease 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .explore-button:hover {
+    background: #c9c6c6;
+    color: rgb(0, 0, 0);
+  }
+}
 /*# ASIGNATURAS */
 .materias {
   display: flex;
@@ -70,7 +152,7 @@ body {
   background-position: center;
   border-radius: 25px;
   color: white;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 0 auto;
   padding: 20px;
 }
@@ -164,4 +246,4 @@ body {
 .cuadro p {
   font-size: 14px;
   line-height: 1.4;
-}
+}/*# sourceMappingURL=App.css.map */
