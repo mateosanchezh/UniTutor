@@ -62,59 +62,106 @@ body {
   display: flex;
 }
 
-/*# PROFESORES */
-
+/* Sección de Profesores */
 .PROFESORES {
   background-image: url(img/Fondo1.png);
   width: 95%;
-  height: 95%;
   background-size: cover;
   background-position: center;
   border-radius: 25px;
-  color: white; 
-  font-family: 'Roboto', sans-serif; 
-  margin: 0 auto; /* Esto centrará el elemento horizontalmente */
-}
-
-/* Estilo específico para el h1 */
-.PROFESORES h1 {
-  font-size: 40px; 
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  margin: 0 auto;
   padding: 20px;
 }
 
-/* Estilo para las imágenes */
-.prof1, .prof2, .prof3, .prof4 {
-  display: inline-block; 
+/* Título */
+.PROFESORES h1 {
+  font-size: 36px;
   text-align: center;
-  padding: 10px;
-  margin-right: 20px; /* Espacio entre las imágenes */
-  
+  margin-bottom: 30px;
+}
 
+/* Contenedor de Profesores */
+.profesores-contenido {
+  display: flex;
+  justify-content: space-between; /* Ajuste de separación */
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* Estilo para cada profesor */
+.prof {
+  text-align: center;
 }
 
 .imagen {
   background-size: cover;
   background-position: center;
-  width: 200px;
-  height: 200px;
+  width: 250px; /* Aumenta el tamaño de las imágenes */
+  height: 250px;
+  margin: 0 auto;
+  border-radius: 30px;
 }
 
-.prof1 .imagen {
-  border-radius: 30px;
+/* Imagen de cada profesor */
+.prof1 {
   background-image: url(img/Photo1.png);
 }
 
-.prof2 .imagen {
-  border-radius: 30px;
+.prof2 {
   background-image: url(img/Photo1.png);
 }
 
-.prof3 .imagen {
-  border-radius: 30px;
+.prof3 {
   background-image: url(img/Photo1.png);
 }
 
-.prof4 .imagen {
-  border-radius: 30px;
+.prof4 {
   background-image: url(img/Photo2.png);
+}
+
+/* Sección de información adicional */
+.profesores2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profesores2 h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.profesores2 article {
+  font-size: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Contenedor de los cuadros de información */
+.cuadros-contenedor {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px; /* Espacio entre los cuadros */
+}
+
+/* Cuadro de información */
+.cuadro {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+  width: 180px;
+  text-align: center;
+}
+
+.cuadro h5 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.cuadro p {
+  font-size: 14px;
+  line-height: 1.4;
 }
