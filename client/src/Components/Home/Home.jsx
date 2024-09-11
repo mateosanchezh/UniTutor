@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 import "../../App.css";
+import UnitutorLogo from '../../img/UnitutorLogo.svg'
 
 const Home = () => {
   return (
@@ -8,18 +9,17 @@ const Home = () => {
       <main>
         <section className="Unitutor">
           <Navbar />
-            <div className="Home">
-              <h1>UNITUTOR</h1>
-              <h2>
-                De lo presencial a <br /> lo virtual,<br /> simplificando el aprendizaje.
-              </h2>
-              <div className="cont">
-                <h3>¿Que es unitutor?</h3>
-              <article>Lorem, ipsum dolor sit amet consectetur adipisicing elitd adipisci earum impedit iure. </article>
-                <h4>¿Por que usar unitutor?</h4>
-              <article>Lorem, ipsum dolor sit amet consectetur adipisicing elitd adipisci earum impedit iure.</article>
-              </div>
-            </div>
+        <div className="Home">
+          <div className="content-wrapper">
+          <img src={UnitutorLogo} alt="Logo Unitutor" className="UnitutorLogo" />
+          <h1 className="uni">UNITUTOR</h1>
+          <div className="vertical-line"></div>
+          <h1>
+            De lo presencial a <br /> lo virtual,<br /> simplificando el aprendizaje.
+          </h1>
+          <button type="button" className="explore-button">Explorar</button>
+        </div>
+      </div>
         </section>
 
         <section className="materias">
