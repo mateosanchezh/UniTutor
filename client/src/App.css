@@ -7,15 +7,47 @@ body {
   padding: 0;
 }
 
+/* Estilos base del navbar */
 .Homepage .navbar {
   width: 100%;
+}
+
+.Homepage .navbar ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+}
+
+.Homepage .navbar ul li {
+  margin: 0 15px;
 }
 
 .Homepage .navbar li a {
   color: white;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  margin: 30px;
+  margin: 15px 20px;
   text-decoration: none;
+  position: relative; /* Necesario para posicionar el pseudo-elemento */
+  display: inline-block; /* Asegura que el elemento tenga dimensiones */
+  padding-bottom: 5px; /* Espacio para la línea de subrayado */
+}
+
+/* Efecto hover con línea animada */
+.Homepage .navbar li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px; /* Grosor de la línea */
+  bottom: 0;
+  left: 0;
+  background-color: white; /* Color de la línea */
+  transition: width 0.3s ease; /* Animación de la línea */
+}
+
+.Homepage .navbar li a:hover::after {
+  width: 100%; /* La línea se extiende al 100% del ancho en hover */
 }
 
 .icono {
@@ -33,115 +65,191 @@ body {
   margin-left: 7px;
 }
 
-.Homepage .navbar ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style-type: none;
-  padding: 15px;
-  margin: 0;
-}
-
-.Homepage .navbar ul li {
-  margin: 0 15px;
-}
-
+/* Estilos para la sección principal de Unitutor */
 .Homepage .Unitutor {
   background-image: url(img/Fondo1.png);
   width: 100%;
-  height: 100vh;
+  height: 110vh; /* Altura completa de la ventana del navegador */
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: fixed; /* Fondo fijo al hacer scroll */
 }
 
+/* Estilos para el contenedor principal */
 .Home {
   padding: 30px;
 }
 
+/* Estilos para el contenedor del contenido, organiza los elementos horizontalmente */
 .content-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 50px;
-  margin-left: 70px;
+  margin-left: 110px;
 }
 
+/* Estilos para el logo de Unitutor */
 .UnitutorLogo {
   width: 250px;
   max-width: 500px;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
+/* Estilos para el texto "UNITUTOR" */
 .Unitutor h2 {
   color: white;
-  margin: 0;
-  font-size: 24px;
-  white-space: nowrap;
-  margin-right: 20px;
+  margin: 2px;
+  font-size: 30px;
+  margin-right: 10px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 900;
+  font-weight: 900;
 }
 
+/* Estilos para la línea vertical separadora */
 .vertical-line {
   width: 2px;
-  height: 300px;
+  height: 390px;
   background-color: white;
   margin: 0 20px;
 }
 
+/* Contenedor para el texto principal y el botón, los organiza verticalmente */
+.text-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Estilos para el texto principal */
 .Unitutor h1 {
   color: white;
   font-size: 50px;
-  margin: 0;
+  margin: 10px;
   padding-left: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+/* Estilos para el botón "Explorar" */
+.explore-button {
+  width: 160px;
+  height: 35px;
+  background: white;
+  border: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: black;
+  font-weight: 700;
+  transition: all ease 0.5s;
+  margin: 15px;
+  margin-top: 20px; /* Espacio entre el texto principal y el botón */
+}
+
+/* Estilos para el botón "Explorar" al pasar el mouse por encima */
+.explore-button:hover {
+  background: #918f8f;
+  color: rgb(0, 0, 0);
+}
+
+/* Estilos para dispositivos móviles y pantallas pequeñas */
 @media (max-width: 768px) {
+  /* Cambia la disposición a vertical para pantallas pequeñas */
   .content-wrapper {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
+  /* Ajusta el margen del logo para pantallas pequeñas */
   .UnitutorLogo {
     margin-bottom: 20px;
   }
+  /* Cambia la línea vertical a horizontal en pantallas pequeñas */
   .vertical-line {
     width: 100%;
     height: 2px;
     margin: 20px 0;
   }
+  /* Ajusta el tamaño y alineación del texto principal en pantallas pequeñas */
   .Unitutor h1 {
-    padding-left: 0;
     font-size: 40px;
+    text-align: center;
   }
-  .explore-button {
-    width: 200px;
-    height: 35px;
-    margin-left: 35%;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    background: cornflowerblue;
-    border: none;
-    border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    font-size: 16px;
-    color: #ffffff;
-    font-weight: 700;
-    transition: all ease 0.5s;
-    display: flex;
+  /* Centra el texto y el botón en pantallas pequeñas */
+  .text-button-wrapper {
     align-items: center;
-    justify-content: center;
-  }
-  .explore-button:hover {
-    background: #c9c6c6;
-    color: rgb(0, 0, 0);
   }
 }
 /*# ASIGNATURAS */
-.materias {
+.asignaturas {
+  height: 800px;
+}
+
+.container {
   display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  max-width: 1200px;
+  margin-top: 40px;
+}
+
+.left-section {
+  flex: 1;
+  padding-right: 40px;
+  margin-top: 160px;
+}
+
+.right-section {
+  flex: 1;
+  background-color: white;
+  border: 1px solid black;
+  box-shadow: #000;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.explorar-button {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.popular-subjects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.subject-card {
+  text-align: center;
+}
+
+.subject-card img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.subject-card p {
+  margin: 0;
+  font-size: 12px;
 }
 
 /* Sección de Profesores */
