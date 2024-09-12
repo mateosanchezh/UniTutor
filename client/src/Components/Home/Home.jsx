@@ -2,100 +2,129 @@ import React from "react";
 import Navbar from "./Navbar";
 import "../../App.css";
 import UnitutorLogo from '../../img/UnitutorLogo.svg'
+import Foto1 from '../../img/Foto1.png'
+import Foto2 from '../../img/Foto2.png'
+import Foto3 from '../../img/Foto3.png'
 
 const Home = () => {
-  return (
-    <div className="Homepage flex">
-      <main>
-        <section className="Unitutor">
-          <Navbar />
-        <div className="Home">
+
+  /*
+  const materiasRef = useRef(null);
+
+  const scrollToMaterias = () => {
+    materiasRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+  */
+
+  const subjects = [
+    { name: 'Desarrollo de software', image: Foto1 },
+    { name: 'Desarrollo de software', image: Foto1 },
+    { name: 'Desarrollo de software', image: Foto1 },
+    { name: 'Matemáticas discretas', image: Foto2 },
+    { name: 'Matemáticas discretas', image: Foto2 },
+    { name: 'Matemáticas discretas', image: Foto2 },
+    { name: 'Análisis de datos', image:  Foto3},
+    { name: 'Análisis de datos', image:  Foto3},
+    { name: 'Análisis de datos', image:  Foto3},
+  ];
+
+    return (
+      <div className="Homepage flex">
+        <main>
+          <section className="Unitutor">
+            <Navbar />
+          <div className="Home">
           <div className="content-wrapper">
-          <img src={UnitutorLogo} alt="Logo Unitutor" className="UnitutorLogo" />
-          <h1 className="uni">UNITUTOR</h1>
-          <div className="vertical-line"></div>
-          <h1>
-            De lo presencial a <br /> lo virtual,<br /> simplificando el aprendizaje.
-          </h1>
-          <button type="button" className="explore-button">Explorar</button>
+            <img src={UnitutorLogo} alt="Logo Unitutor" className="UnitutorLogo" />
+            <h2 className="uni">UNITUTOR</h2>
+              <div className="vertical-line"></div>
+              <div className="text-button-wrapper">
+                <h1>
+                  De lo presencial a <br /> lo virtual,<br /> simplificando el aprendizaje.
+                </h1>
+                <button type="button" className="explore-button" >Explorar</button>
+              </div>
+          </div>
         </div>
+          </section>
+
+
+        <section className="asignaturas">
+        <div className="container">
+          <div className="left-section">
+              <h1>¿POR QUE USAR UNITUTOR?</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <button className="explorar-button">Explorar</button>
+        </div>
+      <div className="right-section">
+        <h2>ASIGNATURAS POPULARES</h2>
+        <div className="popular-subjects">
+          {/* Utilizamos el método map para iterar sobre el array de materias */}
+          {subjects.map((subject, index) => (
+            // Para cada materia, creamos un div que actúa como una tarjeta
+            // La prop 'key' es necesaria para que React pueda identificar cada elemento de la lista de forma única
+              <div key={index} className="subject-card">
+              {/* Mostramos la imagen de la materia */}
+              <img src={subject.image} alt={subject.name} />
+              {/* Mostramos el nombre de la materia */}
+              <p>{subject.name}</p>
+          </div>
+        ))}
       </div>
-        </section>
-
-        <section className="materias">
-          <div className="aprendizaje">
-            <h1>ASIGNATURAS</h1>
-          </div>
-
-          <div className="Desarrollo">
-            <article> Desarrollo de Software</article>
-            <p>Aumenta tus habilidades de programación.</p>
-          </div>
-          <div className="analisis">
-            <article>Analisis de datos</article>
-            <p>Aprende a ser un mejor analista de datos.</p>
-          </div>
-          <div className="matematica">
-            <article>Matemática discreta</article>
-            <p>Conoce nuevas maneras de resolver problemas.</p>
-          </div>
-          <div className="ingles">
-            <article>Ingles V</article>
-            <p>Desarrollo un mejor nivel de ingles.</p>
-          </div>
-        </section>
-
-        <section class="PROFESORES">
-  <div class="profesores">
+      </div>  
+    </div>
+    </section>
+        <section className="PROFESORES">
+  <div className="profesores">
     <h1>Nuestros Profesores</h1>
-    <div class="profesores-contenido">
-      <div class="prof">
-        <div class="imagen prof1"></div>
+    <div className="profesores-contenido">
+      <div className="prof">
+        <div className="imagen prof1"></div>
         <h4>Roberto Rudas</h4>
         <p>Prof. Innovación y emprendimiento</p>
       </div>
-      <div class="prof">
-        <div class="imagen prof2"></div>
+      <div className="prof">
+        <div className="imagen prof2"></div>
         <h4>Roberto Rudas</h4>
         <p>Prof. Innovación y emprendimiento</p>
       </div>
-      <div class="prof">
-        <div class="imagen prof3"></div>
+      <div className="prof">
+        <div className="imagen prof3"></div>
         <h4>Roberto Rudas</h4>
         <p>Prof. Innovación y emprendimiento</p>
       </div>
-      <div class="prof">
-        <div class="imagen prof4"></div>
+      <div className="prof">
+        <div className="imagen prof4"></div>
         <h4>Jader Melendez</h4>
         <p>Prof. Matemática discreta</p>
       </div>
     </div>
 
-    <div class="profesores2">
+    <div className="profesores2">
       <h1>¿Por qué escoger nuestros profesores?</h1>
       <article>
         Un buen tutor no solo enseña, sino que inspira. Nuestros profesores están comprometidos con la excelencia académica y utilizan métodos innovadores para asegurar que no solo aprendas, sino que también apliques ese conocimiento de manera efectiva.
       </article>
     </div>
 
-    <div class="cuadros-contenedor">
-      <div class="cuadro">
+    <div className="cuadros-contenedor">
+      <div className="cuadro">
         <h5>Sesiones personalizadas</h5>
         <p>Lecciones personalizadas para adaptarse a tu estilo de aprendizaje.</p>
       </div>
-      <div class="cuadro">
+      <div className="cuadro">
         <h5>Tutores Calificados</h5>
         <p>Educadores expertos con pasión por la enseñanza.</p>
       </div>
-      <div class="cuadro">
+      <div className="cuadro">
         <h5>Horarios Flexibles</h5>
         <p>Aprende a tu propio ritmo, en el horario que más te convenga.</p>
       </div>
-      <div class="cuadro">
+      <div className="cuadro">
         <h5>Resultados Comprobados</h5>
         <p>Mejora garantizada en tus calificaciones y comprensión de las materias con nuestros métodos eficaces.</p>
       </div>
-      <div class="cuadro">
+      <div className="cuadro">
         <h5>Soporte Integral</h5>
         <p>Asistencia continua para resolver dudas y guiarte en cada paso de tu proceso de aprendizaje.</p>
       </div>
