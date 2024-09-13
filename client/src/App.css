@@ -278,7 +278,8 @@ p {
   background-image: url(img/Fondo1.png);
   background-size: cover;
   background-position: center;
-  border-radius: 25px;
+  border-top-left-radius: 25px; /* Radio de esquina superior izquierda */
+  border-top-right-radius: 25px; /* Radio de esquina superior derecha */
   color: white;
   font-family: "Roboto", sans-serif;
   margin: 0px 60px;
@@ -424,6 +425,9 @@ footer {
   background-color: #0E0F02; /* Cambia el color de fondo si es necesario */
   padding: 20px 0; /* Espaciado arriba y abajo */
   text-align: center; /* Centrar el texto horizontalmente */
+  display: flex;
+  justify-content: center; /* Centra los elementos horizontalmente */
+  align-items: center; /* Centra los elementos verticalmente */
 }
 
 footer p {
@@ -433,3 +437,11 @@ footer p {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+.imgfooter {
+  background-image: url(img/Group.png);
+  width: 30px; /* Ajusta el tamaño según sea necesario */
+  height: 30px; /* Ajusta el tamaño según sea necesario */
+  background-size: cover; /* Esto asegurará que la imagen cubra el div */
+  background-position: center; /* Centra la imagen dentro del div */
+  margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
