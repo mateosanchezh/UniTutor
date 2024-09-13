@@ -1,20 +1,27 @@
-import React from "react";
+import React, { useState } from 'react';
 import Navbar from "./Navbar";
+import { useRef } from 'react';
 import "../../App.css";
-import UnitutorLogo from '../../img/UnitutorLogo.svg'
+import Group from '../../img/Group.png'
 import Foto1 from '../../img/Foto1.png'
 import Foto2 from '../../img/Foto2.png'
 import Foto3 from '../../img/Foto3.png'
+import { FaArrowDown } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
 const Home = () => {
 
-  /*
-  const materiasRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+  const asignaturasRef = useRef(null);
 
-  const scrollToMaterias = () => {
-    materiasRef.current?.scrollIntoView({ behavior: 'smooth' });
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
+
+  const handleClick = () => {
+    setIsClicked(!isClicked);
+    asignaturasRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
-  */
 
   const subjects = [
     { name: 'Desarrollo de software', image: Foto1 },
@@ -35,24 +42,33 @@ const Home = () => {
             <Navbar />
           <div className="Home">
           <div className="content-wrapper">
-            <img src={UnitutorLogo} alt="Logo Unitutor" className="UnitutorLogo" />
+            <img src={Group} alt="Logo Unitutor" className="UnitutorLogo" />
             <h2 className="uni">UNITUTOR</h2>
               <div className="vertical-line"></div>
               <div className="text-button-wrapper">
                 <h1>
                   De lo presencial a <br /> lo virtual,<br /> simplificando el aprendizaje.
                 </h1>
-                <button type="button" className="explore-button" >Explorar</button>
+                <button 
+                    type="button" 
+                    className={`explore-button ${isClicked ? 'clicked' : ''}`}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    onClick={handleClick}
+                  >
+                    Explorar 
+                    {isClicked ? <FaArrowDown className='flecha_abajo' /> : (isHovered ? <FaArrowRight className='flecha_derecha'/> : null)}
+                </button>
               </div>
           </div>
         </div>
           </section>
 
 
-        <section className="asignaturas">
+        <section className="asignaturas" ref={asignaturasRef}>
         <div className="container">
           <div className="left-section">
-              <h1>¿POR QUE USAR UNITUTOR?</h1>
+              <h1>¿POR QUE USAR <br />UNITUTOR?</h1>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           <button className="explorar-button">Explorar</button>
         </div>
