@@ -155,6 +155,7 @@ const Home = () => {
           </div>
         </section>
         <footer>
+        <div className="imgfooter"></div>
           <p>Unitutor 2024</p>
         </footer>
       </main>
