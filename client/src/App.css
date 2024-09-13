@@ -181,75 +181,96 @@ body {
   }
 }
 /*# ASIGNATURAS */
+/* Sección de asignaturas */
 .asignaturas {
-  height: 800px;
+  height: 800px; /* Altura fija para la sección de asignaturas */
 }
 
+/* Contenedor principal */
 .container {
-  display: flex;
-  justify-content: space-between;
-  padding: 50px;
-  max-width: 1200px;
-  margin-top: 40px;
+  display: flex; /* Usa flexbox para el diseño */
+  justify-content: space-between; /* Distribuye el espacio entre los elementos hijos */
+  padding: 50px; /* Añade espacio interno alrededor del contenido */
+  max-width: 1200px; /* Limita el ancho máximo del contenedor */
+  margin-top: 40px; /* Añade margen superior */
 }
 
+/* Sección izquierda */
 .left-section {
-  flex: 1;
-  padding-right: 40px;
-  margin-top: 160px;
+  flex: 1; /* Toma una parte igual del espacio disponible */
+  padding-right: 40px; /* Añade espacio a la derecha */
+  margin-top: 160px; /* Desplaza la sección hacia abajo */
 }
 
+.left-section h1 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 50px;
+}
+
+.flecha_derecha {
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
+
+/* Sección derecha */
 .right-section {
-  flex: 1;
-  background-color: white;
-  border: 1px solid black;
-  box-shadow: #000;
-  border-radius: 10px;
-  padding: 40px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1; /* Toma una parte igual del espacio disponible */
+  background-color: white; /* Fondo blanco */
+  border: 1px solid black; /* Borde negro de 1px */
+  border-radius: 10px; /* Esquinas redondeadas */
+  padding: 40px; /* Espacio interno */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
+/* Estilos para los encabezados h1 */
 h1 {
-  font-size: 36px;
-  margin-bottom: 20px;
+  font-size: 36px; /* Tamaño de fuente grande */
+  margin-bottom: 20px; /* Espacio debajo del encabezado */
+  /* Centra el texto */
 }
 
+/* Estilos para los párrafos */
 p {
-  font-size: 16px;
-  line-height: 1.5;
-  color: #555;
+  font-size: 16px; /* Tamaño de fuente para el cuerpo del texto */
+  line-height: 1.5; /* Espaciado entre líneas */
+  color: #555; /* Color de texto gris oscuro */
 }
 
+/* Estilos para el botón de explorar */
 .explorar-button {
-  background-color: #000;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-size: 14px;
-  cursor: pointer;
-  margin-top: 20px;
+  background-color: #000; /* Fondo negro */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Espacio interno */
+  border-radius: 20px; /* Bordes muy redondeados */
+  font-size: 14px; /* Tamaño de fuente */
+  cursor: pointer; /* Cambia el cursor a una mano al pasar por encima */
+  margin-top: 20px; /* Espacio superior */
 }
 
+/* Contenedor de asignaturas populares */
 .popular-subjects {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  display: grid; /* Usa un diseño de cuadrícula */
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual ancho */
+  gap: 10px; /* Espacio entre los elementos de la cuadrícula */
 }
 
+/* Estilos para las tarjetas de asignaturas */
 .subject-card {
-  text-align: center;
+  text-align: center; /* Centra el contenido */
 }
 
+/* Estilos para las imágenes en las tarjetas de asignaturas */
 .subject-card img {
-  width: 100%;
-  border-radius: 5px;
-  margin-bottom: 5px;
+  width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
+  border-radius: 5px; /* Esquinas ligeramente redondeadas */
+  margin-bottom: 5px; /* Pequeño espacio debajo de la imagen */
 }
 
+/* Estilos para el texto en las tarjetas de asignaturas */
 .subject-card p {
-  margin: 0;
-  font-size: 12px;
+  margin: 0; /* Elimina el margen predeterminado */
+  font-size: 12px; /* Tamaño de fuente pequeño */
 }
 
 /* Sección de Profesores */
