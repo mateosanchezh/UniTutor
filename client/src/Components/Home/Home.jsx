@@ -92,7 +92,7 @@ const Home = () => {
     </section>
         <section className="PROFESORES">
   <div className="profesores">
-    <h1>Nuestros Profesores</h1>
+    <h1>PROFESORES MEJOR CALIFICADOS</h1>
     <div className="profesores-contenido">
       <div className="prof">
         <div className="imagen prof1"></div>
@@ -106,8 +106,8 @@ const Home = () => {
       </div>
       <div className="prof">
         <div className="imagen prof3"></div>
-        <h4>Roberto Rudas</h4>
-        <p>Prof. Innovación y emprendimiento</p>
+        <h4>Danilo Vargas</h4>
+        <p>Prof. Desarrollo de software II</p>
       </div>
       <div className="prof">
         <div className="imagen prof4"></div>
@@ -117,7 +117,7 @@ const Home = () => {
     </div>
 
     <div className="profesores2">
-      <h1>¿Por qué escoger nuestros profesores?</h1>
+      <h1>¿Por que escoger nuestros profesores?</h1>
       <article>
         Un buen tutor no solo enseña, sino que inspira. Nuestros profesores están comprometidos con la excelencia académica y utilizan métodos innovadores para asegurar que no solo aprendas, sino que también apliques ese conocimiento de manera efectiva.
       </article>
@@ -131,10 +131,6 @@ const Home = () => {
       <div className="cuadro">
         <h5>Tutores Calificados</h5>
         <p>Educadores expertos con pasión por la enseñanza.</p>
-      </div>
-      <div className="cuadro">
-        <h5>Horarios Flexibles</h5>
-        <p>Aprende a tu propio ritmo, en el horario que más te convenga.</p>
       </div>
       <div className="cuadro">
         <h5>Resultados Comprobados</h5>
@@ -166,4 +162,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Home;  
