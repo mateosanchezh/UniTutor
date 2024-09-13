@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   width: 100%;
   height: 100vh;
@@ -6,60 +7,270 @@ body {
   padding: 0;
 }
 
+/* Estilos base del navbar */
 .Homepage .navbar {
   width: 100%;
 }
-.Homepage .navbar li a {
-  color: white;
-  font-weight: bold;
-  margin: 30px;
-  text-decoration: none;
-}
+
 .Homepage .navbar ul {
   display: flex;
   justify-content: center;
   align-items: center;
   list-style-type: none;
-  padding: 15px;
   margin: 0;
 }
+
 .Homepage .navbar ul li {
   margin: 0 15px;
 }
+
+.Homepage .navbar li a {
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 15px 20px;
+  text-decoration: none;
+  position: relative; /* Necesario para posicionar el pseudo-elemento */
+  display: inline-block; /* Asegura que el elemento tenga dimensiones */
+  padding-bottom: 5px; /* Espacio para la línea de subrayado */
+}
+
+/* Efecto hover con línea animada */
+.Homepage .navbar li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px; /* Grosor de la línea */
+  bottom: 0;
+  left: 0;
+  background-color: white; /* Color de la línea */
+  transition: width 0.3s ease; /* Animación de la línea */
+}
+
+.Homepage .navbar li a:hover::after {
+  width: 100%; /* La línea se extiende al 100% del ancho en hover */
+}
+
+.icono {
+  width: 30px;
+  height: 20px;
+  color: white;
+  border: 2px solid white;
+  padding: 5px;
+  border-radius: 10px;
+  float: right;
+  margin: 10px;
+}
+
+.user {
+  margin-left: 7px;
+}
+
+/* Estilos para la sección principal de Unitutor */
 .Homepage .Unitutor {
   background-image: url(img/Fondo1.png);
   width: 100%;
-  height: 100vh;
+  height: 110vh; /* Altura completa de la ventana del navegador */
   background-size: cover;
   background-position: center;
+  background-attachment: fixed; /* Fondo fijo al hacer scroll */
 }
-.Homepage .Unitutor h1 {
-  color: white;
-  text-align: center;
-  font-size: 50px;
+
+/* Estilos para el contenedor principal */
+.Home {
   padding: 30px;
 }
-.Homepage .Unitutor h2 {
-  color: white;
-  font-size: 40px;
-  margin-left: 20%;
-}
-.Homepage .Unitutor .cont {
-  color: white;
-}
-.Homepage .Unitutor .cont h3 {
-  float: right;
-  color: white;
-  margin-right: 20%;
-}
-.Homepage .Unitutor .cont h4 {
-  color: white;
-}/*# sourceMappingURL=App.css.map */
 
-
-/*# ASIGNATURAS */
-.materias {
+/* Estilos para el contenedor del contenido, organiza los elementos horizontalmente */
+.content-wrapper {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  margin-left: 110px;
+}
+
+/* Estilos para el logo de Unitutor */
+.UnitutorLogo {
+  width: 250px;
+  max-width: 500px;
+  margin-right: 10px;
+}
+
+/* Estilos para el texto "UNITUTOR" */
+.Unitutor h2 {
+  color: white;
+  margin: 2px;
+  font-size: 30px;
+  margin-right: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 900;
+}
+
+/* Estilos para la línea vertical separadora */
+.vertical-line {
+  width: 2px;
+  height: 390px;
+  background-color: white;
+  margin: 0 20px;
+}
+
+/* Contenedor para el texto principal y el botón, los organiza verticalmente */
+.text-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Estilos para el texto principal */
+.Unitutor h1 {
+  color: white;
+  font-size: 50px;
+  margin: 10px;
+  padding-left: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/* Estilos para el botón "Explorar" */
+.explore-button {
+  width: 160px;
+  height: 35px;
+  background: white;
+  border: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: black;
+  font-weight: 700;
+  transition: all ease 0.5s;
+  margin: 15px;
+  margin-top: 20px; /* Espacio entre el texto principal y el botón */
+}
+
+/* Estilos para el botón "Explorar" al pasar el mouse por encima */
+.explore-button:hover {
+  background: #918f8f;
+  color: rgb(0, 0, 0);
+}
+
+/* Estilos para dispositivos móviles y pantallas pequeñas */
+@media (max-width: 768px) {
+  /* Cambia la disposición a vertical para pantallas pequeñas */
+  .content-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  /* Ajusta el margen del logo para pantallas pequeñas */
+  .UnitutorLogo {
+    margin-bottom: 20px;
+  }
+  /* Cambia la línea vertical a horizontal en pantallas pequeñas */
+  .vertical-line {
+    width: 100%;
+    height: 2px;
+    margin: 20px 0;
+  }
+  /* Ajusta el tamaño y alineación del texto principal en pantallas pequeñas */
+  .Unitutor h1 {
+    font-size: 40px;
+    text-align: center;
+  }
+  /* Centra el texto y el botón en pantallas pequeñas */
+  .text-button-wrapper {
+    align-items: center;
+  }
+}
+/*# ASIGNATURAS */
+/* Sección de asignaturas */
+.asignaturas {
+  height: 800px; /* Altura fija para la sección de asignaturas */
+}
+
+/* Contenedor principal */
+.container {
+  display: flex; /* Usa flexbox para el diseño */
+  justify-content: space-between; /* Distribuye el espacio entre los elementos hijos */
+  padding: 50px; /* Añade espacio interno alrededor del contenido */
+  max-width: 1200px; /* Limita el ancho máximo del contenedor */
+  margin-top: 40px; /* Añade margen superior */
+}
+
+/* Sección izquierda */
+.left-section {
+  flex: 1; /* Toma una parte igual del espacio disponible */
+  padding-right: 40px; /* Añade espacio a la derecha */
+  margin-top: 160px; /* Desplaza la sección hacia abajo */
+}
+
+.left-section h1 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 50px;
+}
+
+.flecha_derecha {
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
+
+/* Sección derecha */
+.right-section {
+  flex: 1; /* Toma una parte igual del espacio disponible */
+  background-color: white; /* Fondo blanco */
+  border: 1px solid black; /* Borde negro de 1px */
+  border-radius: 10px; /* Esquinas redondeadas */
+  padding: 40px; /* Espacio interno */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilos para los encabezados h1 */
+h1 {
+  font-size: 36px; /* Tamaño de fuente grande */
+  margin-bottom: 20px; /* Espacio debajo del encabezado */
+  /* Centra el texto */
+}
+
+/* Estilos para los párrafos */
+p {
+  font-size: 16px; /* Tamaño de fuente para el cuerpo del texto */
+  line-height: 1.5; /* Espaciado entre líneas */
+  color: #555; /* Color de texto gris oscuro */
+}
+
+/* Estilos para el botón de explorar */
+.explorar-button {
+  background-color: #000; /* Fondo negro */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Espacio interno */
+  border-radius: 20px; /* Bordes muy redondeados */
+  font-size: 14px; /* Tamaño de fuente */
+  cursor: pointer; /* Cambia el cursor a una mano al pasar por encima */
+  margin-top: 20px; /* Espacio superior */
+}
+
+/* Contenedor de asignaturas populares */
+.popular-subjects {
+  display: grid; /* Usa un diseño de cuadrícula */
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual ancho */
+  gap: 10px; /* Espacio entre los elementos de la cuadrícula */
+}
+
+/* Estilos para las tarjetas de asignaturas */
+.subject-card {
+  text-align: center; /* Centra el contenido */
+}
+
+/* Estilos para las imágenes en las tarjetas de asignaturas */
+.subject-card img {
+  width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
+  border-radius: 5px; /* Esquinas ligeramente redondeadas */
+  margin-bottom: 5px; /* Pequeño espacio debajo de la imagen */
+}
+
+/* Estilos para el texto en las tarjetas de asignaturas */
+.subject-card p {
+  margin: 0; /* Elimina el margen predeterminado */
+  font-size: 12px; /* Tamaño de fuente pequeño */
 }
 
 /* Sección de Profesores */
@@ -70,7 +281,7 @@ body {
   background-position: center;
   border-radius: 25px;
   color: white;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 0 auto;
   padding: 20px;
   
@@ -174,4 +385,4 @@ body {
 .cuadro p {
   font-size: 14px;
   line-height: 1.4;
-}
+}/*# sourceMappingURL=App.css.map */

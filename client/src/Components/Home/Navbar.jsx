@@ -1,26 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaUser } from "react-icons/fa";
+
 
 const Navbar = () => {
   return (
+   
     <nav className="navbar">
+
+      <div className='icono'>
+        <FaUser className='user' />
+        </div>
       <ul>
+      
+     
       <li>
-          <Link to="/">Inicio</Link>
+          <Link to="/">INICIO</Link>
         </li>
         <li>
-          <Link to="/asignaturas">Asignaturas</Link>
+          <Link to="/asignaturas">ASIGNATURAS</Link>
         </li>
         <li>
-          <Link to="/profesores">Profesores</Link>
+          <Link to="/profesores">PROFESORES</Link>
         </li>
         <li>
-          <Link to="/web">Web Oficial</Link>
+          <Link to="/web">WEB OFICIAL</Link>
         </li>
         <li>
-          <Link to="#">Idioma</Link>
+          <Link to="#">IDIOMA</Link>
         </li>
       </ul>
+        
+     
     </nav>
   );
 };
