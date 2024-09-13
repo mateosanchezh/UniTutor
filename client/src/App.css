@@ -276,14 +276,13 @@ p {
 /* Sección de Profesores */
 .PROFESORES {
   background-image: url(img/Fondo1.png);
-  width: 95%;
   background-size: cover;
   background-position: center;
   border-radius: 25px;
   color: white;
   font-family: "Roboto", sans-serif;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 0px 60px;
+  padding: 20px 80px;
   
 }
 
@@ -307,21 +306,24 @@ p {
   text-align: left; 
   font-size: 30px;
   margin-bottom: 5px; /* Ajusta el margen inferior */
+  margin-top: 0px;
 }
 
 .prof p {
   font-size: 16px; /* Asegúrate de que el tamaño sea apropiado */
   margin-top: 0; /* Elimina margen superior */
+  color: white;
 }
 
 /* Imagen de cada profesor */
 .imagen {
   background-size: cover;
   background-position: center;
-  width: 250px; /* Aumenta el tamaño de las imágenes */
-  height: 250px;
+  width: 230px; /* Aumenta el tamaño de las imágenes */
+  height: 230px;
   margin: 0 auto;
   border-radius: 30px;
+  margin: 0px;
 }
 
 /* Clases específicas para las imágenes de los profesores */
@@ -334,7 +336,7 @@ p {
 }
 
 .prof3 {
-  background-image: url(img/Photo1.png);
+  background-image: url(img/Photo3.png);
 }
 
 .prof4 {
@@ -348,7 +350,7 @@ p {
 }
 
 .profesores2 h1 {
-  font-size: 30px;
+  font-size: 36px;
   margin-bottom: 10px;
   text-align: left; 
 }
@@ -363,26 +365,71 @@ p {
 .cuadros-contenedor {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 15px; /* Espacio entre los cuadros */
+  flex-wrap: nowrap;
+  gap: 30px; /* Espacio entre los cuadros */
 }
 
 /* Cuadro de información */
 .cuadro {
   padding: 20px;
   border-radius: 30px;
-  width: 180px;
-  text-align: center;
-  height: 150px;
+  width: 20%;
+  height: 90px; /* Mantener altura uniforme */
   border: 2px solid white; /* Borde blanco */
+  display: flex; /* Agregar flexbox */
+  flex-direction: column; /* Para apilar el título y el párrafo */
+  justify-content: center; /* Centrar verticalmente */
+  align-items: center; /* Centrar horizontalmente */
+  text-align: center; /* Asegurarse de que el texto esté centrado */
 }
 
 .cuadro h5 {
   font-size: 18px;
-  margin-bottom: 10px;
+  margin: 0; /* Quitar margen superior e inferior */
+  
 }
 
 .cuadro p {
   font-size: 14px;
   line-height: 1.4;
-}/*# sourceMappingURL=App.css.map */
+  margin: 0; /* Quitar margen superior e inferior */
+  color: white;
+  margin-top: 10px;
+}
+
+.piedepagina {
+  background-color: #393736; /* Cambia el color de fondo si es necesario */
+  padding: 20px 0; /* Espaciado arriba y abajo */
+}
+
+.foot {
+  display: flex; /* Usar flexbox para centrar y espaciar */
+  justify-content: center; /* Centrar horizontalmente */
+  gap: 9%; /* Espaciado entre enlaces */
+}
+
+.foot a {
+  color: white; /* Cambiar color del texto a blanco */
+  text-decoration: none; /* Quitar subrayado */
+  padding: 10px; /* Espaciado interno para cada enlace */
+  font-size: 16px; /* Ajustar tamaño de fuente si es necesario */
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.foot a:hover {
+  color: lightgray; /* Color al pasar el ratón */
+}
+
+footer {
+  background-color: #0E0F02; /* Cambia el color de fondo si es necesario */
+  padding: 20px 0; /* Espaciado arriba y abajo */
+  text-align: center; /* Centrar el texto horizontalmente */
+}
+
+footer p {
+  color: white; /* Cambiar color del texto a blanco */
+  margin: 0; /* Eliminar margen para evitar espacios innecesarios */
+  font-size: 16px; /* Ajustar tamaño de fuente si es necesario */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
