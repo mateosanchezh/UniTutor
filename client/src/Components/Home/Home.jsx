@@ -8,6 +8,16 @@ import Foto2 from '../../img/Foto2.png'
 import Foto3 from '../../img/Foto3.png'
 import { FaArrowDown } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
+
+
+
 
 const Home = () => {
 
@@ -157,6 +167,15 @@ const Home = () => {
         <footer>
         <div className="imgfooter"></div>
           <p>Unitutor 2024</p>
+          <div className="footer-vertical-line"></div> {/* Aquí agregas la línea vertical */}
+          <div className='iconos-footer'>
+          <FaXTwitter />
+          <FaFacebookF />
+          <FaLinkedinIn />
+          <FaGithub />
+          <FaInstagram />
+          <FaYoutube />
+          </div>
         </footer>
       </main>
     </div>
