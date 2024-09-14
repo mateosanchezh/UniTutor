@@ -317,7 +317,7 @@ p {
 }
 
 /* Imagen de cada profesor */
-.imagen {
+.imagen{
   background-size: cover;
   background-position: center;
   width: 230px; /* Aumenta el tamaño de las imágenes */
@@ -325,6 +325,8 @@ p {
   margin: 0 auto;
   border-radius: 30px;
   margin: 0px;
+  transition: transform 0.3s ease-in-out; /* Transición fluida con ease-in-out */
+
 }
 
 /* Clases específicas para las imágenes de los profesores */
@@ -342,6 +344,12 @@ p {
 
 .prof4 {
   background-image: url(img/Photo2.png);
+}
+
+.prof :hover{
+  transform: scale(1.2); /* Hace que los íconos aumenten de tamaño al pasar el mouse por encima */
+  transition: transform 0.3s ease-in-out; /* Transición fluida con ease-in-out */
+
 }
 
 /* Sección de información adicional */
@@ -382,6 +390,12 @@ p {
   justify-content: center; /* Centrar verticalmente */
   align-items: center; /* Centrar horizontalmente */
   text-align: center; /* Asegurarse de que el texto esté centrado */
+  transition: background-color 0.5s ease; /* Transición suave para el fondo */
+
+}
+.cuadro:hover {
+  background-color: white; /* Cambia el fondo a blanco cuando pasas el mouse */
+  color: black; /* Cambia el color del texto a negro */
 }
 
 .cuadro h5 {
@@ -396,6 +410,12 @@ p {
   margin: 0; /* Quitar margen superior e inferior */
   color: white;
   margin-top: 10px;
+  
+  
+}
+.cuadro:hover p {
+  color: black; /* Cambia el color del párrafo a negro al hacer hover en el cuadro */
+  font-size: 14px; /* Aumenta el tamaño de la fuente al hacer hover */
 }
 
 .piedepagina {
@@ -444,4 +464,32 @@ footer p {
   background-size: cover; /* Esto asegurará que la imagen cubra el div */
   background-position: center; /* Centra la imagen dentro del div */
   margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+.footer-vertical-line {
+  width: 2px;
+  height: 50px; /* Ajusta la altura según necesites */
+  background-color: white;
+  margin: 0 20px;
+}
+.iconos-footer-container {
+  display: flex;
+  justify-content: center; /* Centra los íconos horizontalmente */
+  align-items: center; /* Centra los íconos verticalmente */
+  height: 100vh; /* Hace que el contenedor ocupe toda la altura de la pantalla */
+}
+
+.iconos-footer {
+  display: flex;
+  gap: 15px; /* Añade espacio entre los iconos */
+}
+
+.iconos-footer svg {
+  font-size: 20px; /* Ajusta el tamaño de los iconos */
+  color: white; /* Aplica el mismo color a todos los iconos */
+  transition: transform 0.3s ease;
+}
+
+.iconos-footer svg:hover {
+  transform: scale(1.2); /* Hace que los íconos aumenten de tamaño al pasar el mouse por encima */
+  color: #FFD700; /* Cambia el color al hacer hover */
 }
