@@ -149,12 +149,12 @@ const Home = () => {
             </div>
 
             <div className="profesores2">
-              <h1>¿Por que escoger nuestros profesores?</h1>
-              <article>
-                Un buen tutor no solo enseña, sino que inspira. Nuestros profesores están comprometidos con la excelencia académica y utilizan métodos innovadores para asegurar que no solo aprendas, sino que también apliques ese conocimiento de manera efectiva.
-              </article>
+                <h1>¿Por qué escoger nuestros profesores?</h1>
+             <article>
+                <p> Un buen tutor no solo enseña, sino que inspira. Nuestros profesores están comprometidos con la excelencia académica y utilizan métodos innovadores para asegurar que no solo aprendas, sino que también apliques ese conocimiento de manera efectiva.  </p>
+             </article>
             </div>
-
+            
             <div className="cuadros-contenedor">
               <div className="cuadro">
                 <h5>Sesiones personalizadas</h5>

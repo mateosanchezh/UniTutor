@@ -387,6 +387,7 @@ p {
   font-family: "Roboto", sans-serif;
   margin: 0px 60px;
   padding: 20px 80px;
+  background-attachment: fixed;
 }
 
 /* Título */
@@ -436,6 +437,14 @@ p {
   /* Transición fluida con ease-in-out */
 }
 
+.prof:hover {
+  transform: scale(1.2);
+}
+
+.prof {
+  transition: transform 0.3s ease-in-out; /* Aplica transición tanto en hover como al quitar el hover */
+}
+
 /* Clases específicas para las imágenes de los profesores */
 .prof1 {
   background-image: url(img/Photo1.png);
@@ -453,13 +462,6 @@ p {
   background-image: url(img/Photo2.png);
 }
 
-.prof :hover {
-  transform: scale(1.2);
-  /* Hace que los íconos aumenten de tamaño al pasar el mouse por encima */
-  transition: transform 0.3s ease-in-out;
-  /* Transición fluida con ease-in-out */
-}
-
 /* Sección de información adicional */
 .profesores2 {
   text-align: left;
@@ -473,9 +475,16 @@ p {
 }
 
 .profesores2 article {
-  font-size: 16px;
+  font-size: 19px;
   max-width: 800px;
   line-height: 1.5;
+}
+
+.profesores2 p {
+  font-size: 20px;
+  max-width: 800px;
+  line-height: 1.5;
+  color: white;
 }
 
 /* Contenedor de los cuadros de información */
@@ -645,6 +654,5 @@ footer p {
 .iconos-footer svg:hover {
   transform: scale(1.2);
   /* Hace que los íconos aumenten de tamaño al pasar el mouse por encima */
-  color: #FFD700;
   /* Cambia el color al hacer hover */
 }/*# sourceMappingURL=App.css.map */
