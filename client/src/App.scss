@@ -1,180 +1,211 @@
 body {
-    width: 100%;
-    height: 100vh;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Estilos base del navbar */
-.Homepage .navbar {
   width: 100%;
-}
-
-.Homepage .navbar ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style-type: none;
+  height: 100vh;
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
-.Homepage .navbar ul li {
-  margin: 0 15px;
+/* Estilos base del navbar */
+.navbar {
+  width: 100%;
+
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+
+    li {
+      margin: 0 15px;
+
+      a {
+        color: white;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        font-size: 14px;
+        margin: 15px 20px;
+        text-decoration: none;
+        position: relative;
+        /* Necesario para posicionar el pseudo-elemento */
+        display: inline-block;
+        /* Asegura que el elemento tenga dimensiones */
+        padding-bottom: 5px;
+        /* Espacio para la línea de subrayado */
+      }
+
+      /* Efecto hover con línea animada */
+      a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        /* Grosor de la línea */
+        bottom: 0;
+        left: 0;
+        background-color: white;
+        /* Color de la línea */
+        transition: width 0.3s ease;
+        /* Animación de la línea */
+      }
+
+      a:hover::after {
+        width: 100%;
+        /* La línea se extiende al 100% del ancho en hover */
+      }
+    }
+  }
 }
 
-.Homepage .navbar li a {
+.icono {
+  width: 30px;
+  height: 20px;
   color: white;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 14px;
-  margin: 15px 20px;
-  text-decoration: none;
-  position: relative; /* Necesario para posicionar el pseudo-elemento */
-  display: inline-block; /* Asegura que el elemento tenga dimensiones */
-  padding-bottom: 5px; /* Espacio para la línea de subrayado */
+  border: 2px solid white;
+  padding: 5px;
+  border-radius: 10px;
+  float: right;
+  margin: 10px;
 }
 
-/* Efecto hover con línea animada */
-.Homepage .navbar li a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px; /* Grosor de la línea */
-  bottom: 0;
-  left: 0;
-  background-color: white; /* Color de la línea */
-  transition: width 0.3s ease; /* Animación de la línea */
+.user {
+  margin-left: 7px;
 }
 
-.Homepage .navbar li a:hover::after {
-  width: 100%; /* La línea se extiende al 100% del ancho en hover */
-}
-
-  .icono{
-    width: 30px;
-    height: 20px;
-    color: white;
-    border: 2px solid white;
-    padding: 5px;
-    border-radius: 10px;
-    float: right;
-    margin: 10px;
-  }
-
-  .user{
-    //centramos el icono
-    margin-left: 7px;
-
-  }
-
- 
-
-
- /* Estilos para la sección principal de Unitutor */
-.Homepage .Unitutor {
+/* Estilos para la sección principal de Unitutor */
+.Unitutor {
   background-image: url(img/Fondo1.png);
   width: 100%;
-  height: 110vh; /* Altura completa de la ventana del navegador */
+  height: 110vh;
+  /* Altura completa de la ventana del navegador */
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Fondo fijo al hacer scroll */
+  /* Fondo fijo al hacer scroll */
+  background-attachment: fixed;
+
+  /* Estilos para el contenedor principal */
+  .Home {
+    padding: 30px;
+
+    /* Estilos para el contenedor del contenido, organiza los elementos horizontalmente */
+    .content-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px;
+      margin-left: 110px;
+
+      /* Estilos para el texto "UNITUTOR" */
+      h2 {
+        color: white;
+        margin: 2px;
+        font-size: 45px;
+        margin-right: 10px;
+        font-family: "Roboto Condensed", sans-serif;
+        font-weight: 900;
+        margin: 20px;
+      }
+    }
+
+    /* Estilos para la línea vertical separadora */
+    .vertical-line {
+      width: 2px;
+      height: 390px;
+      background-color: white;
+      margin: 0 40px;
+    }
+
+    /* Estilos para el logo de Unitutor */
+    .UnitutorLogo {
+      width: 180px;
+      max-width: 500px;
+      margin-right: 10px;
+    }
+
+    /* Contenedor para el texto principal y el botón, los organiza verticalmente */
+    .text-button-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      /* Estilos para el texto principal */
+      h1 {
+        color: white;
+        font-size: 60px;
+        margin: 10px;
+        padding-left: 0;
+        font-family: "Roboto Condensed", sans-serif;
+      }
+
+      /* Estilos para el botón "Explorar" */
+      .explore-button {
+        width: 160px;
+        height: 35px;
+        background: white;
+        border: none;
+        border-radius: 40px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        font-size: 16px;
+        color: black;
+        font-weight: 700;
+        transition: all ease 0.5s;
+        margin: 15px;
+        margin-top: 20px;
+        /* Espacio entre el texto principal y el botón */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+        padding: 10px 20px;
+
+        /* Estilos para el texto del botón */
+        .button-text {
+          transition: transform 0.3s ease;
+        }
+
+        /* Contenedor para los iconos */
+        .icon-wrapper {
+          position: absolute;
+          right: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 20px;
+          height: 20px;
+          overflow: hidden;
+        }
+      }
+
+      /* Estado de hover */
+      .explore-button:hover .button-text {
+        transform: translateX(-10px);
+      }
+
+      .explore-button:hover .right-arrow {
+        transform: translateX(0);
+        opacity: 1;
+      }
+
+      /* Estado de clic */
+      .explore-button.clicked .button-text {
+        transform: translateX(-10px);
+
+        .right-arrow {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+
+        .down-arrow {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    }
+  }
 }
 
-/* Estilos para el contenedor principal */
-.Home {
-  padding: 30px;
-}
-
-/* Estilos para el contenedor del contenido, organiza los elementos horizontalmente */
-.content-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 50px;
-  margin-left: 110px;
-}
-
-/* Estilos para el logo de Unitutor */
-.UnitutorLogo {
-  width: 180px;
-  max-width: 500px;
-  margin-right: 10px;
-}
-
-/* Estilos para el texto "UNITUTOR" */
-.Unitutor h2 {
-  color: white;
-  margin: 2px;
-  font-size: 45px;
-  margin-right: 10px;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 900;
-  margin: 20px;
-}
-
-/* Estilos para la línea vertical separadora */
-.vertical-line {
-  width: 2px;
-  height: 390px;
-  background-color: white;
-  margin: 0 40px;
-}
-
-/* Contenedor para el texto principal y el botón, los organiza verticalmente */
-.text-button-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-/* Estilos para el texto principal */
-.Unitutor h1 {
-  color: white;
-  font-size: 60px;
-  margin: 10px;
-  padding-left: 0;
-  font-family: 'Roboto Condensed', sans-serif;
-}
-
-/* Estilos para el botón "Explorar" */
-.explore-button {
-  width: 160px;
-  height: 35px;
-  background: white;
-  border: none;
-  border-radius: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-  cursor: pointer;
-  font-size: 16px;
-  color: black;
-  font-weight: 700;
-  transition: all ease 0.5s;
-  margin: 15px;
-  margin-top: 20px; /* Espacio entre el texto principal y el botón */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-  padding: 10px 20px;
-}
-
-/* Estilos para el texto del botón */
-.button-text {
-  transition: transform 0.3s ease;
-}
-
-/* Contenedor para los iconos */
-.icon-wrapper {
-  position: absolute;
-  right: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  overflow: hidden;
-}
 
 /* Estilos generales para los iconos */
 .icon {
@@ -194,280 +225,465 @@ body {
   opacity: 0;
 }
 
-/* Estado de hover */
-.explore-button:hover .button-text {
-  transform: translateX(-10px);
-}
 
-.explore-button:hover .right-arrow {
-  transform: translateX(0);
-  opacity: 1;
-}
 
-/* Estado de clic */
-.explore-button.clicked .button-text {
-  transform: translateX(-10px);
-}
-
-.explore-button.clicked .right-arrow {
-  transform: translateY(100%);
-  opacity: 0;
-}
-
-.explore-button.clicked .down-arrow {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* Cambios de color en hover y clic */
-.explore-button:hover {
-  background-color: #f0f0f0; /* Un gris claro en lugar de #333 para mantener la legibilidad */
-}
-
-.explore-button.clicked {
-  background-color: #e0e0e0; /* Un gris más oscuro en lugar de #555 */
-}
 /* Estilos para dispositivos móviles y pantallas pequeñas */
 @media (max-width: 768px) {
+
   /* Cambia la disposición a vertical para pantallas pequeñas */
   .content-wrapper {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   /* Ajusta el margen del logo para pantallas pequeñas */
   .UnitutorLogo {
-      margin-bottom: 20px;
+    margin-bottom: 20px;
   }
 
   /* Cambia la línea vertical a horizontal en pantallas pequeñas */
   .vertical-line {
-      width: 100%;
-      height: 2px;
-      margin: 20px 0;
+    width: 100%;
+    height: 2px;
+    margin: 20px 0;
   }
 
   /* Ajusta el tamaño y alineación del texto principal en pantallas pequeñas */
   .Unitutor h1 {
-      font-size: 40px;
-      text-align: center;
+    font-size: 40px;
+    text-align: center;
   }
 
   /* Centra el texto y el botón en pantallas pequeñas */
   .text-button-wrapper {
-      align-items: center;
+    align-items: center;
   }
-
 }
-  
-  /*# ASIGNATURAS */
 
- /* Sección de asignaturas */
+/*# ASIGNATURAS */
+/* Sección de asignaturas */
 .asignaturas {
+  /* Altura completa de la ventana del navegador */
   width: 100%;
-  height: 110vh; /* Altura completa de la ventana del navegador */ /* Altura fija para la sección de asignaturas */
+  /* Altura fija para la sección de asignaturas */
+  height: 110vh;
+  /* Contenedor principal */
+  .container {
+    display: flex;
+    /* Usa flexbox para el diseño */
+    justify-content: space-between;
+    /* Distribuye el espacio entre los elementos hijos */
+    padding: 50px;
+    /* Añade espacio interno alrededor del contenido */
+    max-width: 1200px;
+    /* Limita el ancho máximo del contenedor */
+    margin-bottom: 20px;
+    /* Añade margen superior */
+    /* Sección izquierda */
+    .left-section {
+      flex: 1;
+      /* Toma una parte igual del espacio disponible */
+      padding-right: 40px;
+      /* Añade espacio a la derecha */
+      margin-top: 160px;
+      /* Desplaza la sección hacia abajo */
+      h1 {
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        font-size: 50px;
+      }
+    }
+    /* Sección derecha */
+    .right-section {
+      height: 500px;
+      flex: 1;
+      /* Toma una parte igual del espacio disponible */
+      background-color: white;
+      /* Fondo blanco */
+      border: 1px solid white;
+      /* Borde negro de 1px */
+      border-radius: 10px;
+      /* Esquinas redondeadas */
+      padding: 40px;
+      /* Espacio interno */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(0, 0, 0, 0.2);
+      /* Sombra interna suave */
+    }
+  }
 }
 
-/* Contenedor principal */
-.container {
-  display: flex; /* Usa flexbox para el diseño */
-  justify-content: space-between; /* Distribuye el espacio entre los elementos hijos */
-  padding: 50px; /* Añade espacio interno alrededor del contenido */
-  max-width: 1200px; /* Limita el ancho máximo del contenedor */
-  margin-bottom: 20px; /* Añade margen superior */
-  
-}
 
-/* Sección izquierda */
-.left-section {
-  flex: 1; /* Toma una parte igual del espacio disponible */
-  padding-right: 40px; /* Añade espacio a la derecha */
-  margin-top: 160px; /* Desplaza la sección hacia abajo */
-}
 
-.left-section h1{
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: 50px;
-}
 
-/* Sección derecha */
-.right-section {
-  height: 500px;
-  flex: 1; /* Toma una parte igual del espacio disponible */
-  background-color: white; /* Fondo blanco */
-  border: 1px solid white; /* Borde negro de 1px */
-  border-radius: 10px; /* Esquinas redondeadas */
-  padding: 40px; /* Espacio interno */
-  box-shadow: 0 0 10px rgba(0,0,0,0.5), /* Sombra exterior más oscura y pronunciada */
-              inset 0 0 5px rgba(0,0,0,0.2); /* Sombra interna suave */
-}
 
 /* Estilos para los encabezados h1 */
 h1 {
-  font-size: 36px; /* Tamaño de fuente grande */
-  margin-bottom: 20px; /* Espacio debajo del encabezado */
-   /* Centra el texto */
+  font-size: 36px;
+  /* Tamaño de fuente grande */
+  margin-bottom: 20px;
+  /* Espacio debajo del encabezado */
+  /* Centra el texto */
 }
+
 /* Estilos para los encabezados h1 */
 h2 {
-  font-size: 26px; /* Tamaño de fuente grande */
-  margin-top: 0; /* Espacio debajo del encabezado */
-   /* Centra el texto */
+  font-size: 26px;
+  /* Tamaño de fuente grande */
+  margin-top: 0;
+  /* Espacio debajo del encabezado */
+  /* Centra el texto */
 }
 
 /* Estilos para los párrafos */
 p {
-  font-size: 16px; /* Tamaño de fuente para el cuerpo del texto */
-  line-height: 1.5; /* Espaciado entre líneas */
-  color: #555; /* Color de texto gris oscuro */
+  font-size: 16px;
+  /* Tamaño de fuente para el cuerpo del texto */
+  line-height: 1.5;
+  /* Espaciado entre líneas */
+  color: #555;
+  /* Color de texto gris oscuro */
 }
 
 /* Estilos para el botón de explorar */
 .explorar-button {
-  background-color: #000; /* Fondo negro */
-  color: white; /* Texto blanco */
-  border: none; /* Sin borde */
-  padding: 10px 20px; /* Espacio interno */
-  border-radius: 20px; /* Bordes muy redondeados */
-  font-size: 14px; /* Tamaño de fuente */
-  cursor: pointer; /* Cambia el cursor a una mano al pasar por encima */
-  margin-top: 20px; /* Espacio superior */
+  background-color: #000;
+  /* Fondo negro */
+  color: white;
+  /* Texto blanco */
+  border: none;
+  /* Sin borde */
+  padding: 10px 20px;
+  /* Espacio interno */
+  border-radius: 20px;
+  /* Bordes muy redondeados */
+  font-size: 14px;
+  /* Tamaño de fuente */
+  cursor: pointer;
+  /* Cambia el cursor a una mano al pasar por encima */
+  margin-top: 20px;
+  /* Espacio superior */
 }
 
 /* Contenedor de asignaturas populares */
 .popular-subjects {
-  display: grid; /* Usa un diseño de cuadrícula */
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual ancho */
-  gap: 10px; /* Espacio entre los elementos de la cuadrícula */
+  display: grid;
+  /* Usa un diseño de cuadrícula */
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 columnas de igual ancho */
+  gap: 10px;
+  /* Espacio entre los elementos de la cuadrícula */
 }
 
 /* Estilos para las tarjetas de asignaturas */
 .subject-card {
-  text-align: center; /* Centra el contenido */
+  text-align: center;
+  /* Centra el contenido */
 }
 
 /* Estilos para las imágenes en las tarjetas de asignaturas */
 .subject-card img {
-  width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
-  border-radius: 5px; /* Esquinas ligeramente redondeadas */
-  margin-bottom: 5px; /* Pequeño espacio debajo de la imagen */
+  width: 100%;
+  /* La imagen ocupa todo el ancho de la tarjeta */
+  border-radius: 5px;
+  /* Esquinas ligeramente redondeadas */
+  margin-bottom: 5px;
+  /* Pequeño espacio debajo de la imagen */
 }
 
 /* Estilos para el texto en las tarjetas de asignaturas */
 .subject-card p {
-  margin: 0; /* Elimina el margen predeterminado */
-  font-size: 12px; /* Tamaño de fuente pequeño */
+  margin: 0;
+  /* Elimina el margen predeterminado */
+  font-size: 12px;
+  /* Tamaño de fuente pequeño */
 }
 
-.UnitutorLogonegro{
+.UnitutorLogonegro {
   width: 3%;
   float: right;
   margin-right: 10px;
   bottom: 100px;
   overflow: hidden;
-  position:relative;
+  position: relative;
 }
-  
-  /* Sección de Profesores */
-  .PROFESORES {
-    background-image: url(img/Fondo1.png);
-    width: 95%;
-    background-size: cover;
-    background-position: center;
-    border-radius: 25px;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  /* Título */
-  .PROFESORES h1 {
-    font-size: 36px;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  /* Contenedor de Profesores */
-  .profesores-contenido {
-    display: flex;
-    justify-content: space-between; /* Ajuste de separación */
-    align-items: center;
-    margin-bottom: 30px;
-  }
-  
-  /* Estilo para cada profesor */
-  .prof {
-    text-align: center;
-  }
-  
-  .imagen {
-    background-size: cover;
-    background-position: center;
-    width: 250px; /* Aumenta el tamaño de las imágenes */
-    height: 250px;
-    margin: 0 auto;
-    border-radius: 30px;
-  }
-  
-  /* Imagen de cada profesor */
-  .prof1 {
-    background-image: url(img/Photo1.png);
-  }
-  
-  .prof2 {
-    background-image: url(img/Photo1.png);
-  }
-  
-  .prof3 {
-    background-image: url(img/Photo1.png);
-  }
-  
-  .prof4 {
-    background-image: url(img/Photo2.png);
-  }
-  
-  /* Sección de información adicional */
-  .profesores2 {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .profesores2 h1 {
-    font-size: 30px;
-    margin-bottom: 10px;
-  }
-  
-  .profesores2 article {
-    font-size: 16px;
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.5;
-  }
-  
-  /* Contenedor de los cuadros de información */
-  .cuadros-contenedor {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 15px; /* Espacio entre los cuadros */
-  }
-  
-  /* Cuadro de información */
-  .cuadro {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 15px;
-    width: 180px;
-    text-align: center;
-  }
-  
-  .cuadro h5 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .cuadro p {
-    font-size: 14px;
-    line-height: 1.4;
-  }
+
+/* Sección de Profesores */
+.PROFESORES {
+  background-image: url(img/Fondo1.png);
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 25px;
+  /* Radio de esquina superior izquierda */
+  border-top-right-radius: 25px;
+  /* Radio de esquina superior derecha */
+  color: white;
+  font-family: "Roboto", sans-serif;
+  margin: 0px 60px;
+  padding: 20px 80px;
+
+}
+
+/* Título */
+.PROFESORES h1 {
+  font-size: 36px;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+/* Contenedor de Profesores */
+.profesores-contenido {
+  display: flex;
+  justify-content: space-between;
+  /* Ajuste de separación */
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* Estilo para cada profesor */
+.prof h4 {
+  text-align: left;
+  font-size: 30px;
+  margin-bottom: 5px;
+  /* Ajusta el margen inferior */
+  margin-top: 0px;
+}
+
+.prof p {
+  font-size: 16px;
+  /* Asegúrate de que el tamaño sea apropiado */
+  margin-top: 0;
+  /* Elimina margen superior */
+  color: white;
+}
+
+/* Imagen de cada profesor */
+.imagen {
+  background-size: cover;
+  background-position: center;
+  width: 230px;
+  /* Aumenta el tamaño de las imágenes */
+  height: 230px;
+  margin: 0 auto;
+  border-radius: 30px;
+  margin: 0px;
+  transition: transform 0.3s ease-in-out;
+  /* Transición fluida con ease-in-out */
+
+}
+
+/* Clases específicas para las imágenes de los profesores */
+.prof1 {
+  background-image: url(img/Photo1.png);
+}
+
+.prof2 {
+  background-image: url(img/Photo1.png);
+}
+
+.prof3 {
+  background-image: url(img/Photo3.png);
+}
+
+.prof4 {
+  background-image: url(img/Photo2.png);
+}
+
+.prof :hover {
+  transform: scale(1.2);
+  /* Hace que los íconos aumenten de tamaño al pasar el mouse por encima */
+  transition: transform 0.3s ease-in-out;
+  /* Transición fluida con ease-in-out */
+
+}
+
+/* Sección de información adicional */
+.profesores2 {
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.profesores2 h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.profesores2 article {
+  font-size: 16px;
+  max-width: 800px;
+  line-height: 1.5;
+}
+
+/* Contenedor de los cuadros de información */
+.cuadros-contenedor {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 30px;
+  /* Espacio entre los cuadros */
+}
+
+/* Cuadro de información */
+.cuadro {
+  padding: 20px;
+  border-radius: 30px;
+  width: 20%;
+  height: 90px;
+  /* Mantener altura uniforme */
+  border: 2px solid white;
+  /* Borde blanco */
+  display: flex;
+  /* Agregar flexbox */
+  flex-direction: column;
+  /* Para apilar el título y el párrafo */
+  justify-content: center;
+  /* Centrar verticalmente */
+  align-items: center;
+  /* Centrar horizontalmente */
+  text-align: center;
+  /* Asegurarse de que el texto esté centrado */
+  transition: background-color 0.5s ease;
+  /* Transición suave para el fondo */
+
+}
+
+.cuadro:hover {
+  background-color: white;
+  /* Cambia el fondo a blanco cuando pasas el mouse */
+  color: black;
+  /* Cambia el color del texto a negro */
+}
+
+.cuadro h5 {
+  font-size: 18px;
+  margin: 0;
+  /* Quitar margen superior e inferior */
+
+}
+
+.cuadro p {
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+  /* Quitar margen superior e inferior */
+  color: white;
+  margin-top: 10px;
+
+
+}
+
+.cuadro:hover p {
+  color: black;
+  /* Cambia el color del párrafo a negro al hacer hover en el cuadro */
+  font-size: 14px;
+  /* Aumenta el tamaño de la fuente al hacer hover */
+}
+
+.piedepagina {
+  background-color: #393736;
+  /* Cambia el color de fondo si es necesario */
+  padding: 20px 0;
+  /* Espaciado arriba y abajo */
+}
+
+.foot {
+  display: flex;
+  /* Usar flexbox para centrar y espaciar */
+  justify-content: center;
+  /* Centrar horizontalmente */
+  gap: 9%;
+  /* Espaciado entre enlaces */
+}
+
+.foot a {
+  color: white;
+  /* Cambiar color del texto a blanco */
+  text-decoration: none;
+  /* Quitar subrayado */
+  padding: 10px;
+  /* Espaciado interno para cada enlace */
+  font-size: 16px;
+  /* Ajustar tamaño de fuente si es necesario */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.foot a:hover {
+  color: lightgray;
+  /* Color al pasar el ratón */
+}
+
+footer {
+  background-color: #0E0F02;
+  /* Cambia el color de fondo si es necesario */
+  padding: 20px 0;
+  /* Espaciado arriba y abajo */
+  text-align: center;
+  /* Centrar el texto horizontalmente */
+  display: flex;
+  justify-content: center;
+  /* Centra los elementos horizontalmente */
+  align-items: center;
+  /* Centra los elementos verticalmente */
+}
+
+footer p {
+  color: white;
+  /* Cambiar color del texto a blanco */
+  margin: 0;
+  /* Eliminar margen para evitar espacios innecesarios */
+  font-size: 16px;
+  /* Ajustar tamaño de fuente si es necesario */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.imgfooter {
+  background-image: url(img/Group.png);
+  width: 30px;
+  /* Ajusta el tamaño según sea necesario */
+  height: 30px;
+  /* Ajusta el tamaño según sea necesario */
+  background-size: cover;
+  /* Esto asegurará que la imagen cubra el div */
+  background-position: center;
+  /* Centra la imagen dentro del div */
+  margin-right: 10px;
+  /* Espacio entre la imagen y el texto */
+}
+
+.footer-vertical-line {
+  width: 2px;
+  height: 50px;
+  /* Ajusta la altura según necesites */
+  background-color: white;
+  margin: 0 20px;
+}
+
+.iconos-footer-container {
+  display: flex;
+  justify-content: center;
+  /* Centra los íconos horizontalmente */
+  align-items: center;
+  /* Centra los íconos verticalmente */
+  height: 100vh;
+  /* Hace que el contenedor ocupe toda la altura de la pantalla */
+}
+
+.iconos-footer {
+  display: flex;
+  gap: 15px;
+  /* Añade espacio entre los iconos */
+}
+
+.iconos-footer svg {
+  font-size: 20px;
+  /* Ajusta el tamaño de los iconos */
+  color: white;
+  /* Aplica el mismo color a todos los iconos */
+  transition: transform 0.3s ease;
+}
+
+.iconos-footer svg:hover {
+  transform: scale(1.2);
+  /* Hace que los íconos aumenten de tamaño al pasar el mouse por encima */
+  color: #FFD700;
+  /* Cambia el color al hacer hover */
+}
