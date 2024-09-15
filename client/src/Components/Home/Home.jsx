@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import Navbar from "./Navbar";
 import { useRef } from 'react';
+import { useEffect } from 'react';
 import "../../App.css";
 import Group from '../../img/Group.png'
 import Foto1 from '../../img/Foto1.png'
 import Foto2 from '../../img/Foto2.png'
 import Foto3 from '../../img/Foto3.png'
+import UnitutorLogo from '../../img/UnitutorLogo.svg'
 import { FaArrowDown } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
@@ -20,18 +22,31 @@ import { FaXTwitter } from "react-icons/fa6";
 
 
 const Home = () => {
-
-  const [isHovered, setIsHovered] = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
+  const [buttonState, setButtonState] = useState('default');
   const asignaturasRef = useRef(null);
+  const buttonRef = useRef(null);
 
-  const handleMouseEnter = () => setIsHovered(true);
-  const handleMouseLeave = () => setIsHovered(false);
+  const handleMouseEnter = () => setButtonState('hovered');
+  const handleMouseLeave = () => setButtonState('default');
 
   const handleClick = () => {
-    setIsClicked(!isClicked);
+    setButtonState('clicked');
     asignaturasRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (buttonRef.current && !buttonRef.current.contains(event.target)) {
+        setButtonState('default');
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
 
   const subjects = [
     { name: 'Desarrollo de software', image: Foto1 },
@@ -59,16 +74,20 @@ const Home = () => {
                 <h1>
                   De lo presencial a <br /> lo virtual,<br /> simplificando el aprendizaje.
                 </h1>
-                <button 
-                    type="button" 
-                    className={`explore-button ${isClicked ? 'clicked' : ''}`}
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                    onClick={handleClick}
-                  >
-                    Explorar 
-                    {isClicked ? <FaArrowDown className='flecha_abajo' /> : (isHovered ? <FaArrowRight className='flecha_derecha'/> : null)}
-                </button>
+              <button 
+                  ref={buttonRef}
+                  type="button" 
+                  className={`explore-button ${buttonState}`}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onClick={handleClick}
+                >
+                  <span className="button-text">Explorar</span>
+                  <span className="icon-wrapper">
+                    <FaArrowRight className="icon right-arrow" />
+                    <FaArrowDown className="icon down-arrow" />
+                  </span>
+              </button>
               </div>
           </div>
         </div>
@@ -76,7 +95,7 @@ const Home = () => {
 
 
         <section className="asignaturas" ref={asignaturasRef}>
-        <div className="container">
+    <div className="container">
           <div className="left-section">
               <h1>¿POR QUE USAR <br />UNITUTOR?</h1>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -97,8 +116,11 @@ const Home = () => {
           </div>
         ))}
       </div>
-      </div>  
+      </div> 
+      
     </div>
+    <img src={UnitutorLogo } alt="Logo Unitutor" className="UnitutorLogonegro" /> 
+    
     </section>
         <section className="PROFESORES">
   <div className="profesores">
