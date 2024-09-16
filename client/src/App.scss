@@ -67,8 +67,6 @@ body {
 
   }
 
- 
-
 
  /* Estilos para la sección principal de Unitutor */
 .Homepage .Unitutor {
@@ -322,16 +320,110 @@ p {
   color: #555; /* Color de texto gris oscuro */
 }
 
-/* Estilos para el botón de explorar */
+/* Estilos para el botón "Explorar" de la seccion de asignaturas */
 .explorar-button {
-  background-color: #000; /* Fondo negro */
-  color: white; /* Texto blanco */
-  border: none; /* Sin borde */
-  padding: 10px 20px; /* Espacio interno */
-  border-radius: 20px; /* Bordes muy redondeados */
-  font-size: 14px; /* Tamaño de fuente */
-  cursor: pointer; /* Cambia el cursor a una mano al pasar por encima */
-  margin-top: 20px; /* Espacio superior */
+  width: 160px;
+  height: 35px;
+  background: black;
+  border: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  font-weight: 700;
+  transition: all ease 0.5s;
+  margin: 15px;
+  margin-top: 20px; /* Espacio entre el texto principal y el botón */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  padding: 10px 20px;
+}
+
+/* Estilos para el texto del botón */
+.button-text {
+  transition: transform 0.3s ease;
+}
+
+/* Contenedor para los iconos */
+.icon-wrapper {
+  position: absolute;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+}
+
+/* Estilos generales para los iconos */
+.icon {
+  position: absolute;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  
+}
+/* Posición inicial de la flecha derecha */
+.right-arrow2 {
+  transform: translateX(100%);
+  opacity: 0;
+  color: white;
+}
+
+/* Posición inicial de la flecha hacia abajo */
+.down-arrow2 {
+  transform: translateY(-100%);
+  opacity: 0;
+  color: white;
+}
+
+/* Estado de hover */
+.explorar-button:hover .button-text {
+  transform: translateX(-10px);
+}
+
+.explorar-button:hover .right-arrow2 {
+  transform: translateX(0);
+  opacity: 1;
+  color: white;
+}
+
+/* Estado de clic */
+.explorar-button.clicked .button-text {
+  transform: translateX(-10px);
+  
+}
+
+.explorar-button.clicked .right-arrow2 {
+  transform: translateY(100%);
+  opacity: 0;
+  color: white;
+}
+
+.explorar-button.clicked .down-arrow2 {
+  transform: translateY(0);
+  opacity: 1;
+  color: white;
+}
+
+/* Cambios de color en hover y clic */
+.explorar-button:hover {
+  background-color: black; /* Un gris claro en lugar de #333 para mantener la legibilidad */
+}
+
+.explorar-button.clicked {
+  background-color: black; /* Un gris más oscuro en lugar de #555 */
+}
+/* Estilos para dispositivos móviles y pantallas pequeñas */
+@media (max-width: 768px) {
+  /* Cambia la disposición a vertical para pantallas pequeñas */
+  .content-wrapper {
+      flex-direction: column;
+      align-items: center;
+  }
 }
 
 /* Contenedor de asignaturas populares */
@@ -460,7 +552,15 @@ p {
     border-radius: 15px;
     width: 180px;
     text-align: center;
+    transition: all ease 0.5s;
+    &:hover{
+      background-color: white;
+      color: black;
+      text-shadow: 4px 4px 4px  black;
+      
+    }
   }
+
   
   .cuadro h5 {
     font-size: 18px;

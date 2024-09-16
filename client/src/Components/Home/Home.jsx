@@ -15,14 +15,21 @@ const Home = () => {
   const [buttonState, setButtonState] = useState('default');
   const asignaturasRef = useRef(null);
   const buttonRef = useRef(null);
+  const profesoresRef = useRef(null);
 
   const handleMouseEnter = () => setButtonState('hovered');
   const handleMouseLeave = () => setButtonState('default');
+
+  const handleClick2 = () => {
+    setButtonState('clicked');
+    profesoresRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const handleClick = () => {
     setButtonState('clicked');
     asignaturasRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
+
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -89,7 +96,20 @@ const Home = () => {
           <div className="left-section">
               <h1>¿POR QUE USAR <br />UNITUTOR?</h1>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <button className="explorar-button">Explorar</button>
+              <button 
+                  ref={buttonRef}
+                  type="button" 
+                  className={`explorar-button ${buttonState}`}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onClick={handleClick2}
+                >
+                  <span className="button-text">Explorar</span>
+                  <span className="icon-wrapper">
+                    <FaArrowRight className="icon right-arrow2" />
+                    <FaArrowDown className="icon down-arrow2" />
+                  </span>
+              </button>
         </div>
       <div className="right-section">
         <h2>ASIGNATURAS POPULARES</h2>
@@ -112,9 +132,9 @@ const Home = () => {
     <img src={UnitutorLogo } alt="Logo Unitutor" className="UnitutorLogonegro" /> 
     
     </section>
-        <section className="PROFESORES">
+        <section className="PROFESORES" ref={profesoresRef}>
   <div className="profesores">
-    <h1>Nuestros Profesores</h1>
+    <h1>PROFESORES MEJOR CALIFICADOS</h1>
     <div className="profesores-contenido">
       <div className="prof">
         <div className="imagen prof1"></div>
@@ -128,8 +148,8 @@ const Home = () => {
       </div>
       <div className="prof">
         <div className="imagen prof3"></div>
-        <h4>Roberto Rudas</h4>
-        <p>Prof. Innovación y emprendimiento</p>
+        <h4>Danilo Vargas</h4>
+        <p>Prof. Desarrollo de software II</p>
       </div>
       <div className="prof">
         <div className="imagen prof4"></div>
@@ -139,7 +159,7 @@ const Home = () => {
     </div>
 
     <div className="profesores2">
-      <h1>¿Por qué escoger nuestros profesores?</h1>
+      <h1>¿Por que escoger nuestros profesores?</h1>
       <article>
         Un buen tutor no solo enseña, sino que inspira. Nuestros profesores están comprometidos con la excelencia académica y utilizan métodos innovadores para asegurar que no solo aprendas, sino que también apliques ese conocimiento de manera efectiva.
       </article>
@@ -153,10 +173,6 @@ const Home = () => {
       <div className="cuadro">
         <h5>Tutores Calificados</h5>
         <p>Educadores expertos con pasión por la enseñanza.</p>
-      </div>
-      <div className="cuadro">
-        <h5>Horarios Flexibles</h5>
-        <p>Aprende a tu propio ritmo, en el horario que más te convenga.</p>
       </div>
       <div className="cuadro">
         <h5>Resultados Comprobados</h5>
@@ -181,6 +197,7 @@ const Home = () => {
           </div>
         </section>
         <footer>
+        <div className="imgfooter"></div>
           <p>Unitutor 2024</p>
         </footer>
       </main>
@@ -188,4 +205,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Home;  
