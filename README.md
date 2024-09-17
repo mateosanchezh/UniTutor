@@ -1,44 +1,77 @@
-# UniTutor 📚✨
+# UniTutor 📚
 
-UniTuto es una aplicación web diseñada para digitalizar el proceso de reservas de tutorías. Basada en el sistema antiguo de tutorías de Comfenalco, UniTuto permite a los profesores y estudiantes coordinar sesiones de tutoría de manera sencilla y eficiente, ya sea de forma virtual o presencial.
+![Versión](https://img.shields.io/badge/versión-1.0-blue)
+![Fecha](https://img.shields.io/badge/fecha-17%2F09%2F2024-brightgreen)
 
-## 🚀 Características
+## 🎯 Descripción del Proyecto
 
-- **Registro y Autenticación**: Los usuarios pueden registrarse, iniciar sesión y gestionar sus perfiles.
-- **Gestión de Tutorías**: Los profesores pueden crear reservas para sesiones de tutoría en fechas y horas específicas.
-- **Reserva de Tutorías**: Los estudiantes pueden reservar tutorías disponibles en el calendario del profesor.
-- **Notificaciones**: Los enlaces de Google Meet para sesiones virtuales se envían por correo electrónico 5 minutos antes de la tutoría.
-- **Usuarios Administrativos**: Los usuarios con privilegios administrativos pueden:
-  - Crear, editar y eliminar usuarios.
-  - Gestionar todas las reservas de tutorías y editar la información relacionada.
+UniTutor es una plataforma web innovadora diseñada para facilitar la gestión y reserva de sesiones de tutoría entre estudiantes y tutores en diversas materias y niveles académicos. Nuestra plataforma soporta tanto sesiones presenciales como virtuales, brindando flexibilidad y accesibilidad a todos los usuarios.
 
-## 🛠 Tecnologías
+## 👥 Equipo de Desarrollo
 
-### Backend
+- **Yesid Mateus Sanchez Hincapie** – Desarrollador líder (Backend)
+- **Cristian Ardila Gonzales** – Analista y Desarrollador (Backend)
+- **Santiago Silva Solar** – Desarrollador (Front-End)
+- **Eliecer Arias Florez** – Desarrollador (Front-End)
+- **Sergio Olier Meza** – Desarrollador y Diseñador (Front-End)
 
-- **Spring Boot**: Para el backend y la lógica de negocio.
-- **Java**: Lenguaje de programación principal.
-- **Bases de Datos SQL**: Para la gestión de datos
-- **Google API**: Para generar enlaces de Google Meet y enviar notificaciones por correo electrónico.
-- **Maven**: Para la gestión de dependencias y construcción del proyecto.
+## ✨ Características Principales
 
-### Frontend
+- 🔐 Registro y gestión de usuarios por parte del administrador
+- 📅 Creación de sesiones de tutoría por parte de los tutores (presenciales o virtuales)
+- 🔖 Sistema de reserva para estudiantes con limitaciones
+- 🔗 Generación automática de enlaces de Google Meet para sesiones virtuales
+- 📧 Notificaciones por correo electrónico para confirmaciones de reserva
+- 🏫 Gestión de materias y carreras basada en la universidad
 
-- **React**: Biblioteca de JavaScript para construir la interfaz de usuario.
-- **JavaScript**: Lenguaje de programación para la lógica del frontend.
-- **CSS**: Para el diseño y estilo de la aplicación.
-- **HTML**: Para la estructura de las páginas web.
+## 🛠 Stack Tecnológico
 
-## 🌐 Uso
+- Frontend: React
+- Backend: Spring
+- Base de datos: MySQL
+- Integración en la nube: API de Google Cloud (para Google Meet)
 
-1. **Registro e Inicio de Sesión**: Visita `/register` para registrarte y `/login` para iniciar sesión.
-2. **Gestión de Tutorías**: Los profesores pueden crear reservas en `/professor/reservations`.
-3. **Reserva de Tutorías**: Los estudiantes pueden buscar y reservar tutorías en `/student/reservations`.
+## 💻 Requisitos del Sistema
 
-## 📧 Contacto
+- Compatible con los principales navegadores web (Chrome, Firefox, Edge)
+- Soporta hasta 500 solicitudes simultáneas
+- 99% de tiempo de actividad con tolerancia a fallos
+- Cumple con las normativas de protección de datos de la universidad
 
-Para cualquier pregunta o comentario, puedes contactarme en [unitutor@gmail.com](mailto:unitutor@gmail.com).
+## 🚀 Instalación y Configuración
 
-## 📜 Licencia
+```bash
+# Clonar el repositorio
+git clone https://github.com/tu-usuario/unitutor.git
 
-Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+# Navegar al directorio del proyecto
+cd unitutor
+
+# Instalar dependencias
+npm install
+
+# Iniciar el servidor de desarrollo
+npm start
+```
+
+## 🔒 Seguridad
+
+- Cifrado de datos en tránsito y en reposo
+- Control de acceso basado en roles
+
+## 🤝 Contribución
+
+Este proyecto se desarrolla como parte de un curso universitario. Las contribuciones están limitadas al equipo de desarrollo asignado.
+
+## 📄 Licencia
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## 📞 Contacto
+
+Para cualquier consulta, por favor contacte al líder del equipo de desarrollo:
+- **Yesid Mateus Sanchez Hincapie** - [mateo705@hotmail.com]
+
+---
+
+⭐️ ¡No olvides dar una estrella a este proyecto si te ha sido útil!
