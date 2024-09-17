@@ -8,35 +8,37 @@ body {
 }
 
 /* Estilos base del navbar */
-.Homepage .navbar {
+.navbar {
   width: 100%;
+  padding: 10px 0;
 }
-
-.Homepage .navbar ul {
+.navbar ul {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   list-style-type: none;
   margin: 0;
+  padding: 0;
 }
-
-.Homepage .navbar ul li {
-  margin: 0 15px;
+.navbar ul li {
+  margin: 5px 10px;
+  /* Efecto hover con línea animada */
 }
-
-.Homepage .navbar li a {
+.navbar ul li a {
   color: white;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 14px;
   margin: 15px 20px;
   text-decoration: none;
-  position: relative; /* Necesario para posicionar el pseudo-elemento */
-  display: inline-block; /* Asegura que el elemento tenga dimensiones */
-  padding-bottom: 5px; /* Espacio para la línea de subrayado */
+  position: relative;
+  /* Necesario para posicionar el pseudo-elemento */
+  display: inline-block;
+  /* Asegura que el elemento tenga dimensiones */
+  padding-bottom: 5px;
+  /* Espacio para la línea de subrayado */
 }
-
-/* Efecto hover con línea animada */
-.Homepage .navbar li a::after {
+.navbar ul li a::after {
   content: "";
   position: absolute;
   width: 0;
@@ -44,11 +46,12 @@ body {
   bottom: 0;
   left: 0;
   background-color: white; /* Color de la línea */
-  transition: width 0.3s ease; /* Animación de la línea */
+  transition: width 0.3s ease;
+  /* Animación de la línea */
 }
-
-.Homepage .navbar li a:hover::after {
-  width: 100%; /* La línea se extiende al 100% del ancho en hover */
+.navbar ul li a:hover::after {
+  width: 100%;
+  /* La línea se extiende al 100% del ancho en hover */
 }
 
 .icono {
@@ -67,38 +70,32 @@ body {
 }
 
 /* Estilos para la sección principal de Unitutor */
-.Homepage .Unitutor {
+.Unitutor {
   background-image: url(img/Fondo1.png);
   width: 100%;
-  height: 110vh; /* Altura completa de la ventana del navegador */
+  min-height: 100vh;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Fondo fijo al hacer scroll */
+  background-attachment: fixed;
+  /* Estilos para el contenedor principal */
 }
-
-/* Estilos para el contenedor principal */
-.Home {
+.Unitutor .Home {
   padding: 30px;
+  /* Estilos para el contenedor del contenido, organiza los elementos horizontalmente */
+  /* Estilos para la línea vertical separadora */
+  /* Estilos para el logo de Unitutor */
+  /* Contenedor para el texto principal y el botón, los organiza verticalmente */
+  /* Estilos para el texto principal */
 }
-
-/* Estilos para el contenedor del contenido, organiza los elementos horizontalmente */
-.content-wrapper {
+.Unitutor .Home .content-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 50px;
   margin-left: 110px;
+  /* Estilos para el texto "UNITUTOR" */
 }
-
-/* Estilos para el logo de Unitutor */
-.UnitutorLogo {
-  width: 180px;
-  max-width: 500px;
-  margin-right: 10px;
-}
-
-/* Estilos para el texto "UNITUTOR" */
-.Unitutor h2 {
+.Unitutor .Home .content-wrapper h2 {
   color: white;
   margin: 2px;
   font-size: 45px;
@@ -107,33 +104,30 @@ body {
   font-weight: 900;
   margin: 20px;
 }
-
-/* Estilos para la línea vertical separadora */
-.vertical-line {
+.Unitutor .Home .vertical-line {
   width: 2px;
   height: 390px;
   background-color: white;
   margin: 0 40px;
 }
-
-/* Contenedor para el texto principal y el botón, los organiza verticalmente */
-.text-button-wrapper {
+.Unitutor .Home .UnitutorLogo {
+  width: 180px;
+  max-width: 500px;
+  margin-right: 10px;
+}
+.Unitutor .Home .text-button-wrapper {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-
-/* Estilos para el texto principal */
-.Unitutor h1 {
+.Unitutor .Home h1 {
   color: white;
   font-size: 60px;
   margin: 10px;
   padding-left: 0;
   font-family: "Roboto Condensed", sans-serif;
 }
-
-/* Estilos para el botón "Explorar" */
-.explore-button {
+.Unitutor .Home .explore-button {
   width: 160px;
   height: 35px;
   background: white;
@@ -146,7 +140,7 @@ body {
   font-weight: 700;
   transition: all ease 0.5s;
   margin: 15px;
-  margin-top: 20px; /* Espacio entre el texto principal y el botón */
+  margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -154,14 +148,10 @@ body {
   position: relative;
   padding: 10px 20px;
 }
-
-/* Estilos para el texto del botón */
-.button-text {
+.Unitutor .Home .explore-button .button-text {
   transition: transform 0.3s ease;
 }
-
-/* Contenedor para los iconos */
-.icon-wrapper {
+.Unitutor .Home .explore-button .icon-wrapper {
   position: absolute;
   right: 20px;
   display: flex;
@@ -170,6 +160,24 @@ body {
   width: 20px;
   height: 20px;
   overflow: hidden;
+}
+.Unitutor .Home .explore-button .icon {
+  position: absolute;
+  transition: all 0.3s ease;
+  color: black;
+  opacity: 0;
+  transform: translateX(100%);
+}
+.Unitutor .Home .explore-button .right-arrow.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+.Unitutor .Home .explore-button .down-arrow.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.Unitutor .Home .explore-button.hovered .button-text {
+  transform: translateX(-10px);
 }
 
 /* Estilos generales para los iconos */
@@ -188,40 +196,6 @@ body {
 .down-arrow {
   transform: translateY(-100%);
   opacity: 0;
-}
-
-/* Estado de hover */
-.explore-button:hover .button-text {
-  transform: translateX(-10px);
-}
-
-.explore-button:hover .right-arrow {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-/* Estado de clic */
-.explore-button.clicked .button-text {
-  transform: translateX(-10px);
-}
-
-.explore-button.clicked .right-arrow {
-  transform: translateY(100%);
-  opacity: 0;
-}
-
-.explore-button.clicked .down-arrow {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* Cambios de color en hover y clic */
-.explore-button:hover {
-  background-color: #f0f0f0; /* Un gris claro en lugar de #333 para mantener la legibilidad */
-}
-
-.explore-button.clicked {
-  background-color: #e0e0e0; /* Un gris más oscuro en lugar de #555 */
 }
 
 /* Estilos para dispositivos móviles y pantallas pequeñas */
@@ -254,78 +228,108 @@ body {
 /*# ASIGNATURAS */
 /* Sección de asignaturas */
 .asignaturas {
+  margin-top: -20px;
   width: 100%;
-  height: 110vh; /* Altura completa de la ventana del navegador */ /* Altura fija para la sección de asignaturas */
+  min-height: 100vh;
+  height: auto;
+  padding: 20px;
 }
-
-/* Contenedor principal */
-.container {
-  display: flex; /* Usa flexbox para el diseño */
-  justify-content: space-between; /* Distribuye el espacio entre los elementos hijos */
-  padding: 50px; /* Añade espacio interno alrededor del contenido */
-  max-width: 1200px; /* Limita el ancho máximo del contenedor */
-  margin-bottom: 20px; /* Añade margen superior */
+.asignaturas .container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-
-/* Sección izquierda */
-.left-section {
-  flex: 1; /* Toma una parte igual del espacio disponible */
-  padding-right: 40px; /* Añade espacio a la derecha */
-  margin-top: 160px; /* Desplaza la sección hacia abajo */
+@media (min-width: 768px) {
+  .asignaturas .container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 50px;
+  }
 }
-
-.left-section h1 {
+.asignaturas .container .left-section {
+  flex: 1;
+  padding-right: 0;
+  margin-top: 20px;
+}
+@media (min-width: 768px) {
+  .asignaturas .container .left-section {
+    padding-right: 40px;
+    margin-top: 160px;
+  }
+}
+.asignaturas .container .left-section h1 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-size: 50px;
+  font-size: 36px;
+}
+@media (min-width: 768px) {
+  .asignaturas .container .left-section h1 {
+    font-size: 50px;
+  }
+}
+.asignaturas .container .right-section {
+  flex: 1;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+@media (min-width: 768px) {
+  .asignaturas .container .right-section {
+    height: 500px;
+    padding: 40px;
+    margin-top: 0;
+  }
 }
 
-/* Sección derecha */
-.right-section {
-  height: 500px;
-  flex: 1; /* Toma una parte igual del espacio disponible */
-  background-color: white; /* Fondo blanco */
-  border: 1px solid white; /* Borde negro de 1px */
-  border-radius: 10px; /* Esquinas redondeadas */
-  padding: 40px; /* Espacio interno */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra interna suave */
-}
-
-/* Estilos para los encabezados h1 */
 h1 {
-  font-size: 36px; /* Tamaño de fuente grande */
-  margin-bottom: 20px; /* Espacio debajo del encabezado */
-  /* Centra el texto */
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
 }
 
-/* Estilos para los encabezados h1 */
 h2 {
-  font-size: 26px; /* Tamaño de fuente grande */
-  margin-top: 0; /* Espacio debajo del encabezado */
-  /* Centra el texto */
+  font-size: 22px;
+  margin-top: 0;
+}
+@media (min-width: 768px) {
+  h2 {
+    font-size: 26px;
+  }
 }
 
-/* Estilos para los párrafos */
 p {
-  font-size: 16px; /* Tamaño de fuente para el cuerpo del texto */
-  line-height: 1.5; /* Espaciado entre líneas */
-  color: #555; /* Color de texto gris oscuro */
+  font-size: 14px;
+  line-height: 1.5;
+  color: #555;
+}
+@media (min-width: 768px) {
+  p {
+    font-size: 16px;
+  }
 }
 
-/* Estilos para el botón "Explorar" de la seccion de asignaturas */
 .explorar-button {
-  width: 160px;
+  width: 140px;
   height: 35px;
   background: black;
   border: none;
   border-radius: 40px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   color: white;
   font-weight: 700;
   transition: all ease 0.5s;
-  margin: 15px;
-  margin-top: 20px; /* Espacio entre el texto principal y el botón */
+  margin: 15px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -333,14 +337,18 @@ p {
   position: relative;
   padding: 10px 20px;
 }
-
-/* Estilos para el texto del botón */
-.button-text {
+@media (min-width: 768px) {
+  .explorar-button {
+    width: 160px;
+    font-size: 16px;
+    margin: 15px;
+    margin-top: 20px;
+  }
+}
+.explorar-button .button-text {
   transition: transform 0.3s ease;
 }
-
-/* Contenedor para los iconos */
-.icon-wrapper {
+.explorar-button .icon-wrapper {
   position: absolute;
   right: 20px;
   display: flex;
@@ -350,149 +358,182 @@ p {
   height: 20px;
   overflow: hidden;
 }
-
-/* Estilos generales para los iconos */
-.icon {
+.explorar-button .icon {
   position: absolute;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* Posición inicial de la flecha derecha */
-.right-arrow2 {
+  transition: all 0.3s ease;
+  color: black;
+  opacity: 0;
   transform: translateX(100%);
-  opacity: 0;
-  color: white;
 }
-
-/* Posición inicial de la flecha hacia abajo */
-.down-arrow2 {
-  transform: translateY(-100%);
-  opacity: 0;
-  color: white;
-}
-
-/* Estado de hover */
-.explorar-button:hover .button-text {
-  transform: translateX(-10px);
-}
-
-.explorar-button:hover .right-arrow2 {
+.explorar-button .right-arrow2.show {
+  opacity: 1;
   transform: translateX(0);
-  opacity: 1;
   color: white;
 }
-
-/* Estado de clic */
-.explorar-button.clicked .button-text {
+.explorar-button .down-arrow2.show {
+  opacity: 1;
+  transform: translateY(0);
+  color: white;
+}
+.explorar-button.hovered .button-text {
   transform: translateX(-10px);
 }
 
-.explorar-button.clicked .right-arrow2 {
-  transform: translateY(100%);
-  opacity: 0;
-  color: white;
+.popular-subjects {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
 }
-
-.explorar-button.clicked .down-arrow2 {
-  transform: translateY(0);
-  opacity: 1;
-  color: white;
-}
-
-/* Cambios de color en hover y clic */
-.explorar-button:hover {
-  background-color: black; /* Un gris claro en lugar de #333 para mantener la legibilidad */
-}
-
-.explorar-button.clicked {
-  background-color: black; /* Un gris más oscuro en lugar de #555 */
-}
-
-/* Estilos para dispositivos móviles y pantallas pequeñas */
-@media (max-width: 768px) {
-  /* Cambia la disposición a vertical para pantallas pequeñas */
-  .content-wrapper {
-    flex-direction: column;
-    align-items: center;
+@media (min-width: 480px) {
+  .popular-subjects {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-/* Contenedor de asignaturas populares */
-.popular-subjects {
-  display: grid; /* Usa un diseño de cuadrícula */
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual ancho */
-  gap: 10px; /* Espacio entre los elementos de la cuadrícula */
+@media (min-width: 768px) {
+  .popular-subjects {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-/* Estilos para las tarjetas de asignaturas */
 .subject-card {
-  text-align: center; /* Centra el contenido */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
-
-/* Estilos para las imágenes en las tarjetas de asignaturas */
 .subject-card img {
-  width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
-  border-radius: 5px; /* Esquinas ligeramente redondeadas */
-  margin-bottom: 5px; /* Pequeño espacio debajo de la imagen */
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  transition: transform 0.3s ease;
 }
-
-/* Estilos para el texto en las tarjetas de asignaturas */
 .subject-card p {
-  margin: 0; /* Elimina el margen predeterminado */
-  font-size: 12px; /* Tamaño de fuente pequeño */
+  margin: 0;
+  font-size: 12px;
+  color: white;
+  font-style: italic;
+}
+.subject-card .subject-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 27px);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.subject-card .subject-info h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  font-style: italic;
+}
+.subject-card .subject-info .semester {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.subject-card .subject-info .description {
+  font-size: 10px;
+  padding: 0 10px;
+}
+.subject-card:hover .subject-info {
+  opacity: 1;
+}
+.subject-card:hover img {
+  transform: scale(1.1);
 }
 
 .UnitutorLogonegro {
-  width: 3%;
+  width: 30px;
+  height: auto;
   float: right;
   margin-right: 10px;
-  bottom: 100px;
-  overflow: hidden;
-  position: relative;
+  margin-top: -60px;
+}
+@media (min-width: 768px) {
+  .UnitutorLogonegro {
+    width: 40px;
+    margin-top: -120px;
+  }
 }
 
 /* Sección de Profesores */
 .PROFESORES {
   background-image: url(img/Fondo1.png);
-  width: 95%;
   background-size: cover;
   background-position: center;
-  border-radius: 25px;
+  border-top-left-radius: 25px;
+  /* Radio de esquina superior izquierda */
+  border-top-right-radius: 25px;
+  /* Radio de esquina superior derecha */
   color: white;
   font-family: "Roboto", sans-serif;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 0px 60px;
+  padding: 20px 80px;
+  background-attachment: fixed;
 }
 
 /* Título */
 .PROFESORES h1 {
   font-size: 36px;
-  text-align: center;
+  text-align: left;
   margin-bottom: 30px;
 }
 
 /* Contenedor de Profesores */
 .profesores-contenido {
   display: flex;
-  justify-content: space-between; /* Ajuste de separación */
+  justify-content: space-between;
+  /* Ajuste de separación */
   align-items: center;
   margin-bottom: 30px;
 }
 
 /* Estilo para cada profesor */
-.prof {
-  text-align: center;
+.prof h4 {
+  text-align: left;
+  font-size: 30px;
+  margin-bottom: 5px;
+  /* Ajusta el margen inferior */
+  margin-top: 0px;
 }
 
-.imagen {
-  background-size: cover;
-  background-position: center;
-  width: 250px; /* Aumenta el tamaño de las imágenes */
-  height: 250px;
-  margin: 0 auto;
-  border-radius: 30px;
+.prof p {
+  font-size: 16px;
+  /* Asegúrate de que el tamaño sea apropiado */
+  margin-top: 0;
+  /* Elimina margen superior */
+  color: white;
 }
 
 /* Imagen de cada profesor */
+.imagen {
+  background-size: cover;
+  background-position: center;
+  width: 230px;
+  /* Aumenta el tamaño de las imágenes */
+  height: 230px;
+  margin: 0 auto;
+  border-radius: 30px;
+  margin: 0px;
+  transition: transform 0.3s ease-in-out;
+  /* Transición fluida con ease-in-out */
+}
+
+.prof:hover {
+  transform: scale(1.2);
+}
+
+.prof {
+  transition: transform 0.3s ease-in-out; /* Aplica transición tanto en hover como al quitar el hover */
+}
+
+/* Clases específicas para las imágenes de los profesores */
 .prof1 {
   background-image: url(img/Photo1.png);
 }
@@ -502,7 +543,7 @@ p {
 }
 
 .prof3 {
-  background-image: url(img/Photo1.png);
+  background-image: url(img/Photo3.png);
 }
 
 .prof4 {
@@ -511,51 +552,296 @@ p {
 
 /* Sección de información adicional */
 .profesores2 {
-  text-align: center;
+  text-align: left;
   margin-bottom: 30px;
 }
 
 .profesores2 h1 {
-  font-size: 30px;
+  font-size: 36px;
   margin-bottom: 10px;
+  text-align: left;
 }
 
 .profesores2 article {
-  font-size: 16px;
+  font-size: 19px;
   max-width: 800px;
-  margin: 0 auto;
   line-height: 1.5;
+}
+
+.profesores2 p {
+  font-size: 20px;
+  max-width: 800px;
+  line-height: 1.5;
+  color: white;
 }
 
 /* Contenedor de los cuadros de información */
 .cuadros-contenedor {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 15px; /* Espacio entre los cuadros */
+  flex-wrap: nowrap;
+  gap: 30px;
+  /* Espacio entre los cuadros */
 }
 
 /* Cuadro de información */
 .cuadro {
-  background: rgba(255, 255, 255, 0.1);
   padding: 20px;
-  border-radius: 15px;
-  width: 180px;
+  border-radius: 30px;
+  width: 20%;
+  height: 90px;
+  /* Mantener altura uniforme */
+  border: 2px solid white;
+  /* Borde blanco */
+  display: flex;
+  /* Agregar flexbox */
+  flex-direction: column;
+  /* Para apilar el título y el párrafo */
+  justify-content: center;
+  /* Centrar verticalmente */
+  align-items: center;
+  /* Centrar horizontalmente */
   text-align: center;
-  transition: all ease 0.5s;
+  /* Asegurarse de que el texto esté centrado */
+  transition: background-color 0.5s ease;
+  /* Transición suave para el fondo */
 }
+
 .cuadro:hover {
   background-color: white;
+  /* Cambia el fondo a blanco cuando pasas el mouse */
   color: black;
-  text-shadow: 4px 4px 4px black;
+  /* Cambia el color del texto a negro */
 }
 
 .cuadro h5 {
   font-size: 18px;
-  margin-bottom: 10px;
+  margin: 0;
+  /* Quitar margen superior e inferior */
 }
 
 .cuadro p {
   font-size: 14px;
   line-height: 1.4;
+  margin: 0;
+  /* Quitar margen superior e inferior */
+  color: white;
+  margin-top: 10px;
+}
+
+.cuadro:hover p {
+  color: black;
+  /* Cambia el color del párrafo a negro al hacer hover en el cuadro */
+  font-size: 14px;
+  /* Aumenta el tamaño de la fuente al hacer hover */
+}
+
+.piedepagina {
+  background-color: #393736;
+  /* Cambia el color de fondo si es necesario */
+  padding: 20px 0;
+  /* Espaciado arriba y abajo */
+}
+
+.foot {
+  display: flex;
+  /* Usar flexbox para centrar y espaciar */
+  justify-content: center;
+  /* Centrar horizontalmente */
+  gap: 9%;
+  /* Espaciado entre enlaces */
+}
+
+.foot a {
+  color: white;
+  /* Cambiar color del texto a blanco */
+  text-decoration: none;
+  /* Quitar subrayado */
+  padding: 10px;
+  /* Espaciado interno para cada enlace */
+  font-size: 16px;
+  /* Ajustar tamaño de fuente si es necesario */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.foot a:hover {
+  color: lightgray;
+  /* Color al pasar el ratón */
+}
+
+footer {
+  background-color: #0E0F02;
+  /* Cambia el color de fondo si es necesario */
+  padding: 20px 0;
+  /* Espaciado arriba y abajo */
+  text-align: center;
+  /* Centrar el texto horizontalmente */
+  display: flex;
+  justify-content: center;
+  /* Centra los elementos horizontalmente */
+  align-items: center;
+  /* Centra los elementos verticalmente */
+}
+
+footer p {
+  color: white;
+  /* Cambiar color del texto a blanco */
+  margin: 0;
+  /* Eliminar margen para evitar espacios innecesarios */
+  font-size: 16px;
+  /* Ajustar tamaño de fuente si es necesario */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.imgfooter {
+  background-image: url(img/Group.png);
+  width: 30px;
+  /* Ajusta el tamaño según sea necesario */
+  height: 30px;
+  /* Ajusta el tamaño según sea necesario */
+  background-size: cover;
+  /* Esto asegurará que la imagen cubra el div */
+  background-position: center;
+  /* Centra la imagen dentro del div */
+  margin-right: 10px;
+  /* Espacio entre la imagen y el texto */
+}
+
+.footer-vertical-line {
+  width: 2px;
+  height: 50px;
+  /* Ajusta la altura según necesites */
+  background-color: white;
+  margin: 0 20px;
+}
+
+.iconos-footer-container {
+  display: flex;
+  justify-content: center;
+  /* Centra los íconos horizontalmente */
+  align-items: center;
+  /* Centra los íconos verticalmente */
+  height: 100vh;
+  /* Hace que el contenedor ocupe toda la altura de la pantalla */
+}
+
+.iconos-footer {
+  display: flex;
+  gap: 15px;
+  /* Añade espacio entre los iconos */
+}
+
+.iconos-footer svg {
+  font-size: 20px;
+  /* Ajusta el tamaño de los iconos */
+  color: white;
+  /* Aplica el mismo color a todos los iconos */
+  transition: transform 0.3s ease;
+}
+
+.iconos-footer svg:hover {
+  transform: scale(1.2);
+  /* Hace que los íconos aumenten de tamaño al pasar el mouse por encima */
+  /* Cambia el color al hacer hover */
+}
+
+/* Media Queries para hacer la página responsive */
+@media (max-width: 1200px) {
+  .Unitutor .Home .content-wrapper {
+    margin-left: 0;
+    padding: 20px;
+  }
+  .asignaturas .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .asignaturas .container .left-section,
+  .asignaturas .container .right-section {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 40px;
+  }
+  .PROFESORES {
+    margin: 0;
+    padding: 20px;
+  }
+  .profesores-contenido {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .prof {
+    margin: 20px;
+  }
+  .cuadros-contenedor {
+    flex-wrap: wrap;
+  }
+  .cuadro {
+    width: calc(50% - 15px);
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 768px) {
+  .Unitutor .Home .content-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+  .Unitutor .Home .content-wrapper .vertical-line {
+    width: 80%;
+    height: 2px;
+    margin: 20px 0;
+  }
+  .Unitutor .Home .content-wrapper h1 {
+    font-size: 40px;
+  }
+  .Unitutor .Home .content-wrapper h2 {
+    font-size: 30px;
+  }
+  .asignaturas .container .left-section h1 {
+    font-size: 36px;
+  }
+  .popular-subjects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .PROFESORES h1 {
+    font-size: 30px;
+  }
+  .cuadro {
+    width: 100%;
+  }
+  .foot {
+    flex-direction: column;
+    align-items: center;
+  }
+  .foot a {
+    margin: 5px 0;
+  }
+  footer {
+    flex-direction: column;
+  }
+  .footer-vertical-line {
+    width: 80%;
+    height: 2px;
+    margin: 10px 0;
+  }
+}
+@media (max-width: 480px) {
+  .Unitutor .Home .content-wrapper h1 {
+    font-size: 30px;
+  }
+  .Unitutor .Home .content-wrapper h2 {
+    font-size: 24px;
+  }
+  .popular-subjects {
+    grid-template-columns: 1fr;
+  }
+  .prof {
+    transform: none !important;
+  }
+  .prof:hover {
+    transform: none !important;
+  }
+  .imagen {
+    width: 180px;
+    height: 180px;
+  }
 }/*# sourceMappingURL=App.css.map */
