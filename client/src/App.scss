@@ -1,3 +1,16 @@
+
+.Homepage {
+
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   width: 100%;
   height: 100vh;
@@ -6,72 +19,136 @@ body {
   padding: 0;
 }
 
-/* Estilos base del navbar */
 .navbar {
   width: 100%;
   padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  position: relative;
+}
 
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 
-    li {
-      margin: 5px 10px;
+.nav-links li {
+  margin: 5px 10px;
+}
 
-      a {
-        color: white;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-        font-size: 14px;
-        margin: 15px 20px;
-        text-decoration: none;
-        position: relative;
-        /* Necesario para posicionar el pseudo-elemento */
-        display: inline-block;
-        /* Asegura que el elemento tenga dimensiones */
-        padding-bottom: 5px;
-        /* Espacio para la línea de subrayado */
-      }
+.nav-links a {
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  margin: 15px 20px;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+}
 
-      /* Efecto hover con línea animada */
-      a::after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 2px; /* Grosor de la línea */
-        bottom: 0;
-        left: 0;
-        background-color: white; /* Color de la línea */
-        
-        transition: width 0.3s ease;
-        /* Animación de la línea */
-      }
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transition: width 0.3s ease;
+}
 
-      a:hover::after {
-        width: 100%;
-        /* La línea se extiende al 100% del ancho en hover */
-      }
-    }
-  }
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 .icono {
-  width: 30px;
-  height: 20px;
+  
+  width: 40px;
+  height: 30px;
   color: white;
   border: 2px solid white;
   padding: 5px;
-  border-radius: 10px;
-  float: right;
-  margin: 10px;
+  border-radius: 20px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .user {
-  margin-left: 7px;
+  align-items: center;
+  width: 30px;
+}
+
+.menu-icon {
+  display: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    justify-content: flex-start;
+    padding: 10px;
+    min-height: 40px; /* Ajusta este valor según la altura de tu navbar */
+  }
+
+  .menu-icon {
+    display: block;
+    position: absolute;
+    margin-top: 30px; 
+    left: 10px;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px 0;
+  }
+
+  .nav-links.open {
+    display: flex;
+    
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .icono {
+    max-width: 5%;
+    max-height: 10px;
+    padding: 20px;
+    right: 30px;
+    margin-top: 30px;
+    transform: translateY(-50%);
+    
+  }
+  .user{
+    width: 80%;
+  }
 }
 
 /* Estilos para la sección principal de Unitutor */
@@ -253,7 +330,14 @@ body {
   /* Centra el texto y el botón en pantallas pequeñas */
   .text-button-wrapper {
     align-items: center;
+    text-align: center;
   }
+
+   .explore-button {
+    margin: 20px auto 0;  /* Centra el botón horizontalmente y añade margen superior */
+    display: block;  /* Asegura que el botón ocupe todo el ancho disponible */
+  }
+
 }
 
 /*# ASIGNATURAS */
@@ -370,6 +454,7 @@ p {
     font-size: 16px;
     margin: 15px;
     margin-top: 20px;
+    
   }
 
   .button-text {
@@ -915,5 +1000,23 @@ footer p {
   .imagen {
     width: 180px;
     height: 180px;
+    }
   }
+}
+
+.registropage{
+
+  body{
+    background-color: #0E0F02;
+  }
+
+.cuadro-registro{
+  width: 100%;
+}
+
+.UnitutorLog{
+  width: 20%;
+  
+}
+  
 }

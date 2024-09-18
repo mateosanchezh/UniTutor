@@ -1,18 +1,48 @@
 @charset "UTF-8";
-body {
+.Homepage {
+  /* Estilos para la sección principal de Unitutor */
+  /* Estilos generales para los iconos */
+  /* Posición inicial de la flecha derecha */
+  /* Posición inicial de la flecha hacia abajo */
+  /* Estilos para dispositivos móviles y pantallas pequeñas */
+  /*# ASIGNATURAS */
+  /* Sección de asignaturas */
+  /* Sección de Profesores */
+  /* Título */
+  /* Contenedor de Profesores */
+  /* Estilo para cada profesor */
+  /* Imagen de cada profesor */
+  /* Clases específicas para las imágenes de los profesores */
+  /* Sección de información adicional */
+  /* Contenedor de los cuadros de información */
+  /* Cuadro de información */
+  /* Media Queries para hacer la página responsive */
+}
+.Homepage html, .Homepage body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.Homepage body {
   width: 100%;
   height: 100vh;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
-/* Estilos base del navbar */
-.navbar {
+.Homepage .navbar {
   width: 100%;
   padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  position: relative;
 }
-.navbar ul {
+.Homepage .nav-links {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -21,56 +51,103 @@ body {
   margin: 0;
   padding: 0;
 }
-.navbar ul li {
+.Homepage .nav-links li {
   margin: 5px 10px;
-  /* Efecto hover con línea animada */
 }
-.navbar ul li a {
+.Homepage .nav-links a {
   color: white;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 14px;
   margin: 15px 20px;
   text-decoration: none;
   position: relative;
-  /* Necesario para posicionar el pseudo-elemento */
   display: inline-block;
-  /* Asegura que el elemento tenga dimensiones */
   padding-bottom: 5px;
-  /* Espacio para la línea de subrayado */
 }
-.navbar ul li a::after {
+.Homepage .nav-links a::after {
   content: "";
   position: absolute;
   width: 0;
-  height: 2px; /* Grosor de la línea */
+  height: 2px;
   bottom: 0;
   left: 0;
-  background-color: white; /* Color de la línea */
+  background-color: white;
   transition: width 0.3s ease;
-  /* Animación de la línea */
 }
-.navbar ul li a:hover::after {
+.Homepage .nav-links a:hover::after {
   width: 100%;
-  /* La línea se extiende al 100% del ancho en hover */
 }
-
-.icono {
-  width: 30px;
-  height: 20px;
+.Homepage .icono {
+  width: 40px;
+  height: 30px;
   color: white;
   border: 2px solid white;
   padding: 5px;
-  border-radius: 10px;
-  float: right;
-  margin: 10px;
+  border-radius: 20px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.user {
-  margin-left: 7px;
+.Homepage .user {
+  align-items: center;
+  width: 30px;
 }
-
-/* Estilos para la sección principal de Unitutor */
-.Unitutor {
+.Homepage .menu-icon {
+  display: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+}
+@media screen and (max-width: 768px) {
+  .Homepage .navbar {
+    justify-content: flex-start;
+    padding: 10px;
+    min-height: 40px; /* Ajusta este valor según la altura de tu navbar */
+  }
+  .Homepage .menu-icon {
+    display: block;
+    position: absolute;
+    margin-top: 30px;
+    left: 10px;
+  }
+  .Homepage .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px 0;
+  }
+  .Homepage .nav-links.open {
+    display: flex;
+  }
+  .Homepage .nav-links li {
+    margin: 10px 0;
+  }
+  .Homepage .icono {
+    max-width: 5%;
+    max-height: 10px;
+    padding: 20px;
+    right: 30px;
+    margin-top: 30px;
+    transform: translateY(-50%);
+  }
+  .Homepage .user {
+    width: 80%;
+  }
+}
+.Homepage .Unitutor {
   background-image: url(img/Fondo1.png);
   width: 100%;
   min-height: 100vh;
@@ -79,7 +156,7 @@ body {
   background-attachment: fixed;
   /* Estilos para el contenedor principal */
 }
-.Unitutor .Home {
+.Homepage .Unitutor .Home {
   padding: 30px;
   /* Estilos para el contenedor del contenido, organiza los elementos horizontalmente */
   /* Estilos para la línea vertical separadora */
@@ -87,7 +164,7 @@ body {
   /* Contenedor para el texto principal y el botón, los organiza verticalmente */
   /* Estilos para el texto principal */
 }
-.Unitutor .Home .content-wrapper {
+.Homepage .Unitutor .Home .content-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,7 +172,7 @@ body {
   margin-left: 110px;
   /* Estilos para el texto "UNITUTOR" */
 }
-.Unitutor .Home .content-wrapper h2 {
+.Homepage .Unitutor .Home .content-wrapper h2 {
   color: white;
   margin: 2px;
   font-size: 45px;
@@ -104,30 +181,30 @@ body {
   font-weight: 900;
   margin: 20px;
 }
-.Unitutor .Home .vertical-line {
+.Homepage .Unitutor .Home .vertical-line {
   width: 2px;
   height: 390px;
   background-color: white;
   margin: 0 40px;
 }
-.Unitutor .Home .UnitutorLogo {
+.Homepage .Unitutor .Home .UnitutorLogo {
   width: 180px;
   max-width: 500px;
   margin-right: 10px;
 }
-.Unitutor .Home .text-button-wrapper {
+.Homepage .Unitutor .Home .text-button-wrapper {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-.Unitutor .Home h1 {
+.Homepage .Unitutor .Home h1 {
   color: white;
   font-size: 60px;
   margin: 10px;
   padding-left: 0;
   font-family: "Roboto Condensed", sans-serif;
 }
-.Unitutor .Home .explore-button {
+.Homepage .Unitutor .Home .explore-button {
   width: 160px;
   height: 35px;
   background: white;
@@ -148,10 +225,10 @@ body {
   position: relative;
   padding: 10px 20px;
 }
-.Unitutor .Home .explore-button .button-text {
+.Homepage .Unitutor .Home .explore-button .button-text {
   transition: transform 0.3s ease;
 }
-.Unitutor .Home .explore-button .icon-wrapper {
+.Homepage .Unitutor .Home .explore-button .icon-wrapper {
   position: absolute;
   right: 20px;
   display: flex;
@@ -161,80 +238,77 @@ body {
   height: 20px;
   overflow: hidden;
 }
-.Unitutor .Home .explore-button .icon {
+.Homepage .Unitutor .Home .explore-button .icon {
   position: absolute;
   transition: all 0.3s ease;
   color: black;
   opacity: 0;
   transform: translateX(100%);
 }
-.Unitutor .Home .explore-button .right-arrow.show {
+.Homepage .Unitutor .Home .explore-button .right-arrow.show {
   opacity: 1;
   transform: translateX(0);
 }
-.Unitutor .Home .explore-button .down-arrow.show {
+.Homepage .Unitutor .Home .explore-button .down-arrow.show {
   opacity: 1;
   transform: translateY(0);
 }
-.Unitutor .Home .explore-button.hovered .button-text {
+.Homepage .Unitutor .Home .explore-button.hovered .button-text {
   transform: translateX(-10px);
 }
-
-/* Estilos generales para los iconos */
-.icon {
+.Homepage .icon {
   position: absolute;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
-/* Posición inicial de la flecha derecha */
-.right-arrow {
+.Homepage .right-arrow {
   transform: translateX(100%);
   opacity: 0;
 }
-
-/* Posición inicial de la flecha hacia abajo */
-.down-arrow {
+.Homepage .down-arrow {
   transform: translateY(-100%);
   opacity: 0;
 }
-
-/* Estilos para dispositivos móviles y pantallas pequeñas */
 @media (max-width: 768px) {
-  /* Cambia la disposición a vertical para pantallas pequeñas */
-  .content-wrapper {
+  .Homepage {
+    /* Cambia la disposición a vertical para pantallas pequeñas */
+    /* Ajusta el margen del logo para pantallas pequeñas */
+    /* Cambia la línea vertical a horizontal en pantallas pequeñas */
+    /* Ajusta el tamaño y alineación del texto principal en pantallas pequeñas */
+    /* Centra el texto y el botón en pantallas pequeñas */
+  }
+  .Homepage .content-wrapper {
     flex-direction: column;
     align-items: center;
   }
-  /* Ajusta el margen del logo para pantallas pequeñas */
-  .UnitutorLogo {
+  .Homepage .UnitutorLogo {
     margin-bottom: 20px;
   }
-  /* Cambia la línea vertical a horizontal en pantallas pequeñas */
-  .vertical-line {
+  .Homepage .vertical-line {
     width: 100%;
     height: 2px;
     margin: 20px 0;
   }
-  /* Ajusta el tamaño y alineación del texto principal en pantallas pequeñas */
-  .Unitutor h1 {
+  .Homepage .Unitutor h1 {
     font-size: 40px;
     text-align: center;
   }
-  /* Centra el texto y el botón en pantallas pequeñas */
-  .text-button-wrapper {
+  .Homepage .text-button-wrapper {
     align-items: center;
+    text-align: center;
+  }
+  .Homepage .explore-button {
+    margin: 20px auto 0; /* Centra el botón horizontalmente y añade margen superior */
+    display: block; /* Asegura que el botón ocupe todo el ancho disponible */
   }
 }
-/*# ASIGNATURAS */
-/* Sección de asignaturas */
-.asignaturas {
+.Homepage .asignaturas {
   margin-top: -20px;
   width: 100%;
   min-height: 100vh;
   height: auto;
   padding: 20px;
 }
-.asignaturas .container {
+.Homepage .asignaturas .container {
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -242,33 +316,33 @@ body {
   margin: 0 auto;
 }
 @media (min-width: 768px) {
-  .asignaturas .container {
+  .Homepage .asignaturas .container {
     flex-direction: row;
     justify-content: space-between;
     padding: 50px;
   }
 }
-.asignaturas .container .left-section {
+.Homepage .asignaturas .container .left-section {
   flex: 1;
   padding-right: 0;
   margin-top: 20px;
 }
 @media (min-width: 768px) {
-  .asignaturas .container .left-section {
+  .Homepage .asignaturas .container .left-section {
     padding-right: 40px;
     margin-top: 160px;
   }
 }
-.asignaturas .container .left-section h1 {
+.Homepage .asignaturas .container .left-section h1 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 36px;
 }
 @media (min-width: 768px) {
-  .asignaturas .container .left-section h1 {
+  .Homepage .asignaturas .container .left-section h1 {
     font-size: 50px;
   }
 }
-.asignaturas .container .right-section {
+.Homepage .asignaturas .container .right-section {
   flex: 1;
   background-color: white;
   border: 1px solid white;
@@ -278,46 +352,42 @@ body {
   margin-top: 20px;
 }
 @media (min-width: 768px) {
-  .asignaturas .container .right-section {
+  .Homepage .asignaturas .container .right-section {
     height: 500px;
     padding: 40px;
     margin-top: 0;
   }
 }
-
-h1 {
+.Homepage h1 {
   font-size: 28px;
   margin-bottom: 15px;
 }
 @media (min-width: 768px) {
-  h1 {
+  .Homepage h1 {
     font-size: 36px;
     margin-bottom: 20px;
   }
 }
-
-h2 {
+.Homepage h2 {
   font-size: 22px;
   margin-top: 0;
 }
 @media (min-width: 768px) {
-  h2 {
+  .Homepage h2 {
     font-size: 26px;
   }
 }
-
-p {
+.Homepage p {
   font-size: 14px;
   line-height: 1.5;
   color: #555;
 }
 @media (min-width: 768px) {
-  p {
+  .Homepage p {
     font-size: 16px;
   }
 }
-
-.explorar-button {
+.Homepage .explorar-button {
   width: 140px;
   height: 35px;
   background: black;
@@ -338,17 +408,17 @@ p {
   padding: 10px 20px;
 }
 @media (min-width: 768px) {
-  .explorar-button {
+  .Homepage .explorar-button {
     width: 160px;
     font-size: 16px;
     margin: 15px;
     margin-top: 20px;
   }
 }
-.explorar-button .button-text {
+.Homepage .explorar-button .button-text {
   transition: transform 0.3s ease;
 }
-.explorar-button .icon-wrapper {
+.Homepage .explorar-button .icon-wrapper {
   position: absolute;
   right: 20px;
   display: flex;
@@ -358,61 +428,59 @@ p {
   height: 20px;
   overflow: hidden;
 }
-.explorar-button .icon {
+.Homepage .explorar-button .icon {
   position: absolute;
   transition: all 0.3s ease;
   color: black;
   opacity: 0;
   transform: translateX(100%);
 }
-.explorar-button .right-arrow2.show {
+.Homepage .explorar-button .right-arrow2.show {
   opacity: 1;
   transform: translateX(0);
   color: white;
 }
-.explorar-button .down-arrow2.show {
+.Homepage .explorar-button .down-arrow2.show {
   opacity: 1;
   transform: translateY(0);
   color: white;
 }
-.explorar-button.hovered .button-text {
+.Homepage .explorar-button.hovered .button-text {
   transform: translateX(-10px);
 }
-
-.popular-subjects {
+.Homepage .popular-subjects {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 10px;
 }
 @media (min-width: 480px) {
-  .popular-subjects {
+  .Homepage .popular-subjects {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (min-width: 768px) {
-  .popular-subjects {
+  .Homepage .popular-subjects {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
-.subject-card {
+.Homepage .subject-card {
   text-align: center;
   position: relative;
   overflow: hidden;
 }
-.subject-card img {
+.Homepage .subject-card img {
   width: 100%;
   border-radius: 5px;
   margin-bottom: 5px;
   transition: transform 0.3s ease;
 }
-.subject-card p {
+.Homepage .subject-card p {
   margin: 0;
   font-size: 12px;
   color: white;
   font-style: italic;
 }
-.subject-card .subject-info {
+.Homepage .subject-card .subject-info {
   position: absolute;
   top: 0;
   left: 0;
@@ -428,27 +496,26 @@ p {
   transition: opacity 0.3s ease;
   pointer-events: none;
 }
-.subject-card .subject-info h3 {
+.Homepage .subject-card .subject-info h3 {
   font-size: 16px;
   margin-bottom: 5px;
   font-style: italic;
 }
-.subject-card .subject-info .semester {
+.Homepage .subject-card .subject-info .semester {
   font-size: 12px;
   margin-bottom: 5px;
 }
-.subject-card .subject-info .description {
+.Homepage .subject-card .subject-info .description {
   font-size: 10px;
   padding: 0 10px;
 }
-.subject-card:hover .subject-info {
+.Homepage .subject-card:hover .subject-info {
   opacity: 1;
 }
-.subject-card:hover img {
+.Homepage .subject-card:hover img {
   transform: scale(1.1);
 }
-
-.UnitutorLogonegro {
+.Homepage .UnitutorLogonegro {
   width: 30px;
   height: auto;
   float: right;
@@ -456,14 +523,12 @@ p {
   margin-top: -60px;
 }
 @media (min-width: 768px) {
-  .UnitutorLogonegro {
+  .Homepage .UnitutorLogonegro {
     width: 40px;
     margin-top: -120px;
   }
 }
-
-/* Sección de Profesores */
-.PROFESORES {
+.Homepage .PROFESORES {
   background-image: url(img/Fondo1.png);
   background-size: cover;
   background-position: center;
@@ -477,42 +542,33 @@ p {
   padding: 20px 80px;
   background-attachment: fixed;
 }
-
-/* Título */
-.PROFESORES h1 {
+.Homepage .PROFESORES h1 {
   font-size: 36px;
   text-align: left;
   margin-bottom: 30px;
 }
-
-/* Contenedor de Profesores */
-.profesores-contenido {
+.Homepage .profesores-contenido {
   display: flex;
   justify-content: space-between;
   /* Ajuste de separación */
   align-items: center;
   margin-bottom: 30px;
 }
-
-/* Estilo para cada profesor */
-.prof h4 {
+.Homepage .prof h4 {
   text-align: left;
   font-size: 30px;
   margin-bottom: 5px;
   /* Ajusta el margen inferior */
   margin-top: 0px;
 }
-
-.prof p {
+.Homepage .prof p {
   font-size: 16px;
   /* Asegúrate de que el tamaño sea apropiado */
   margin-top: 0;
   /* Elimina margen superior */
   color: white;
 }
-
-/* Imagen de cada profesor */
-.imagen {
+.Homepage .imagen {
   background-size: cover;
   background-position: center;
   width: 230px;
@@ -524,68 +580,52 @@ p {
   transition: transform 0.3s ease-in-out;
   /* Transición fluida con ease-in-out */
 }
-
-.prof:hover {
+.Homepage .prof:hover {
   transform: scale(1.2);
 }
-
-.prof {
+.Homepage .prof {
   transition: transform 0.3s ease-in-out; /* Aplica transición tanto en hover como al quitar el hover */
 }
-
-/* Clases específicas para las imágenes de los profesores */
-.prof1 {
+.Homepage .prof1 {
   background-image: url(img/Photo1.png);
 }
-
-.prof2 {
+.Homepage .prof2 {
   background-image: url(img/Photo1.png);
 }
-
-.prof3 {
+.Homepage .prof3 {
   background-image: url(img/Photo3.png);
 }
-
-.prof4 {
+.Homepage .prof4 {
   background-image: url(img/Photo2.png);
 }
-
-/* Sección de información adicional */
-.profesores2 {
+.Homepage .profesores2 {
   text-align: left;
   margin-bottom: 30px;
 }
-
-.profesores2 h1 {
+.Homepage .profesores2 h1 {
   font-size: 36px;
   margin-bottom: 10px;
   text-align: left;
 }
-
-.profesores2 article {
+.Homepage .profesores2 article {
   font-size: 19px;
   max-width: 800px;
   line-height: 1.5;
 }
-
-.profesores2 p {
+.Homepage .profesores2 p {
   font-size: 20px;
   max-width: 800px;
   line-height: 1.5;
   color: white;
 }
-
-/* Contenedor de los cuadros de información */
-.cuadros-contenedor {
+.Homepage .cuadros-contenedor {
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
   gap: 30px;
   /* Espacio entre los cuadros */
 }
-
-/* Cuadro de información */
-.cuadro {
+.Homepage .cuadro {
   padding: 20px;
   border-radius: 30px;
   width: 20%;
@@ -606,21 +646,18 @@ p {
   transition: background-color 0.5s ease;
   /* Transición suave para el fondo */
 }
-
-.cuadro:hover {
+.Homepage .cuadro:hover {
   background-color: white;
   /* Cambia el fondo a blanco cuando pasas el mouse */
   color: black;
   /* Cambia el color del texto a negro */
 }
-
-.cuadro h5 {
+.Homepage .cuadro h5 {
   font-size: 18px;
   margin: 0;
   /* Quitar margen superior e inferior */
 }
-
-.cuadro p {
+.Homepage .cuadro p {
   font-size: 14px;
   line-height: 1.4;
   margin: 0;
@@ -628,22 +665,19 @@ p {
   color: white;
   margin-top: 10px;
 }
-
-.cuadro:hover p {
+.Homepage .cuadro:hover p {
   color: black;
   /* Cambia el color del párrafo a negro al hacer hover en el cuadro */
   font-size: 14px;
   /* Aumenta el tamaño de la fuente al hacer hover */
 }
-
-.piedepagina {
+.Homepage .piedepagina {
   background-color: #393736;
   /* Cambia el color de fondo si es necesario */
   padding: 20px 0;
   /* Espaciado arriba y abajo */
 }
-
-.foot {
+.Homepage .foot {
   display: flex;
   /* Usar flexbox para centrar y espaciar */
   justify-content: center;
@@ -651,8 +685,7 @@ p {
   gap: 9%;
   /* Espaciado entre enlaces */
 }
-
-.foot a {
+.Homepage .foot a {
   color: white;
   /* Cambiar color del texto a blanco */
   text-decoration: none;
@@ -663,13 +696,11 @@ p {
   /* Ajustar tamaño de fuente si es necesario */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-
-.foot a:hover {
+.Homepage .foot a:hover {
   color: lightgray;
   /* Color al pasar el ratón */
 }
-
-footer {
+.Homepage footer {
   background-color: #0E0F02;
   /* Cambia el color de fondo si es necesario */
   padding: 20px 0;
@@ -682,8 +713,7 @@ footer {
   align-items: center;
   /* Centra los elementos verticalmente */
 }
-
-footer p {
+.Homepage footer p {
   color: white;
   /* Cambiar color del texto a blanco */
   margin: 0;
@@ -692,8 +722,7 @@ footer p {
   /* Ajustar tamaño de fuente si es necesario */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-
-.imgfooter {
+.Homepage .imgfooter {
   background-image: url(img/Group.png);
   width: 30px;
   /* Ajusta el tamaño según sea necesario */
@@ -706,16 +735,14 @@ footer p {
   margin-right: 10px;
   /* Espacio entre la imagen y el texto */
 }
-
-.footer-vertical-line {
+.Homepage .footer-vertical-line {
   width: 2px;
   height: 50px;
   /* Ajusta la altura según necesites */
   background-color: white;
   margin: 0 20px;
 }
-
-.iconos-footer-container {
+.Homepage .iconos-footer-container {
   display: flex;
   justify-content: center;
   /* Centra los íconos horizontalmente */
@@ -724,124 +751,129 @@ footer p {
   height: 100vh;
   /* Hace que el contenedor ocupe toda la altura de la pantalla */
 }
-
-.iconos-footer {
+.Homepage .iconos-footer {
   display: flex;
   gap: 15px;
   /* Añade espacio entre los iconos */
 }
-
-.iconos-footer svg {
+.Homepage .iconos-footer svg {
   font-size: 20px;
   /* Ajusta el tamaño de los iconos */
   color: white;
   /* Aplica el mismo color a todos los iconos */
   transition: transform 0.3s ease;
 }
-
-.iconos-footer svg:hover {
+.Homepage .iconos-footer svg:hover {
   transform: scale(1.2);
   /* Hace que los íconos aumenten de tamaño al pasar el mouse por encima */
   /* Cambia el color al hacer hover */
 }
-
-/* Media Queries para hacer la página responsive */
 @media (max-width: 1200px) {
-  .Unitutor .Home .content-wrapper {
+  .Homepage .Unitutor .Home .content-wrapper {
     margin-left: 0;
     padding: 20px;
   }
-  .asignaturas .container {
+  .Homepage .asignaturas .container {
     flex-direction: column;
     align-items: center;
   }
-  .asignaturas .container .left-section,
-  .asignaturas .container .right-section {
+  .Homepage .asignaturas .container .left-section,
+  .Homepage .asignaturas .container .right-section {
     width: 100%;
     max-width: 600px;
     margin-top: 40px;
   }
-  .PROFESORES {
+  .Homepage .PROFESORES {
     margin: 0;
     padding: 20px;
   }
-  .profesores-contenido {
+  .Homepage .profesores-contenido {
     flex-wrap: wrap;
     justify-content: center;
   }
-  .prof {
+  .Homepage .prof {
     margin: 20px;
   }
-  .cuadros-contenedor {
+  .Homepage .cuadros-contenedor {
     flex-wrap: wrap;
   }
-  .cuadro {
+  .Homepage .cuadro {
     width: calc(50% - 15px);
     margin-bottom: 30px;
   }
 }
 @media (max-width: 768px) {
-  .Unitutor .Home .content-wrapper {
+  .Homepage .Unitutor .Home .content-wrapper {
     flex-direction: column;
     text-align: center;
   }
-  .Unitutor .Home .content-wrapper .vertical-line {
+  .Homepage .Unitutor .Home .content-wrapper .vertical-line {
     width: 80%;
     height: 2px;
     margin: 20px 0;
   }
-  .Unitutor .Home .content-wrapper h1 {
+  .Homepage .Unitutor .Home .content-wrapper h1 {
     font-size: 40px;
   }
-  .Unitutor .Home .content-wrapper h2 {
+  .Homepage .Unitutor .Home .content-wrapper h2 {
     font-size: 30px;
   }
-  .asignaturas .container .left-section h1 {
+  .Homepage .asignaturas .container .left-section h1 {
     font-size: 36px;
   }
-  .popular-subjects {
+  .Homepage .popular-subjects {
     grid-template-columns: repeat(2, 1fr);
   }
-  .PROFESORES h1 {
+  .Homepage .PROFESORES h1 {
     font-size: 30px;
   }
-  .cuadro {
+  .Homepage .cuadro {
     width: 100%;
   }
-  .foot {
+  .Homepage .foot {
     flex-direction: column;
     align-items: center;
   }
-  .foot a {
+  .Homepage .foot a {
     margin: 5px 0;
   }
-  footer {
+  .Homepage footer {
     flex-direction: column;
   }
-  .footer-vertical-line {
+  .Homepage .footer-vertical-line {
     width: 80%;
     height: 2px;
     margin: 10px 0;
   }
 }
 @media (max-width: 480px) {
-  .Unitutor .Home .content-wrapper h1 {
+  .Homepage .Unitutor .Home .content-wrapper h1 {
     font-size: 30px;
   }
-  .Unitutor .Home .content-wrapper h2 {
+  .Homepage .Unitutor .Home .content-wrapper h2 {
     font-size: 24px;
   }
-  .popular-subjects {
+  .Homepage .popular-subjects {
     grid-template-columns: 1fr;
   }
-  .prof {
+  .Homepage .prof {
     transform: none !important;
   }
-  .prof:hover {
+  .Homepage .prof:hover {
     transform: none !important;
   }
-  .imagen {
+  .Homepage .imagen {
     width: 180px;
     height: 180px;
   }
+}
+
+.registropage body {
+  background-color: #0E0F02;
+}
+.registropage .cuadro-registro {
+  width: 100%;
+}
+.registropage .UnitutorLog {
+  width: 20%;
 }/*# sourceMappingURL=App.css.map */
