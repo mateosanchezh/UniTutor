@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import "../../App.css";
+import Login from './Login';
 import Group from '../../img/Group.png'
 import Foto1 from '../../img/Foto1.png'
 import Foto2 from '../../img/Foto2.png'
@@ -23,6 +24,7 @@ const Home = () => {
 
   const [isHovered, setIsHovered] = useState(false);
   const [showDownArrow, setShowDownArrow] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
   const asignaturasRef = useRef(null);
   const profesoresRef = useRef(null); 
 
@@ -55,7 +57,9 @@ const Home = () => {
   const handleClick2 = () => {
     profesoresRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
-
+const handleLoginClick = () => {
+    setShowLogin(!showLogin); // Alterna la visibilidad del componente Login
+  };
 
   const subjects = [
     { 
@@ -127,7 +131,10 @@ const Home = () => {
                 <h1>
                   De lo presencial a <br /> lo virtual,<br /> simplificando<br/> el aprendizaje.<br />
                 </h1>
-
+<button onClick={handleLoginClick} className="login-button">
+                  {showLogin ? 'Cerrar Login' : 'Iniciar Sesión'}
+                </button>
+                {showLogin && <Login />}
                 <button
                   className={`explore-button ${isHovered ? 'hovered' : ''}`}
                   onMouseEnter={handleMouseEnter}

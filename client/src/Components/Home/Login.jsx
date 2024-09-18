@@ -5,24 +5,36 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setLoading(true); // Inicia el loading
     try {
       const response = await axios.post('http://localhost:8080/api/auth/login', { email, password });
-      console.log('Login successful', response.data);
-      // Here you would typically store the user information or token
-      // and redirect the user to a dashboard or home page
-    } catch (error) {
-      setError('Login failed. Please check your credentials.');
-      console.error('Login error', error);
+      console.log('Login exitoso', response.data);
+      // Almacena el token o la información del usuario aquí
+    } catch (err) {
+
+          console.error('Error de inicio de sesión', err);
+          console.log(err.response);
+      // Mejora el manejo de errores
+
+      if (err.response && err.response.status === 400) {
+        setError('Email o contraseña incorrecta');
+      } else {
+        setError('Error en el servidor, intenta nuevamente más tarde.');
+      }
+      console.error('Error de inicio de sesión', err);
+    } finally {
+      setLoading(false); // Termina el loading
     }
   };
 
   return (
     <div className="login-container">
-      <h2>Login</h2>
+      <h2>Iniciar Sesión</h2>
       {error && <p className="error">{error}</p>}
       <form onSubmit={handleSubmit}>
         <div>
@@ -45,7 +57,9 @@ const Login = () => {
             required
           />
         </div>
-        <button type="submit">Iniciar sesión</button>
+        <button type="submit" disabled={loading}>
+          {loading ? 'Cargando...' : 'Iniciar sesión'}
+        </button>
       </form>
     </div>
   );
