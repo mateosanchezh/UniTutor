@@ -10,6 +10,7 @@ import {
   createBrowserRouter, 
   RouterProvider 
 } from 'react-router-dom'
+import Registro from './Components/Registro/Registro'
 
 function App() {
   // Crear el enrutador
@@ -29,6 +30,11 @@ function App() {
     {
       path: '/web',
       element: <Web_oficial />,
+    },
+
+    {
+      path: '/registro',
+      element: <Registro />,
     },
   ])
 
