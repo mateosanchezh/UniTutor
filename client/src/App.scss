@@ -1,7 +1,4 @@
 
-.Homepage {
-
-
 html, body {
   width: 100%;
   max-width: 100%;
@@ -11,6 +8,7 @@ html, body {
   box-sizing: border-box;
 }
 
+/* Resetear estilos predeterminados del body */
 body {
   width: 100%;
   height: 100vh;
@@ -19,16 +17,18 @@ body {
   padding: 0;
 }
 
+/* Contenedor de la barra de navegación */
 .navbar {
   width: 100%;
   padding: 10px 0;
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Centra el contenido de la barra de navegación */
   align-items: center;
   background-color: transparent;
   position: relative;
 }
 
+/* Contenedor de los enlaces de navegación */
 .nav-links {
   display: flex;
   flex-wrap: wrap;
@@ -39,10 +39,12 @@ body {
   padding: 0;
 }
 
+/* Elementos individuales de la lista de navegación */
 .nav-links li {
   margin: 5px 10px;
 }
 
+/* Estilos de los enlaces de navegación */
 .nav-links a {
   color: white;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -54,6 +56,7 @@ body {
   padding-bottom: 5px;
 }
 
+/* Efecto de subrayado para los enlaces de navegación */
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -69,86 +72,167 @@ body {
   width: 100%;
 }
 
-.icono {
-  
-  width: 40px;
-  height: 30px;
-  color: white;
-  border: 2px solid white;
-  padding: 5px;
-  border-radius: 20px;
+/* Contenedor de inicio de sesión */
+.login-container {
   position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
+  color: white;
+  right: 20px; /* Posiciona a la derecha */
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
-.user {
+/* Estilos del botón de inicio de sesión */
+.login-button {
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  border: 2px solid white;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 25px;
+  display: flex;
   align-items: center;
-  width: 30px;
 }
 
+/* Estilos del icono de usuario */
+  .fauser {
+  margin-right: 3px;
+  margin-bottom: 3px;
+  
+  
+}
+
+/* Estilos del texto de inicio de sesión */
+.login-text {
+
+  font-size: 14px;
+  height: 1px;
+  margin: 7px;
+  margin-left: 5px;
+  margin-top: -6px;
+}
+
+/* Estilos del formulario de inicio de sesión */
+.login-form {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: transparent; /* Fondo semi-transparente */
+  padding: 20px;
+  border: 2px solid white;
+  border-radius: 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+}
+
+/* Formulario de inicio de sesión visible */
+.login-form.visible {
+  margin: 1px;
+  max-height: 300px;
+  opacity: 1;
+}
+
+/* Estilos de los campos de entrada */
+input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  text-align: center;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  border-radius: 20px;
+  
+  &::placeholder{
+    color: white;
+  }
+}
+
+/* Estilos del botón de envío */
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+/* Eliminar el contorno de enfoque */
+input:focus, button:focus {
+  outline: none;
+}
+
+/* Icono de menú para la vista móvil */
 .menu-icon {
   display: none;
-  color: white;
+  color: #c7c3bb;
   font-size: 24px;
   cursor: pointer;
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
   padding: 10px;
 }
 
+/* Media query para responsividad en móviles */
 @media screen and (max-width: 768px) {
-  .navbar {
-    justify-content: flex-start;
-    padding: 10px;
-    min-height: 40px; /* Ajusta este valor según la altura de tu navbar */
-  }
-
+  
   .menu-icon {
     display: block;
-    position: absolute;
-    margin-top: 30px; 
+    position: absolute; 
+    top: 10px;
     left: 10px;
+    z-index: 1000;
+  }
+
+  .sidebar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    transition: left 0.3s ease-in-out;
+    z-index: 999;
+    overflow-y: auto; /* Permite scroll dentro del sidebar si el contenido es muy largo */
+  }
+
+  .sidebar.open {
+    left: 0;
   }
 
   .nav-links {
-    display: none;
-    width: 100%;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 20px 0;
-  }
-
-  .nav-links.open {
     display: flex;
-    
+    flex-direction: column;
+    padding: 20px;
+    margin-top: 50px;
   }
 
   .nav-links li {
     margin: 10px 0;
   }
 
-  .icono {
-    max-width: 5%;
-    max-height: 10px;
-    padding: 20px;
-    right: 30px;
-    margin-top: 30px;
-    transform: translateY(-50%);
-    
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
   }
-  .user{
-    width: 80%;
+
+  .login-container {
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
   }
+
+  
 }
 
 /* Estilos para la sección principal de Unitutor */
@@ -170,13 +254,12 @@ body {
       justify-content: center;
       align-items: center;
       padding: 50px;
-      margin-left: 110px;
-
+      
       /* Estilos para el texto "UNITUTOR" */
       h2 {
         color: white;
         margin: 2px;
-        font-size: 45px;
+        font-size: 40px;
         margin-right: 10px;
         font-family: "Roboto Condensed", sans-serif;
         font-weight: 900;
@@ -194,7 +277,7 @@ body {
 
     /* Estilos para el logo de Unitutor */
     .UnitutorLogo {
-      width: 180px;
+      width: 130px;
       max-width: 500px;
       margin-right: 10px;
     }
@@ -209,10 +292,19 @@ body {
       /* Estilos para el texto principal */
       h1 {
         color: white;
-        font-size: 60px;
+        font-size: 45px;
         margin: 10px;
         padding-left: 0;
         font-family: "Roboto Condensed", sans-serif;
+        line-height: 1.2; /* Ajusta el espaciado entre líneas según sea necesario */
+      
+        /* Estilos para el texto destacado */
+        .fuente {
+          font-family: "Playfair Display", serif;
+          font-weight: 700; /* Negrita para el texto destacado */
+          color: white; /* Color dorado para el texto destacado, ajusta según tus preferencias */
+          font-style: italic; /* Estilo itálico para mayor contraste */
+        }
       }
 
       .explore-button {
@@ -580,7 +672,7 @@ p {
   width: 30px;
   height: auto;
   float: right;
-  margin-right: 10px;
+  margin-right: 20px;
   margin-top: -60px;
 
   @media (min-width: 768px) {
@@ -1002,7 +1094,7 @@ footer p {
     height: 180px;
     }
   }
-}
+
 
 .registropage{
 

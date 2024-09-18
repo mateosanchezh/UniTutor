@@ -3,7 +3,6 @@ import Navbar from "./Navbar";
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import "../../App.css";
-import Login from './Login';
 import Group from '../../img/Group.png'
 import Foto1 from '../../img/Foto1.png'
 import Foto2 from '../../img/Foto2.png'
@@ -24,10 +23,8 @@ const Home = () => {
 
   const [isHovered, setIsHovered] = useState(false);
   const [showDownArrow, setShowDownArrow] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
   const asignaturasRef = useRef(null);
   const profesoresRef = useRef(null); 
-
 
 
   useEffect(() => {
@@ -128,13 +125,12 @@ const handleLoginClick = () => {
               <h2 className="uni">UNITUTOR</h2>
               <div className="vertical-line"></div>
               <div className="text-button-wrapper">
-                <h1>
-                  De lo presencial a <br /> lo virtual,<br /> simplificando<br/> el aprendizaje.<br />
-                </h1>
-<button onClick={handleLoginClick} className="login-button">
-                  {showLogin ? 'Cerrar Login' : 'Iniciar Sesión'}
-                </button>
-                {showLogin && <Login />}
+              <h1>
+                De lo presencial a <br />
+                <span class="fuente">lo virtual</span>,<br />
+                simplificando<br/>
+                <span class="fuente">el aprendizaje</span>.<br />
+              </h1>
                 <button
                   className={`explore-button ${isHovered ? 'hovered' : ''}`}
                   onMouseEnter={handleMouseEnter}
