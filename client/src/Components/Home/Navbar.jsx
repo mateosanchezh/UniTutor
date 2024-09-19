@@ -1,21 +1,25 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FaUser, FaBars, FaTimes } from "react-icons/fa";
-import axios from 'axios';
+import { FaUser, FaBars, FaTimes, FaEye, FaEyeSlash, FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [successMessage, setSuccessMessage] = useState(''); // Estado para mensaje de éxito
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState(null);
+  const [showLoginForm, setShowLoginForm] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const navRef = useRef(null);
+  const loginContainerRef = useRef(null);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-  const toggleVisibility = () => setIsVisible(!isVisible);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const toggleLoginForm = () => {
+    setShowLoginForm(!showLoginForm);
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   useEffect(() => {
     const closeMenu = (e) => {
@@ -24,37 +28,19 @@ const Navbar = () => {
       }
     };
 
-    document.addEventListener('mousedown', closeMenu);
-    return () => document.removeEventListener('mousedown', closeMenu);
-  }, [isOpen]);
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    setError('');
-    setSuccessMessage(''); // Limpiar el mensaje de éxito previo
-    try {
-      const response = await axios.post('http://localhost:8080/api/auth/login', { email, password });
-
-      if (response.status === 200 && response.data) {
-        setIsLoggedIn(true);
-        setUser(response.data);
-        setSuccessMessage('Login exitoso'); // Mensaje de éxito
-        setIsVisible(false);
-      } else {
-        setError('Respuesta del servidor inválida');
+    const closeLoginForm = (e) => {
+      if (showLoginForm && loginContainerRef.current && !loginContainerRef.current.contains(e.target)) {
+        setShowLoginForm(false);
       }
-    } catch (error) {
-      console.error('Login error:', error);
-      setError(error.response?.data || 'Error durante el inicio de sesión');
-    }
-  };
+    };
 
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    setUser(null);
-    setEmail('');
-    setPassword('');
-  };
+    document.addEventListener('mousedown', closeMenu);
+    document.addEventListener('mousedown', closeLoginForm);
+    return () => {
+      document.removeEventListener('mousedown', closeMenu);
+      document.removeEventListener('mousedown', closeLoginForm);
+    };
+  }, [isOpen, showLoginForm]);
 
   return (
     <nav className="navbar" ref={navRef}>
@@ -70,42 +56,32 @@ const Navbar = () => {
           <li><Link to="#" onClick={() => setIsOpen(false)}>IDIOMA</Link></li>
         </ul>
       </div>
-      <div className="login-container">
-        {isLoggedIn ? (
-          <button className="login-button" onClick={handleLogout}>
-            <span className="login-text">CERRAR SESIÓN</span>
-            <FaUser className='fauser' />
-          </button>
-        ) : (
-          <button className="login-button" onClick={toggleVisibility}>
-            <span className="login-text">INICIAR SESIÓN</span>
-            <FaUser className='fauser' />
-          </button>
-        )}
-        {!isLoggedIn && (
-          <div className={`login-form ${isVisible ? 'visible' : ''}`}>
-            <h2>Login</h2>
-            <form onSubmit={handleLogin}>
-              <input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <input
-                type="password"
-                placeholder="Contraseña"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-              <button type="submit">Entrar</button>
-            </form>
-            {successMessage && <p className="success">{successMessage}</p>}
-            {error && <p className="error">{error}</p>}
-          </div>
-        )}
+      <div className={`login-container ${showLoginForm ? 'expanded' : ''}`} ref={loginContainerRef}>
+        <button
+          className={`login-button ${showLoginForm ? 'active' : ''}`}
+          onClick={toggleLoginForm}
+        >
+          <span className="login-text">INICIAR SESION</span>
+          <FaUser className='fauser' />
+          {showLoginForm ? <FaChevronUp className="chevron" /> : <FaChevronDown className="chevron" />}
+        </button>
+        <div className="login-form-container">
+          <form className="login-form">
+            <div className="input-group">
+              <FaUser />
+              <input type="text" placeholder="USUARIO" />
+            </div>
+            <div className="input-group">
+              {showPassword ? (
+                <FaEye onClick={togglePasswordVisibility} />
+              ) : (
+                <FaEyeSlash onClick={togglePasswordVisibility} />
+              )}
+              <input type={showPassword ? "text" : "password"} placeholder="CONTRASEÑA" />
+            </div>
+            <button type="submit">ENTRAR</button>
+          </form>
+        </div>
       </div>
     </nav>
   );
