@@ -356,6 +356,27 @@ body {
         .button-text {
           transition: transform 0.3s ease;
         }
+
+        .login-alerts {
+          text-align: center;
+          margin-top: 10px;
+        }
+
+        .login-alerts .success,
+        .login-alerts .error {
+          color: white;
+          padding: 5px 10px;
+          border-radius: 4px;
+          font-weight: bold;
+        }
+
+        .login-alerts .success {
+          background-color: rgba(0, 128, 0, 0.7); /* Verde semitransparente */
+        }
+
+        .login-alerts .error {
+          background-color: rgba(255, 0, 0, 0.7); /* Rojo semitransparente */
+        }
       
         .icon-wrapper {
           position: absolute;

@@ -127,9 +127,9 @@ const handleLoginClick = () => {
               <div className="text-button-wrapper">
               <h1>
                 De lo presencial a <br />
-                <span class="fuente">lo virtual</span>,<br />
+                <span className="fuente">lo virtual</span>,<br />
                 simplificando<br/>
-                <span class="fuente">el aprendizaje</span>.<br />
+                <span className="fuente">el aprendizaje</span>.<br />
               </h1>
                 <button
                   className={`explore-button ${isHovered ? 'hovered' : ''}`}
