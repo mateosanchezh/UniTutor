@@ -11,6 +11,7 @@ import {
   RouterProvider 
 } from 'react-router-dom'
 import Registro from './Components/Registro/Registro'
+import Admin from './Components/Home/Admin'
 
 function App() {
   // Crear el enrutador
@@ -35,6 +36,10 @@ function App() {
     {
       path: '/registro',
       element: <Registro />,
+    },
+    {
+      path: '/admin',
+      element: <Admin />,
     },
   ])
 
