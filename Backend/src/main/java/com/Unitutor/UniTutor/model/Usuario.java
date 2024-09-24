@@ -1,28 +1,33 @@
 package com.Unitutor.UniTutor.model;
+
 import jakarta.persistence.*;
+import com.Unitutor.UniTutor.model.enums.UserRole;
+import com.Unitutor.UniTutor.model.enums.UserEstadoCuenta;
 
 @Entity
 public class Usuario {
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-        private String nombre;
-        private String email;
-        private String contraseña;
+    private String nombre;
+    private String email;
+    private String contraseña;
 
-        @Enumerated(EnumType.STRING)
-        private Rol rol;
+    @Enumerated(EnumType.STRING)
+    private UserRole userRole;
 
-        @ManyToOne
-        @JoinColumn(name = "id_carrera")
-        private Carrera carrera;
+    @Enumerated(EnumType.STRING)
+    private UserEstadoCuenta userEstadoCuenta;
 
-        private Integer semestre;
+    @ManyToOne
+    @JoinColumn(name = "id_carrera")
+    private Carrera carrera;
 
-        // Getters and setters
+    private Integer semestre;
 
+    // Getters y setters
 
     public String getContraseña() {
         return contraseña;
@@ -32,12 +37,20 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
-    public Rol getRol() {
-        return rol;
+    public UserRole getUserRole() {
+        return userRole;
     }
 
-    public void setRol(Rol rol) {
-        this.rol = rol;
+    public void setUserRole(UserRole userRole) {
+        this.userRole = userRole;
+    }
+
+    public UserEstadoCuenta getUserEstadoCuenta() {
+        return userEstadoCuenta;
+    }
+
+    public void setUserEstadoCuenta(UserEstadoCuenta userEstadoCuenta) {
+        this.userEstadoCuenta = userEstadoCuenta;
     }
 
     public Integer getSemestre() {
@@ -79,9 +92,4 @@ public class Usuario {
     public void setId(Long id) {
         this.id = id;
     }
-
-    public enum Rol {
-            ESTUDIANTE, TUTOR, ADMINISTRADOR
-        }
-    }
-
+}
