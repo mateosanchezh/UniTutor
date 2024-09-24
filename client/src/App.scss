@@ -1159,3 +1159,245 @@ footer p {
 }
 
 }
+
+.admin-page {
+  
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 70%;
+}
+
+.Unitutornegro{
+  width: 60px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #5E2BC9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: black;
+    margin: 15px;
+}
+
+.search-bar {
+    width: 700px;
+    border-radius: 0px;
+}
+
+.search-bar .MuiOutlinedInput-input {
+  padding-left: 40px; /* Ajusta este valor según necesites */
+}
+
+
+.buscar{
+  width: 700px;
+}
+.search-icon,
+.settings-icon {
+    color: #888;
+    transition: color 0.3s ease;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search-bar:hover .search-icon,
+.search-bar:hover .settings-icon,
+.search-bar:focus-within .search-icon,
+.search-bar:focus-within .settings-icon {
+    color: #000;
+}
+
+.settings-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    flex-grow: 1;
+}
+
+.user-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: black;
+}
+
+.user-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr auto;
+    gap: 15px;
+    align-items: center;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.action-button {
+    background: none;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 18px;
+    color: #000; /* Changed to black */
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.action-button:hover {
+    background-color: #5E2BC9;
+    color: #fff;
+}
+
+footer {
+    background-color: #fff;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.page-button {
+    background: none;
+    border: 1px solid #5E2BC9;
+    color: #5E2BC9;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.flecha{
+  background: none;
+  border: 1px solid black;
+  color: black;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  
+}
+
+.flechas{
+  height: 20px;
+}
+
+.page-button:first-child {
+    border-radius: 4px 0 0 4px;
+}
+
+.page-button:last-child {
+    border-radius: 0 4px 4px 0;
+}
+
+.page-button:not(:first-child) {
+    border-left: none;
+}
+
+.page-button.active,
+.page-button:hover {
+    background-color: #5E2BC9;
+    color: white;
+}
+
+.flecha:first-child {
+    border-radius: 4px 0 0 4px;
+}
+
+.flecha:last-child {
+    border-radius: 0 4px 4px 0;
+}
+
+.flecha:not(:first-child) {
+    border-left: none;
+}
+
+.flecha.active,
+.flecha:hover {
+    background-color: #5E2BC9;
+    color: white;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    color: black;
+    font-size: 20px;
+}
+}
