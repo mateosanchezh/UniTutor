@@ -16,7 +16,7 @@ public class Usuario {
     @Column(name = "nombre", nullable = false)
     private String nombre;
 
-    @Column(name = "user", nullable = false, unique = true) /
+    @Column(name = "user", nullable = false, unique = true)
     private String user;
 
     @Column(name = "email", nullable = false, unique = true)
