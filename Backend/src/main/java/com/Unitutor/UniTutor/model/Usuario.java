@@ -12,7 +12,6 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @Column(name = "nombre", nullable = false)
     private String nombre;
 
@@ -22,8 +21,8 @@ public class Usuario {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "contraseña", nullable = false)
-    private String contraseña;
+    @Column(name = "contrasena", nullable = false) // Cambiado a "contrasena"
+    private String contrasena; // Cambiado a "contrasena"
 
     @Enumerated(EnumType.STRING)
     @Column(name = "user_role")
@@ -73,12 +72,12 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() { // Cambiado a "contrasena"
+        return contrasena; // Cambiado a "contrasena"
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena) { // Cambiado a "contrasena"
+        this.contrasena = contrasena; // Cambiado a "contrasena"
     }
 
     public UserRole getUserRole() {
