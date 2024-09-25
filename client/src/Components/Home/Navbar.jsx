@@ -1,3 +1,4 @@
+// Navbar.js
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUser, FaBars, FaTimes, FaEye, FaEyeSlash, FaChevronDown, FaChevronUp } from "react-icons/fa";
@@ -10,47 +11,28 @@ const Navbar = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState(null);
   const navRef = useRef(null);
-  const loginContainerRef = useRef(null);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleLoginForm = () => setShowLoginForm(!showLoginForm);
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
   useEffect(() => {
-    const closeMenu = (e) => {
-      if (isOpen && navRef.current && !navRef.current.contains(e.target)) {
-        setIsOpen(false);
-      }
-    };
-
-    const closeLoginForm = (e) => {
-      if (showLoginForm && loginContainerRef.current && !loginContainerRef.current.contains(e.target)) {
-        setShowLoginForm(false);
-      }
-    };
-
-    document.addEventListener('mousedown', closeMenu);
-    document.addEventListener('mousedown', closeLoginForm);
-    return () => {
-      document.removeEventListener('mousedown', closeMenu);
-      document.removeEventListener('mousedown', closeLoginForm);
-    };
-  }, [isOpen, showLoginForm]);
+    const token = localStorage.getItem('jwtToken');
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
-    setSuccessMessage('');
     try {
       const response = await axios.post('http://localhost:8080/api/auth/login', { email, password });
-
       if (response.status === 200 && response.data) {
+        localStorage.setItem('jwtToken', response.data.token); // Almacena el token
         setIsLoggedIn(true);
-        setUser(response.data);
         setShowLoginForm(false);
       } else {
         setError('Respuesta del servidor inválida');
@@ -62,8 +44,8 @@ const Navbar = () => {
   };
 
   const handleLogout = () => {
+    localStorage.removeItem('jwtToken'); // Elimina el token
     setIsLoggedIn(false);
-    setUser(null);
     setEmail('');
     setPassword('');
   };
@@ -78,11 +60,9 @@ const Navbar = () => {
           <li><Link to="/" onClick={() => setIsOpen(false)}>INICIO</Link></li>
           <li><Link to="/asignaturas" onClick={() => setIsOpen(false)}>ASIGNATURAS</Link></li>
           <li><Link to="/profesores" onClick={() => setIsOpen(false)}>PROFESORES</Link></li>
-          <li><Link to="/web" onClick={() => setIsOpen(false)}>WEB OFICIAL</Link></li>
-          <li><Link to="#" onClick={() => setIsOpen(false)}>IDIOMA</Link></li>
         </ul>
       </div>
-      <div className={`login-container ${showLoginForm ? 'expanded' : ''}`} ref={loginContainerRef}>
+      <div className={`login-container ${showLoginForm ? 'expanded' : ''}`}>
         {isLoggedIn ? (
           <button className="login-button" onClick={handleLogout}>
             <span className="login-text">CERRAR SESIÓN</span>
@@ -124,10 +104,7 @@ const Navbar = () => {
               </div>
               <button type="submit">ENTRAR</button>
             </form>
-            <div className="login-alerts">
-              {successMessage && <p className="success">{successMessage}</p>}
-              {error && <p className="error">{error}</p>}
-            </div>
+            {error && <p className="error">{error}</p>}
           </div>
         )}
       </div>
