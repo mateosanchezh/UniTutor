@@ -1,22 +1,23 @@
 package com.Unitutor.UniTutor.model;
 
 import jakarta.persistence.*;
-
 @Entity
+@Table(name = "reserva")
 public class Reserva {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "id_estudiante")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_estudiante", nullable = false)
     private Usuario estudiante;
 
-    @ManyToOne
-    @JoinColumn(name = "id_tutoria")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_tutoria", nullable = false)
     private Tutoria tutoria;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "estado", nullable = false)
     private Estado estado;
 
     // Getters and setters

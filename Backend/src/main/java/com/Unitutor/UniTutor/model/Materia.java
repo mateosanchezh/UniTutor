@@ -5,18 +5,20 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table(name = "materia")
 public class Materia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "nombre", nullable = false)
     private String nombre;
 
-    @ManyToOne
-    @JoinColumn(name = "id_carrera")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_carrera", nullable = false)
     private Carrera carrera;
 
-    @OneToMany(mappedBy = "materia")
+    @OneToMany(mappedBy = "materia", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Tutoria> tutorias;
 
     // Getters and setters

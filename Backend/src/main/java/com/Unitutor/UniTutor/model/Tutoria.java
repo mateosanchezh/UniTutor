@@ -5,23 +5,25 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
+@Table(name = "tutoria")
 public class Tutoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "id_tutor")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_tutor", nullable = false)
     private Usuario tutor;
 
-    @ManyToOne
-    @JoinColumn(name = "id_materia")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_materia", nullable = false)
     private Materia materia;
 
     private LocalDate fecha;
     private LocalTime hora;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "modalidad", nullable = false)
     private Modalidad modalidad;
 
     // Getters and setters
