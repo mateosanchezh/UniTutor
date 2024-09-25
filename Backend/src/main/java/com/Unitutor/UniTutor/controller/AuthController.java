@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import com.Unitutor.UniTutor.model.enums.UserRole;
+import com.Unitutor.UniTutor.model.enums.UserEstadoCuenta;
 
 import java.util.Map;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "http://localhost:5174") // esto lo que hace es recibir todos los datos desde el front ((SOLO TOCAR SI CAMBIAN EL PUERTO))
+@CrossOrigin(origins = "http://localhost:5173") // esto lo que hace es recibir todos los datos desde el front ((SOLO TOCAR SI CAMBIAN EL PUERTO))
 public class AuthController {
 
     @Autowired
@@ -56,28 +58,46 @@ public class AuthController {
     // Este metodo lo que hace es registrar usuarios a la base de datos mediante un correo y una contraseña
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody Map<String, String> userDetails) {
+        String nombre = userDetails.get("nombre");
+        String user = userDetails.get("user");
         String email = userDetails.get("email");
         String password = userDetails.get("password");
+        String rol = userDetails.get("rol"); // Obtener rol
+        String estadoCuenta = userDetails.get("estadoCuenta"); // Obtener estado de cuenta
 
-        // Este metodo lo que hace es que al ingresar un usuario y contraseña sean validos y no sean datos falos
-        if (email == null || password == null) {
-            return ResponseEntity.badRequest().body("Email y contraseña son requeridos");
+        // Verifica que todos los campos sean ingresados
+        if (nombre == null || user == null || email == null || password == null || rol == null || estadoCuenta == null) {
+            return ResponseEntity.badRequest().body("Todos los campos son requeridos");
         }
 
-        // Una vez se valide que los datos anterirores son validos, el metodo busca en la base de datos que el usuario no este ya registrado (email)
+        // Verifica que el usuario no esté ya registrado
         if (usuarioRepository.findByEmail(email) != null) {
             return ResponseEntity.badRequest().body("El usuario ya existe");
         }
 
-        // Para no gardar datos en plano el metodo encode encripta la contraseña
+        // Verifica que el rol y el estado de cuenta sean válidos
+        UserRole userRole;
+        UserEstadoCuenta userEstadoCuenta;
+        try {
+            userRole = UserRole.valueOf(rol.toUpperCase()); // Convertir el rol a mayúsculas para evitar errores
+            userEstadoCuenta = UserEstadoCuenta.valueOf(estadoCuenta.toUpperCase()); // Convertir el estado a mayúsculas
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body("Rol o estado de cuenta inválido");
+        }
+
+        // Encripta la contraseña
         String hashedPassword = passwordEncoder.encode(password);
 
         // Crear un nuevo usuario
         Usuario nuevoUsuario = new Usuario();
+        nuevoUsuario.setNombre(nombre);
+        nuevoUsuario.setUser(user);
         nuevoUsuario.setEmail(email);
         nuevoUsuario.setContraseña(hashedPassword);
+        nuevoUsuario.setUserRole(userRole); // Establecer el rol
+        nuevoUsuario.setUserEstadoCuenta(userEstadoCuenta); // Establecer el estado de cuenta
 
-        usuarioRepository.save(nuevoUsuario);// Guardar el usuario en la base de datos
+        usuarioRepository.save(nuevoUsuario); // Guardar el usuario en la base de datos
 
         return ResponseEntity.ok("Usuario registrado exitosamente");
     }
