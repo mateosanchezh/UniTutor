@@ -1,5 +1,11 @@
 @charset "UTF-8";
-html, body {
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rochester&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rochester&family=Rowdies:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rochester&family=Rowdies:wght@300;400;700&display=swap");
+html,
+body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
@@ -42,7 +48,7 @@ body {
 
 .nav-links a {
   color: white;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   margin: 15px 20px;
   text-decoration: none;
@@ -79,24 +85,28 @@ body {
   transition: all 0.3s ease;
   border: 2px solid transparent;
   border-radius: 25px;
-  width: 170px; /* Ancho reducido */
+  width: 170px;
+  /* Ancho reducido */
 }
 
 /* Estilo cuando el contenedor está expandido */
 .login-container.expanded {
   background: transparent;
   border-color: white;
-  width: 200px; /* Ancho fijo cuando está expandido */
+  width: 200px;
+  /* Ancho fijo cuando está expandido */
 }
 
 /* Botón de inicio de sesión */
 .login-button {
   background-color: transparent;
   color: white;
-  padding: 8px 12px; /* Padding reducido */
+  padding: 8px 12px;
+  /* Padding reducido */
   border: 2px solid white;
   cursor: pointer;
-  font-size: 14px; /* Tamaño de fuente reducido */
+  font-size: 14px;
+  /* Tamaño de fuente reducido */
   border-radius: 25px;
   display: flex;
   align-items: center;
@@ -115,18 +125,21 @@ body {
 /* Icono de usuario */
 .fauser {
   margin-left: 5px;
-  font-size: 16px; /* Tamaño del icono reducido */
+  font-size: 16px;
+  /* Tamaño del icono reducido */
 }
 
 /* Icono de chevron */
 .chevron {
   margin-left: 5px;
-  font-size: 12px; /* Tamaño del icono reducido */
+  font-size: 12px;
+  /* Tamaño del icono reducido */
 }
 
 /* Texto del botón de login */
 .login-text {
-  font-size: 12px; /* Tamaño de fuente reducido */
+  font-size: 12px;
+  /* Tamaño de fuente reducido */
 }
 
 /* Contenedor del formulario de login */
@@ -139,12 +152,14 @@ body {
 
 /* Expande el contenedor del formulario cuando está activo */
 .login-container.expanded .login-form-container {
-  max-height: 200px; /* Ajusta este valor según sea necesario */
+  max-height: 200px;
+  /* Ajusta este valor según sea necesario */
 }
 
 /* Formulario de login */
 .login-form {
-  padding: 12px; /* Padding reducido */
+  padding: 12px;
+  /* Padding reducido */
   width: 100%;
   box-sizing: border-box;
 }
@@ -152,7 +167,8 @@ body {
 /* Grupo de inputs */
 .login-form .input-group {
   position: relative;
-  margin-bottom: 8px; /* Margen reducido */
+  margin-bottom: 8px;
+  /* Margen reducido */
 }
 
 /* Iconos dentro de los inputs */
@@ -162,13 +178,15 @@ body {
   top: 50%;
   transform: translateY(-50%);
   color: white;
-  font-size: 14px; /* Tamaño del icono reducido */
+  font-size: 14px;
+  /* Tamaño del icono reducido */
 }
 
 /* Inputs del formulario */
 .login-form input {
   width: 100%;
-  padding: 6px 6px 6px 28px; /* Padding ajustado */
+  padding: 6px 6px 6px 28px;
+  /* Padding ajustado */
   border: 1px solid white;
   background-color: transparent;
   color: white;
@@ -188,8 +206,10 @@ body {
 /* Botón de envío del formulario */
 .login-form button[type=submit] {
   width: 100%;
-  padding: 6px; /* Padding reducido */
-  margin-top: 8px; /* Margen superior reducido */
+  padding: 6px;
+  /* Padding reducido */
+  margin-top: 8px;
+  /* Margen superior reducido */
   background-color: transparent;
   color: white;
   border: 1px solid white;
@@ -285,8 +305,8 @@ body {
   margin: 2px;
   font-size: 40px;
   margin-right: 10px;
+  font-weight: 500;
   font-family: "Roboto Condensed", sans-serif;
-  font-weight: 900;
   margin: 20px;
 }
 .Unitutor .Home .vertical-line {
@@ -310,15 +330,22 @@ body {
   font-size: 45px;
   margin: 10px;
   padding-left: 0;
+  font-weight: 500;
   font-family: "Roboto Condensed", sans-serif;
-  line-height: 1.2; /* Ajusta el espaciado entre líneas según sea necesario */
+  line-height: 1.2;
+  /* Ajusta el espaciado entre líneas según sea necesario */
   /* Estilos para el texto destacado */
 }
 .Unitutor .Home h1 .fuente {
-  font-family: "Playfair Display", serif;
-  font-weight: 700; /* Negrita para el texto destacado */
-  color: white; /* Color dorado para el texto destacado, ajusta según tus preferencias */
-  font-style: italic; /* Estilo itálico para mayor contraste */
+  font-family: "Rochester", cursive;
+  font-weight: 300;
+  font-size: 55px;
+  /* Negrita para el texto destacado */
+  color: white;
+  /* Color dorado para el texto destacado, ajusta según tus preferencias */
+  font-style: normal;
+  /* Estilo itálico para mayor contraste */
+  line-height: 1.2;
 }
 .Unitutor .Home .explore-button {
   width: 160px;
@@ -409,7 +436,7 @@ body {
     margin: 20px 0;
   }
   /* Ajusta el tamaño y alineación del texto principal en pantallas pequeñas */
-  .Unitutor h1 {
+  .Unitutor h1, .fuente {
     font-size: 40px;
     text-align: center;
   }
@@ -419,8 +446,10 @@ body {
     text-align: center;
   }
   .explore-button {
-    margin: 20px auto 0; /* Centra el botón horizontalmente y añade margen superior */
-    display: block; /* Asegura que el botón ocupe todo el ancho disponible */
+    margin: 20px auto 0;
+    /* Centra el botón horizontalmente y añade margen superior */
+    display: block;
+    /* Asegura que el botón ocupe todo el ancho disponible */
   }
 }
 /*# ASIGNATURAS */
@@ -442,7 +471,7 @@ body {
 @media (min-width: 768px) {
   .asignaturas .container {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-between x;
     padding: 50px;
   }
 }
@@ -458,8 +487,16 @@ body {
   }
 }
 .asignaturas .container .left-section h1 {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
   font-size: 36px;
+  color: #0E0F02;
+}
+.asignaturas .container .left-section h1 .titulo2 {
+  margin-left: 40px;
+  font-family: "Rowdies", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
 @media (min-width: 768px) {
   .asignaturas .container .left-section h1 {
@@ -477,7 +514,7 @@ body {
 }
 @media (min-width: 768px) {
   .asignaturas .container .right-section {
-    height: 500px;
+    height: 510px;
     padding: 40px;
     margin-top: 0;
   }
@@ -497,6 +534,7 @@ h1 {
 h2 {
   font-size: 22px;
   margin-top: 0;
+  font-family: "Roboto Condensed", sans-serif;
 }
 @media (min-width: 768px) {
   h2 {
@@ -505,13 +543,14 @@ h2 {
 }
 
 p {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.5;
   color: #555;
 }
 @media (min-width: 768px) {
   p {
-    font-size: 16px;
+    font-size: 20px;
+    text-align: justify;
   }
 }
 
@@ -608,14 +647,22 @@ p {
   margin: 0;
   font-size: 12px;
   color: white;
-  font-style: italic;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 100;
+}
+.subject-card .subject {
+  margin: 0;
+  font-size: 14px;
+  color: black;
+  text-align: center;
+  font-weight: 700;
 }
 .subject-card .subject-info {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(100% - 27px);
+  height: calc(100% - 31px);
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   display: flex;
@@ -627,17 +674,19 @@ p {
   pointer-events: none;
 }
 .subject-card .subject-info h3 {
-  font-size: 16px;
-  margin-bottom: 5px;
+  font-size: 14px;
   font-style: italic;
+  font-family: "Roboto", sans-serif;
 }
 .subject-card .subject-info .semester {
   font-size: 12px;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
+  font-style: italic;
 }
 .subject-card .subject-info .description {
   font-size: 10px;
   padding: 0 10px;
+  font-style: italic;
 }
 .subject-card:hover .subject-info {
   opacity: 1;
@@ -662,7 +711,7 @@ p {
 
 /* Sección de Profesores */
 .PROFESORES {
-  background-image: url(img/Fondo1.png);
+  background-image: url(img/Fondo2.png);
   background-size: cover;
   background-position: center;
   border-top-left-radius: 25px;
@@ -671,6 +720,7 @@ p {
   /* Radio de esquina superior derecha */
   color: white;
   font-family: "Roboto", sans-serif;
+  font-weight: 300;
   margin: 0px 60px;
   padding: 20px 80px;
   background-attachment: fixed;
@@ -681,6 +731,7 @@ p {
   font-size: 36px;
   text-align: left;
   margin-bottom: 30px;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 /* Contenedor de Profesores */
@@ -699,13 +750,13 @@ p {
   margin-bottom: 5px;
   /* Ajusta el margen inferior */
   margin-top: 0px;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 300;
 }
 
 .prof p {
-  font-size: 16px;
-  /* Asegúrate de que el tamaño sea apropiado */
+  font-size: 14px;
   margin-top: 0;
-  /* Elimina margen superior */
   color: white;
 }
 
@@ -728,7 +779,8 @@ p {
 }
 
 .prof {
-  transition: transform 0.3s ease-in-out; /* Aplica transición tanto en hover como al quitar el hover */
+  transition: transform 0.3s ease-in-out;
+  /* Aplica transición tanto en hover como al quitar el hover */
 }
 
 /* Clases específicas para las imágenes de los profesores */
@@ -764,6 +816,7 @@ p {
   font-size: 19px;
   max-width: 800px;
   line-height: 1.5;
+  font-family: "Roboto Flex", sans-serif;
 }
 
 .profesores2 p {
@@ -813,18 +866,17 @@ p {
 }
 
 .cuadro h5 {
-  font-size: 18px;
+  font-size: 17px;
   margin: 0;
+  font-family: "Roboto Condensed", sans-serif;
   /* Quitar margen superior e inferior */
 }
 
 .cuadro p {
   font-size: 14px;
-  line-height: 1.4;
-  margin: 0;
-  /* Quitar margen superior e inferior */
+  line-height: 1;
   color: white;
-  margin-top: 10px;
+  margin-top: 11px;
 }
 
 .cuadro:hover p {
@@ -859,7 +911,7 @@ p {
   /* Espaciado interno para cada enlace */
   font-size: 16px;
   /* Ajustar tamaño de fuente si es necesario */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 .foot a:hover {
@@ -868,7 +920,7 @@ p {
 }
 
 footer {
-  background-color: #0E0F02;
+  background-color: #0e0f02;
   /* Cambia el color de fondo si es necesario */
   padding: 20px 0;
   /* Espaciado arriba y abajo */
@@ -888,7 +940,7 @@ footer p {
   /* Eliminar margen para evitar espacios innecesarios */
   font-size: 16px;
   /* Ajustar tamaño de fuente si es necesario */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 .imgfooter {
@@ -1044,7 +1096,7 @@ footer p {
   }
 }
 .registropage body {
-  background-color: #0E0F02;
+  background-color: #0e0f02;
 }
 .registropage .cuadro-registro {
   width: 100%;
@@ -1055,29 +1107,29 @@ footer p {
 
 .admin-page {
   font-family: "Arial", sans-serif;
-  background-color: #f5f5f5;
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-.admin-page header {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 10px 0;
+  /* Ajusta el contenido principal para dejar espacio al sidebar */
+  /* Ajusta el footer para que no se superponga con el sidebar */
 }
 .admin-page .header-content {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 20px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
 }
+.admin-page h3 {
+  text-align: center;
+  color: #5c2771;
+}
 .admin-page .logo {
   display: flex;
   align-items: center;
   gap: 10px;
-  width: 70%;
 }
 .admin-page .Unitutornegro {
   width: 60px;
@@ -1085,7 +1137,7 @@ footer p {
 .admin-page .logo-icon {
   width: 40px;
   height: 40px;
-  background-color: #5E2BC9;
+  background-color: #5c2771;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -1098,17 +1150,18 @@ footer p {
   font-size: 24px;
   font-weight: 700;
   color: black;
-  margin: 15px;
+  margin-left: 15px;
 }
 .admin-page .search-bar {
-  width: 700px;
+  width: 55%;
   border-radius: 0px;
 }
 .admin-page .search-bar .MuiOutlinedInput-input {
-  padding-left: 40px; /* Ajusta este valor según necesites */
+  padding-left: 40px;
+  /* Ajusta este valor según necesites */
 }
 .admin-page .buscar {
-  width: 700px;
+  width: 500px;
 }
 .admin-page .search-icon,
 .admin-page .settings-icon {
@@ -1136,25 +1189,34 @@ footer p {
 }
 .admin-page .container {
   max-width: 1200px;
-  margin: 20px auto;
+  margin: 100px auto;
   padding: 0 20px;
   flex-grow: 1;
+  margin-left: 140px;
 }
 .admin-page .user-list {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  color: black;
 }
 .admin-page .user-row {
   display: grid;
   grid-template-columns: 2fr 1fr auto;
   gap: 15px;
   align-items: center;
-  background-color: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.admin-page .user-row .MuiTextField-root {
+  background-color: #f5f5f5;
+}
+.admin-page .user-row .MuiInputBase-input {
+  color: black;
+}
+.admin-page .user-row .MuiInputBase-root.Mui-disabled {
+  background-color: #f5f5f5;
+}
+.admin-page .user-row .MuiInputBase-root.Mui-disabled .MuiInputBase-input {
+  color: black;
+  -webkit-text-fill-color: black;
 }
 .admin-page .action-buttons {
   display: flex;
@@ -1165,7 +1227,7 @@ footer p {
   border: 1px solid #ccc;
   cursor: pointer;
   font-size: 18px;
-  color: #000; /* Changed to black */
+  color: #000;
   padding: 8px;
   display: flex;
   justify-content: center;
@@ -1176,65 +1238,125 @@ footer p {
   transition: background-color 0.3s, color 0.3s;
 }
 .admin-page .action-button:hover {
-  background-color: #5E2BC9;
+  background-color: #5c2771;
   color: #fff;
 }
-.admin-page footer {
-  background-color: #fff;
-  padding: 20px 0;
-  margin-top: auto;
+.admin-page .upload {
+  width: 20%;
+  border-radius: 20px;
+  margin-right: 0;
 }
 .admin-page .pagination {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  align-items: center;
+  margin: 20px 0;
 }
 .admin-page .page-button {
   background: none;
-  border: 1px solid #5E2BC9;
-  color: #5E2BC9;
-  padding: 5px 10px;
+  border: 1px solid #5c2771;
+  color: black;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
+  font-size: 16px;
+  /* Incrementa el tamaño de la fuente */
+  padding: 15px;
+  height: 50px;
 }
 .admin-page .flecha {
   background: none;
-  border: 1px solid black;
+  border: 1px solid #5c2771;
   color: black;
-  padding: 5px 10px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
+  font-size: 16px;
+  /* Incrementa el tamaño de la fuente */
+  padding: 15px;
+  height: 50px;
 }
-.admin-page .flechas {
-  height: 20px;
+.admin-page .page-button .flechas,
+.admin-page .flecha .flechas {
+  font-size: 20px;
+  /* Incrementa el tamaño de las flechas */
 }
-.admin-page .page-button:first-child {
-  border-radius: 4px 0 0 4px;
-}
-.admin-page .page-button:last-child {
-  border-radius: 0 4px 4px 0;
-}
-.admin-page .page-button:not(:first-child) {
-  border-left: none;
-}
-.admin-page .page-button.active,
-.admin-page .page-button:hover {
-  background-color: #5E2BC9;
-  color: white;
-}
+.admin-page .page-button:first-child,
 .admin-page .flecha:first-child {
   border-radius: 4px 0 0 4px;
 }
+.admin-page .page-button:last-child,
 .admin-page .flecha:last-child {
   border-radius: 0 4px 4px 0;
 }
+.admin-page .page-button:not(:first-child),
 .admin-page .flecha:not(:first-child) {
   border-left: none;
 }
-.admin-page .flecha.active,
+.admin-page .page-button.active,
+.admin-page .page-button:hover,
 .admin-page .flecha:hover {
-  background-color: #5E2BC9;
+  background-color: #5c2771;
   color: white;
+}
+.admin-page .sidebar {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 250px;
+  /* Ajusta este valor según tus necesidades */
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  /* Aumentado el espaciado entre elementos */
+  overflow-y: auto;
+  /* Permite scroll si el contenido es muy largo */
+}
+.admin-page .sidebar h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.admin-page .upload {
+  width: 80%;
+  /* Ajusta el ancho del botón */
+  margin: 0 auto;
+  /* Centra el botón */
+}
+.admin-page .sidebar-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s;
+  width: 100%;
+  padding: 10px 0;
+}
+.admin-page .sidebar-link:hover {
+  color: #5c2771;
+}
+.admin-page .sidebar-icon {
+  margin-right: 12px;
+  font-size: 20px;
+  /* Aumenta el tamaño de los iconos */
+}
+.admin-page .container {
+  margin-right: 270px;
+  /* Ajusta este valor según el ancho del sidebar */
+}
+.admin-page footer {
+  margin-right: 270px;
+  /* Ajusta este valor según el ancho del sidebar */
+}
+.admin-page footer {
+  margin-top: auto;
+  padding: 20px 0;
+  border-top: 1px solid #e0e0e0;
+  background-color: white;
+  margin-right: 40px;
 }
 .admin-page .footer-content {
   max-width: 1200px;
@@ -1243,8 +1365,12 @@ footer p {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  border-top: 1px solid #e0e0e0;
-  padding-top: 20px;
+}
+.admin-page .linea-vertical {
+  width: 2px;
+  height: 50px;
+  background-color: black;
+  margin: 0 40px;
 }
 .admin-page .social-icons {
   display: flex;

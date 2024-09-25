@@ -126,8 +126,8 @@ const handleLoginClick = () => {
               <div className="vertical-line"></div>
               <div className="text-button-wrapper">
               <h1>
-                De lo presencial a <br />
-                <span class="fuente">lo virtual</span>,<br />
+                De lo presencial <br />
+                <span class="fuente">a lo virtual</span>,<br />
                 simplificando<br/>
                 <span class="fuente">el aprendizaje</span>.<br />
               </h1>
@@ -157,8 +157,8 @@ const handleLoginClick = () => {
         <section className="asignaturas" ref={asignaturasRef}>
           <div className="container">
             <div className="left-section">
-              <h1>¿POR QUE USAR <br />UNITUTOR?</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <h1>¿POR QUE USAR <br /> <span className='titulo2'> UNITUTOR? </span></h1>
+              <p className='texto'>Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit, sed do eiusmod tempor incididunt ut labore  et<br /> dolore magna aliqua.</p>
               
               <button
                   className={`explorar-button ${isHovered ? 'hovered' : ''}`}
@@ -188,7 +188,7 @@ const handleLoginClick = () => {
                   {/* Mostramos la imagen de la asignatura */}
                   <img src={subject.image} alt={subject.name} />
                   {/* Mostramos el nombre de la asignatura debajo de la imagen */}
-                  <p>{subject.name}</p>
+                  <p className='subject'>{subject.name}</p>
                   {/* Este div contiene la información que se muestra al hacer hover */}
                   <div className="subject-info">
                     {/* Título de la asignatura */}
