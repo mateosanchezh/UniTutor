@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUser, FaBars, FaTimes, FaEye, FaEyeSlash, FaChevronDown, FaChevronUp } from "react-icons/fa";
 
-const Navbar = () => {
+const Navbar = ({ scrollToSection }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showLoginForm, setShowLoginForm] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -42,6 +42,11 @@ const Navbar = () => {
     };
   }, [isOpen, showLoginForm]);
 
+  const handleNavClick = (section) => {
+    setIsOpen(false);
+    scrollToSection(section);
+  };
+
   return (
     <nav className="navbar" ref={navRef}>
       <div className='menu-icon' onClick={toggleMenu}>
@@ -50,8 +55,8 @@ const Navbar = () => {
       <div className={`sidebar ${isOpen ? 'open' : ''}`}>
         <ul className='nav-links'>
           <li><Link to="/" onClick={() => setIsOpen(false)}>INICIO</Link></li>
-          <li><Link to="/asignaturas" onClick={() => setIsOpen(false)}>ASIGNATURAS</Link></li>
-          <li><Link to="/profesores" onClick={() => setIsOpen(false)}>PROFESORES</Link></li>
+          <li><a href="#" onClick={() => handleNavClick('asignaturas')}>ASIGNATURAS</a></li>
+          <li><a href="#" onClick={() => handleNavClick('profesores')}>PROFESORES</a></li>
           <li><Link to="/web" onClick={() => setIsOpen(false)}>WEB OFICIAL</Link></li>
           <li><Link to="#" onClick={() => setIsOpen(false)}>IDIOMA</Link></li>
         </ul>
