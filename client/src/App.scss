@@ -335,7 +335,7 @@ body {
     }
 
     /* Estilos para el texto principal */
-    h1 {
+      h1{
       color: white;
       font-size: 45px;
       margin: 10px;
@@ -344,6 +344,14 @@ body {
       font-family: "Roboto Condensed", sans-serif;
       line-height: 1.2;
       /* Ajusta el espaciado entre líneas según sea necesario */
+
+      @media (max-width: 769px) {
+        font-size: 70px;
+        text-align: center;
+        color: white;
+      }
+
+    }
 
       /* Estilos para el texto destacado */
       .fuente {
@@ -356,9 +364,15 @@ body {
         font-style: normal;
         /* Estilo itálico para mayor contraste */
         line-height: 1.2;
+
+        @media (max-width: 768px) {
+          font-size: 40px;
+          margin-left: 50px;
+          text-align: center;
+        }
       }
       
-    }
+    
 
     .explore-button {
       width: 160px;
@@ -380,6 +394,11 @@ body {
       overflow: hidden;
       position: relative;
       padding: 10px 20px;
+
+      @media (max-width: 768px) {
+        margin: 15px auto;
+      }
+    
 
       .button-text {
         transition: transform 0.3s ease;
@@ -421,7 +440,7 @@ body {
       }
     }
   }
-}
+
 
 /* Estilos generales para los iconos */
 .icon {
@@ -461,23 +480,25 @@ body {
     margin: 20px 0;
   }
 
-  /* Ajusta el tamaño y alineación del texto principal en pantallas pequeñas */
-  .Unitutor h1,.fuente {
-    font-size: 40px;
-    text-align: center;
-  }
 
   /* Centra el texto y el botón en pantallas pequeñas */
   .text-button-wrapper {
     align-items: center;
     text-align: center;
+    width: 100%; // Asegura que el wrapper ocupe todo el ancho disponible
   }
+
 
   .explore-button {
     margin: 20px auto 0;
     /* Centra el botón horizontalmente y añade margen superior */
-    display: block;
-    /* Asegura que el botón ocupe todo el ancho disponible */
+    display: flex; // Cambiamos a flex para mantener la estructura interna del botón
+    justify-content: center; // Centra el contenido del botón horizontalmente
+    align-items: center; // Centra el contenido del botón verticalmente
+    width: 160px; // Mantenemos el ancho original del botón
+  }
+
+
   }
 }
 
@@ -489,6 +510,14 @@ body {
   min-height: 100vh;
   height: auto;
   padding: 20px;
+  overflow-x: hidden;
+
+  @media (max-width: 768px) {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   .container {
     display: flex;
@@ -499,7 +528,7 @@ body {
 
     @media (min-width: 768px) {
       flex-direction: row;
-      justify-content: space-between  x;
+      justify-content: space-between;
       padding: 50px;
     }
 
@@ -508,25 +537,38 @@ body {
       padding-right: 0;
       margin-top: 20px;
 
-      @media (min-width: 768px) {
+      @media (max-width: 768px) {
+        text-align: center;
+        padding-right: 0;
+        margin-top: 20px;
+      }
+
+      @media (min-width: 769px) {
         padding-right: 40px;
-        margin-top: 160px;
+        margin-top: 30px;
       }
 
       h1 {
-        font-weight: 500;
+        font-weight: 400;
         font-family: "Roboto", sans-serif;
-        font-size: 36px;
+        font-size: 60px;
         color: #0E0F02;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 
-      .titulo2{
-        margin-left: 40px;
+        @media (max-width: 768px) {
+          font-size: 40px;
+        }
+      }
+    
+      .titulo2 {
+        margin-left: 50px;
         font-family: "Rowdies", sans-serif;
         font-weight: 500;
         font-style: normal;
-      }
-        @media (min-width: 768px) {
-          font-size: 50px;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+
+        @media (max-width: 768px) {
+          margin-left: 0;
         }
       }
     }
@@ -536,9 +578,16 @@ body {
       background-color: white;
       border: 1px solid white;
       border-radius: 10px;
-      padding: 20px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(0, 0, 0, 0.2);
       margin-top: 20px;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 0;
+        box-shadow: none;
+      }
 
       @media (min-width: 768px) {
         height: 510px;
@@ -546,212 +595,326 @@ body {
         margin-top: 0;
       }
     }
-  }
-}
 
-h1 {
-  font-size: 28px;
-  margin-bottom: 15px;
+    h2 {
+      font-size: 22px;
+      margin-top: 0;
+      font-family: "Roboto Condensed", sans-serif;
 
-  @media (min-width: 768px) {
-    font-size: 36px;
-    margin-bottom: 20px;
-  }
-}
-
-h2 {
-  font-size: 22px;
-  margin-top: 0;
-  font-family: "Roboto Condensed", sans-serif;
-
-  @media (min-width: 768px) {
-    font-size: 26px;
-  }
-}
-
-p {
-  font-size: 15px;
-  line-height: 1.5;
-  color: #555;
-  
-  
-
-  @media (min-width: 768px) {
-    font-size: 20px;
-    text-align: justify;
-  }
-}
-
-.explorar-button {
-  width: 140px;
-  height: 35px;
-  background: black;
-  border: none;
-  border-radius: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  font-size: 14px;
-  color: white;
-  font-weight: 700;
-  transition: all ease 0.5s;
-  margin: 15px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-  padding: 10px 20px;
-
-  @media (min-width: 768px) {
-    width: 160px;
-    font-size: 16px;
-    margin: 15px;
-    margin-top: 20px;
-  }
-
-  .button-text {
-    transition: transform 0.3s ease;
-  }
-
-  .icon-wrapper {
-    position: absolute;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    overflow: hidden;
-  }
-
-  .icon {
-    position: absolute;
-    transition: all 0.3s ease;
-    color: black;
-    opacity: 0;
-    transform: translateX(100%);
-  }
-
-  .right-arrow2.show {
-    opacity: 1;
-    transform: translateX(0);
-    color: white;
-  }
-
-  .down-arrow2.show {
-    opacity: 1;
-    transform: translateY(0);
-    color: white;
-  }
-
-  &.hovered {
-    .button-text {
-      transform: translateX(-10px);
+      @media (min-width: 768px) {
+        font-size: 26px;
+      }
     }
-  }
-}
 
-.popular-subjects {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 10px;
+    .texto {
+      font-size: 25px;
+      line-height: 1.0;
+      color: #555;
+      margin-right: 60px;
 
-  @media (min-width: 480px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+      @media (min-width: 769px) {
+        font-size: 29px;
+        text-align: justify;
+      }
 
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+      @media (max-width: 768px) {
+        margin-right: 0;
+        text-align: center;
+      }
+    }
 
-.subject-card {
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  
-
-  img {
-    width: 100%;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    transition: transform 0.3s ease;
-  }
-
-  p {
-    margin: 0;
-    font-size: 12px;
-    color: white;
-    font-family: "Roboto Condensed", sans-serif;
-    font-weight: 100;
-  }
-
-  .subject  {
-    margin: 0;
-    font-size: 14px;
-    color: black;
-    text-align: center;
-    font-weight: 700;
-  }
-
-  .subject-info {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: calc(100% - 31px);
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-
-    h3 {
+    .explorar-button {
+      width: 140px;
+      height: 35px;
+      background: #0E0F02;
+      border: none;
+      border-radius: 40px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
       font-size: 14px;
-      font-style: italic;
-      font-family: "Roboto", sans-serif;
+      color: white;
+      font-weight: 700;
+      transition: all ease 0.5s;
+      margin: 135px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      padding: 10px 20px;
+
+      @media (max-width: 768px) {
+        margin: 15px auto;
+      }
+
+      .button-text {
+        transition: transform 0.3s ease;
+      }
+
+      .icon-wrapper {
+        position: absolute;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        overflow: hidden;
+      }
+
+      .icon {
+        position: absolute;
+        transition: all 0.3s ease;
+        color: white;
+        opacity: 0;
+        transform: translateX(100%);
+      }
+
+      .right-arrow2.show {
+        opacity: 1;
+        transform: translateX(0);
+        color: white;
+      }
+
+      .down-arrow2.show {
+        opacity: 1;
+        transform: translateY(0);
+        color: white;
+      }
+
+      &.hovered {
+        .button-text {
+          transform: translateX(-10px);
+        }
+      }
     }
 
-    .semester {
-      font-size: 12px;
-      margin-bottom: 7px;
-      font-style: italic;
+    .popular-subjects {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 10px;
+      margin-top: -10px;
+
+      @media (min-width: 480px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (min-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
-    .description {
-      font-size: 10px;
-      padding: 0 10px;
-      font-style: italic;
+    .subject-card {
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-radius: 9px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      margin-top: 10px;
+
+      @media (max-width: 768px) {
+        width: 90%;
+        max-width: 300px;
+      }
+
+      img {
+        width: 100%;
+        border-radius: 9px;
+        margin-bottom: 5px;
+        transition: transform 0.3s ease;
+        flex-grow: 1;
+        object-fit: cover;
+      }
+
+      .subject {
+        margin: 0;
+        font-size: 14px;
+        color: black;
+        text-align: center;
+        font-weight: 400;
+        text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Roboto", sans-serif;
+
+        @media (max-width: 768px) {
+          font-size: 19px;
+        }
+      }
+
+      .info-button {
+        display: none;
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #0E0F02;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        @media (max-width: 767px) {
+          display: block;
+          width: 80%;
+          margin: 10px auto;
+        }
+
+        &:active {
+          background-color: #2a2a2a;
+          transform: translateY(1px);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+      }
+
+      .subject-info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 25px);
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        pointer-events: none;
+        font-family: "Roboto", sans-serif;
+        border-radius: 9px;
+        text-transform: uppercase;
+        transform: translateY(-10px);
+
+        h3 {
+          font-size: 10px;
+          font-style: italic;
+          font-weight: 500;
+          margin: 0;
+          padding: 5px;
+        }
+
+        .semester {
+          font-size: 10px;
+          margin-bottom: 7px;
+          font-style: italic;
+        }
+
+        .description {
+          font-size: 8px;
+          padding: 0 10px;
+          font-style: italic;
+        }
+
+        @media (max-width: 767px) {
+          position: static;
+          opacity: 0;
+          height: 0;
+          overflow: hidden;
+          transition: all 0.5s ease;
+          transform: translateY(-20px);
+          background-color: rgba(14, 15, 2, 0.95);
+          border-radius: 9px;
+          padding: 0;
+          margin-top: 10px;
+
+          &.show {
+            opacity: 1;
+            height: auto;
+            padding: 20px;
+            transform: translateY(0);
+          }
+
+          h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+          }
+
+          .semester {
+            font-size: 18px;
+            margin-bottom: 15px;
+          }
+
+          .description {
+            font-size: 16px;
+            padding: 0 15px;
+            line-height: 1.4;
+          }
+        }
+      }
+
+      // Estilos para pantallas grandes (escritorio)
+      @media (min-width: 768px) {
+        &:hover {
+          .subject-info {
+            opacity: 1;
+            transform: translateY(0);
+          }
+
+          img {
+            transform: scale(1.05);
+          }
+        }
+      }
+
+      // Estilos específicos para dispositivos móviles
+      @media (max-width: 767px) {
+        .info-button {
+          display: block;
+        }
+
+        // Eliminamos todos los efectos de hover para móviles
+        &:hover, &:active, &:focus {
+          .subject-info {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+
+          img {
+            transform: none;
+          }
+        }
+
+        // Aseguramos que el cuadro de información solo se muestre cuando tenga la clase .show
+        .subject-info {
+          &:not(.show) {
+            opacity: 0;
+            height: 0;
+            padding: 0;
+          }
+        }
+      }
     }
   }
 
-  &:hover {
-    .subject-info {
-      opacity: 1;
-    }
 
-    img {
-      transform: scale(1.1);
-    }
-  }
-}
-
-.UnitutorLogonegro {
-  width: 30px;
-  height: auto;
-  float: right;
-  margin-right: 20px;
-  margin-top: -60px;
-
-  @media (min-width: 768px) {
+  .UnitutorLogonegro {
     width: 40px;
+    height: auto;
+    float: right;
+    margin-right: 20px;
     margin-top: -120px;
+    transition: all 0.3s ease;
+
+    @media (max-width: 767px) {
+      width: 0px;
+      margin-top: 30px;
+      margin-right: 10px;
+      float: none;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 }
+
+
 
 /* Sección de Profesores */
 .PROFESORES {
@@ -767,7 +930,6 @@ p {
   font-weight: 300;
   margin: 0px 60px;
   padding: 20px 80px;
-  background-attachment: fixed;
 }
 
 /* Título */
@@ -914,8 +1076,7 @@ p {
   font-size: 17px;
   margin: 0;
   font-family: "Roboto Condensed", sans-serif;
-  /* Quitar margen superior e inferior */
-  
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
 
 .cuadro p {
@@ -923,6 +1084,7 @@ p {
   line-height: 1.0;
   color: white;
   margin-top: 11px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
 
 .cuadro:hover p {
@@ -1122,6 +1284,7 @@ footer p {
 
   .cuadro {
     width: 100%;
+    
   }
 
   .foot {
@@ -1210,6 +1373,7 @@ footer p {
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 70%;
   }
 
   .Unitutornegro {
@@ -1232,13 +1396,19 @@ footer p {
   .logo-text {
     font-size: 24px;
     font-weight: 700;
-    color: black;
+    color: #5c2771;
     margin-left: 15px;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .unifooter{
+    font-family: "Roboto Condensed", sans-serif;
   }
 
   .search-bar {
     width: 55%;
     border-radius: 0px;
+    margin-right: 200px;
   }
 
   .search-bar .MuiOutlinedInput-input {
@@ -1247,7 +1417,8 @@ footer p {
   }
 
   .buscar {
-    width: 500px;
+    width: 600px;
+  
   }
 
   .search-icon,
@@ -1346,6 +1517,7 @@ footer p {
     width: 20%;
     border-radius: 20px;
     margin-right: 0;
+    background-color: #5c2771;
   }
 
   .pagination {
@@ -1408,20 +1580,18 @@ footer p {
   }
 
   .sidebar {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 250px;
-    /* Ajusta este valor según tus necesidades */
+    width: 200px;
     background-color: white;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    /* Aumentado el espaciado entre elementos */
+    position: absolute;
+    top: 20px;
+    right: 0;
+    height: 100%;
     overflow-y: auto;
-    /* Permite scroll si el contenido es muy largo */
   }
 
   .sidebar h3 {
@@ -1430,6 +1600,7 @@ footer p {
     font-weight: bold;
     text-align: center;
     margin-bottom: 20px;
+    font-family: "Roboto", sans-serif;
   }
 
   .upload {
@@ -1498,10 +1669,106 @@ footer p {
   .social-icons {
     display: flex;
     gap: 15px;
+    transition: transform 0.3s ease;
+    &:hover{
+      transform: scale(1.2);
+    }
   }
 
   .social-icon {
     color: black;
     font-size: 20px;
   }
+}
+
+.loginformpage {
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  .form-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .form-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2d3748;
+  }
+  
+  .error-message {
+    color: #f56565;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e0;
+    border-radius: 4px;
+    font-size: 16px;
+    &:focus {
+      outline: none;
+      border-color: #3182ce;
+      box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    }
+  }
+  
+  .forgot-password {
+    text-align: right;
+    margin-bottom: 20px;
+    a {
+      font-size: 14px;
+      color: #4299e1;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    &:hover {
+      background-color: #2d3748;
+    }
+  }
+
 }
