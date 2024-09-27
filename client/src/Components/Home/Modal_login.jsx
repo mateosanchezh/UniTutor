@@ -7,7 +7,7 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Lógica de envío
+    // Lógica de envíoq
     console.log('Login intentado con:', username, password);
   };
 
