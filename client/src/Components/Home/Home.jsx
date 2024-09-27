@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from "./Navbar";
+import LoginForm from './LoginForm';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import "../../App.css";
@@ -21,11 +22,38 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const Home = () => {
 
+
+  const [activeSubject, setActiveSubject] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
   const [showDownArrow, setShowDownArrow] = useState(false);
   const asignaturasRef = useRef(null);
   const profesoresRef = useRef(null); 
 
+
+  const scrollToSection = (section) => {
+    let ref;
+    switch(section) {
+      case 'asignaturas':
+        ref = asignaturasRef;
+        break;
+      case 'profesores':
+        ref = profesoresRef;
+        break;
+      default:
+        return;
+    }
+    
+    if (ref && ref.current) {
+      ref.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+
+  const toggleSubjectInfo = (index) => {
+    setActiveSubject(activeSubject === index ? null : index);
+  };
+
+  
 
   useEffect(() => {
     let timer;
@@ -62,63 +90,66 @@ const handleLoginClick = () => {
     { 
       name: 'Desarrollo de software', 
       image: Foto1,
-      description: 'Aprende a diseñar y construir aplicaciones robustas y escalables.',
-      semester: 'Asignatura de tercer semestre'
+      description: '- AUMENTA TUS HABILIDADES DE PROGRAMACION',
+      semester: 'ASIGNATURA DE SEXTO SEMESTRE'
     },
     { 
-      name: 'Desarrollo de software II', 
+      name: 'Desarrollo de software ', 
       image: Foto1,
-      description: 'Profundiza en técnicas avanzadas de desarrollo y arquitectura de software.',
-      semester: 'Asignatura de cuarto semestre'
+      description: '- AUMENTA TUS HABILIDADES DE PROGRAMACION',
+      semester: 'ASIGNATURA DE SEXTO SEMESTRE'
     },
     { 
-      name: 'Desarrollo de software III', 
+      name: 'Desarrollo de software ', 
       image: Foto1,
-      description: 'Explora el desarrollo de aplicaciones empresariales y sistemas distribuidos.',
-      semester: 'Asignatura de quinto semestre'
+      description: '- AUMENTA TUS HABILIDADES DE PROGRAMACION',
+      semester: 'ASIGNATURA DE SEXTO SEMESTRE'
     },
     { 
-      name: 'Matemáticas discretas', 
+      name: 'Matematicas discretas', 
       image: Foto2,
-      description: 'Estudia los fundamentos matemáticos esenciales para la ciencia de la computación.',
-      semester: 'Asignatura de segundo semestre'
+      description: '- CONOCE NUEVAS MANERAS DE RESOLVER PROBLEMAS',
+      semester: 'ASIGNATURA DE SEXTO SEMESTRE'
     },
     { 
-      name: 'Matemáticas discretas II', 
+      name: 'Matematicas discretas', 
       image: Foto2,
-      description: 'Profundiza en temas avanzados de matemáticas discretas y sus aplicaciones.',
-      semester: 'Asignatura de tercer semestre'
+      description: '- CONOCE NUEVAS MANERAS DE RESOLVER PROBLEMAS',
+      semester: 'ASIGNATURA DE SEXTO SEMESTRE'
     },
     { 
-      name: 'Estructuras discretas', 
+      name: 'Matematicas discretas', 
       image: Foto2,
-      description: 'Explora estructuras matemáticas fundamentales para algoritmos y computación.',
-      semester: 'Asignatura de cuarto semestre'
+      description: '- CONOCE NUEVAS MANERAS DE RESOLVER PROBLEMAS',
+      semester: 'ASIGNATURA DE SEXTO SEMESTRE'
     },
     { 
-      name: 'Análisis de datos', 
+      name: 'Analisis de datos ', 
       image: Foto3,
-      description: 'Aprende técnicas fundamentales para extraer información valiosa de conjuntos de datos.',
-      semester: 'Asignatura de quinto semestre'
+      description: '- APRENDE A SER UN MEJOR ANALISTA DE DATOS',
+      semester: 'ASIGNATURA DE SEXTO SEMESTRE'
     },
     { 
-      name: 'Análisis de datos avanzado', 
+      name: 'Analisis de datos ', 
       image: Foto3,
-      description: 'Profundiza en métodos estadísticos y de aprendizaje automático para el análisis de datos.',
-      semester: 'Asignatura de sexto semestre'
+      description: '- APRENDE A SER UN MEJOR ANALISTA DE DATOS',
+      semester: 'ASIGNATURA DE SEXTO SEMESTRE'
     },
     { 
-      name: 'Minería de datos', 
+      name: 'Analisis de datos ', 
       image: Foto3,
-      description: 'Explora técnicas avanzadas para descubrir patrones y conocimientos en grandes conjuntos de datos.',
-      semester: 'Asignatura de séptimo semestre'
+      description: '- APRENDE A SER UN MEJOR ANALISTA DE DATOS',
+      semester: 'ASIGNATURA DE SEXTO SEMESTRE'
     },
   ];
+
+
   return (
     <div className="Homepage flex">
       <main>
         <section className="Unitutor">
-          <Navbar />
+        <Navbar scrollToSection={scrollToSection} />
+        <LoginForm/>
           <div className="Home">
             <div className="content-wrapper">
               <img src={Group} alt="Logo Unitutor" className="UnitutorLogo" />
@@ -127,9 +158,9 @@ const handleLoginClick = () => {
               <div className="text-button-wrapper">
               <h1>
                 De lo presencial <br />
-                <span class="fuente">a lo virtual</span>,<br />
+                <span className="fuente">a lo virtual,</span><br />
                 simplificando<br/>
-                <span class="fuente">el aprendizaje</span>.<br />
+                <span className="fuente">el aprendizaje.</span><br />
               </h1>
                 <button
                   className={`explore-button ${isHovered ? 'hovered' : ''}`}
@@ -181,23 +212,21 @@ const handleLoginClick = () => {
         <div className="right-section">
             <h2>ASIGNATURAS POPULARES</h2>
             <div className="popular-subjects">
-              {/* Utilizamos map para iterar sobre el array de asignaturas */}
               {subjects.map((subject, index) => (
-                // Para cada asignatura, creamos un div que actúa como una tarjeta
                 <div key={index} className="subject-card">
-                  {/* Mostramos la imagen de la asignatura */}
                   <img src={subject.image} alt={subject.name} />
-                  {/* Mostramos el nombre de la asignatura debajo de la imagen */}
                   <p className='subject'>{subject.name}</p>
-                  {/* Este div contiene la información que se muestra al hacer hover */}
-                  <div className="subject-info">
-                    {/* Título de la asignatura */}
+                  <div className={`subject-info ${activeSubject === index ? 'show' : ''}`}>
                     <h3>{subject.name}</h3>
-                    {/* Semestre de la asignatura */}
                     <p className="semester">{subject.semester}</p>
-                    {/* Descripción de la asignatura */}
                     <p className="description">{subject.description}</p>
                   </div>
+                  <button 
+                    className="info-button" 
+                    onClick={() => toggleSubjectInfo(index)}
+                  >
+                    {activeSubject === index ? 'Cerrar' : 'Más info'}
+                  </button>
                 </div>
               ))}
             </div>
@@ -205,6 +234,8 @@ const handleLoginClick = () => {
           </div>
           <img src={UnitutorLogo} alt="Logo Unitutor" className="UnitutorLogonegro" /> 
         </section>
+
+
         <section className="PROFESORES" ref={profesoresRef}>
   <div className="profesores">
     <h1>PROFESORES MEJOR CALIFICADOS</h1>
@@ -230,7 +261,6 @@ const handleLoginClick = () => {
         <p>Prof. Matemática discreta</p>
       </div>
     </div>
-
             <div className="profesores2">
                 <h1>¿Por qué escoger nuestros profesores?</h1>
              <article>
