@@ -1,8 +1,7 @@
 package com.Unitutor.UniTutor.service;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -11,8 +10,12 @@ import java.util.Map;
 
 @Service
 public class JwtService {
-    private final String SECRET_KEY = "mi_secreto"; // Cambia esto a un valor más seguro
-    private final long EXPIRATION_TIME = 86400000; // 1 día en milisegundos
+    @Value("${jwt.secret_key}")
+    private String SECRET_KEY;
+
+    @Value("${jwt.expiration}")
+    private long EXPIRATION_TIME;
+
 
     public String generateToken(String email) {
         Map<String, Object> claims = new HashMap<>();
@@ -37,10 +40,14 @@ public class JwtService {
     public String extractUsername(String token) {
         return extractAllClaims(token).getSubject();
     }
-
     private Claims extractAllClaims(String token) {
-        return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
+        return Jwts.parser()
+                .setSigningKey(SECRET_KEY)
+                .parseClaimsJws(token)
+                .getBody();
     }
+
+
 
     private Boolean isTokenExpired(String token) {
         return extractAllClaims(token).getExpiration().before(new Date());
