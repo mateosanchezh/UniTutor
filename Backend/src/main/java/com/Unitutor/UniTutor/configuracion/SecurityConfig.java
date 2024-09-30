@@ -31,6 +31,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/api/auth/**").permitAll() // Permitir acceso a la API de autenticación
                         .requestMatchers("/").permitAll() // Permitir acceso a la raíz
+                        .requestMatchers("/admin").hasRole("ADMINISTRADOR") // Requiere rol ADMINISTRADOR para acceder a /admin
                         .anyRequest().authenticated() // Requiere autenticación para otras rutas
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

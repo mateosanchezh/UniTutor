@@ -4,6 +4,7 @@ import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,20 +17,24 @@ public class JwtService {
     @Value("${jwt.expiration}")
     private long EXPIRATION_TIME;
 
-
     public String generateToken(String email) {
         Map<String, Object> claims = new HashMap<>();
         return createToken(claims, email);
     }
 
     private String createToken(Map<String, Object> claims, String subject) {
-        return Jwts.builder()
-                .setClaims(claims)
-                .setSubject(subject)
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
-                .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
-                .compact();
+        try {
+            return Jwts.builder()
+                    .setClaims(claims)
+                    .setSubject(subject)
+                    .setIssuedAt(new Date(System.currentTimeMillis()))
+                    .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+                    .signWith(SignatureAlgorithm.HS256, SECRET_KEY.getBytes(StandardCharsets.UTF_8))
+                    .compact();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public Boolean validateToken(String token, String email) {
@@ -40,14 +45,18 @@ public class JwtService {
     public String extractUsername(String token) {
         return extractAllClaims(token).getSubject();
     }
+
     private Claims extractAllClaims(String token) {
-        return Jwts.parser()
-                .setSigningKey(SECRET_KEY)
-                .parseClaimsJws(token)
-                .getBody();
+        try {
+            return Jwts.parser()
+                    .setSigningKey(SECRET_KEY.getBytes(StandardCharsets.UTF_8))
+                    .parseClaimsJws(token)
+                    .getBody();
+        } catch (JwtException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
-
-
 
     private Boolean isTokenExpired(String token) {
         return extractAllClaims(token).getExpiration().before(new Date());

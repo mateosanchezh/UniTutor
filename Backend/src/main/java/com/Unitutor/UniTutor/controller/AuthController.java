@@ -27,33 +27,37 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String, String> credentials) {
+        // Obtener credenciales del cuerpo de la solicitud
         String email = credentials.get("email");
         String password = credentials.get("password");
 
+        // Validar que se proporcionen las credenciales
         if (email == null || password == null) {
-            return ResponseEntity.badRequest().body("Email y contrasena son requeridos");
+            return ResponseEntity.badRequest().body("Email y contraseña son requeridos");
         }
 
+        System.out.println("Email: " + email);  // Para depuración
+        System.out.println("Password: " + password);  // Para depuración
+
+        // Buscar al usuario en la base de datos
         Usuario usuario = usuarioRepository.findByEmail(email);
         if (usuario == null) {
             return ResponseEntity.badRequest().body("Usuario no encontrado");
         }
 
+        // Verificar si la contraseña coincide
         if (passwordEncoder.matches(password, usuario.getContrasena())) {
+            // Limpiar la contraseña antes de enviar la respuesta
             usuario.setContrasena(null);
-            String token = jwtService.generateToken(email);
-            return ResponseEntity.ok(Map.of("token", token, "user", usuario));
-        } else if (password.equals(usuario.getContrasena())) {
-            String hashedPassword = passwordEncoder.encode(password);
-            usuario.setContrasena(hashedPassword);
-            usuarioRepository.save(usuario);
-            usuario.setContrasena(null);
+
+            // Generar el token JWT
             String token = jwtService.generateToken(email);
             return ResponseEntity.ok(Map.of("token", token, "user", usuario));
         } else {
-            return ResponseEntity.badRequest().body("Contrasena incorrecta");
+            return ResponseEntity.badRequest().body("Contraseña incorrecta");
         }
     }
+
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody Map<String, String> userDetails) {
