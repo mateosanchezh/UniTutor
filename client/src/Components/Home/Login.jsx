@@ -1,37 +1,41 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
-
-
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    setLoading(true); // Inicia el loading
+    setLoading(true);
     try {
       const response = await axios.post('http://localhost:8080/api/auth/login', { email, password });
       console.log('Login exitoso', response.data);
-      // Almacena el token o la información del usuario aquí
+      // Almacena el token en localStorage
+      localStorage.setItem('token', response.data.token);
+      // Almacena la información del usuario en localStorage
+      localStorage.setItem('user', JSON.stringify(response.data.user));
+      // Redirige al usuario a la página principal o dashboard
+      navigate('/dashboard');
     } catch (err) {
-
-          console.error('Error de inicio de sesión', err);
-          console.log(err.response);
-      // Mejora el manejo de errores
-
-      if (err.response && err.response.status === 400) {
-        setError('Email o contraseña incorrecta');
-      } else {
-        setError('Error en el servidor, intenta nuevamente más tarde.');
-      }
       console.error('Error de inicio de sesión', err);
+      if (err.response) {
+        console.log(err.response);
+        if (err.response.status === 400) {
+          setError(err.response.data);
+        } else {
+          setError('Error en el servidor, intenta nuevamente más tarde.');
+        }
+      } else {
+        setError('Error de conexión, verifica tu conexión a internet.');
+      }
     } finally {
-      setLoading(false); // Termina el loading
+      setLoading(false);
     }
   };
 

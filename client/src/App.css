@@ -284,6 +284,10 @@ body {
   background-position: center;
   background-attachment: fixed;
   /* Estilos para el contenedor principal */
+  /* Estilos generales para los iconos */
+  /* Posición inicial de la flecha derecha */
+  /* Posición inicial de la flecha hacia abajo */
+  /* Estilos para dispositivos móviles y pantallas pequeñas */
 }
 .Unitutor .Home {
   padding: 30px;
@@ -292,6 +296,7 @@ body {
   /* Estilos para el logo de Unitutor */
   /* Contenedor para el texto principal y el botón, los organiza verticalmente */
   /* Estilos para el texto principal */
+  /* Estilos para el texto destacado */
 }
 .Unitutor .Home .content-wrapper {
   display: flex;
@@ -334,9 +339,15 @@ body {
   font-family: "Roboto Condensed", sans-serif;
   line-height: 1.2;
   /* Ajusta el espaciado entre líneas según sea necesario */
-  /* Estilos para el texto destacado */
 }
-.Unitutor .Home h1 .fuente {
+@media (max-width: 769px) {
+  .Unitutor .Home h1 {
+    font-size: 70px;
+    text-align: center;
+    color: white;
+  }
+}
+.Unitutor .Home .fuente {
   font-family: "Rochester", cursive;
   font-weight: 300;
   font-size: 55px;
@@ -346,6 +357,13 @@ body {
   font-style: normal;
   /* Estilo itálico para mayor contraste */
   line-height: 1.2;
+}
+@media (max-width: 768px) {
+  .Unitutor .Home .fuente {
+    font-size: 40px;
+    margin-left: 50px;
+    text-align: center;
+  }
 }
 .Unitutor .Home .explore-button {
   width: 160px;
@@ -367,6 +385,11 @@ body {
   overflow: hidden;
   position: relative;
   padding: 10px 20px;
+}
+@media (max-width: 768px) {
+  .Unitutor .Home .explore-button {
+    margin: 15px auto;
+  }
 }
 .Unitutor .Home .explore-button .button-text {
   transition: transform 0.3s ease;
@@ -399,59 +422,52 @@ body {
 .Unitutor .Home .explore-button.hovered .button-text {
   transform: translateX(-10px);
 }
-
-/* Estilos generales para los iconos */
-.icon {
+.Unitutor .icon {
   position: absolute;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
-/* Posición inicial de la flecha derecha */
-.right-arrow {
+.Unitutor .right-arrow {
   transform: translateX(100%);
   opacity: 0;
 }
-
-/* Posición inicial de la flecha hacia abajo */
-.down-arrow {
+.Unitutor .down-arrow {
   transform: translateY(-100%);
   opacity: 0;
 }
-
-/* Estilos para dispositivos móviles y pantallas pequeñas */
 @media (max-width: 768px) {
-  /* Cambia la disposición a vertical para pantallas pequeñas */
-  .content-wrapper {
+  .Unitutor {
+    /* Cambia la disposición a vertical para pantallas pequeñas */
+    /* Ajusta el margen del logo para pantallas pequeñas */
+    /* Cambia la línea vertical a horizontal en pantallas pequeñas */
+    /* Centra el texto y el botón en pantallas pequeñas */
+  }
+  .Unitutor .content-wrapper {
     flex-direction: column;
     align-items: center;
   }
-  /* Ajusta el margen del logo para pantallas pequeñas */
-  .UnitutorLogo {
+  .Unitutor .UnitutorLogo {
     margin-bottom: 20px;
   }
-  /* Cambia la línea vertical a horizontal en pantallas pequeñas */
-  .vertical-line {
+  .Unitutor .vertical-line {
     width: 100%;
     height: 2px;
     margin: 20px 0;
   }
-  /* Ajusta el tamaño y alineación del texto principal en pantallas pequeñas */
-  .Unitutor h1, .fuente {
-    font-size: 40px;
-    text-align: center;
-  }
-  /* Centra el texto y el botón en pantallas pequeñas */
-  .text-button-wrapper {
+  .Unitutor .text-button-wrapper {
     align-items: center;
     text-align: center;
+    width: 100%;
   }
-  .explore-button {
+  .Unitutor .explore-button {
     margin: 20px auto 0;
     /* Centra el botón horizontalmente y añade margen superior */
-    display: block;
-    /* Asegura que el botón ocupe todo el ancho disponible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
   }
 }
+
 /*# ASIGNATURAS */
 /* Sección de asignaturas */
 .asignaturas {
@@ -460,6 +476,15 @@ body {
   min-height: 100vh;
   height: auto;
   padding: 20px;
+  overflow-x: hidden;
+}
+@media (max-width: 768px) {
+  .asignaturas {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .asignaturas .container {
   display: flex;
@@ -471,7 +496,7 @@ body {
 @media (min-width: 768px) {
   .asignaturas .container {
     flex-direction: row;
-    justify-content: space-between x;
+    justify-content: space-between;
     padding: 50px;
   }
 }
@@ -480,27 +505,41 @@ body {
   padding-right: 0;
   margin-top: 20px;
 }
-@media (min-width: 768px) {
+@media (max-width: 768px) {
+  .asignaturas .container .left-section {
+    text-align: center;
+    padding-right: 0;
+    margin-top: 20px;
+  }
+}
+@media (min-width: 769px) {
   .asignaturas .container .left-section {
     padding-right: 40px;
-    margin-top: 160px;
+    margin-top: 30px;
   }
 }
 .asignaturas .container .left-section h1 {
-  font-weight: 500;
+  font-weight: 400;
   font-family: "Roboto", sans-serif;
-  font-size: 36px;
+  font-size: 60px;
   color: #0E0F02;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
-.asignaturas .container .left-section h1 .titulo2 {
-  margin-left: 40px;
+@media (max-width: 768px) {
+  .asignaturas .container .left-section h1 {
+    font-size: 40px;
+  }
+}
+.asignaturas .container .left-section .titulo2 {
+  margin-left: 50px;
   font-family: "Rowdies", sans-serif;
   font-weight: 500;
   font-style: normal;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
-@media (min-width: 768px) {
-  .asignaturas .container .left-section h1 {
-    font-size: 50px;
+@media (max-width: 768px) {
+  .asignaturas .container .left-section .titulo2 {
+    margin-left: 0;
   }
 }
 .asignaturas .container .right-section {
@@ -508,9 +547,17 @@ body {
   background-color: white;
   border: 1px solid white;
   border-radius: 10px;
-  padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(0, 0, 0, 0.2);
   margin-top: 20px;
+}
+@media (max-width: 768px) {
+  .asignaturas .container .right-section {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 0;
+    box-shadow: none;
+  }
 }
 @media (min-width: 768px) {
   .asignaturas .container .right-section {
@@ -519,45 +566,38 @@ body {
     margin-top: 0;
   }
 }
-
-h1 {
-  font-size: 28px;
-  margin-bottom: 15px;
-}
-@media (min-width: 768px) {
-  h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-  }
-}
-
-h2 {
+.asignaturas .container h2 {
   font-size: 22px;
   margin-top: 0;
   font-family: "Roboto Condensed", sans-serif;
 }
 @media (min-width: 768px) {
-  h2 {
+  .asignaturas .container h2 {
     font-size: 26px;
   }
 }
-
-p {
-  font-size: 15px;
-  line-height: 1.5;
+.asignaturas .container .texto {
+  font-size: 25px;
+  line-height: 1;
   color: #555;
+  margin-right: 60px;
 }
-@media (min-width: 768px) {
-  p {
-    font-size: 20px;
+@media (min-width: 769px) {
+  .asignaturas .container .texto {
+    font-size: 29px;
     text-align: justify;
   }
 }
-
-.explorar-button {
+@media (max-width: 768px) {
+  .asignaturas .container .texto {
+    margin-right: 0;
+    text-align: center;
+  }
+}
+.asignaturas .container .explorar-button {
   width: 140px;
   height: 35px;
-  background: black;
+  background: #0E0F02;
   border: none;
   border-radius: 40px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -566,7 +606,7 @@ p {
   color: white;
   font-weight: 700;
   transition: all ease 0.5s;
-  margin: 15px 0;
+  margin: 135px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -574,18 +614,15 @@ p {
   position: relative;
   padding: 10px 20px;
 }
-@media (min-width: 768px) {
-  .explorar-button {
-    width: 160px;
-    font-size: 16px;
-    margin: 15px;
-    margin-top: 20px;
+@media (max-width: 768px) {
+  .asignaturas .container .explorar-button {
+    margin: 15px auto;
   }
 }
-.explorar-button .button-text {
+.asignaturas .container .explorar-button .button-text {
   transition: transform 0.3s ease;
 }
-.explorar-button .icon-wrapper {
+.asignaturas .container .explorar-button .icon-wrapper {
   position: absolute;
   right: 20px;
   display: flex;
@@ -595,117 +632,223 @@ p {
   height: 20px;
   overflow: hidden;
 }
-.explorar-button .icon {
+.asignaturas .container .explorar-button .icon {
   position: absolute;
   transition: all 0.3s ease;
-  color: black;
+  color: white;
   opacity: 0;
   transform: translateX(100%);
 }
-.explorar-button .right-arrow2.show {
+.asignaturas .container .explorar-button .right-arrow2.show {
   opacity: 1;
   transform: translateX(0);
   color: white;
 }
-.explorar-button .down-arrow2.show {
+.asignaturas .container .explorar-button .down-arrow2.show {
   opacity: 1;
   transform: translateY(0);
   color: white;
 }
-.explorar-button.hovered .button-text {
+.asignaturas .container .explorar-button.hovered .button-text {
   transform: translateX(-10px);
 }
-
-.popular-subjects {
+.asignaturas .container .popular-subjects {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 10px;
+  margin-top: -10px;
 }
 @media (min-width: 480px) {
-  .popular-subjects {
+  .asignaturas .container .popular-subjects {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (min-width: 768px) {
-  .popular-subjects {
+  .asignaturas .container .popular-subjects {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
-.subject-card {
+.asignaturas .container .subject-card {
   text-align: center;
   position: relative;
   overflow: hidden;
+  border-radius: 9px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-top: 10px;
 }
-.subject-card img {
+@media (max-width: 768px) {
+  .asignaturas .container .subject-card {
+    width: 90%;
+    max-width: 300px;
+  }
+}
+.asignaturas .container .subject-card img {
   width: 100%;
-  border-radius: 5px;
+  border-radius: 9px;
   margin-bottom: 5px;
   transition: transform 0.3s ease;
+  flex-grow: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-.subject-card p {
-  margin: 0;
-  font-size: 12px;
-  color: white;
-  font-family: "Roboto Condensed", sans-serif;
-  font-weight: 100;
-}
-.subject-card .subject {
+.asignaturas .container .subject-card .subject {
   margin: 0;
   font-size: 14px;
   color: black;
   text-align: center;
-  font-weight: 700;
+  font-weight: 400;
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
 }
-.subject-card .subject-info {
+@media (max-width: 768px) {
+  .asignaturas .container .subject-card .subject {
+    font-size: 19px;
+  }
+}
+.asignaturas .container .subject-card .info-button {
+  display: none;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #0E0F02;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 767px) {
+  .asignaturas .container .subject-card .info-button {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+  }
+}
+.asignaturas .container .subject-card .info-button:active {
+  background-color: #2a2a2a;
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.asignaturas .container .subject-card .subject-info {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(100% - 31px);
-  background-color: rgba(0, 0, 0, 0.8);
+  height: calc(100% - 25px);
+  background-color: rgba(0, 0, 0, 0.6);
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
   pointer-events: none;
-}
-.subject-card .subject-info h3 {
-  font-size: 14px;
-  font-style: italic;
   font-family: "Roboto", sans-serif;
+  border-radius: 9px;
+  text-transform: uppercase;
+  transform: translateY(-10px);
 }
-.subject-card .subject-info .semester {
-  font-size: 12px;
+.asignaturas .container .subject-card .subject-info h3 {
+  font-size: 10px;
+  font-style: italic;
+  font-weight: 500;
+  margin: 0;
+  padding: 5px;
+}
+.asignaturas .container .subject-card .subject-info .semester {
+  font-size: 10px;
   margin-bottom: 7px;
   font-style: italic;
 }
-.subject-card .subject-info .description {
-  font-size: 10px;
+.asignaturas .container .subject-card .subject-info .description {
+  font-size: 8px;
   padding: 0 10px;
   font-style: italic;
 }
-.subject-card:hover .subject-info {
-  opacity: 1;
+@media (max-width: 767px) {
+  .asignaturas .container .subject-card .subject-info {
+    position: static;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    transform: translateY(-20px);
+    background-color: rgba(14, 15, 2, 0.95);
+    border-radius: 9px;
+    padding: 0;
+    margin-top: 10px;
+  }
+  .asignaturas .container .subject-card .subject-info.show {
+    opacity: 1;
+    height: auto;
+    padding: 20px;
+    transform: translateY(0);
+  }
+  .asignaturas .container .subject-card .subject-info h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .asignaturas .container .subject-card .subject-info .semester {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  .asignaturas .container .subject-card .subject-info .description {
+    font-size: 16px;
+    padding: 0 15px;
+    line-height: 1.4;
+  }
 }
-.subject-card:hover img {
-  transform: scale(1.1);
+@media (min-width: 768px) {
+  .asignaturas .container .subject-card:hover .subject-info {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .asignaturas .container .subject-card:hover img {
+    transform: scale(1.05);
+  }
 }
-
-.UnitutorLogonegro {
-  width: 30px;
+@media (max-width: 767px) {
+  .asignaturas .container .subject-card .info-button {
+    display: block;
+  }
+  .asignaturas .container .subject-card:hover .subject-info, .asignaturas .container .subject-card:active .subject-info, .asignaturas .container .subject-card:focus .subject-info {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  .asignaturas .container .subject-card:hover img, .asignaturas .container .subject-card:active img, .asignaturas .container .subject-card:focus img {
+    transform: none;
+  }
+  .asignaturas .container .subject-card .subject-info:not(.show) {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+  }
+}
+.asignaturas .UnitutorLogonegro {
+  width: 40px;
   height: auto;
   float: right;
   margin-right: 20px;
-  margin-top: -60px;
+  margin-top: -120px;
+  transition: all 0.3s ease;
 }
-@media (min-width: 768px) {
-  .UnitutorLogonegro {
-    width: 40px;
-    margin-top: -120px;
+@media (max-width: 767px) {
+  .asignaturas .UnitutorLogonegro {
+    width: 0px;
+    margin-top: 30px;
+    margin-right: 10px;
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -723,7 +866,6 @@ p {
   font-weight: 300;
   margin: 0px 60px;
   padding: 20px 80px;
-  background-attachment: fixed;
 }
 
 /* Título */
@@ -869,7 +1011,7 @@ p {
   font-size: 17px;
   margin: 0;
   font-family: "Roboto Condensed", sans-serif;
-  /* Quitar margen superior e inferior */
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
 
 .cuadro p {
@@ -877,6 +1019,7 @@ p {
   line-height: 1;
   color: white;
   margin-top: 11px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
 
 .cuadro:hover p {
@@ -1130,6 +1273,7 @@ footer p {
   display: flex;
   align-items: center;
   gap: 10px;
+  width: 70%;
 }
 .admin-page .Unitutornegro {
   width: 60px;
@@ -1149,19 +1293,24 @@ footer p {
 .admin-page .logo-text {
   font-size: 24px;
   font-weight: 700;
-  color: black;
+  color: #5c2771;
   margin-left: 15px;
+  font-family: "Roboto", sans-serif;
+}
+.admin-page .unifooter {
+  font-family: "Roboto Condensed", sans-serif;
 }
 .admin-page .search-bar {
   width: 55%;
   border-radius: 0px;
+  margin-right: 200px;
 }
 .admin-page .search-bar .MuiOutlinedInput-input {
   padding-left: 40px;
   /* Ajusta este valor según necesites */
 }
 .admin-page .buscar {
-  width: 500px;
+  width: 600px;
 }
 .admin-page .search-icon,
 .admin-page .settings-icon {
@@ -1245,6 +1394,7 @@ footer p {
   width: 20%;
   border-radius: 20px;
   margin-right: 0;
+  background-color: #5c2771;
 }
 .admin-page .pagination {
   display: flex;
@@ -1298,20 +1448,18 @@ footer p {
   color: white;
 }
 .admin-page .sidebar {
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 250px;
-  /* Ajusta este valor según tus necesidades */
+  width: 200px;
   background-color: white;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  /* Aumentado el espaciado entre elementos */
+  position: absolute;
+  top: 20px;
+  right: 0;
+  height: 100%;
   overflow-y: auto;
-  /* Permite scroll si el contenido es muy largo */
 }
 .admin-page .sidebar h3 {
   margin: 0;
@@ -1319,6 +1467,7 @@ footer p {
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
+  font-family: "Roboto", sans-serif;
 }
 .admin-page .upload {
   width: 80%;
@@ -1375,8 +1524,90 @@ footer p {
 .admin-page .social-icons {
   display: flex;
   gap: 15px;
+  transition: transform 0.3s ease;
+}
+.admin-page .social-icons:hover {
+  transform: scale(1.2);
 }
 .admin-page .social-icon {
   color: black;
   font-size: 20px;
+}
+
+.loginformpage * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.loginformpage body {
+  font-family: Arial, sans-serif;
+  background-color: #f3f3f3;
+}
+.loginformpage .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.loginformpage .form-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+.loginformpage .form-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.loginformpage .title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2d3748;
+}
+.loginformpage .error-message {
+  color: #f56565;
+  font-size: 14px;
+  margin-top: 8px;
+}
+.loginformpage .input-group {
+  margin-bottom: 20px;
+}
+.loginformpage .input-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  font-size: 16px;
+}
+.loginformpage .input-field:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+.loginformpage .forgot-password {
+  text-align: right;
+  margin-bottom: 20px;
+}
+.loginformpage .forgot-password a {
+  font-size: 14px;
+  color: #4299e1;
+  text-decoration: none;
+}
+.loginformpage .forgot-password a:hover {
+  text-decoration: underline;
+}
+.loginformpage .submit-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.loginformpage .submit-btn:hover {
+  background-color: #2d3748;
 }/*# sourceMappingURL=App.css.map */

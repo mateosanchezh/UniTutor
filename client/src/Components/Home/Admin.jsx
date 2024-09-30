@@ -10,6 +10,7 @@ import Button from '@mui/material/Button';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { styled } from '@mui/material/styles';
 import { FaPlus,FaHome,FaTrashAlt } from "react-icons/fa";
+import { IoMdArrowDropright } from "react-icons/io";
 
 const Admin = () => {
     const data = [
@@ -31,7 +32,7 @@ const VisuallyHiddenInput = styled('input')({
     left: 0,
     whiteSpace: 'nowrap',
     width: 1,
-  });
+});
 
     return (
         <div className='admin-page'>
@@ -93,38 +94,41 @@ const VisuallyHiddenInput = styled('input')({
                     <button className="flecha"><MdKeyboardDoubleArrowRight className='flechas' /></button>
                 </div>
                 <div className="sidebar">
-                <h3>UNITUTOR <br /> X <br /> UNIVERSIDAD </h3>
-                <Button
-                    className='upload'
-                    component="label"
-                    role={undefined}
-                    variant="contained"
-                    tabIndex={-1}
-                    startIcon={<CloudUploadIcon />}
-                >
-                    Subir CSV
-                    <VisuallyHiddenInput
-                        type="file"
-                        onChange={(event) => console.log(event.target.files)}
-                        multiple
-                    />
-                </Button>
-                <a href="#" className="sidebar-link">
-                    <FaHome className="sidebar-icon" /> Página principal
-                </a>
-                <a href="#" className="sidebar-link">
-                    <FaTrashAlt className="sidebar-icon" /> Eliminados
-                </a>
-                <a href="#" className="sidebar-link">
-                    <FaPlus className="sidebar-icon" /> Agregados
-                </a>
-            </div>
+                    <h3>UNITUTOR <br /> X <br /> UNIVERSIDAD </h3>
+                    <Button
+                        className='upload'
+                        component="label"
+                        role={undefined}
+                        variant="contained"
+                        tabIndex={-1}
+                        startIcon={<CloudUploadIcon />}
+                    >
+                        Subir CSV
+                        <VisuallyHiddenInput
+                            type="file"
+                            onChange={(event) => console.log(event.target.files)}
+                            multiple
+                        />
+                    </Button>
+                    <a href="#" className="sidebar-link">
+                        <FaHome className="sidebar-icon" /> Página principal
+                    </a>
+                    <a href="#" className="sidebar-link">
+                        <IoMdArrowDropright className="sidebar-icon" /> Eliminados
+                    </a>
+                    <a href="#" className="sidebar-link">
+                        <IoMdArrowDropright className="sidebar-icon" /> Agregados
+                    </a>
+            
+            
+                </div>
+
             <footer>
             
                 <div className="footer-content">
                     <div className="logo">
                     <img src={UnitutorLogo} alt="Logo Unitutor" className="Unitutornegro" /> 
-                        <div className="logo-text">Unitutor 2024</div>
+                        <div className="unifooter">Unitutor 2024</div>
                     </div>
                     <div className='linea-vertical'></div>
                     <div className="social-icons">
