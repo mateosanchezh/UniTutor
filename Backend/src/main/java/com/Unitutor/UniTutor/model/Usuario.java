@@ -5,7 +5,7 @@ import com.Unitutor.UniTutor.model.enums.UserRole;
 import com.Unitutor.UniTutor.model.enums.UserEstadoCuenta;
 
 @Entity
-@Table(name = "usuarios") // Se puede especificar el nombre de la tabla
+@Table(name = "usuarios")
 public class Usuario {
 
     @Id
@@ -15,14 +15,20 @@ public class Usuario {
     @Column(name = "nombre", nullable = false)
     private String nombre;
 
+    @Column(name = "apellido", nullable = false)
+    private String apellido;
+
     @Column(name = "user", nullable = false, unique = true)
     private String user;
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "contrasena", nullable = false) // Cambiado a "contrasena"
-    private String contrasena; // Cambiado a "contrasena"
+    @Column(name = "contrasena", nullable = false)
+    private String contrasena;
+
+    @Column(name = "telefono", nullable = false, unique = true)
+    private String telefono;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "user_role")
@@ -56,6 +62,14 @@ public class Usuario {
         this.nombre = nombre;
     }
 
+    public String getApellido() {  // Nuevo getter
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {  // Nuevo setter
+        this.apellido = apellido;
+    }
+
     public String getUser() {
         return user;
     }
@@ -72,12 +86,20 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getContrasena() { // Cambiado a "contrasena"
-        return contrasena; // Cambiado a "contrasena"
+    public String getContrasena() {
+        return null;
     }
 
-    public void setContrasena(String contrasena) { // Cambiado a "contrasena"
-        this.contrasena = contrasena; // Cambiado a "contrasena"
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public String getTelefono() {  // Nuevo getter
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {  // Nuevo setter
+        this.telefono = telefono;
     }
 
     public UserRole getUserRole() {
