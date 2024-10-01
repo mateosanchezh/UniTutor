@@ -10,7 +10,6 @@ import { IoMdArrowDropright } from "react-icons/io";
 import Group from '../../img/Group.png';
 import UnitutorLogo from '../../img/UnitutorLogo.svg';
 
-
 const VisuallyHiddenInput = styled('input')({
     clip: 'rect(0 0 0 0)',
     clipPath: 'inset(50%)',
@@ -25,6 +24,8 @@ const VisuallyHiddenInput = styled('input')({
 
 const Admin = () => {
     const [data, setData] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const usersPerPage = 10;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -39,6 +40,24 @@ const Admin = () => {
 
         fetchData();
     }, []);
+
+    // Calcular los índices de los usuarios a mostrar
+    const indexOfLastUser = currentPage * usersPerPage;
+    const indexOfFirstUser = indexOfLastUser - usersPerPage;
+    const currentUsers = data.slice(indexOfFirstUser, indexOfLastUser);
+
+    // Funciones para manejar el cambio de página
+    const handleNextPage = () => {
+        if (currentPage < Math.ceil(data.length / usersPerPage)) {
+            setCurrentPage(currentPage + 1);
+        }
+    };
+
+    const handlePrevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
 
     return (
         <div className='admin-page'>
@@ -63,7 +82,7 @@ const Admin = () => {
 
             <main className="container">
                 <div className="user-list">
-                    {data.map((item, index) => (
+                    {currentUsers.map((item, index) => (
                         <div className="user-row" key={index}>
                             <TextField
                                 disabled
@@ -90,11 +109,21 @@ const Admin = () => {
             </main>
 
             <div className="pagination">
-                <button className="flecha"><MdKeyboardDoubleArrowLeft className='flechas' /></button>
-                <button className="page-button">1</button>
-                <button className="page-button active">2</button>
-                <button className="page-button">3</button>
-                <button className="flecha"><MdKeyboardDoubleArrowRight className='flechas' /></button>
+                <button className="flecha" onClick={handlePrevPage} disabled={currentPage === 1}>
+                    <MdKeyboardDoubleArrowLeft className='flechas' />
+                </button>
+                {[...Array(Math.ceil(data.length / usersPerPage))].map((_, index) => (
+                    <button
+                        key={index}
+                        className={`page-button ${currentPage === index + 1 ? 'active' : ''}`}
+                        onClick={() => setCurrentPage(index + 1)}
+                    >
+                        {index + 1}
+                    </button>
+                ))}
+                <button className="flecha" onClick={handleNextPage} disabled={currentPage === Math.ceil(data.length / usersPerPage)}>
+                    <MdKeyboardDoubleArrowRight className='flechas' />
+                </button>
             </div>
 
             <div className="sidebar">
