@@ -1,6 +1,5 @@
 package com.Unitutor.UniTutor.configuracion;
 
-import com.Unitutor.UniTutor.configuracion.JwtAuthenticationFilter;
 import com.Unitutor.UniTutor.service.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -26,16 +25,16 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable())
-                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                .csrf(csrf -> csrf.disable()) // Deshabilita CSRF ya que estamos usando JWT
+                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Configura CORS
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/api/auth/**").permitAll() // Permitir acceso a la API de autenticación
                         .requestMatchers("/").permitAll() // Permitir acceso a la raíz
-                        .requestMatchers("/admin").hasRole("ADMINISTRADOR") // Requiere rol ADMINISTRADOR para acceder a /admin
+                        .requestMatchers("/admin").hasRole("ADMINISTRADOR") // Asegúrate que el rol esté correctamente definido
                         .anyRequest().authenticated() // Requiere autenticación para otras rutas
                 )
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .addFilterBefore(new JwtAuthenticationFilter(jwtService), UsernamePasswordAuthenticationFilter.class);
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // Establece que no se mantendrá el estado de sesión
+                .addFilterBefore(new JwtAuthenticationFilter(jwtService), UsernamePasswordAuthenticationFilter.class); // Agrega el filtro JWT antes del filtro de autenticación de usuario y contraseña
 
         return http.build();
     }
@@ -43,13 +42,13 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5174"));
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        configuration.setAllowedHeaders(Arrays.asList("*"));
-        configuration.setAllowCredentials(true);
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5174")); // Agrega los orígenes permitidos
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Agrega los métodos permitidos
+        configuration.setAllowedHeaders(Arrays.asList("*")); // Permite todos los encabezados
+        configuration.setAllowCredentials(true); // Permite las credenciales
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
+        source.registerCorsConfiguration("/**", configuration); // Registra la configuración CORS para todas las rutas
         return source;
     }
 }

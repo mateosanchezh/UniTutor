@@ -47,11 +47,7 @@ public class AuthController {
 
         // Verificar si la contraseña coincide
         if (passwordEncoder.matches(password, usuario.getContrasena())) {
-            // Limpiar la contraseña antes de enviar la respuesta
-            usuario.setContrasena(null);
-
-            // Generar el token JWT
-            String token = jwtService.generateToken(email);
+            String token = jwtService.generateToken(email, usuario.getUserRole().name());
             return ResponseEntity.ok(Map.of("token", token, "user", usuario));
         } else {
             return ResponseEntity.badRequest().body("Contraseña incorrecta");
