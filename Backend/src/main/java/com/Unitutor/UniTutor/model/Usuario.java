@@ -87,7 +87,7 @@ public class Usuario {
     }
 
     public String getContrasena() {
-        return null;
+        return contrasena;
     }
 
     public void setContrasena(String contrasena) {
