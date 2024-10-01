@@ -6,9 +6,9 @@ import Web_oficial from './Components/Web_oficial/Web_oficial'
 
 
 // Importar el dominio del enrutador React
-import { 
-  createBrowserRouter, 
-  RouterProvider 
+import {
+  createBrowserRouter,
+  RouterProvider
 } from 'react-router-dom'
 import Registro from './Components/Registro/Registro'
 import Admin from './Components/Home/Admin'
