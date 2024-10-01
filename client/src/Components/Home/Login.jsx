@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  const [user, setUser] = useState('');  // Cambiado de email a user
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -14,7 +14,7 @@ const Login = () => {
     setError('');
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/login', { email, password });
+      const response = await axios.post('http://localhost:8080/api/auth/login', { user, password });  // Cambiado de email a user
       console.log('Login exitoso', response.data);
       // Almacena el token en localStorage
       localStorage.setItem('token', response.data.token);
@@ -45,12 +45,12 @@ const Login = () => {
       {error && <p className="error">{error}</p>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="user">Usuario:</label>  {/* Cambiado de Email a Usuario */}
           <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="text"  // Cambiado de type="email" a type="text"
+            id="user"  // Cambiado de email a user
+            value={user}  // Cambiado de email a user
+            onChange={(e) => setUser(e.target.value)}  // Cambiado de email a user
             required
           />
         </div>

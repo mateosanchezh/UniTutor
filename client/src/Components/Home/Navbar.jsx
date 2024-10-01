@@ -4,12 +4,11 @@ import { FaUser, FaBars, FaTimes, FaEye, FaEyeSlash, FaChevronDown, FaChevronUp 
 import axios from 'axios';
 import * as jwtDecode from 'jwt-decode';
 
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showLoginForm, setShowLoginForm] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState('');
+  const [user, setUser] = useState('');  // Cambiado de email a user
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -28,7 +27,7 @@ const Navbar = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/login', { email, password });
+      const response = await axios.post('http://localhost:8080/api/auth/login', { user, password });  // Cambiado de email a user
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('user', JSON.stringify(response.data.user));
       setIsAuthenticated(true);
@@ -121,10 +120,10 @@ const Navbar = () => {
                   <div className="input-group">
                     <FaUser />
                     <input
-                      type="email"
-                      placeholder="EMAIL"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      type="text"  // Cambiado de type="email" a type="text"
+                      placeholder="USUARIO"  // Cambiado de EMAIL a USUARIO
+                      value={user}  // Cambiado de email a user
+                      onChange={(e) => setUser(e.target.value)}  // Cambiado de email a user
                       required
                     />
                   </div>

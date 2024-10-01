@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import { FaSearch, FaPencilAlt, FaTrash, FaInfoCircle, FaHome } from 'react-icons/fa';
+import { FaXTwitter, FaFacebookF, FaLinkedinIn, FaGithub, FaInstagram, FaYoutube } from 'react-icons/fa6';
 import { MdKeyboardDoubleArrowRight, MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { LuSettings2 } from "react-icons/lu";
 import Button from '@mui/material/Button';
@@ -87,7 +88,7 @@ const Admin = () => {
                             <TextField
                                 disabled
                                 label="NOMBRE Y APELLIDO"
-                                defaultValue={item.nombre}
+                                defaultValue={`${item.nombre} ${item.apellido}`} // Combina nombre y apellido
                                 variant="outlined"
                                 fullWidth
                             />
@@ -155,10 +156,23 @@ const Admin = () => {
             </div>
 
             <footer>
-                <div className="footer-content">
-                    <p>© 2024 - UniTutor. Todos los derechos reservados.</p>
-                </div>
-            </footer>
+
+                            <div className="footer-content">
+                                <div className="logo">
+                                <img src={UnitutorLogo} alt="Logo Unitutor" className="Unitutornegro" />
+                                    <div className="logo-text">Unitutor 2024</div>
+                                </div>
+                                <div className='linea-vertical'></div>
+                                <div className="social-icons">
+                                    <a href="#" className="social-icon"><FaXTwitter /></a>
+                                    <a href="#" className="social-icon"><FaFacebookF /></a>
+                                    <a href="#" className="social-icon"><FaLinkedinIn /></a>
+                                    <a href="#" className="social-icon"><FaGithub /></a>
+                                    <a href="#" className="social-icon"><FaInstagram /></a>
+                                    <a href="#" className="social-icon"><FaYoutube /></a>
+                                </div>
+                            </div>
+                        </footer>
         </div>
     );
 };
