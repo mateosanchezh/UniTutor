@@ -1,6 +1,8 @@
 package com.Unitutor.UniTutor.controller;
 
+import com.Unitutor.UniTutor.model.Carrera;
 import com.Unitutor.UniTutor.model.Usuario;
+import com.Unitutor.UniTutor.repository.CarreraRepository;
 import com.Unitutor.UniTutor.repository.UsuarioRepository;
 import com.Unitutor.UniTutor.service.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,54 +23,59 @@ public class AuthController {
     private UsuarioRepository usuarioRepository;
 
     @Autowired
+    private CarreraRepository carreraRepository; // Nuevo para buscar la carrera
+
+    @Autowired
     private JwtService jwtService;
 
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String, String> credentials) {
-        // Obtener credenciales del cuerpo de la solicitud
-        String email = credentials.get("email");
+        String user = credentials.get("user");
         String password = credentials.get("password");
 
-        // Validar que se proporcionen las credenciales
-        if (email == null || password == null) {
-            return ResponseEntity.badRequest().body("Email y contraseña son requeridos");
+        if (user == null || password == null) {
+            return ResponseEntity.badRequest().body("Usuario y contraseña son requeridos");
         }
 
-        System.out.println("Email: " + email);  // Para depuración
-        System.out.println("Password: " + password);  // Para depuración
+        System.out.println("Usuario: " + user);
+        System.out.println("Password: " + password);
 
-        // Buscar al usuario en la base de datos
-        Usuario usuario = usuarioRepository.findByEmail(email);
+        Usuario usuario = usuarioRepository.findByUser(user);
         if (usuario == null) {
             return ResponseEntity.badRequest().body("Usuario no encontrado");
         }
 
-        // Verificar si la contraseña coincide
         if (passwordEncoder.matches(password, usuario.getContrasena())) {
-            String token = jwtService.generateToken(email, usuario.getUserRole().name());
+            usuario.setContrasena(null);
+
+            String token = jwtService.generateToken(user, usuario.getUserRole().name());
             return ResponseEntity.ok(Map.of("token", token, "user", usuario));
         } else {
             return ResponseEntity.badRequest().body("Contraseña incorrecta");
         }
     }
 
-
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody Map<String, String> userDetails) {
         String nombre = userDetails.get("nombre");
+        String apellido = userDetails.get("apellido");
         String user = userDetails.get("user");
         String email = userDetails.get("email");
+        String telefono = userDetails.get("telefono");
         String password = userDetails.get("password");
         String rol = userDetails.get("rol");
         String estadoCuenta = userDetails.get("estadoCuenta");
+        String carreraId = userDetails.get("carreraId");
+        String semestre = userDetails.get("semestre");
 
-        if (nombre == null || user == null || email == null || password == null || rol == null || estadoCuenta == null) {
+        if (nombre == null || apellido == null || user == null || email == null || telefono == null ||
+                password == null || rol == null || estadoCuenta == null || carreraId == null || semestre == null) {
             return ResponseEntity.badRequest().body("Todos los campos son requeridos");
         }
 
-        if (usuarioRepository.findByEmail(email) != null) {
+        if (usuarioRepository.findByUser(user) != null) {
             return ResponseEntity.badRequest().body("El usuario ya existe");
         }
 
@@ -81,15 +88,25 @@ public class AuthController {
             return ResponseEntity.badRequest().body("Rol o estado de cuenta inválido");
         }
 
+        Carrera carrera = carreraRepository.findById(Long.parseLong(carreraId))
+                .orElse(null);
+        if (carrera == null) {
+            return ResponseEntity.badRequest().body("Carrera no encontrada");
+        }
+
         String hashedPassword = passwordEncoder.encode(password);
 
         Usuario nuevoUsuario = new Usuario();
         nuevoUsuario.setNombre(nombre);
+        nuevoUsuario.setApellido(apellido);
         nuevoUsuario.setUser(user);
         nuevoUsuario.setEmail(email);
+        nuevoUsuario.setTelefono(telefono);
         nuevoUsuario.setContrasena(hashedPassword);
         nuevoUsuario.setUserRole(userRole);
         nuevoUsuario.setUserEstadoCuenta(userEstadoCuenta);
+        nuevoUsuario.setCarrera(carrera);
+        nuevoUsuario.setSemestre(Integer.parseInt(semestre));
 
         usuarioRepository.save(nuevoUsuario);
         return ResponseEntity.ok("Usuario registrado exitosamente");
