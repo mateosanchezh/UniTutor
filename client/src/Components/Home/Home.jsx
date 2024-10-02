@@ -49,9 +49,6 @@ const Home = () => {
   };
 
 
-  const toggleSubjectInfo = (index) => {
-    setActiveSubject(activeSubject === index ? null : index);
-  };
 
   
 
@@ -221,12 +218,7 @@ const handleLoginClick = () => {
                     <p className="semester">{subject.semester}</p>
                     <p className="description">{subject.description}</p>
                   </div>
-                  <button 
-                    className="info-button" 
-                    onClick={() => toggleSubjectInfo(index)}
-                  >
-                    {activeSubject === index ? 'Cerrar' : 'Más info'}
-                  </button>
+                  
                 </div>
               ))}
             </div>
