@@ -27,7 +27,7 @@ const Home = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [showDownArrow, setShowDownArrow] = useState(false);
   const asignaturasRef = useRef(null);
-  const profesoresRef = useRef(null);
+  const profesoresRef = useRef(null); 
 
 
   const scrollToSection = (section) => {
@@ -42,7 +42,7 @@ const Home = () => {
       default:
         return;
     }
-
+    
     if (ref && ref.current) {
       ref.current.scrollIntoView({ behavior: 'smooth' });
     }
@@ -53,7 +53,7 @@ const Home = () => {
     setActiveSubject(activeSubject === index ? null : index);
   };
 
-
+  
 
   useEffect(() => {
     let timer;
@@ -87,56 +87,56 @@ const handleLoginClick = () => {
   };
 
   const subjects = [
-    {
-      name: 'Desarrollo de software',
+    { 
+      name: 'Desarrollo de software', 
       image: Foto1,
       description: '- AUMENTA TUS HABILIDADES DE PROGRAMACION',
       semester: 'ASIGNATURA DE SEXTO SEMESTRE'
     },
-    {
-      name: 'Desarrollo de software ',
+    { 
+      name: 'Desarrollo de software ', 
       image: Foto1,
       description: '- AUMENTA TUS HABILIDADES DE PROGRAMACION',
       semester: 'ASIGNATURA DE SEXTO SEMESTRE'
     },
-    {
-      name: 'Desarrollo de software ',
+    { 
+      name: 'Desarrollo de software ', 
       image: Foto1,
       description: '- AUMENTA TUS HABILIDADES DE PROGRAMACION',
       semester: 'ASIGNATURA DE SEXTO SEMESTRE'
     },
-    {
-      name: 'Matematicas discretas',
+    { 
+      name: 'Matematicas discretas', 
       image: Foto2,
       description: '- CONOCE NUEVAS MANERAS DE RESOLVER PROBLEMAS',
       semester: 'ASIGNATURA DE SEXTO SEMESTRE'
     },
-    {
-      name: 'Matematicas discretas',
+    { 
+      name: 'Matematicas discretas', 
       image: Foto2,
       description: '- CONOCE NUEVAS MANERAS DE RESOLVER PROBLEMAS',
       semester: 'ASIGNATURA DE SEXTO SEMESTRE'
     },
-    {
-      name: 'Matematicas discretas',
+    { 
+      name: 'Matematicas discretas', 
       image: Foto2,
       description: '- CONOCE NUEVAS MANERAS DE RESOLVER PROBLEMAS',
       semester: 'ASIGNATURA DE SEXTO SEMESTRE'
     },
-    {
-      name: 'Analisis de datos ',
+    { 
+      name: 'Analisis de datos ', 
       image: Foto3,
       description: '- APRENDE A SER UN MEJOR ANALISTA DE DATOS',
       semester: 'ASIGNATURA DE SEXTO SEMESTRE'
     },
-    {
-      name: 'Analisis de datos ',
+    { 
+      name: 'Analisis de datos ', 
       image: Foto3,
       description: '- APRENDE A SER UN MEJOR ANALISTA DE DATOS',
       semester: 'ASIGNATURA DE SEXTO SEMESTRE'
     },
-    {
-      name: 'Analisis de datos ',
+    { 
+      name: 'Analisis de datos ', 
       image: Foto3,
       description: '- APRENDE A SER UN MEJOR ANALISTA DE DATOS',
       semester: 'ASIGNATURA DE SEXTO SEMESTRE'
@@ -178,7 +178,7 @@ const handleLoginClick = () => {
                     <FaArrowDown className={`icon down-arrow ${showDownArrow ? 'show' : ''}`} />
                   </div>
                 </button>
-
+                
               </div>
             </div>
           </div>
@@ -190,7 +190,7 @@ const handleLoginClick = () => {
             <div className="left-section">
               <h1>¿POR QUE USAR <br /> <span className='titulo2'> UNITUTOR? </span></h1>
               <p className='texto'>Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit, sed do eiusmod tempor incididunt ut labore  et<br /> dolore magna aliqua.</p>
-
+              
               <button
                   className={`explorar-button ${isHovered ? 'hovered' : ''}`}
                   onMouseEnter={handleMouseEnter}
@@ -207,7 +207,7 @@ const handleLoginClick = () => {
                     <FaArrowDown className={`icon down-arrow2 ${showDownArrow ? 'show' : ''}`} />
                   </div>
                 </button>
-
+                
         </div>
         <div className="right-section">
             <h2>ASIGNATURAS POPULARES</h2>
@@ -221,8 +221,8 @@ const handleLoginClick = () => {
                     <p className="semester">{subject.semester}</p>
                     <p className="description">{subject.description}</p>
                   </div>
-                  <button
-                    className="info-button"
+                  <button 
+                    className="info-button" 
                     onClick={() => toggleSubjectInfo(index)}
                   >
                     {activeSubject === index ? 'Cerrar' : 'Más info'}
@@ -232,7 +232,7 @@ const handleLoginClick = () => {
             </div>
           </div>
           </div>
-          <img src={UnitutorLogo} alt="Logo Unitutor" className="UnitutorLogonegro" />
+          <img src={UnitutorLogo} alt="Logo Unitutor" className="UnitutorLogonegro" /> 
         </section>
 
 
@@ -267,7 +267,7 @@ const handleLoginClick = () => {
                 <p> Un buen tutor no solo enseña, sino que inspira. Nuestros profesores están comprometidos con la excelencia académica y utilizan métodos innovadores para asegurar que no solo aprendas, sino que también apliques ese conocimiento de manera efectiva.  </p>
              </article>
             </div>
-
+            
             <div className="cuadros-contenedor">
               <div className="cuadro">
                 <h5>Sesiones personalizadas</h5>
@@ -317,4 +317,4 @@ const handleLoginClick = () => {
   );
 };
 
-export default Home;
+export default Home;  
