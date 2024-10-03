@@ -12,6 +12,7 @@ import {
 } from 'react-router-dom'
 import Registro from './Components/Registro/Registro'
 import Admin from './Components/Home/Admin'
+import Homeuser from './Components/Homeuser.jsx/Homeuser'
 
 function App() {
   // Crear el enrutador
@@ -41,6 +42,11 @@ function App() {
       path: '/admin',
       element: <Admin />,
     },
+    {
+      path: '/user',
+      element: <Homeuser />,
+    },
+    
   ])
 
   return (
