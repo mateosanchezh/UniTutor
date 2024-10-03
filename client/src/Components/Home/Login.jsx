@@ -21,7 +21,7 @@ const Login = () => {
       // Almacena la información del usuario en localStorage
       localStorage.setItem('user', JSON.stringify(response.data.user));
       // Redirige al usuario a la página principal o dashboard
-      navigate('/dashboard');
+      navigate('/user');
     } catch (err) {
       console.error('Error de inicio de sesión', err);
       if (err.response) {

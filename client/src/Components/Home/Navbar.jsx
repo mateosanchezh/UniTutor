@@ -32,7 +32,7 @@ const Navbar = () => {
       localStorage.setItem('user', JSON.stringify(response.data.user));
       setIsAuthenticated(true);
       setShowLoginForm(false);
-      navigate('/');
+      navigate('/user');
     } catch (err) {
       setError('Error de inicio de sesión. Verifica tus credenciales.');
     } finally {
