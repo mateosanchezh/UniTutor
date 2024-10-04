@@ -3,16 +3,18 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaUser, FaBars, FaTimes, FaEye, FaEyeSlash, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import axios from 'axios';
 import * as jwtDecode from 'jwt-decode';
+import LoginForm from './LoginForm';  // Importar el componente del segundo formulario
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showLoginForm, setShowLoginForm] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [user, setUser] = useState('');  // Cambiado de email a user
+  const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [showModal, setShowModal] = useState(false);  // Nuevo estado para el modal
   const navRef = useRef(null);
   const loginContainerRef = useRef(null);
   const navigate = useNavigate();
@@ -27,7 +29,7 @@ const Navbar = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/login', { user, password });  // Cambiado de email a user
+      const response = await axios.post('http://localhost:8080/api/auth/login', { user, password });
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('user', JSON.stringify(response.data.user));
       setIsAuthenticated(true);
@@ -35,9 +37,14 @@ const Navbar = () => {
       navigate('/user');
     } catch (err) {
       setError('Error de inicio de sesión. Verifica tus credenciales.');
+      setShowModal(true);  // Mostrar el modal flotante al fallar el login
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleLoginFailure = () => {
+    setShowModal(true);  // Mostrar modal flotante
   };
 
   const handleLogout = () => {
@@ -48,7 +55,6 @@ const Navbar = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    console.log("Token desde localStorage:", token); // Para debug
     if (token) {
       try {
         const decoded = jwtDecode.default(token);
@@ -56,11 +62,10 @@ const Navbar = () => {
         if (decoded.exp > currentTime) {
           setIsAuthenticated(true);
         } else {
-          localStorage.removeItem('token'); // Eliminar si el token ha expirado
+          localStorage.removeItem('token');
         }
       } catch (error) {
-        console.error('Error al decodificar el token:', error);
-        localStorage.removeItem('token'); // Eliminar si hay un error al decodificar
+        localStorage.removeItem('token');
       }
     }
   }, []);
@@ -120,10 +125,10 @@ const Navbar = () => {
                   <div className="input-group">
                     <FaUser />
                     <input
-                      type="text"  // Cambiado de type="email" a type="text"
-                      placeholder="USUARIO"  // Cambiado de EMAIL a USUARIO
-                      value={user}  // Cambiado de email a user
-                      onChange={(e) => setUser(e.target.value)}  // Cambiado de email a user
+                      type="text"
+                      placeholder="USUARIO"
+                      value={user}
+                      onChange={(e) => setUser(e.target.value)}
                       required
                     />
                   </div>
@@ -150,6 +155,15 @@ const Navbar = () => {
           </>
         )}
       </div>
+
+      {showModal && (
+        <div className="modal">
+          <div className="container">
+            <button className="close-btn" onClick={() => setShowModal(false)}>&times;</button>
+            <LoginForm onLoginFailure={handleLoginFailure} />
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
