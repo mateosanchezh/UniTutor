@@ -1,31 +1,59 @@
 import React from 'react'
+import { RiHome5Fill } from "react-icons/ri";
+import { TbBook2 } from "react-icons/tb";
+import { PiChats } from "react-icons/pi";
+import { IoNotificationsOutline } from "react-icons/io5";
+import { FaSearch } from "react-icons/fa";
 
 const Homeuser = () => {
   return (
     <div className='Homeuserpage flex'>
-      <header>
-        <nav className="main-nav">
-          <div className="logo">
-            <h1>UNITUTOR</h1>
-          </div>
-          <div className="search-bar">
-            <input type="text" placeholder="¿Qué tutorías estás buscando?" />
-          </div>
-          <div className="user-profile">
-            <span>Usuario</span>
-          </div>
-        </nav>
-      </header>
+<header>
+  <nav className="main-nav">
+    <div className="logo">
+      <h1>UNITUTOR</h1>
+    </div>
+    <div className="search-bar">
+      <div className="search-container">
+        <FaSearch className="search-icon" />
+        <input type="text" placeholder="¿Qué tutorías estás buscando?" />
+      </div>
+    </div>
+    <div className="user-profile">
+      <span>Usuario</span>
+    </div>
+  </nav>
+</header>
 
       <main>
-        <aside className="sidebar">
-          <ul>
-            <li><a href="#"><i className="icon-home"></i> Inicio</a></li>
-            <li><a href="#"><i className="icon-tutors"></i> Mis Tutorías</a></li>
-            <li><a href="#"><i className="icon-chat"></i> Chat CESSY</a></li>
-            <li><a href="#"><i className="icon-notifications"></i> Notificaciones</a></li>
-          </ul>
-        </aside>
+      <aside className="sidebar">
+      <ul>
+        <li>
+          <a href="#">
+            <RiHome5Fill className="icon" />
+            Inicio
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <TbBook2 className="icon" />
+            Mis Tutorías
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <PiChats className="icon" />
+            Chat CESSY
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <IoNotificationsOutline className="icon" />
+            Notificaciones
+          </a>
+        </li>
+      </ul>
+    </aside>
 
         <section className="main-content">
           <h2>Bienvenido de nuevo, user ... </h2>
@@ -34,7 +62,7 @@ const Homeuser = () => {
             <div className="banner-text">
               <h2>Un aprendizaje eficiente</h2>
               <p>Resuelve tus dudas y fortalece tus habilidades. Nosotros te ayudamos a tener un desempeño mejor</p>
-            </div>
+            </div>  
             <div className="banner-image">
               {/* Image placeholder */}
             </div>
