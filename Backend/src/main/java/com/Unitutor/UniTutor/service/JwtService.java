@@ -1,5 +1,6 @@
 package com.Unitutor.UniTutor.service;
 
+import com.Unitutor.UniTutor.model.Usuario;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,24 +19,26 @@ public class JwtService {
     @Value("${jwt.expiration}")
     private long EXPIRATION_TIME;
 
-    // Método para generar un token JWT
-    public String generateToken(String email, String role) {
+    // Método para generar un token JWT usando el nombre de usuario
+    public String generateToken(Usuario usuario) {
         return Jwts.builder()
-                .setSubject(email) // Define el email como el sujeto del token
-                .claim("role", role) // Incluye el rol como una "claim"
-                .setIssuedAt(new Date()) // Define la fecha de emisión del token
-                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME)) // Establece la fecha de expiración
-                .signWith(SECRET_KEY) // Usa la clave generada para firmar el token
+                .setSubject(usuario.getUser()) // Cambia esto si quieres que el 'sub' sea diferente
+                .claim("nombre", usuario.getNombre())
+                .claim("user", usuario.getUser())
+                .claim("role", usuario.getUserRole().name()) // Suponiendo que tienes un enum para el rol
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+                .signWith(SECRET_KEY)
                 .compact();
     }
 
     // Método para validar el token JWT
-    public Boolean validateToken(String token, String email) {
-        final String username = extractUsername(token); // Extrae el username (en este caso el email)
-        return (username.equals(email) && !isTokenExpired(token)); // Valida que el email coincida y que no haya expirado
+    public Boolean validateToken(String token, String username) {
+        final String extractedUsername = extractUsername(token); // Extrae el nombre de usuario
+        return (extractedUsername.equals(username) && !isTokenExpired(token)); // Valida que el nombre de usuario coincida y que no haya expirado
     }
 
-    // Extraer el email (sujeto) del token JWT
+    // Extraer el nombre de usuario del token JWT
     public String extractUsername(String token) {
         return extractAllClaims(token).getSubject();
     }

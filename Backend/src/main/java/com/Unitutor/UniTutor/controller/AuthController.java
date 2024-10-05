@@ -50,7 +50,7 @@ public class AuthController {
         if (passwordEncoder.matches(password, usuario.getContrasena())) {
             usuario.setContrasena(null);
 
-            String token = jwtService.generateToken(user, usuario.getUserRole().name());
+            String token = jwtService.generateToken(usuario);
             return ResponseEntity.ok(Map.of("token", token, "user", usuario));
         } else {
             return ResponseEntity.badRequest().body("Contraseña incorrecta");
