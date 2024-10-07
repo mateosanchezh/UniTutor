@@ -1,4 +1,6 @@
 import React from 'react'
+import './Homeuser.scss'
+
 
 const Homeuser = () => {
   return (

@@ -10,9 +10,9 @@ import {
   createBrowserRouter, 
   RouterProvider 
 } from 'react-router-dom'
-import Registro from './Components/Registro/Registro'
 import Admin from './Components/Home/Admin'
-import Homeuser from './Components/Homeuser.jsx/Homeuser'
+import Homeuser from './Components/Homeuser/Homeuser'
+import Userpage from './Components/Userpage/Userpage'
 
 function App() {
   // Crear el enrutador
@@ -35,8 +35,8 @@ function App() {
     },
 
     {
-      path: '/registro',
-      element: <Registro />,
+      path: '/profile',
+      element: <Userpage />,
     },
     {
       path: '/admin',
