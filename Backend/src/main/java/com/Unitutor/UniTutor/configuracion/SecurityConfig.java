@@ -31,6 +31,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/**").permitAll() // Permitir acceso a la API de autenticación
                         .requestMatchers("/").permitAll() // Permitir acceso a la raíz
 
+                        .requestMatchers("/api/tutorias/**").permitAll()
                         .requestMatchers("/api/usuarios").permitAll() // permite el acceso de la API a usuarios.
                         .requestMatchers("/admin").hasRole("ADMINISTRADOR") // Requiere rol ADMINISTRADOR para acceder a /admingi
                         .anyRequest().authenticated() // Requiere autenticación para otras rutas
@@ -48,7 +49,6 @@ public class SecurityConfig {
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Agrega los métodos permitidos
         configuration.setAllowedHeaders(Arrays.asList("*")); // Permite todos los encabezados
         configuration.setAllowCredentials(true); // Permite las credenciales
-
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration); // Registra la configuración CORS para todas las rutas
         return source;
