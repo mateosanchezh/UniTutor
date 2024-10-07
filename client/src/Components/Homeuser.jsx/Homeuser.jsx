@@ -5,37 +5,41 @@ import { TbBook2 } from "react-icons/tb";
 import { PiChats } from "react-icons/pi";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
+import { FaUserCircle } from "react-icons/fa";
 
 const Homeuser = () => {
-  // Inicializo el estado para almacenar el nombre de usuario
-  const [username, setUsername] = useState('Usuario'); // Valor por defecto
+  const [username, setUsername] = useState('Usuario');
 
   useEffect(() => {
-    // Obtengo el token del localStorage
     const token = localStorage.getItem('token');
     if (token) {
       try {
-        // Decodifico el token para obtener la información del usuario
         const decoded = jwt_decode(token);
-        console.log(decoded); // Para depuración
-
-        // Aquí asumo que 'sub' es simplemente un string que representa el usuario
+        console.log(decoded);
         if (decoded.sub) {
-          // Establezco el 'sub' como nombre de usuario
           setUsername(decoded.sub);
         }
       } catch (error) {
-        // Capturo y muestro cualquier error al decodificar el token
         console.error("Error parsing user info from token:", error);
       }
     }
-  }, []); // Este efecto se ejecuta solo una vez al montar el componente
+  }, []);
+
+  const tutors = [
+    { name: 'Sergio', schedule: 'Martes - 31/2', time: '10:00 AM - 12:00 PM', mode: 'Virtual', tagline: 'Cálculo de varias variables' },
+    { name: 'Eliecer', schedule: 'Míercoles - 32/05', time: '2:00 PM - 4:00 PM', mode: 'Presencial', tagline: 'Física mecanica' },
+    { name: 'Santiago', schedule: 'Jueves - 20/12', time: '3:00 PM - 5:00 PM', mode: 'Virtual', tagline: 'Competencias ciudadanas' },
+    { name: 'Cristian', schedule: 'Viernes - 24/03', time: '9:00 AM - 11:00 AM', mode: 'Virtual', tagline: 'Ingles II' },
+    { name: 'Mateo', schedule: 'Viernes - 11/04', time: '4:00 PM - 6:00 PM', mode: 'Presencial', tagline: 'Bases de datos I' },
+    { name: 'Goku', schedule: 'Sabado - 24/12', time: '8:00 AM - 10:00 AM', mode: 'Virtual', tagline: 'Electiva libre' }
+  ];
 
   return (
     <div className='Homeuserpage flex'>
       <header>
         <nav className="main-nav">
           <div className="logo">
+          <div className="logonavbar-img"></div>
             <h1>UNITUTOR</h1>
           </div>
           <div className="search-bar">
@@ -45,7 +49,7 @@ const Homeuser = () => {
             </div>
           </div>
           <div className="user-profile">
-            <span>{username}</span> {/* Muestro el nombre de usuario */}
+            <span>{username}</span>
           </div>
         </nav>
       </header>
@@ -81,22 +85,22 @@ const Homeuser = () => {
         </aside>
 
         <section className="main-content">
-          <h2>Bienvenido de nuevo, {username}...</h2>
+          <div className="welcome-header">
+            <FaUserCircle className="fauser-icon" />
+            <h2>Bienvenido de nuevo, {username}...</h2>
+          </div>
           <br />
           <div className="welcome-banner">
             <div className="banner-text">
               <h2>Un aprendizaje eficiente</h2>
               <p>Resuelve tus dudas y fortalece tus habilidades. Nosotros te ayudamos a tener un desempeño mejor</p>
             </div>
-            <div className="banner-image">
-              {/* Placeholder para una imagen */}
-            </div>
+            <div className="bannerrudas-img"></div>
           </div>
 
           <div className="categories-section">
             <h3>Categorías</h3>
             <div className="categories-grid">
-              {/* Mapeo de categorías para mostrarlas en una cuadrícula */}
               {['Matemáticas', 'Programación', 'Inglés', 'Física y Ciencias', 'Análisis de Datos', 'Bases de Datos y Redes', 'Desarrollo Personal', 'Electivas'].map((category, index) => (
                 <div className="category-card" key={index}>
                   <h4>{category}</h4>
@@ -114,16 +118,24 @@ const Homeuser = () => {
           <section className="available-tutors-section">
             <h3>Tutorías Disponibles</h3>
             <div className="tutors-grid">
-              {/* Mapeo de tutores para mostrarlos en una cuadrícula */}
-              {['Sergio', 'Eliecer', 'Santiago', 'Cristian', 'Mateo', 'Goku'].map((tutor, index) => (
+              {tutors.map((tutor, index) => (
                 <div className="tutor-card" key={index}>
-                  <h4>{tutor}</h4>
-                  <p>Horario: Lunes y Miércoles</p>
-                  <p>10:00 AM - 12:00 PM</p>
-                  <p>Virtual</p>
+                  <div className="tutor-img"></div>
+                  <h4>{tutor.name}</h4>
+                  <p className="tutor-subject">{tutor.subject}</p>
+                  <p>Horario: {tutor.schedule}</p>
+                  <p>{tutor.time}</p>
+                  <p>{tutor.mode}</p>
+                  <hr className="tutor-divider" />
+                  <p style={{ fontWeight: 'bold' }}>{tutor.tagline}</p>
                   <div className="reserve-overlay">
-                    <span className="reserve-text">Reservar ya!</span>
-                    <button className="reserve-button">Reservar</button>
+                    <div className="reserve-content">
+                      <span className="reserve-text">Reservar ya!</span>
+                      <span className="reserve-text2">Tu tutoria con nuestro profesor</span>
+                    </div>
+                    <div className="button-container">
+                      <button className="reserve-button">Reservar</button>
+                    </div>
                   </div>
                 </div>
               ))}
