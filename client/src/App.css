@@ -403,56 +403,6 @@ body {
   width: 20px;
   height: 20px;
   overflow: hidden;
-  position: relative;
-  padding: 10px 20px;
-}
-.Unitutor .Home .explore-button .icon-wrapper .button-text {
-  transition: transform 0.3s ease;
-}
-.Unitutor .Home .explore-button .icon-wrapper .login-alerts {
-  text-align: center;
-  margin-top: 10px;
-}
-.Unitutor .Home .explore-button .icon-wrapper .login-alerts .success,
-.Unitutor .Home .explore-button .icon-wrapper .login-alerts .error {
-  color: white;
-  padding: 5px 10px;
-  border-radius: 4px;
-  font-weight: bold;
-}
-.Unitutor .Home .explore-button .icon-wrapper .login-alerts .success {
-  background-color: rgba(0, 128, 0, 0.7); /* Verde semitransparente */
-}
-.Unitutor .Home .explore-button .icon-wrapper .login-alerts .error {
-  background-color: rgba(255, 0, 0, 0.7); /* Rojo semitransparente */
-}
-.Unitutor .Home .explore-button .icon-wrapper .icon-wrapper {
-  position: absolute;
-  right: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  overflow: hidden;
-}
-.Unitutor .Home .explore-button .icon-wrapper .icon {
-  position: absolute;
-  transition: all 0.3s ease;
-  color: black;
-  opacity: 0;
-  transform: translateX(100%);
-}
-.Unitutor .Home .explore-button .icon-wrapper .right-arrow.show {
-  opacity: 1;
-  transform: translateX(0);
-}
-.Unitutor .Home .explore-button .icon-wrapper .down-arrow.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-.Unitutor .Home .explore-button .icon-wrapper.hovered .button-text {
-  transform: translateX(-10px);
 }
 .Unitutor .Home .explore-button .icon {
   position: absolute;
@@ -1930,7 +1880,6 @@ footer p {
   background-color: #2d3748;
 }
 
-/* Estilos para el homeuser */
 .Homeuserpage {
   /* General styles */
   box-sizing: border-box;
@@ -1945,6 +1894,7 @@ footer p {
   /* Welcome banner styles */
   /* Categories section */
   /* Available tutors section */
+  /* Responsive adjustments */
 }
 .Homeuserpage .main-nav {
   display: flex;
@@ -1964,41 +1914,11 @@ footer p {
   color: #6b2c91;
   font-size: 1.5rem;
 }
-.Homeuserpage .main-nav .search-bar {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-.Homeuserpage .main-nav .search-bar .search-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-.Homeuserpage .main-nav .search-bar .search-container input {
-  width: 500px;
+.Homeuserpage .main-nav .search-bar input {
+  width: 300px;
   padding: 0.5rem;
-  padding-left: 40px; /* Espacio para el ícono */
-  border: 1px solid #6b2c91;
+  border: 1px solid #ddd;
   border-radius: 4px;
-  color: #6b2c91; /* Color del texto */
-}
-.Homeuserpage .main-nav .search-bar .search-container input:focus {
-  outline: none; /* Elimina el contorno predeterminado */
-  border-color: #6b2c91; /* Color del borde cuando está enfocado */
-  color: #6b2c91; /* Color del texto cuando está enfocado */
-}
-.Homeuserpage .main-nav .search-bar .search-container .search-icon {
-  position: absolute;
-  left: 10px; /* Posiciona el ícono */
-  font-size: 20px;
-  color: #6b2c91; /* Color del ícono */
-}
-.Homeuserpage .main-nav .user-profile {
-  display: flex;
-  align-items: center;
-}
-.Homeuserpage .main-nav .user-profile span {
-  margin-left: 10px;
 }
 .Homeuserpage .sidebar {
   width: 250px;
@@ -2011,74 +1931,41 @@ footer p {
 }
 .Homeuserpage .sidebar ul {
   list-style: none;
-  padding: 0;
 }
-.Homeuserpage .sidebar ul li {
-  display: flex;
-  align-items: center;
-  margin: 40px 0;
-}
-.Homeuserpage .sidebar ul li a {
-  text-decoration: none;
+.Homeuserpage .sidebar li a {
+  display: block;
+  padding: 1rem 2rem;
   color: #333;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  padding-left: 40px;
-}
-.Homeuserpage .sidebar ul li a .icon {
-  font-size: 24px;
-  margin-right: 15px;
+  text-decoration: none;
 }
 .Homeuserpage .main-content {
   margin-left: 250px;
   padding: 2rem;
-  margin-top: 30px;
-}
-.Homeuserpage .main-content .welcome-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-.Homeuserpage .main-content .welcome-header .fauser-icon {
-  font-size: 60px;
-  color: #6b2c91;
-  margin-right: 15px;
-  margin-left: 50px;
-}
-.Homeuserpage .main-content .welcome-header h2 {
-  margin: 0;
 }
 .Homeuserpage .welcome-banner {
   background-color: #6b2c91;
   color: white;
-  padding: 3rem 6rem;
+  padding: 2rem;
+  border-radius: 8px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
   position: relative;
-  width: 75%;
-  height: 250px;
 }
-.Homeuserpage .banner-text {
+.Homeuserpage .welcome-banner .banner-text {
   background-color: white;
   color: black;
   padding: 1.5rem;
+  border-radius: 8px;
   flex: 1;
-  max-width: 40%;
+  max-width: 60%;
   position: relative;
   z-index: 1;
 }
-.Homeuserpage .bannerrudas-img {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 35%;
-  background-image: url(img/Photo4.png);
-  background-size: cover;
-  background-position: center;
-  z-index: 2;
+.Homeuserpage .welcome-banner .banner-image {
+  flex: 1;
+  position: relative;
+  z-index: 0;
 }
 .Homeuserpage .categories-section {
   margin-top: 2rem;
@@ -2110,94 +1997,65 @@ footer p {
 .Homeuserpage .available-tutors-section .tutors-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3rem 8rem;
-  justify-content: center;
-  margin-top: 3rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  gap: 1.5rem;
+  margin-top: 1rem;
 }
 .Homeuserpage .available-tutors-section .tutor-card {
   background-color: black;
+  padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
-  width: 250px;
-  height: 450px;
-}
-.Homeuserpage .available-tutors-section .tutor-card .tutor-img {
-  background-image: url(img/NoPhoto.png);
-  height: 242px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  z-index: 2;
 }
 .Homeuserpage .available-tutors-section .tutor-card h4 {
   margin-bottom: 1rem;
   color: white;
-  margin-left: 25px;
 }
 .Homeuserpage .available-tutors-section .tutor-card p {
   margin-bottom: 0.5rem;
   color: white;
-  margin-left: 25px;
 }
-.Homeuserpage .available-tutors-section .tutor-card .tutor-divider {
+.Homeuserpage .available-tutors-section .tutor-card button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: black;
+  color: white;
   border: none;
-  height: 1px;
-  background-color: #ffffff;
-  margin: 0.5rem 25px 1rem;
+  border-radius: 4px;
+  cursor: pointer;
 }
 .Homeuserpage .available-tutors-section .tutor-card .reserve-overlay {
   position: absolute;
-  top: 242px;
+  top: 0;
   left: 0;
   width: 100%;
-  height: calc(100% - 242px);
+  height: 100%;
   background-color: #D9D9D9;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 .Homeuserpage .available-tutors-section .tutor-card:hover .reserve-overlay {
   opacity: 1;
 }
-.Homeuserpage .available-tutors-section .tutor-card .reserve-content {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px 25px;
-}
 .Homeuserpage .available-tutors-section .tutor-card .reserve-text {
   color: black;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-bottom: 1rem;
-  font-weight: bold;
-}
-.Homeuserpage .available-tutors-section .tutor-card .reserve-text2 {
-  color: black;
-  font-size: 1.5rem;
-}
-.Homeuserpage .available-tutors-section .tutor-card .button-container {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 20px;
 }
 .Homeuserpage .available-tutors-section .tutor-card .reserve-button {
-  padding: 0.8rem 3rem;
-  background-color: black;
-  color: white;
-  border: 1px solid #5c2771;
-  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  color: #6b2c91;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
 }
-
-/* Responsive adjustments */
 @media (max-width: 1200px) {
   .Homeuserpage .categories-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -2225,14 +2083,10 @@ footer p {
   .Homeuserpage .tutors-grid {
     grid-template-columns: 1fr;
   }
-  .Homeuserpage .welcome-banner {
-    padding: 2rem;
-    height: auto;
-  }
   .Homeuserpage .banner-text {
     max-width: 100%;
   }
-  .Homeuserpage .bannerrudas-img {
+  .Homeuserpage .banner-image {
     display: none;
   }
   .Homeuserpage .search-bar input {

@@ -1,0 +1,188 @@
+
+@import '@fontsource-variable/onest';
+
+.userpage{
+
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+header {
+    background-color: white;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.logo {
+    color: #5C2771;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.search-bar {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    margin: 0 20px;
+}
+.search-bar input {
+    padding: 8px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #5C2771;
+    border-radius: 4px;
+
+    &::placeholder{
+        font-family: 'Onest Variable', sans-serif;
+        color: #5C2771;
+    }
+}
+.user-menu {
+    white-space: nowrap;
+    font-family: 'Onest Variable', sans-serif;
+}
+
+.fondo-user{
+    width: 50px;
+    height: 50px;
+    background-color: #5C2771;
+    border-radius: 50%;
+    margin: 0 10px ;
+}
+nav {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 20px;
+    border-bottom: 1px solid #b3b3b3;
+    
+}
+nav a {
+    color: #5C2771;
+    text-decoration: none;
+    margin-right: 20px;
+    padding: 5px 0;
+    font-family: 'Onest Variable', sans-serif;
+}
+.main-content {
+    display: flex;
+    margin-top: 20px;
+}
+.profile {
+    width: 30%;
+    padding: 20px;
+    border-radius: 8px;
+}
+.profile-image {
+    width: 150px;
+    height: 150px;
+    background-color: #5C2771;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+}
+.profile h2, .profile p {
+    text-align: center;
+    font-family: 'Onest Variable', sans-serif;
+}
+.edit-profile {
+    display: block;
+    background-color: #5C2771;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    width: 50%;
+    margin: 0 auto;
+}
+.tutoring-sessions {
+    width: 70%;
+    padding-left: 20px;
+}
+.session-search {
+    margin-bottom: 20px;
+    
+}
+
+.session-search input {
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #5C2771;
+    border-radius: 4px;
+
+    &::placeholder{
+        font-family: 'Onest Variable', sans-serif;
+        color: #5C2771;
+    }
+}
+.session-search select {
+    width: 16%;
+    padding: 8px;
+    border: 1px solid #5C2771;
+    border-radius: 10px;
+    background-color: #5C2771;
+    color: white;
+    margin: 0 15px;
+    font-family: 'Onest Variable', sans-serif;
+}
+
+.icono{
+    margin: 0 5px;
+}
+
+.crear{
+    width: 16%;
+    background-color: #d9d9d9;
+    padding: 8px;
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+    color: #5C2771;
+    margin: 0 2px;
+    font-family: 'Onest Variable', sans-serif;
+}
+.session {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+.session h3 {
+    margin: 0;
+    color: #5C2771;
+}
+.session p {
+    margin: 5px 0;
+}
+.session-type {
+    display: inline-block;
+    background-color: #e1bee7;
+    color: #5C2771;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+.session-actions {
+    float: right;
+}
+.session-actions button {
+    background-color: #5C2771;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+}
