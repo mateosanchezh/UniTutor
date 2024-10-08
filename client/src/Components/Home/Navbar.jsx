@@ -3,9 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaUser, FaBars, FaTimes, FaEye, FaEyeSlash, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import axios from 'axios';
 import * as jwtDecode from 'jwt-decode';
-import LoginForm from './LoginForm';  // Importar el componente del segundo formulario
 
-const Navbar = () => {
+const Navbar = ({ onLoginError }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showLoginForm, setShowLoginForm] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -14,67 +13,53 @@ const Navbar = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [showModal, setShowModal] = useState(false);  // Nuevo estado para el modal
   const navRef = useRef(null);
   const loginContainerRef = useRef(null);
   const navigate = useNavigate();
 
-  // Alternar el menú
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  // Alternar el formulario de inicio de sesión
   const toggleLoginForm = () => setShowLoginForm(!showLoginForm);
 
-  // Alternar visibilidad de contraseña
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
-  // Manejar el envío del formulario de inicio de sesión
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(''); // Limpiar errores previos
-    setLoading(true); // Iniciar el cargando
+    setError(''); 
+    setLoading(true); 
 
     try {
       const response = await axios.post('http://localhost:8080/api/auth/login', { user, password });
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('user', JSON.stringify(response.data.user));
-      setIsAuthenticated(true); // Autenticación exitosa
-      setShowLoginForm(false);  // Cerrar el formulario de inicio de sesión
-      navigate('/user');        // Navegar a la página de usuario
+      setIsAuthenticated(true); 
+      setShowLoginForm(false);  
+      navigate('/user');        
     } catch (err) {
       setError('Error de inicio de sesión. Verifica tus credenciales.');
-      setShowModal(true);       // Mostrar el modal en caso de error
+      onLoginError();  // Llama a la función prop para notificar al Home que ocurrió un error
     } finally {
-      setLoading(false);        // Detener el estado de cargando
+      setLoading(false); 
     }
   };
 
-  // Cerrar sesión y limpiar el almacenamiento local
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    setIsAuthenticated(false);  // Cambiar el estado de autenticación
-  };
-
-  // Verificar si el token es válido al montar el componente
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
       try {
-        const decoded = jwtDecode.default(token);  // Decodificar el token
-        const currentTime = Date.now() / 1000;     // Obtener el tiempo actual
+        const decoded = jwtDecode.default(token);  
+        const currentTime = Date.now() / 1000;     
         if (decoded.exp > currentTime) {
-          setIsAuthenticated(true);  // Si el token no ha expirado, el usuario está autenticado
+          setIsAuthenticated(true);  
         } else {
-          localStorage.removeItem('token');  // Si ha expirado, eliminar el token
+          localStorage.removeItem('token');  
         }
       } catch (error) {
-        localStorage.removeItem('token');    // Si el token no es válido, eliminarlo
+        localStorage.removeItem('token');    
       }
     }
   }, []);
 
-  // Cerrar el menú cuando se hace clic fuera de él
   useEffect(() => {
     const closeMenu = (e) => {
       if (isOpen && navRef.current && !navRef.current.contains(e.target)) {
@@ -82,18 +67,15 @@ const Navbar = () => {
       }
     };
 
-    // Cerrar el formulario de login si se hace clic fuera de él
     const closeLoginForm = (e) => {
       if (showLoginForm && loginContainerRef.current && !loginContainerRef.current.contains(e.target)) {
         setShowLoginForm(false);
       }
     };
 
-    // Añadir event listeners
     document.addEventListener('mousedown', closeMenu);
     document.addEventListener('mousedown', closeLoginForm);
 
-    // Limpiar event listeners al desmontar
     return () => {
       document.removeEventListener('mousedown', closeMenu);
       document.removeEventListener('mousedown', closeLoginForm);
@@ -166,15 +148,7 @@ const Navbar = () => {
         )}
       </div>
 
-      {/* Modal flotante para error de login */}
-      {showModal && (
-        <div className="modal">
-          <div className="container">
-            <button className="close-btn" onClick={() => setShowModal(false)}>&times;</button>
-            <LoginForm onLoginFailure={() => setShowModal(false)} />
-          </div>
-        </div>
-      )}
+      ¡
     </nav>
   );
 };

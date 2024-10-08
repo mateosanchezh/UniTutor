@@ -65,8 +65,6 @@ const Home = () => {
   const handleLoginClick = () => {
     setShowLogin(!showLogin);  // Alterna la visibilidad del LoginForm
   };
-
-
   const subjects = [
     {
       name: 'Desarrollo de software',
@@ -125,127 +123,128 @@ const Home = () => {
   ];
 
 
+
   return (
     <div className="Homepage flex">
-          <main>
-            <section className="Unitutor">
-              <Navbar scrollToSection={scrollToSection} />
+      <main>
+        <section className="Unitutor">
+          <Navbar scrollToSection={scrollToSection} />
 
-              {/* Controla la visibilidad del LoginForm */}
-              {showLogin && <LoginForm />}
+          {/* Controla la visibilidad del LoginForm */}
+          {showLogin && <LoginForm />}
 
-              <div className="Home">
-                <div className="content-wrapper">
-                  <img src={Group} alt="Logo Unitutor" className="UnitutorLogo" />
-                  <h2 className="uni">UNITUTOR</h2>
-                  <div className="vertical-line"></div>
-                  <div className="text-button-wrapper">
-                    <h1>
-                      De lo presencial <br />
-                      <span className="fuente">a lo virtual,</span><br />
-                      simplificando<br/>
-                      <span className="fuente">el aprendizaje.</span><br />
-                    </h1>
-                    <button
-                      className={`explore-button ${isHovered ? 'hovered' : ''}`}
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                      onClick={handleClick}
-                    >
-                      <span className="button-text">Explorar</span>
-                      <div className="icon-wrapper">
-                        <FaArrowRight className={`icon right-arrow ${isHovered && !showDownArrow ? 'show' : ''}`} />
-                        <FaArrowDown className={`icon down-arrow ${showDownArrow ? 'show' : ''}`} />
-                      </div>
-                    </button>
+          <div className="Home">
+            <div className="content-wrapper">
+              <img src={Group} alt="Logo Unitutor" className="UnitutorLogo" />
+              <h2 className="uni">UNITUTOR</h2>
+              <div className="vertical-line"></div>
+              <div className="text-button-wrapper">
+                <h1>
+                  De lo presencial <br />
+                  <span className="fuente">a lo virtual,</span><br />
+                  simplificando<br/>
+                  <span className="fuente">el aprendizaje.</span><br />
+                </h1>
+                <button
+                  className={`explore-button ${isHovered ? 'hovered' : ''}`}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onClick={handleClick}
+                >
+                  <span className="button-text">Explorar</span>
+                  <div className="icon-wrapper">
+                    <FaArrowRight className={`icon right-arrow ${isHovered && !showDownArrow ? 'show' : ''}`} />
+                    <FaArrowDown className={`icon down-arrow ${showDownArrow ? 'show' : ''}`} />
                   </div>
-                </div>
+                </button>
               </div>
-            </section>
-
-
+            </div>
+          </div>
+        </section>
 
         <section className="asignaturas" ref={asignaturasRef}>
           <div className="container">
             <div className="left-section">
               <h1>¿POR QUE USAR <br /> <span className='titulo2'> UNITUTOR? </span></h1>
-              <p className='texto'>Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit, sed do eiusmod tempor incididunt ut labore  et<br /> dolore magna aliqua.</p>
+              <p className='texto'>
+                Lorem ipsum dolor sit amet, consectetur adipiscing <br />
+                elit, sed do eiusmod tempor incididunt ut labore  et<br />
+                dolore magna aliqua.
+              </p>
 
               <button
-                  className={`explorar-button ${isHovered ? 'hovered' : ''}`}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  onClick={handleClick2}
-                >
-                  <span className="button-text">
-                    Explorar
-                  </span>
-                  <div className="icon-wrapper">
-                    {/* Flecha derecha: se muestra al hacer hover y se oculta cuando aparece la flecha hacia abajo */}
-                    <FaArrowRight className={`icon right-arrow2 ${isHovered && !showDownArrow ? 'show' : ''}`} />
-                    {/* Flecha hacia abajo: se muestra después del temporizador */}
-                    <FaArrowDown className={`icon down-arrow2 ${showDownArrow ? 'show' : ''}`} />
-                  </div>
-                </button>
-
-        </div>
-        <div className="right-section">
-            <h2>ASIGNATURAS POPULARES</h2>
-            <div className="popular-subjects">
-              {subjects.map((subject, index) => (
-                <div key={index} className="subject-card">
-                  <img src={subject.image} alt={subject.name} />
-                  <p className='subject'>{subject.name}</p>
-                  <div className={`subject-info ${activeSubject === index ? 'show' : ''}`}>
-                    <h3>{subject.name}</h3>
-                    <p className="semester">{subject.semester}</p>
-                    <p className="description">{subject.description}</p>
-                  </div>
-                  <button
-                    className="info-button"
-                    onClick={() => toggleSubjectInfo(index)}
-                  >
-                    {activeSubject === index ? 'Cerrar' : 'Más info'}
-                  </button>
+                className={`explorar-button ${isHovered ? 'hovered' : ''}`}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                onClick={handleClick2}
+              >
+                <span className="button-text">
+                  Explorar
+                </span>
+                <div className="icon-wrapper">
+                  <FaArrowRight className={`icon right-arrow2 ${isHovered && !showDownArrow ? 'show' : ''}`} />
+                  <FaArrowDown className={`icon down-arrow2 ${showDownArrow ? 'show' : ''}`} />
                 </div>
-              ))}
+              </button>
             </div>
-          </div>
+
+            <div className="right-section">
+              <h2>ASIGNATURAS POPULARES</h2>
+              <div className="popular-subjects">
+                {subjects.map((subject, index) => (
+                  <div key={index} className="subject-card">
+                    <img src={subject.image} alt={subject.name} />
+                    <p className='subject'>{subject.name}</p>
+                    <div className={`subject-info ${activeSubject === index ? 'show' : ''}`}>
+                      <h3>{subject.name}</h3>
+                      <p className="semester">{subject.semester}</p>
+                      <p className="description">{subject.description}</p>
+                    </div>
+                    <button
+                      className="info-button"
+                      onClick={() => toggleSubjectInfo(index)}
+                    >
+                      {activeSubject === index ? 'Cerrar' : 'Más info'}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
           <img src={UnitutorLogo} alt="Logo Unitutor" className="UnitutorLogonegro" />
         </section>
 
-
         <section className="PROFESORES" ref={profesoresRef}>
-  <div className="profesores">
-    <h1>PROFESORES MEJOR CALIFICADOS</h1>
-    <div className="profesores-contenido">
-      <div className="prof">
-        <div className="imagen prof1"></div>
-        <h4>Roberto Rudas</h4>
-        <p>Prof. Innovación y emprendimiento</p>
-      </div>
-      <div className="prof">
-        <div className="imagen prof2"></div>
-        <h4>Roberto Rudas</h4>
-        <p>Prof. Innovación y emprendimiento</p>
-      </div>
-      <div className="prof">
-        <div className="imagen prof3"></div>
-        <h4>Danilo Vargas</h4>
-        <p>Prof. Desarrollo de software II</p>
-      </div>
-      <div className="prof">
-        <div className="imagen prof4"></div>
-        <h4>Jader Melendez</h4>
-        <p>Prof. Matemática discreta</p>
-      </div>
-    </div>
+          <div className="profesores">
+            <h1>PROFESORES MEJOR CALIFICADOS</h1>
+            <div className="profesores-contenido">
+              <div className="prof">
+                <div className="imagen prof1"></div>
+                <h4>Roberto Rudas</h4>
+                <p>Prof. Innovación y emprendimiento</p>
+              </div>
+              <div className="prof">
+                <div className="imagen prof2"></div>
+                <h4>Roberto Rudas</h4>
+                <p>Prof. Innovación y emprendimiento</p>
+              </div>
+              <div className="prof">
+                <div className="imagen prof3"></div>
+                <h4>Danilo Vargas</h4>
+                <p>Prof. Desarrollo de software II</p>
+              </div>
+              <div className="prof">
+                <div className="imagen prof4"></div>
+                <h4>Jader Melendez</h4>
+                <p>Prof. Matemática discreta</p>
+              </div>
+            </div>
+
             <div className="profesores2">
-                <h1>¿Por qué escoger nuestros profesores?</h1>
-             <article>
-                <p> Un buen tutor no solo enseña, sino que inspira. Nuestros profesores están comprometidos con la excelencia académica y utilizan métodos innovadores para asegurar que no solo aprendas, sino que también apliques ese conocimiento de manera efectiva.  </p>
-             </article>
+              <h1>¿Por qué escoger nuestros profesores?</h1>
+              <article>
+                <p> Un buen tutor no solo enseña, sino que inspira. Nuestros profesores están comprometidos con la excelencia académica y utilizan métodos innovadores para asegurar que no solo aprendas, sino que también apliques ese conocimiento de manera efectiva. </p>
+              </article>
             </div>
 
             <div className="cuadros-contenedor">
@@ -269,7 +268,6 @@ const Home = () => {
           </div>
         </section>
 
-
         <section className="piedepagina">
           <div className="foot">
             <a href="#">Sobre nosotros</a>
@@ -279,6 +277,7 @@ const Home = () => {
             <a href="#">Politica de privacidad</a>
           </div>
         </section>
+
         <footer>
           <div className="imgfooter"></div>
           <p>Unitutor 2024</p>
