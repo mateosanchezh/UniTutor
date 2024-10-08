@@ -10,7 +10,7 @@ import {
   createBrowserRouter, 
   RouterProvider 
 } from 'react-router-dom'
-import Admin from './Components/Home/Admin'
+import Admin from './Components/Admin/Admin'
 import Homeuser from './Components/Homeuser/Homeuser'
 import Userpage from './Components/Userpage/Userpage'
 

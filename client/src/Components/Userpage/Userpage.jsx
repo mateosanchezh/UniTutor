@@ -2,14 +2,17 @@ import React from 'react'
 import './Userpage.scss'
 import { CiStar,CiLocationOn,CiMail } from "react-icons/ci";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
+import { FaCode } from "react-icons/fa";
 import { PiGraduationCap,PiCalculatorDuotone } from "react-icons/pi";
+import UnitutorLogo from '../../img/UnitutorLogo.svg'
 
 const Userpage = () => {
-  return (
+    return (
 
     <div className='userpage flex'>
                 <div className="container">
                 <div className="header-top">
+                <img src={UnitutorLogo} alt="Logo Unitutor" className="UnitutorLogonegro" /> 
                     <a href="#" className="logo">
                     UNITUTOR
                     </a>
@@ -37,12 +40,12 @@ const Userpage = () => {
                     <a href="#" className="edit-profile">
                     Editar perfil
                     </a>
-                     <p> <CiStar className='icono' />10 Tutorías realizadas</p>
+                    <p> <CiStar className='icono' />10 Tutorías realizadas</p>
                     <p><HiOutlineBuildingOffice2 className='icono' />Tecnologico Comfenalco</p>
                     <p><CiLocationOn className='icono' />Toronto, Canada</p>
                     <p><CiMail className='icono'/>Usuariodesconocido@gmail.com</p>
                     <p><PiGraduationCap className='icono'/>Tutor de Proyecto de vida</p>
-                    <p>Tutor de Programación</p>
+                    <p><FaCode className='icono'/>Tutor de Programación</p>
                     <p><PiCalculatorDuotone className='icono'/>Tutor de Cálculo Integral</p>
                 </div>
                 <div className="tutoring-sessions">

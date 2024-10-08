@@ -11,6 +11,7 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { styled } from '@mui/material/styles';
 import { FaHome } from "react-icons/fa";
 import { IoMdArrowDropright } from "react-icons/io";
+import './Admin.scss'
 
 const Admin = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);

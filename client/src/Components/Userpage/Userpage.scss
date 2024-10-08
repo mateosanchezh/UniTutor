@@ -115,6 +115,12 @@ nav a {
     
 }
 
+.UnitutorLogonegro{
+    width: 4%;
+    margin: 0 20px;
+    margin-bottom: 10px;
+}
+
 .session-search input {
     width: 50%;
     padding: 8px;
@@ -138,7 +144,7 @@ nav a {
 }
 
 .icono{
-    margin: 0 5px;
+    margin: -2px 5px;
 }
 
 .crear{
@@ -160,9 +166,11 @@ nav a {
 .session h3 {
     margin: 0;
     color: #5C2771;
+    font-family: 'Onest Variable', sans-serif;
 }
 .session p {
     margin: 5px 0;
+    font-family: 'Onest Variable', sans-serif;
 }
 .session-type {
     display: inline-block;
@@ -183,6 +191,7 @@ nav a {
     margin-left: 5px;
     border-radius: 4px;
     cursor: pointer;
+    font-family: 'Onest Variable', sans-serif;
 }
 
 }

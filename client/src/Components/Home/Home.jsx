@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import LoginForm from './LoginForm';
 import { useRef } from 'react';
 import { useEffect } from 'react';
-import "../../App.css";
+import "./Home.scss";
 import Group from '../../img/Group.png'
 import Foto1 from '../../img/Foto1.png'
 import Foto2 from '../../img/Foto2.png'
