@@ -23,6 +23,15 @@ const Home = () => {
   const [showLogin, setShowLogin] = useState(false);  // Estado para controlar la visibilidad del LoginForm
   const asignaturasRef = useRef(null);
   const profesoresRef = useRef(null);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
+  const handleLoginFailure = () => {
+    setShowLoginModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowLoginModal(false);
+  };
 
   const scrollToSection = (section) => {
     let ref;
@@ -132,13 +141,18 @@ const Home = () => {
 
   return (
     <div className="Homepage flex">
-      <main>
+      
         <section className="Unitutor">
-          <Navbar scrollToSection={scrollToSection} />
-          <LoginForm/>
+          <Navbar scrollToSection={scrollToSection} onLoginError={handleLoginFailure} />
+          {showLoginModal && (
+            <div className="modal-overlay" onClick={handleCloseModal}>
+                <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <LoginForm onLoginFailure={handleLoginFailure} onClose={handleCloseModal} />
+          </div>
+            </div>
+          )}
 
-          {/* Controla la visibilidad del LoginForm */}
-          {showLogin && <LoginForm />}
+        
 
           <div className="Home">
             <div className="content-wrapper">
@@ -298,7 +312,7 @@ const Home = () => {
             <FaYoutube />
           </div>
         </footer>
-      </main>
+      
     </div>
   );
 };

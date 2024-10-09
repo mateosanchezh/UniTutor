@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import "../../App.css";
+import "../Home/styles/LoginForm.scss"
+import UnitutorLogo from '../../img/UnitutorLogo.svg'
 
-const LoginForm = ({ onLoginFailure }) => {
+const LoginForm = ({ onLoginFailure, onClose  }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,6 +40,10 @@ const LoginForm = ({ onLoginFailure }) => {
     <div className='loginformpage flex'>
       <div className="container">
         <div className="form-container">
+        <button className="close-btn" onClick={onClose}>
+            <span>&times;</span>
+          </button>
+          <img src={UnitutorLogo} alt="Logo Unitutor" className="UnitutorLogo" />
           <div className="form-header">
             <h2 className="title">Te damos la bienvenida a Unitutor</h2>
             {error && <p className="error-message">{error}</p>}
@@ -45,9 +51,9 @@ const LoginForm = ({ onLoginFailure }) => {
           <form onSubmit={handleSubmit}>
             <div className="input-group">
               <input
-                type="email"
+                type="text"
                 className="input-field"
-                placeholder="EMAIL"
+                placeholder="USUARIO"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
