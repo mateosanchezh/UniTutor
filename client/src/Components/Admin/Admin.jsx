@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import { FaSearch, FaPencilAlt, FaTrash, FaInfoCircle, FaHome } from 'react-icons/fa';
-import { FaXTwitter, FaFacebookF, FaLinkedinIn, FaGithub, FaInstagram, FaYoutube } from 'react-icons/fa6';
 import { MdKeyboardDoubleArrowRight, MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { LuSettings2 } from "react-icons/lu";
 import Button from '@mui/material/Button';
@@ -9,7 +8,7 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { styled } from '@mui/material/styles';
 import { IoMdArrowDropright } from "react-icons/io";
 import Group from '../../img/Group.png';
-import UnitutorLogo from '../../img/UnitutorLogo.svg';
+import '../Admin/Admin.css';
 
 const VisuallyHiddenInput = styled('input')({
     clip: 'rect(0 0 0 0)',
@@ -26,28 +25,39 @@ const VisuallyHiddenInput = styled('input')({
 const Admin = () => {
     const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
     const usersPerPage = 10;
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:8080/api/usuarios'); // Cambia el puerto si es necesario
-                const usuarios = await response.json();
+                setLoading(true);
+                const response = await fetch('http://localhost:8080/api/usuarios');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const text = await response.text();
+                const usuarios = JSON.parse(text);
                 setData(usuarios);
+                setError(null);
             } catch (error) {
                 console.error('Error al obtener los usuarios:', error);
+                setError(`Error al obtener los usuarios: ${error.message}`);
+            } finally {
+                setLoading(false);
             }
         };
 
         fetchData();
     }, []);
 
-    // Calcular los índices de los usuarios a mostrar
+    // Calculate user indices
     const indexOfLastUser = currentPage * usersPerPage;
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
     const currentUsers = data.slice(indexOfFirstUser, indexOfLastUser);
 
-    // Funciones para manejar el cambio de página
+    // Pagination handlers
     const handleNextPage = () => {
         if (currentPage < Math.ceil(data.length / usersPerPage)) {
             setCurrentPage(currentPage + 1);
@@ -59,6 +69,14 @@ const Admin = () => {
             setCurrentPage(currentPage - 1);
         }
     };
+
+    if (loading) {
+        return <div>Cargando...</div>;
+    }
+
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
 
     return (
         <div className='admin-page'>
@@ -88,14 +106,14 @@ const Admin = () => {
                             <TextField
                                 disabled
                                 label="NOMBRE Y APELLIDO"
-                                defaultValue={`${item.nombre} ${item.apellido}`} // Combina nombre y apellido
+                                defaultValue={`${item.nombre} ${item.apellido}`}
                                 variant="outlined"
                                 fullWidth
                             />
                             <TextField
                                 disabled
                                 label="ROL"
-                                defaultValue={item.userRole} // Asegúrate de que este campo sea correcto
+                                defaultValue={item.userRole}
                                 variant="outlined"
                                 fullWidth
                             />
@@ -156,23 +174,10 @@ const Admin = () => {
             </div>
 
             <footer>
-
-                            <div className="footer-content">
-                                <div className="logo">
-                                <img src={UnitutorLogo} alt="Logo Unitutor" className="Unitutornegro" />
-                                    <div className="logo-text">Unitutor 2024</div>
-                                </div>
-                                <div className='linea-vertical'></div>
-                                <div className="social-icons">
-                                    <a href="#" className="social-icon"><FaXTwitter /></a>
-                                    <a href="#" className="social-icon"><FaFacebookF /></a>
-                                    <a href="#" className="social-icon"><FaLinkedinIn /></a>
-                                    <a href="#" className="social-icon"><FaGithub /></a>
-                                    <a href="#" className="social-icon"><FaInstagram /></a>
-                                    <a href="#" className="social-icon"><FaYoutube /></a>
-                                </div>
-                            </div>
-                        </footer>
+                <div className="footer-content">
+                    <p>© 2024 - UniTutor. Todos los derechos reservados.</p>
+                </div>
+            </footer>
         </div>
     );
 };
