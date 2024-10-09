@@ -54,7 +54,7 @@ const Userpage = () => {
                     <select>
                         <option>Asignatura ▼</option>
                     </select>
-                    <button className='crear'>Crear Tutoria</button>
+                    <button className='crear'>Crear Tutoria </button>
                     </div>
                     <div className="session">
                     <h3>Calculo Integral</h3>
