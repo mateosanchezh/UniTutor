@@ -1,72 +1,78 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react';
 import TextField from '@mui/material/TextField';
-import { FaSearch, FaPencilAlt, FaTrash, FaInfoCircle } from 'react-icons/fa';
-import { FaXTwitter, FaFacebookF, FaLinkedinIn, FaGithub, FaInstagram, FaYoutube,FaBars  } from 'react-icons/fa6';
-import Group from '../../img/Group.png'
-import UnitutorLogo from '../../img/UnitutorLogo.svg'
+import { FaSearch, FaPencilAlt, FaTrash, FaInfoCircle, FaHome } from 'react-icons/fa';
+import { FaXTwitter, FaFacebookF, FaLinkedinIn, FaGithub, FaInstagram, FaYoutube } from 'react-icons/fa6';
 import { MdKeyboardDoubleArrowRight, MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { LuSettings2 } from "react-icons/lu";
 import Button from '@mui/material/Button';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { styled } from '@mui/material/styles';
-import { FaHome } from "react-icons/fa";
 import { IoMdArrowDropright } from "react-icons/io";
-import './Admin.scss'
+import Group from '../../img/Group.png';
+import UnitutorLogo from '../../img/UnitutorLogo.svg';
+
+const VisuallyHiddenInput = styled('input')({
+    clip: 'rect(0 0 0 0)',
+    clipPath: 'inset(50%)',
+    height: 1,
+    overflow: 'hidden',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    whiteSpace: 'nowrap',
+    width: 1,
+});
 
 const Admin = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
+    const [data, setData] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const usersPerPage = 10;
 
     useEffect(() => {
-        const checkIfMobile = () => {
-            setIsMobile(window.innerWidth < 768);
+        const fetchData = async () => {
+            try {
+                const response = await fetch('http://localhost:8080/api/usuarios'); // Cambia el puerto si es necesario
+                const usuarios = await response.json();
+                setData(usuarios);
+            } catch (error) {
+                console.error('Error al obtener los usuarios:', error);
+            }
         };
 
-        checkIfMobile();
-        window.addEventListener('resize', checkIfMobile);
-
-        return () => {
-            window.removeEventListener('resize', checkIfMobile);
-        };
+        fetchData();
     }, []);
 
-    const toggleSidebar = () => {
-        setIsSidebarOpen(!isSidebarOpen);
+    // Calcular los índices de los usuarios a mostrar
+    const indexOfLastUser = currentPage * usersPerPage;
+    const indexOfFirstUser = indexOfLastUser - usersPerPage;
+    const currentUsers = data.slice(indexOfFirstUser, indexOfLastUser);
+
+    // Funciones para manejar el cambio de página
+    const handleNextPage = () => {
+        if (currentPage < Math.ceil(data.length / usersPerPage)) {
+            setCurrentPage(currentPage + 1);
+        }
     };
 
-    const data = [
-        { name: "LUIS BALCAZAR CAMPOVERDE", role: "ESTUDIANTE" },
-        { name: "JUAN JOSE ORTEGA VINTIMILLA", role: "ESTUDIANTE" },
-        { name: "LENIN EDUARDO SAGUAY SANAGUANO", role: "PROFESOR" },
-        { name: "KARINA MASACHE ALVARADO", role: "ESTUDIANTE" },
-        { name: "LILLI LUCIA ROMERO PACHECO", role: "PROFESOR" },
-    ];
-
-    const VisuallyHiddenInput = styled('input')({
-        clip: 'rect(0 0 0 0)',
-        clipPath: 'inset(50%)',
-        height: 1,
-        overflow: 'hidden',
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        whiteSpace: 'nowrap',
-        width: 1,
-    });
+    const handlePrevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
 
     return (
         <div className='admin-page'>
             <div className="header-content">
                 <div className="logo">
                     <div className="logo-icon">
-                        <img src={Group} alt="Logo Unitutor" className="logo-uni" />
+                        <img src={Group} alt="Logo Unitutor" className="logo" />
                     </div>
                     <div className="logo-text">DATOS UNITUTOR</div>
                 </div>
                 <div className="search-bar">
-                    <TextField 
+                    <TextField
                         className='buscar'
-                        variant="outlined" 
+                        variant="outlined"
                         InputProps={{
                             startAdornment: <FaSearch className="search-icon" />,
                             endAdornment: <LuSettings2 className="settings-icon" />,
@@ -75,28 +81,21 @@ const Admin = () => {
                 </div>
             </div>
 
-            {isMobile && (
-                <button className="menu-toggle" onClick={toggleSidebar}>
-                    <FaBars />
-                </button>
-            )}
-
             <main className="container">
                 <div className="user-list">
-                    {data.map((item, index) => (
+                    {currentUsers.map((item, index) => (
                         <div className="user-row" key={index}>
                             <TextField
                                 disabled
                                 label="NOMBRE Y APELLIDO"
-                                defaultValue={item.name}
+                                defaultValue={`${item.nombre} ${item.apellido}`} // Combina nombre y apellido
                                 variant="outlined"
                                 fullWidth
                             />
                             <TextField
-                                className='rol'
                                 disabled
                                 label="ROL"
-                                defaultValue={item.role}
+                                defaultValue={item.userRole} // Asegúrate de que este campo sea correcto
                                 variant="outlined"
                                 fullWidth
                             />
@@ -111,14 +110,24 @@ const Admin = () => {
             </main>
 
             <div className="pagination">
-                <button className="flecha"><MdKeyboardDoubleArrowLeft className='flechas' /></button>
-                <button className="page-button">1</button>
-                <button className="page-button active">2</button>
-                <button className="page-button">3</button>
-                <button className="flecha"><MdKeyboardDoubleArrowRight className='flechas' /></button>
+                <button className="flecha" onClick={handlePrevPage} disabled={currentPage === 1}>
+                    <MdKeyboardDoubleArrowLeft className='flechas' />
+                </button>
+                {[...Array(Math.ceil(data.length / usersPerPage))].map((_, index) => (
+                    <button
+                        key={index}
+                        className={`page-button ${currentPage === index + 1 ? 'active' : ''}`}
+                        onClick={() => setCurrentPage(index + 1)}
+                    >
+                        {index + 1}
+                    </button>
+                ))}
+                <button className="flecha" onClick={handleNextPage} disabled={currentPage === Math.ceil(data.length / usersPerPage)}>
+                    <MdKeyboardDoubleArrowRight className='flechas' />
+                </button>
             </div>
 
-            <div className={`sidebar ${isMobile && isSidebarOpen ? 'open' : ''}`}>
+            <div className="sidebar">
                 <h3>UNITUTOR <br /> X <br /> UNIVERSIDAD </h3>
                 <Button
                     className='upload'
@@ -135,36 +144,37 @@ const Admin = () => {
                         multiple
                     />
                 </Button>
-                <a href="#" className="sidebar-link" onClick={isMobile ? toggleSidebar : undefined}>
+                <a href="#" className="sidebar-link">
                     <FaHome className="sidebar-icon" /> Página principal
                 </a>
-                <a href="#" className="sidebar-link" onClick={isMobile ? toggleSidebar : undefined}>
+                <a href="#" className="sidebar-link">
                     <IoMdArrowDropright className="sidebar-icon" /> Eliminados
                 </a>
-                <a href="#" className="sidebar-link" onClick={isMobile ? toggleSidebar : undefined}>
+                <a href="#" className="sidebar-link">
                     <IoMdArrowDropright className="sidebar-icon" /> Agregados
                 </a>
             </div>
 
             <footer>
-                    <div class="footer-content">
-                    <div class="logo">
-                        <img src={UnitutorLogo} alt="Logo Unitutor" class="Unitutornegro" /> 
-                        <div class="unifooter">Unitutor 2024</div>
-                    </div>
-                    <div class='linea-vertical'></div>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon"><FaXTwitter /></a>
-                        <a href="#" class="social-icon"><FaFacebookF /></a>
-                        <a href="#" class="social-icon"><FaLinkedinIn /></a>
-                        <a href="#" class="social-icon"><FaGithub /></a>
-                        <a href="#" class="social-icon"><FaInstagram /></a>
-                        <a href="#" class="social-icon"><FaYoutube /></a>
-                    </div>
-                    </div>
-        </footer>
+
+                            <div className="footer-content">
+                                <div className="logo">
+                                <img src={UnitutorLogo} alt="Logo Unitutor" className="Unitutornegro" />
+                                    <div className="logo-text">Unitutor 2024</div>
+                                </div>
+                                <div className='linea-vertical'></div>
+                                <div className="social-icons">
+                                    <a href="#" className="social-icon"><FaXTwitter /></a>
+                                    <a href="#" className="social-icon"><FaFacebookF /></a>
+                                    <a href="#" className="social-icon"><FaLinkedinIn /></a>
+                                    <a href="#" className="social-icon"><FaGithub /></a>
+                                    <a href="#" className="social-icon"><FaInstagram /></a>
+                                    <a href="#" className="social-icon"><FaYoutube /></a>
+                                </div>
+                            </div>
+                        </footer>
         </div>
     );
-}
+};
 
 export default Admin;
