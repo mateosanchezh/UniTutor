@@ -16,6 +16,24 @@ import Homeuser from './Components/Homeuser/Homeuser'
 import Userpage from './Components/Userpage/Userpage'
 import Tutorias from './Components/Userpage/Tutorias/Tutorias'
 
+const ScrollHandler = ({ children }) => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state && location.state.scrollTo) {
+      const scrollToSection = (section) => {
+        const element = document.querySelector(`.${section}`);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      };
+      scrollToSection(location.state.scrollTo);
+    }
+  }, [location]);
+
+  return children;
+};
+
 function App() {
   // Crear el enrutador
   const router = createBrowserRouter([
