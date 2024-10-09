@@ -1,5 +1,6 @@
 package com.Unitutor.UniTutor.controller;
 
+import com.Unitutor.UniTutor.DTO.UsuarioDTO;
 import com.Unitutor.UniTutor.model.Carrera;
 import com.Unitutor.UniTutor.model.Usuario;
 import com.Unitutor.UniTutor.repository.CarreraRepository;
@@ -56,59 +57,89 @@ public class AuthController {
             return ResponseEntity.badRequest().body("Contraseña incorrecta");
         }
     }
-
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody Map<String, String> userDetails) {
-        String nombre = userDetails.get("nombre");
-        String apellido = userDetails.get("apellido");
-        String user = userDetails.get("user");
-        String email = userDetails.get("email");
-        String telefono = userDetails.get("telefono");
-        String password = userDetails.get("password");
-        String rol = userDetails.get("rol");
-        String estadoCuenta = userDetails.get("estadoCuenta");
-        String carreraId = userDetails.get("carreraId");
-        String semestre = userDetails.get("semestre");
-
-        if (nombre == null || apellido == null || user == null || email == null || telefono == null ||
-                password == null || rol == null || estadoCuenta == null || carreraId == null || semestre == null) {
-            return ResponseEntity.badRequest().body("Todos los campos son requeridos");
+    public ResponseEntity<?> register(@RequestBody UsuarioDTO usuarioDTO) {
+        // Validaciones
+        if (usuarioDTO.getNombre() == null) {
+            return ResponseEntity.badRequest().body("El nombre es requerido");
+        }
+        if (usuarioDTO.getApellido() == null) {
+            return ResponseEntity.badRequest().body("El apellido es requerido");
+        }
+        if (usuarioDTO.getUser() == null) {
+            return ResponseEntity.badRequest().body("El usuario es requerido");
+        }
+        if (usuarioDTO.getEmail() == null) {
+            return ResponseEntity.badRequest().body("El email es requerido");
+        }
+        if (usuarioDTO.getTelefono() == null) {
+            return ResponseEntity.badRequest().body("El teléfono es requerido");
+        }
+        if (usuarioDTO.getPassword() == null) {
+            return ResponseEntity.badRequest().body("La contraseña es requerida");
+        }
+        if (usuarioDTO.getUserRole() == null) {
+            return ResponseEntity.badRequest().body("El rol de usuario es requerido");
+        }
+        if (usuarioDTO.getUserEstadoCuenta() == null) {
+            return ResponseEntity.badRequest().body("El estado de cuenta del usuario es requerido");
+        }
+        if (usuarioDTO.getCarreraId() == null) {
+            return ResponseEntity.badRequest().body("La carrera es requerida");
+        }
+        if (usuarioDTO.getSemestre() == null) {
+            return ResponseEntity.badRequest().body("El semestre es requerido");
         }
 
-        if (usuarioRepository.findByUser(user) != null) {
+        if (usuarioRepository.findByUser(usuarioDTO.getUser()) != null) {
             return ResponseEntity.badRequest().body("El usuario ya existe");
         }
 
+        // Verificar si el número de teléfono ya está registrado
+        if (usuarioRepository.findByTelefono(usuarioDTO.getTelefono()) != null) {
+            return ResponseEntity.badRequest().body("El número de teléfono ya está en uso");
+        }
+
+        // Verificar si el email ya está registrado
+        if (usuarioRepository.findByEmail(usuarioDTO.getEmail()) != null) {
+            return ResponseEntity.badRequest().body("El email ya está en uso");
+        }
+
+        // Convertir el rol y estado de cuenta a enums
         UserRole userRole;
         UserEstadoCuenta userEstadoCuenta;
         try {
-            userRole = UserRole.valueOf(rol.toUpperCase());
-            userEstadoCuenta = UserEstadoCuenta.valueOf(estadoCuenta.toUpperCase());
+            userRole = UserRole.valueOf(usuarioDTO.getUserRole().name());
+            userEstadoCuenta = UserEstadoCuenta.valueOf(usuarioDTO.getUserEstadoCuenta().name());
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body("Rol o estado de cuenta inválido");
         }
 
-        Carrera carrera = carreraRepository.findById(Long.parseLong(carreraId))
+        Carrera carrera = carreraRepository.findById(usuarioDTO.getCarreraId())
                 .orElse(null);
         if (carrera == null) {
             return ResponseEntity.badRequest().body("Carrera no encontrada");
         }
 
-        String hashedPassword = passwordEncoder.encode(password);
+        // Codificar la contraseña
+        String hashedPassword = passwordEncoder.encode(usuarioDTO.getPassword());
 
+        // Crear nuevo usuario a partir del DTO
         Usuario nuevoUsuario = new Usuario();
-        nuevoUsuario.setNombre(nombre);
-        nuevoUsuario.setApellido(apellido);
-        nuevoUsuario.setUser(user);
-        nuevoUsuario.setEmail(email);
-        nuevoUsuario.setTelefono(telefono);
-        nuevoUsuario.setContrasena(hashedPassword);
+        nuevoUsuario.setNombre(usuarioDTO.getNombre());
+        nuevoUsuario.setApellido(usuarioDTO.getApellido());
+        nuevoUsuario.setUser(usuarioDTO.getUser());
+        nuevoUsuario.setEmail(usuarioDTO.getEmail());
+        nuevoUsuario.setTelefono(usuarioDTO.getTelefono());
+        nuevoUsuario.setContrasena(hashedPassword); // Usar la contraseña codificada
         nuevoUsuario.setUserRole(userRole);
         nuevoUsuario.setUserEstadoCuenta(userEstadoCuenta);
         nuevoUsuario.setCarrera(carrera);
-        nuevoUsuario.setSemestre(Integer.parseInt(semestre));
+        nuevoUsuario.setSemestre(usuarioDTO.getSemestre());
 
         usuarioRepository.save(nuevoUsuario);
         return ResponseEntity.ok("Usuario registrado exitosamente");
     }
+
+
 }
