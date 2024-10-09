@@ -6,6 +6,7 @@ import { PiChats } from "react-icons/pi";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
+import "../Homeuser/homeuser.scss";
 
 const Homeuser = () => {
   const [username, setUsername] = useState('Usuario');
