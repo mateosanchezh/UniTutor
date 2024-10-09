@@ -5,6 +5,7 @@ import Profesores from './Components/Profesores/Profesores'
 import Web_oficial from './Components/Web_oficial/Web_oficial'
 
 
+
 // Importar el dominio del enrutador React
 import {
   createBrowserRouter,
@@ -13,6 +14,7 @@ import {
 import Admin from './Components/Admin/Admin'
 import Homeuser from './Components/Homeuser/Homeuser'
 import Userpage from './Components/Userpage/Userpage'
+import Tutorias from './Components/Userpage/Tutorias/Tutorias'
 
 function App() {
   // Crear el enrutador
@@ -46,11 +48,19 @@ function App() {
       path: '/user',
       element: <Homeuser />,
     },
+    {
+      path: '/tutorias',
+      element: <Tutorias />,
+    },
+
+
     
   ])
 
   return (
+    
     <RouterProvider router={router} />
+    
   )
 }
 

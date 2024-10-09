@@ -5,6 +5,7 @@ import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
 import { FaCode } from "react-icons/fa";
 import { PiGraduationCap,PiCalculatorDuotone } from "react-icons/pi";
 import UnitutorLogo from '../../img/UnitutorLogo.svg'
+import { Link } from 'react-router-dom';
 
 const Userpage = () => {
     return (
@@ -54,7 +55,7 @@ const Userpage = () => {
                     <select>
                         <option>Asignatura ▼</option>
                     </select>
-                    <button className='crear'>Crear Tutoria </button>
+                    <button className='crear'><Link to="/tutorias">Crear Tutorias</Link></button>
                     </div>
                     <div className="session">
                     <h3>Calculo Integral</h3>

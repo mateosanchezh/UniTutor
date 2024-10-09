@@ -156,6 +156,10 @@ nav a {
     color: #5C2771;
     margin: 0 2px;
     font-family: 'Onest Variable', sans-serif;
+    a {
+        text-decoration: none;
+        
+    }
 }
 .session {
     background-color: white;
