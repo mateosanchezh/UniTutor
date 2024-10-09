@@ -1,6 +1,6 @@
 package com.Unitutor.UniTutor.controller;
 
-import com.Unitutor.UniTutor.model.Usuario;
+import com.Unitutor.UniTutor.DTO.UsuarioDTO;
 import com.Unitutor.UniTutor.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +15,7 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @GetMapping
-    public List<Usuario> obtenerUsuarios() {
-        return usuarioService.listarUsuarios();
+    public List<UsuarioDTO> obtenerUsuarios() {
+        return usuarioService.listarUsuariosDTO();
     }
 }
