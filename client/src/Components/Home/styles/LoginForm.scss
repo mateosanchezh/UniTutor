@@ -1,23 +1,121 @@
-.modal {
+.modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+}
 
+.modal-content {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  max-width: 400px;
+  width: 50%;
+  height: 450px;
+}
+
+.loginformpage {
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+  }
+  
   .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin-top: -90px;
+   
+  }
+  
+  .form-container {
     background-color: white;
-    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
+    
+    padding: 20px;
     width: 100%;
     max-width: 400px;
+  }
+  
+
+  .UnitutorLogo{
+    width: 15%;
+    margin-top: -50px;
+    margin-left: 42%;
+    margin-bottom: 10px;
+
+  }
+  .form-header {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Onest Variable', sans-serif;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2d3748;
+    
+  }
+  
+  .error-message {
+    color: #f56565;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+    
+  }
+  
+  .input-field {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #cbd5e0;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-left: 10%;
+    &:focus {
+      outline: none;
+      border-color: #3182ce;
+      box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    }
+    &::placeholder{
+      font-family: 'Onest Variable', sans-serif;
+    }
+  }
+  
+  .forgot-password {
+    text-align: left;
+    margin-left: 10%;
+    margin-bottom: 20px;
+    
+    a {
+      font-size: 13px;
+      color: #0E0F02;
+      text-decoration: none;
+      font-family: 'Onest Variable', sans-serif;
+      margin-top: 10px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   .close-btn {
@@ -28,69 +126,41 @@
     border: none;
     font-size: 24px;
     cursor: pointer;
-    color: #333;
-  }
-
-  .form-container {
-    padding: 20px;
-  }
-
-  .form-header {
-    text-align: center;
-    margin-bottom: 20px;
-
-    .title {
-      font-size: 24px;
-      color: #333;
-      margin-bottom: 10px;
+    color: #718096;
+    transition: color 0.3s ease;
+    
+    
+    
+    &:hover {
+      color: #2d3748;
     }
-
-    .error-message {
-      color: #ff0000;
-      font-size: 14px;
+    
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #f7fafc;
     }
   }
-
-  .input-group {
-    margin-bottom: 15px;
-
-    .input-field {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-size: 16px;
-    }
-  }
-
-  .forgot-password {
-    text-align: right;
-    margin-bottom: 15px;
-
-    a {
-      color: #007bff;
-      text-decoration: none;
-      font-size: 14px;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-
+  
   .submit-btn {
-    width: 100%;
+    width: 80%;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #000;
     color: white;
     border: none;
-    border-radius: 4px;
-    font-size: 16px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s;
-
+    font-size: 16px;
+    margin-left: 10%;
+    font-family: 'Onest Variable', sans-serif;
     &:hover {
-      background-color: #0056b3;
+      background-color: #2d3748;
     }
   }
+
 }
+

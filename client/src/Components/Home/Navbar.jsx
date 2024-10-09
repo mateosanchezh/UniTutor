@@ -4,7 +4,7 @@ import { FaUser, FaBars, FaTimes, FaEye, FaEyeSlash, FaChevronDown, FaChevronUp 
 import axios from 'axios';
 import * as jwtDecode from 'jwt-decode';
 
-const Navbar = ({ onLoginError }) => {
+const Navbar = ({ onLoginError , scrollToSection  }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showLoginForm, setShowLoginForm] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -19,15 +19,29 @@ const Navbar = ({ onLoginError }) => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const toggleLoginForm = () => setShowLoginForm(!showLoginForm);
+  const toggleLoginForm = () => {
+    setShowLoginForm(!showLoginForm);
+    if (showLoginForm) {
+      setUser('');
+      setPassword('');
+    }
+  };
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
+
+
+  const handleNavClick = (section) => {
+    setIsOpen(false);
+    scrollToSection(section);
+  };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(''); 
     setLoading(true); 
 
+  
     try {
       const response = await axios.post('http://localhost:8080/api/auth/login', { user, password });
       localStorage.setItem('token', response.data.token);
@@ -90,8 +104,8 @@ const Navbar = ({ onLoginError }) => {
       <div className={`sidebar ${isOpen ? 'open' : ''}`}>
         <ul className='nav-links'>
           <li><Link to="/" onClick={() => setIsOpen(false)}>INICIO</Link></li>
-          <li><Link to="/asignaturas" onClick={() => setIsOpen(false)}>ASIGNATURAS</Link></li>
-          <li><Link to="/profesores" onClick={() => setIsOpen(false)}>PROFESORES</Link></li>
+          <li><a href="#" onClick={() => handleNavClick('asignaturas')}>ASIGNATURAS</a></li>
+          <li><a href="#" onClick={() => handleNavClick('profesores')}>PROFESORES</a></li>
           <li><Link to="/web" onClick={() => setIsOpen(false)}>WEB OFICIAL</Link></li>
           <li><Link to="#" onClick={() => setIsOpen(false)}>IDIOMA</Link></li>
         </ul>

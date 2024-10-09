@@ -1,0 +1,195 @@
+.tutoriaspage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+.tutoriaspage header {
+  background-color: white;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.tutoriaspage .header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+}
+.tutoriaspage .logo {
+  width: 4%;
+  margin-top: 0;
+}
+.tutoriaspage .search-bar {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  margin: 0 20px;
+}
+.tutoriaspage .search-bar input {
+  padding: 8px;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #5C2771;
+  border-radius: 4px;
+}
+.tutoriaspage .search-bar input::-moz-placeholder {
+  font-family: "Onest Variable", sans-serif;
+  color: #5C2771;
+}
+.tutoriaspage .search-bar input::placeholder {
+  font-family: "Onest Variable", sans-serif;
+  color: #5C2771;
+}
+.tutoriaspage .user-menu {
+  white-space: nowrap;
+  font-family: "Onest Variable", sans-serif;
+}
+.tutoriaspage .fondo-user {
+  width: 50px;
+  height: 50px;
+  background-color: #5C2771;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+.tutoriaspage h1 {
+  font-family: "Onest Variable", sans-serif;
+  color: #5C2771;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.tutoriaspage .container {
+  margin-left: auto;
+}
+.tutoriaspage .crear-tutoria {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-family: "Onest Variable", sans-serif;
+}
+.tutoriaspage .crear-tutoria p {
+  margin-top: 0px;
+  width: 80%;
+}
+.tutoriaspage .linea_horizontal {
+  width: 80%;
+  margin-left: 0;
+  margin-top: -20px;
+  height: 2px;
+  background-color: rgb(206, 203, 198);
+}
+.tutoriaspage .asignatura {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  display: grid;
+  justify-content: flex-start;
+  font-family: "Onest Variable", sans-serif;
+}
+.tutoriaspage .asignatura .select {
+  width: 100%;
+  border-radius: 12px;
+  height: 30px;
+}
+.tutoriaspage .descripcion {
+  margin-left: auto;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  display: grid;
+  justify-content: flex-start;
+  font-family: "Onest Variable", sans-serif;
+}
+.tutoriaspage .descripcion p {
+  margin-top: -20px;
+  width: 80%;
+}
+.tutoriaspage .virtual {
+  margin-left: auto;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  font-family: "Onest Variable", sans-serif;
+}
+.tutoriaspage .virtual .radio-option {
+  margin-bottom: 20px;
+}
+.tutoriaspage .virtual .MuiFormControlLabel-root {
+  align-items: flex-start;
+  margin-left: auto;
+}
+.tutoriaspage .virtual .MuiRadio-root {
+  padding: 0;
+  margin-right: 10px;
+}
+.tutoriaspage .virtual .radio-content {
+  display: flex;
+  align-items: flex-start;
+}
+.tutoriaspage .virtual .icono_virtual,
+.tutoriaspage .virtual .icono_presencial {
+  font-size: 24px;
+  margin-right: 10px;
+  margin-top: 2px;
+}
+.tutoriaspage .virtual .text-content {
+  display: flex;
+  flex-direction: column;
+}
+.tutoriaspage .virtual h4 {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+}
+.tutoriaspage .virtual p {
+  margin: 0;
+  font-size: 14px;
+}
+.tutoriaspage .virtual .Mui-checked + .MuiFormControlLabel-label {
+  color: #000000;
+}
+.tutoriaspage .fecha-hora-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  font-family: "Onest Variable", sans-serif;
+}
+.tutoriaspage .fecha {
+  margin-right: 20px;
+}
+.tutoriaspage .fecha .MuiDateCalendar-root {
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+}
+.tutoriaspage .fecha .MuiDateCalendar-root .MuiPickersDay-root.Mui-selected {
+  background-color: #5C2771;
+  color: white;
+}
+.tutoriaspage .hora {
+  margin-left: 20px;
+  margin-top: 200px;
+}
+.tutoriaspage .hora .MuiTimePicker-root .MuiInputBase-root {
+  background-color: white;
+}
+.tutoriaspage .hora {
+  margin-left: 20px;
+}
+.tutoriaspage .hora .MuiTimePicker-root .MuiInputBase-root {
+  background-color: white;
+}
+.tutoriaspage .crear {
+  width: 16%;
+  background-color: #d9d9d9;
+  padding: 8px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  color: #5C2771;
+  margin: 40px;
+  margin-left: 63%;
+  font-family: "Onest Variable", sans-serif;
+}
+.tutoriaspage .crear a {
+  text-decoration: none;
+}/*# sourceMappingURL=Tutorias.css.map */
