@@ -1,0 +1,81 @@
+@charset "UTF-8";
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 50%; /* Modifica el ancho del modal aquí */
+  max-width: 800px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.modal-header h2 {
+  color: #5C2771;
+  margin: 0;
+  font-size: 24px;
+  font-family: "Onest Variable", sans-serif;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #718096;
+  transition: color 0.3s ease;
+}
+.close-btn:hover {
+  color: #2d3748;
+}
+.close-btn span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #f7fafc;
+}
+
+form .MuiGrid-container {
+  margin-bottom: 20px;
+  margin-left: 2%;
+}
+form .MuiTextField-root,
+form .MuiFormControl-root {
+  width: 80%;
+}
+form .MuiButton-root {
+  margin-top: 20px;
+  background-color: #6a1b9a;
+  height: 30px;
+}
+form .MuiButton-root:hover {
+  background-color: #8e24aa;
+}
+form .editar {
+  width: 18%;
+  margin: 5px 40%;
+  height: 40px;
+  border-radius: 15px;
+  font-family: "Onest Variable", sans-serif;
+  background-color: #5C2771;
+}/*# sourceMappingURL=Modal_modificar.css.map */

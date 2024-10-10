@@ -1,0 +1,62 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay .modal {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.modal-overlay .modal-title {
+  color: #6a1b9a;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+.modal-overlay .user-info {
+  margin-bottom: 20px;
+}
+.modal-overlay .info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.modal-overlay .info-column {
+  width: 48%;
+}
+.modal-overlay .info-column.full-width {
+  width: 100%;
+}
+.modal-overlay .info-column h3 {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+.modal-overlay .info-column p {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+}
+.modal-overlay .close-button {
+  background-color: #6a1b9a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 10px;
+}
+.modal-overlay .close-button:hover {
+  background-color: #8e24aa;
+}/*# sourceMappingURL=Modal_informacion.css.map */

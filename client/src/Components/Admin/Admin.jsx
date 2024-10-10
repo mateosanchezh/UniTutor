@@ -11,9 +11,28 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { styled } from '@mui/material/styles';
 import { FaHome } from "react-icons/fa";
 import { IoMdArrowDropright } from "react-icons/io";
-import './Admin.scss'
+import '../Admin/styles/Admin.scss'
+import Modal_modificar from './Modal_modificar';
+import Modal_informacion from './Modal_informacion';
+
 
 const Admin = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
+    const [selectedUser, setSelectedUser] = useState(null);
+    const handleOpenModal = () => setIsModalOpen(true);
+    const handleCloseModal = () => setIsModalOpen(false);
+    const handleSaveUser = (userData) => {
+        console.log('Usuario actualizado:', userData);
+        setIsModalOpen(false);
+    };
+
+    const handleOpenInfoModal = (user) => {
+        setSelectedUser(user);
+        setIsInfoModalOpen(true);
+    };
+    const handleCloseInfoModal = () => setIsInfoModalOpen(false);
+
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
 
@@ -35,11 +54,11 @@ const Admin = () => {
     };
 
     const data = [
-        { name: "LUIS BALCAZAR CAMPOVERDE", role: "ESTUDIANTE" },
-        { name: "JUAN JOSE ORTEGA VINTIMILLA", role: "ESTUDIANTE" },
-        { name: "LENIN EDUARDO SAGUAY SANAGUANO", role: "PROFESOR" },
-        { name: "KARINA MASACHE ALVARADO", role: "ESTUDIANTE" },
-        { name: "LILLI LUCIA ROMERO PACHECO", role: "PROFESOR" },
+        { name: "LUIS BALCAZAR CAMPOVERDE", role: "ESTUDIANTE", correo: "luis@example.com", codigo: "12345", carrera: "Ing. Sistemas", asignatura: "Programación" },
+        { name: "JUAN JOSE ORTEGA VINTIMILLA", role: "ESTUDIANTE", correo: "juan@example.com", codigo: "23456", carrera: "Ing. Civil", asignatura: "Estructuras" },
+        { name: "LENIN EDUARDO SAGUAY SANAGUANO", role: "PROFESOR", correo: "lenin@example.com", codigo: "34567", carrera: "Ing. Electrónica", asignatura: "Circuitos" },
+        { name: "KARINA MASACHE ALVARADO", role: "ESTUDIANTE", correo: "karina@example.com", codigo: "45678", carrera: "Ing. Industrial", asignatura: "Logística" },
+        { name: "LILLI LUCIA ROMERO PACHECO", role: "PROFESOR", correo: "lilli@example.com", codigo: "56789", carrera: "Ing. Química", asignatura: "Termodinámica" },
     ];
 
     const VisuallyHiddenInput = styled('input')({
@@ -101,9 +120,9 @@ const Admin = () => {
                                 fullWidth
                             />
                             <div className="action-buttons">
-                                <button className="action-button" title="Modificar"><FaPencilAlt /></button>
+                                <button className="action-button" title="Modificar" onClick={handleOpenModal}><FaPencilAlt /></button>
                                 <button className="action-button" title="Eliminar"><FaTrash /></button>
-                                <button className="action-button" title="Información"><FaInfoCircle /></button>
+                                <button className="action-button" title="Información" onClick={() => handleOpenInfoModal(item)}><FaInfoCircle /></button>
                             </div>
                         </div>
                     ))}
@@ -163,6 +182,17 @@ const Admin = () => {
                     </div>
                     </div>
         </footer>
+        
+            <Modal_modificar
+                isOpen={isModalOpen}
+                onClose={handleCloseModal}
+                onSave={handleSaveUser}
+            />
+            <Modal_informacion
+                isOpen={isInfoModalOpen}
+                onClose={handleCloseInfoModal}
+                userData={selectedUser}
+            />
         </div>
     );
 }
