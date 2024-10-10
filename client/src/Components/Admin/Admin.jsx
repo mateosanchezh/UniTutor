@@ -2,14 +2,17 @@ import React, { useEffect, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import { FaSearch, FaPencilAlt, FaTrash, FaInfoCircle, FaHome } from 'react-icons/fa';
 import { MdKeyboardDoubleArrowRight, MdKeyboardDoubleArrowLeft } from "react-icons/md";
+import { FaXTwitter, FaFacebookF, FaLinkedinIn, FaGithub, FaInstagram, FaYoutube, FaBars } from 'react-icons/fa6';
 import { LuSettings2 } from "react-icons/lu";
+import UnitutorLogo from '../../img/UnitutorLogo.svg'
 import Button from '@mui/material/Button';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { styled } from '@mui/material/styles';
 import { IoMdArrowDropright } from "react-icons/io";
 import Group from '../../img/Group.png';
-import '../Admin/Admin.css';
+import './Admin.scss'; // Usa el archivo de estilos original que prefieras
 
+// Input oculto para subir CSV
 const VisuallyHiddenInput = styled('input')({
     clip: 'rect(0 0 0 0)',
     clipPath: 'inset(50%)',
@@ -23,12 +26,31 @@ const VisuallyHiddenInput = styled('input')({
 });
 
 const Admin = () => {
+    // Estado para manejar los datos de usuarios y el estado de paginación
     const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
+
     const usersPerPage = 10;
 
+    // Lógica para manejar si el dispositivo es móvil
+    useEffect(() => {
+        const checkIfMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        checkIfMobile();
+        window.addEventListener('resize', checkIfMobile);
+
+        return () => {
+            window.removeEventListener('resize', checkIfMobile);
+        };
+    }, []);
+
+    // Obtener datos de usuarios desde el backend
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -52,12 +74,12 @@ const Admin = () => {
         fetchData();
     }, []);
 
-    // Calculate user indices
+    // Cálculo de los índices de usuarios para paginación
     const indexOfLastUser = currentPage * usersPerPage;
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
     const currentUsers = data.slice(indexOfFirstUser, indexOfLastUser);
 
-    // Pagination handlers
+    // Manejadores de paginación
     const handleNextPage = () => {
         if (currentPage < Math.ceil(data.length / usersPerPage)) {
             setCurrentPage(currentPage + 1);
@@ -68,6 +90,10 @@ const Admin = () => {
         if (currentPage > 1) {
             setCurrentPage(currentPage - 1);
         }
+    };
+
+    const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen);
     };
 
     if (loading) {
@@ -83,7 +109,7 @@ const Admin = () => {
             <div className="header-content">
                 <div className="logo">
                     <div className="logo-icon">
-                        <img src={Group} alt="Logo Unitutor" className="logo" />
+                        <img src={Group} alt="Logo Unitutor" className="logo-uni" />
                     </div>
                     <div className="logo-text">DATOS UNITUTOR</div>
                 </div>
@@ -98,6 +124,12 @@ const Admin = () => {
                     />
                 </div>
             </div>
+
+            {isMobile && (
+                <button className="menu-toggle" onClick={toggleSidebar}>
+                    <FaBars />
+                </button>
+            )}
 
             <main className="container">
                 <div className="user-list">
@@ -145,7 +177,7 @@ const Admin = () => {
                 </button>
             </div>
 
-            <div className="sidebar">
+            <div className={`sidebar ${isMobile && isSidebarOpen ? 'open' : ''}`}>
                 <h3>UNITUTOR <br /> X <br /> UNIVERSIDAD </h3>
                 <Button
                     className='upload'
@@ -162,20 +194,30 @@ const Admin = () => {
                         multiple
                     />
                 </Button>
-                <a href="#" className="sidebar-link">
+                <a href="#" className="sidebar-link" onClick={isMobile ? toggleSidebar : undefined}>
                     <FaHome className="sidebar-icon" /> Página principal
                 </a>
-                <a href="#" className="sidebar-link">
+                <a href="#" className="sidebar-link" onClick={isMobile ? toggleSidebar : undefined}>
                     <IoMdArrowDropright className="sidebar-icon" /> Eliminados
                 </a>
-                <a href="#" className="sidebar-link">
+                <a href="#" className="sidebar-link" onClick={isMobile ? toggleSidebar : undefined}>
                     <IoMdArrowDropright className="sidebar-icon" /> Agregados
                 </a>
             </div>
 
             <footer>
                 <div className="footer-content">
-                    <p>© 2024 - UniTutor. Todos los derechos reservados.</p>
+                    <img src={UnitutorLogo} alt="Logo Unitutor" className="Unitutornegro" />
+                    <div className="unifooter">Unitutor 2024</div>
+                    <div className='linea-vertical'></div>
+                    <div className="social-icons">
+                        <a href="#" className="social-icon"><FaXTwitter /></a>
+                        <a href="#" className="social-icon"><FaFacebookF /></a>
+                        <a href="#" className="social-icon"><FaLinkedinIn /></a>
+                        <a href="#" className="social-icon"><FaGithub /></a>
+                        <a href="#" className="social-icon"><FaInstagram /></a>
+                        <a href="#" className="social-icon"><FaYoutube /></a>
+                    </div>
                 </div>
             </footer>
         </div>

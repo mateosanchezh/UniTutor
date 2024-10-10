@@ -29,47 +29,51 @@ const Navbar = ({ onLoginError , scrollToSection  }) => {
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
-
   const handleNavClick = (section) => {
     setIsOpen(false);
     scrollToSection(section);
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(''); 
-    setLoading(true); 
+    setError('');
+    setLoading(true);
 
-  
     try {
       const response = await axios.post('http://localhost:8080/api/auth/login', { user, password });
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('user', JSON.stringify(response.data.user));
-      setIsAuthenticated(true); 
-      setShowLoginForm(false);  
-      navigate('/user');        
+      setIsAuthenticated(true);
+      setShowLoginForm(false);
+      navigate('/user');
     } catch (err) {
       setError('Error de inicio de sesión. Verifica tus credenciales.');
-      onLoginError();  // Llama a la función prop para notificar al Home que ocurrió un error
+      onLoginError();
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    setIsAuthenticated(false);
+    navigate('/');  // Redirigir al usuario a la página principal o de inicio de sesión
   };
 
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
       try {
-        const decoded = jwtDecode.default(token);  
-        const currentTime = Date.now() / 1000;     
+        const decoded = jwtDecode.default(token);
+        const currentTime = Date.now() / 1000;
         if (decoded.exp > currentTime) {
-          setIsAuthenticated(true);  
+          setIsAuthenticated(true);
         } else {
-          localStorage.removeItem('token');  
+          localStorage.removeItem('token');
         }
       } catch (error) {
-        localStorage.removeItem('token');    
+        localStorage.removeItem('token');
       }
     }
   }, []);
@@ -161,8 +165,6 @@ const Navbar = ({ onLoginError , scrollToSection  }) => {
           </>
         )}
       </div>
-
-      ¡
     </nav>
   );
 };
