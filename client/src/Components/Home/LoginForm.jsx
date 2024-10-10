@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import "../Home/styles/LoginForm.scss"
 import UnitutorLogo from '../../img/UnitutorLogo.svg'
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const LoginForm = ({ onLoginFailure, onClose  }) => {
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   
 
   const handleSubmit = async (e) => {
@@ -36,6 +38,8 @@ const LoginForm = ({ onLoginFailure, onClose  }) => {
     }
   };
 
+  const togglePasswordVisibility = () => setShowPassword(!showPassword);
+
   return (
     <div className='loginformpage flex'>
       <div className="container">
@@ -60,14 +64,21 @@ const LoginForm = ({ onLoginFailure, onClose  }) => {
               />
             </div>
             <div className="input-group">
-              <input
-                type="password"
-                className="input-field"
-                placeholder="CONTRASEÑA"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
+              <div className="input-with-icon">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="CONTRASEÑA"
+                  className="input-field"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+                {showPassword ? (
+                  <FaEye className='icon' onClick={togglePasswordVisibility} />
+                ) : (
+                  <FaEyeSlash className='icon' onClick={togglePasswordVisibility} />
+                )}
+              </div>
             </div>
             <div className="forgot-password">
               <a href="#">¿Has olvidado tu contraseña?</a>

@@ -4,13 +4,13 @@ import { FaSearch, FaPencilAlt, FaTrash, FaInfoCircle, FaHome } from 'react-icon
 import { MdKeyboardDoubleArrowRight, MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { FaXTwitter, FaFacebookF, FaLinkedinIn, FaGithub, FaInstagram, FaYoutube, FaBars } from 'react-icons/fa6';
 import { LuSettings2 } from "react-icons/lu";
-import UnitutorLogo from '../../img/UnitutorLogo.svg'
+import UnitutorLogo from '../../img/UnitutorLogo.svg';
+import Group from '../../img/Group.png';
 import Button from '@mui/material/Button';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { styled } from '@mui/material/styles';
 import { IoMdArrowDropright } from "react-icons/io";
-import Group from '../../img/Group.png';
-import './Admin.scss'; // Usa el archivo de estilos original que prefieras
+import './Admin.scss';
 
 // Input oculto para subir CSV
 const VisuallyHiddenInput = styled('input')({
@@ -26,7 +26,6 @@ const VisuallyHiddenInput = styled('input')({
 });
 
 const Admin = () => {
-    // Estado para manejar los datos de usuarios y el estado de paginación
     const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -59,8 +58,7 @@ const Admin = () => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                const text = await response.text();
-                const usuarios = JSON.parse(text);
+                const usuarios = await response.json();
                 setData(usuarios);
                 setError(null);
             } catch (error) {

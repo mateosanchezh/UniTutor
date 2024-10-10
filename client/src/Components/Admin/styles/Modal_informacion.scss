@@ -1,0 +1,96 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    width: 400px;
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.6); /* Ajusta el sombreado aquí */
+    
+  }
+
+  .modal-title {
+    color: #5C2771;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: 'Onest Variable', sans-serif;
+  }
+
+  .user-info {
+    margin-bottom: 20px;
+    margin-left: 40px;
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+
+  .info-column {
+    width: 48%;
+    font-family: 'Onest Variable', sans-serif;
+
+    &.full-width {
+      width: 100%;
+    }
+
+    h3 {
+      font-size: large;
+      color: black;
+      font-weight: bold;
+      margin-left: -120px;
+    }
+
+    .correo{
+      margin-left: -90%;
+    }
+
+    .rol{
+      margin-left: -94%;
+    }
+    p {
+      font-size: medium;
+      color: black;
+      margin-left: -8px;
+      margin-top: -12px;
+    }
+
+    .codigo{
+      margin-left: -135px;
+    }
+
+    .asig{
+      margin-left: -100px;
+    }
+  }
+
+  .close-button {
+    background-color: #5C2771;
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 40%;
+    margin-top: 10px;
+    font-family: 'Onest Variable', sans-serif;
+    margin: 0px 30%;
+
+    &:hover {
+      background-color: #4c2457;
+    }
+  }
+}
