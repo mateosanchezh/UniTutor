@@ -7,6 +7,9 @@ import { IoNotificationsOutline } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
 import "../Homeuser/homeuser.scss";
+import UnitutorLogo from '../../img/UnitutorLogo.svg'
+import Photouser from '../../img/NoPhoto.png'
+import Photorudas from '../../img/Photo4.png'
 
 const Homeuser = () => {
   const [username, setUsername] = useState('Usuario');
@@ -37,24 +40,23 @@ const Homeuser = () => {
 
   return (
     <div className='Homeuserpage flex'>
-      <header>
-        <nav className="main-nav">
-          <div className="logo">
-          <div className="logonavbar-img"></div>
-            <h1>UNITUTOR</h1>
+    <header>
+      <nav className="main-nav">
+        <div className="logo">
+          <img src={UnitutorLogo} alt="Logo Unitutor" className="unitutor-logo" />
+          <h1>UNITUTOR</h1>
+        </div>
+        <div className="search-bar">
+          <div className="search-container">
+            <FaSearch className="search-icon" />
+            <input type="text" placeholder="¿Qué tutorías estás buscando?" />
           </div>
-          <div className="search-bar">
-            <div className="search-container">
-              <FaSearch className="search-icon" />
-              <input type="text" placeholder="¿Qué tutorías estás buscando?" />
-            </div>
-          </div>
-          <div className="user-profile">
-            <span>{username}</span>
-          </div>
-        </nav>
-      </header>
-
+        </div>
+        <div className="user-profile">
+          <span>{username}</span>
+        </div>
+      </nav>
+    </header>
       <main>
         <aside className="sidebar">
           <ul>
@@ -96,8 +98,8 @@ const Homeuser = () => {
               <h2>Un aprendizaje eficiente</h2>
               <p>Resuelve tus dudas y fortalece tus habilidades. Nosotros te ayudamos a tener un desempeño mejor</p>
             </div>
-            <div className="bannerrudas-img"></div>
-          </div>
+            <img src={Photorudas} alt="rudasphoto" className="photorudas" />
+            </div>
 
           <div className="categories-section">
             <h3>Categorías</h3>
@@ -121,7 +123,7 @@ const Homeuser = () => {
             <div className="tutors-grid">
               {tutors.map((tutor, index) => (
                 <div className="tutor-card" key={index}>
-                  <div className="tutor-img"></div>
+                 <img src={Photouser} alt="photocard" className="photouser" />
                   <h4>{tutor.name}</h4>
                   <p className="tutor-subject">{tutor.subject}</p>
                   <p>Horario: {tutor.schedule}</p>
