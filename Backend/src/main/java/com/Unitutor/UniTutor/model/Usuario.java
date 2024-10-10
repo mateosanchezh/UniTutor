@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import com.Unitutor.UniTutor.model.enums.UserRole;
 import com.Unitutor.UniTutor.model.enums.UserEstadoCuenta;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "usuarios")
 public class Usuario {
@@ -45,6 +47,9 @@ public class Usuario {
     @Column(name = "semestre")
     private Integer semestre;
 
+    @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<TutorMateriaSemestre> materiasAsignadas;
+
     // Getters y setters
     public Long getId() {
         return id;
@@ -62,11 +67,11 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public String getApellido() {  // Nuevo getter
+    public String getApellido() {
         return apellido;
     }
 
-    public void setApellido(String apellido) {  // Nuevo setter
+    public void setApellido(String apellido) {
         this.apellido = apellido;
     }
 
@@ -94,11 +99,11 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
-    public String getTelefono() {  // Nuevo getter
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {  // Nuevo setter
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -132,5 +137,13 @@ public class Usuario {
 
     public void setSemestre(Integer semestre) {
         this.semestre = semestre;
+    }
+
+    public Set<TutorMateriaSemestre> getMateriasAsignadas() {
+        return materiasAsignadas;
+    }
+
+    public void setMateriasAsignadas(Set<TutorMateriaSemestre> materiasAsignadas) {
+        this.materiasAsignadas = materiasAsignadas;
     }
 }
