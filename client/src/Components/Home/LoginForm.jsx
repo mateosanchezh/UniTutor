@@ -4,7 +4,7 @@ import "../Home/styles/LoginForm.scss"
 import UnitutorLogo from '../../img/UnitutorLogo.svg'
 
 const LoginForm = ({ onLoginFailure, onClose  }) => {
-  const [email, setEmail] = useState('');
+  const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -16,11 +16,11 @@ const LoginForm = ({ onLoginFailure, onClose  }) => {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/login', { email, password });
+      const response = await axios.post('http://localhost:8080/api/auth/login', { user, password });
       console.log('Login exitoso', response.data);
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('user', JSON.stringify(response.data.user));
-      window.location.href = '/dashboard';
+      window.location.href = '/user';
     } catch (err) {
       console.error('Error de inicio de sesión', err);
       if (err.response) {
@@ -54,8 +54,8 @@ const LoginForm = ({ onLoginFailure, onClose  }) => {
                 type="text"
                 className="input-field"
                 placeholder="USUARIO"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={user}
+                onChange={(e) => setUser(e.target.value)}
                 required
               />
             </div>
