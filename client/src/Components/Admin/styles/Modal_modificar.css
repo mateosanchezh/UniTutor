@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Onest+Variable:wght@400;700&display=swap");
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -15,10 +16,10 @@
   transform: translate(-50%, -50%);
   background-color: white;
   padding: 30px;
-  border-radius: 10px;
-  width: 50%; /* Modifica el ancho del modal aquí */
+  border-radius: 20px;
+  width: 40%; /* Modifica el ancho del modal aquí */
   max-width: 800px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.6); /* Ajusta el sombreado aquí */
 }
 
 .modal-header {
@@ -30,7 +31,7 @@
 .modal-header h2 {
   color: #5C2771;
   margin: 0;
-  font-size: 24px;
+  font-size: 30px;
   font-family: "Onest Variable", sans-serif;
 }
 
@@ -58,10 +59,30 @@
 form .MuiGrid-container {
   margin-bottom: 20px;
   margin-left: 2%;
+  font-size: large;
 }
 form .MuiTextField-root,
 form .MuiFormControl-root {
   width: 80%;
+  padding: 5px;
+}
+form .MuiTextField-root .MuiInputBase-root,
+form .MuiFormControl-root .MuiInputBase-root {
+  font-family: "Onest Variable", sans-serif;
+  color: black;
+  font-size: smaller;
+}
+form .MuiTextField-root .MuiInputLabel-root,
+form .MuiFormControl-root .MuiInputLabel-root {
+  font-family: "Onest Variable", sans-serif;
+}
+form .MuiTextField-root .MuiSelect-select,
+form .MuiFormControl-root .MuiSelect-select {
+  font-family: "Onest Variable", sans-serif;
+}
+form .MuiTextField-root .MuiMenuItem-root,
+form .MuiFormControl-root .MuiMenuItem-root {
+  font-family: "Onest Variable", sans-serif;
 }
 form .MuiButton-root {
   margin-top: 20px;

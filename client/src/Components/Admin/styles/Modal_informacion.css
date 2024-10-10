@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -12,18 +13,21 @@
 .modal-overlay .modal {
   background-color: white;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 20px;
   width: 400px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.6); /* Ajusta el sombreado aquí */
 }
 .modal-overlay .modal-title {
-  color: #6a1b9a;
+  color: #5C2771;
   text-align: center;
   margin-bottom: 20px;
-  font-size: 24px;
+  font-size: 28px;
+  font-weight: bold;
+  font-family: "Onest Variable", sans-serif;
 }
 .modal-overlay .user-info {
   margin-bottom: 20px;
+  margin-left: 40px;
 }
 .modal-overlay .info-row {
   display: flex;
@@ -32,31 +36,48 @@
 }
 .modal-overlay .info-column {
   width: 48%;
+  font-family: "Onest Variable", sans-serif;
 }
 .modal-overlay .info-column.full-width {
   width: 100%;
 }
 .modal-overlay .info-column h3 {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 5px;
+  font-size: large;
+  color: black;
+  font-weight: bold;
+  margin-left: -120px;
+}
+.modal-overlay .info-column .correo {
+  margin-left: -90%;
+}
+.modal-overlay .info-column .rol {
+  margin-left: -94%;
 }
 .modal-overlay .info-column p {
-  font-size: 16px;
-  color: #333;
-  margin: 0;
+  font-size: medium;
+  color: black;
+  margin-left: -8px;
+  margin-top: -12px;
+}
+.modal-overlay .info-column .codigo {
+  margin-left: -135px;
+}
+.modal-overlay .info-column .asig {
+  margin-left: -100px;
 }
 .modal-overlay .close-button {
-  background-color: #6a1b9a;
+  background-color: #5C2771;
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
+  padding: 10px 10px;
+  border-radius: 15px;
   cursor: pointer;
   font-size: 16px;
-  width: 100%;
+  width: 40%;
   margin-top: 10px;
+  font-family: "Onest Variable", sans-serif;
+  margin: 0px 30%;
 }
 .modal-overlay .close-button:hover {
-  background-color: #8e24aa;
+  background-color: #4c2457;
 }/*# sourceMappingURL=Modal_informacion.css.map */

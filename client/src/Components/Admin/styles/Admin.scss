@@ -1,5 +1,5 @@
 .admin-page {
-    font-family: "Arial", sans-serif;
+    
     background-color: #ffffff;
     height: 100%;
     margin: 0;
@@ -58,11 +58,12 @@
       font-weight: 700;
       color: #5c2771;
       margin-left: 10px;
-      font-family: "Roboto", sans-serif;
+      font-family: 'Onest Variable', sans-serif;
     }
   
     .unifooter {
       font-family: "Roboto Condensed", sans-serif;
+      font-weight: bold;
     }
   
     .search-bar {
@@ -74,6 +75,7 @@
   
     .search-bar .MuiOutlinedInput-input {
       padding-left: 40px;
+      font-family: 'Onest Variable', sans-serif;
     }
   
     .buscar {
@@ -137,10 +139,14 @@
   
     .user-row .MuiTextField-root {
       background-color: #f5f5f5;
+      
     }
   
     .user-row .MuiInputBase-input {
       color: black;
+      font-family: 'Onest Variable', sans-serif;
+      
+      
     }
   
     .user-row .MuiInputBase-root.Mui-disabled {
@@ -261,6 +267,7 @@
       transition: right 0.3s ease-in-out;
       z-index: 999;
       box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+      font-family: 'Onest Variable', sans-serif;
     }
   
     .sidebar.open {
@@ -339,6 +346,7 @@
   
       .Unitutornegro {
         width: 50px;
+      
       }
   
       .logo-text {
@@ -464,7 +472,8 @@
       }
   
       .Unitutornegro {
-        width: 60px;
+        width: 45px;
+        margin-top: -15px;
       }
   
       .logo-icon {
