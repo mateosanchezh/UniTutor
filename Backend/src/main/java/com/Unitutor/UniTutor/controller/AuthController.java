@@ -43,20 +43,15 @@ public class AuthController {
         System.out.println("Usuario: " + user);
         System.out.println("Password: " + password);
 
-        // Busca el usuario en la base de datos
         Usuario usuario = usuarioRepository.findByUser(user);
         if (usuario == null) {
             return ResponseEntity.badRequest().body("Usuario no encontrado");
         }
 
-        // Compara la contraseña
         if (passwordEncoder.matches(password, usuario.getContrasena())) {
-            // Limpia la contraseña antes de devolver el usuario
             usuario.setContrasena(null);
 
-            // Genera el token JWT
             String token = jwtService.generateToken(usuario);
-            // Devuelve el token y el usuario (sin contraseña)
             return ResponseEntity.ok(Map.of("token", token, "user", usuario));
         } else {
             return ResponseEntity.badRequest().body("Contraseña incorrecta");
