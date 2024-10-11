@@ -20,6 +20,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
+import Footer from '../Footer';
 
 const MyFormControlLabel = (props) => {
     const radioGroup = useRadioGroup();
@@ -116,44 +117,48 @@ const Tutorias = () => {
                 </div>
                 <div className='linea_horizontal'></div>
                 <div className='asignatura'>
-                    <h3>Asignatura de la tutoría</h3>
-                    <Box sx={{ minWidth: 120 }}>
-                        <FormControl fullWidth>
-                            <InputLabel id="demo-simple-select-label">Asignaturas</InputLabel>
-                            <Select
-                                labelId="demo-simple-select-label"
-                                id="demo-simple-select"
-                                value={formData.idMateria}
-                                label="Asignatura"
-                                onChange={(e) => {
-                                    setFormData({ ...formData, idMateria: e.target.value });
-                                }}
-                            >
-                                <MenuItem value="">Selecciona una materia</MenuItem>
-                                {materias.map(materia => (
-                                    <MenuItem key={materia.id} value={materia.id}>{materia.nombre}</MenuItem>
-                                ))}
-                            </Select>
-                        </FormControl>
-                    </Box>
+                <h3>Asignatura de la tutoría</h3>
+                <Box sx={{ minWidth: 120 }}>
+                    <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label">Asignaturas</InputLabel>
+                    <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={formData.idMateria}
+                        label="Asignatura"
+                        onChange={(e) => {
+                            setFormData({ ...formData, idMateria: e.target.value });
+                        }}
+                        className="custom-select"
+                        MenuProps={{
+                            PaperProps: {
+                            style: {
+                                maxHeight: 200,  // Limita la altura del menú desplegable
+                            },
+                            },
+                            disableScrollLock: true, // Evita que la página se desplace al abrir el menú
+                        }}
+                        >
+                        <MenuItem value="">Selecciona una materia</MenuItem>
+                        {materias.map(materia => (
+                            <MenuItem key={materia.id} value={materia.id}>{materia.nombre}</MenuItem>
+                        ))}
+                    </Select>
+                    </FormControl>
+                </Box>
                 </div>
+
                 <div className='descripcion'>
-                    <p>Puedes escribir una descripción breve pero puntual de lo que llevarás a cabo en la tutoría, para que tus estudiantes estén mejor informados.</p>
-                    <h3>Descripción (Opcional)</h3>
-                    <Box
-                        component="form"
-                        sx={{ '& > :not(style)': { m: 1, width: '70ch' } }}
-                        noValidate
-                        autoComplete="off"
-                    >
-                        <TextField
-                            id="standard-basic"
-                            label="Descripción"
-                            variant="standard"
-                            name="descripcion"
-                            onChange={handleChange}
-                        />
-                    </Box>
+                <p>Puedes escribir una descripción breve pero puntual de lo que llevarás a cabo en la tutoría, para que tus estudiantes estén mejor informados.</p>
+                <h3>Descripción (Opcional)</h3>
+                <Box component="form" noValidate autoComplete="off">
+                    <TextField
+                    label="Descripción"
+                    id="outlined-size-small"
+                    size="small"
+                    className="custom-textfield"  // Añadimos una clase personalizada aquí
+                    />
+                </Box>
                 </div>
                 <div className='linea_horizontal'></div>
 
@@ -218,7 +223,11 @@ const Tutorias = () => {
                 </div>
                 <div className='linea_horizontal'></div>
                 <button className='crear' onClick={handleSubmit}>Crear Tutoría</button>
+
+                
             </div>
+           
+           <Footer/>
         </div>
     );
 };

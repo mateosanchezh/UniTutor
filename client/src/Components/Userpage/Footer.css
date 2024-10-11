@@ -1,0 +1,50 @@
+@charset "UTF-8";
+.footer {
+  background-image: url("../../img/footer.png");
+  background-size: cover; /* Cambia 'cover' por 'contain' para que la imagen se ajuste dentro del contenedor sin cortarse */
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  height: 220px; /* Baja la altura del footer */
+  margin-top: 80px;
+}
+.footer .lista {
+  display: flex;
+  width: 50%;
+  max-width: 1200px;
+  color: white;
+  margin-left: 13%;
+  font-family: "Onest Variable", sans-serif;
+}
+.footer .lista ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 -60px;
+  margin-left: 25%;
+  margin-top: 14%; /* Ajusta el margen superior para centrar mejor la lista */
+}
+.footer .lista ul li {
+  margin-bottom: 6px;
+}
+.footer .lista ul li a {
+  text-decoration: none;
+  color: white;
+  font-family: "Onest Variable", sans-serif;
+  font-size: smaller;
+}
+.footer .lista ul li a:hover {
+  text-decoration: underline;
+}
+.footer .lista ul li:first-child {
+  font-weight: bold;
+  font-size: medium;
+}
+.footer .footer-logo {
+  width: 50px; /* Ajusta el tamaño del logo */
+  margin-right: auto; /* Hace que el logo se quede pegado a la izquierda */
+  margin-left: -62%; /* Ajusta la distancia desde el borde izquierdo */
+  align-self: flex-end; /* Lo posiciona en la parte inferior del contenedor */
+  margin-bottom: 20px;
+}/*# sourceMappingURL=Footer.css.map */

@@ -17,12 +17,16 @@ header {
     background-color: white;
     padding: 10px 0;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
 }
+
 .header-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: -10px;
+    margin-left: -80px;
+    
 }
 .logo {
     color: #5C2771;
@@ -38,8 +42,7 @@ header {
 }
 .search-bar input {
     padding: 8px;
-    width: 100%;
-    max-width: 400px;
+    width: 70%;
     border: 1px solid #5C2771;
     border-radius: 4px;
 
@@ -59,21 +62,55 @@ header {
     background-color: #5C2771;
     border-radius: 50%;
     margin: 0 10px ;
+    margin-right: -50px;
 }
+
+
 nav {
     display: flex;
     justify-content: flex-start;
     padding: 0 20px;
     border-bottom: 1px solid #b3b3b3;
-    
-}
-nav a {
-    color: #5C2771;
-    text-decoration: none;
-    margin-right: 20px;
-    padding: 5px 0;
-    font-family: 'Onest Variable', sans-serif;
-}
+  
+    a {
+      color: #5C2771;
+      text-decoration: none;
+      margin-right: 20px;
+      padding: 5px 0;
+      font-family: 'Onest Variable', sans-serif;
+      position: relative; /* Necesario para la línea inferior */
+      
+      /* Estado normal (no activo) */
+      &::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 3px;
+        background-color: transparent;
+        bottom: -3px;
+        left: 0;
+        transition: width 0.3s ease, background-color 0.3s ease;
+      }
+  
+      &:hover {
+        text-shadow: 1px 1px 3px rgba(200, 200, 200, 0.8); /* Sombra gris clara */
+      }
+    }
+  
+    /* Estilo para el enlace activo */
+    .active {
+      text-shadow: 1px 1px 3px rgba(200, 200, 200, 0.8); /* Sombra gris clara */
+      font-weight: bold; /* Opcional, para resaltar el texto activo */
+  
+      /* Línea de color debajo del texto */
+      &::after {
+        width: 100%;
+        background-color: #5C2771; /* Misma línea del color del texto */
+      }
+    }
+  }
+  
+  
 .main-content {
     display: flex;
     margin-top: 20px;
@@ -125,7 +162,8 @@ nav a {
     width: 50%;
     padding: 8px;
     border: 1px solid #5C2771;
-    border-radius: 4px;
+    border-radius: 10px;
+    margin-left: 10px;
 
     &::placeholder{
         font-family: 'Onest Variable', sans-serif;
@@ -162,7 +200,7 @@ nav a {
     }
 }
 .session {
-    background-color: white;
+    background-color: #f5f5f5;
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 4px;
@@ -196,6 +234,18 @@ nav a {
     border-radius: 4px;
     cursor: pointer;
     font-family: 'Onest Variable', sans-serif;
+}
+
+.linea{
+    border: 1px solid #5C2771;
+    margin-top: 20px;
+}
+
+.lin{
+    border: 1px solid #5C2771;
+    width: 97%;
+    margin: 10px auto;
+    margin-top: 20px;
 }
 
 }

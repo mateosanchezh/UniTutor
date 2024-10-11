@@ -4,6 +4,19 @@
   flex-direction: column;
   overflow-x: hidden;
 }
+.tutoriaspage .custom-textfield {
+  width: 80%;
+}
+.tutoriaspage .custom-textfield .MuiOutlinedInput-root {
+  border: 2px solid white;
+  border-radius: 10px;
+}
+.tutoriaspage .custom-textfield .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: rgb(207, 207, 207);
+}
+.tutoriaspage .custom-textfield .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: rgb(207, 207, 207);
+}
 .tutoriaspage header {
   background-color: white;
   padding: 10px 0;
@@ -87,10 +100,18 @@
   justify-content: flex-start;
   font-family: "Onest Variable", sans-serif;
 }
-.tutoriaspage .asignatura .select {
-  width: 100%;
-  border-radius: 12px;
-  height: 30px;
+.tutoriaspage .asignatura .custom-select {
+  width: 80%;
+}
+.tutoriaspage .asignatura .custom-select .MuiOutlinedInput-root fieldset {
+  border: 2px solid #5C2771 !important;
+  border-radius: 20px;
+}
+.tutoriaspage .asignatura .custom-select .MuiOutlinedInput-root:hover fieldset {
+  border-color: #3a1854 !important;
+}
+.tutoriaspage .asignatura .custom-select .MuiOutlinedInput-root.Mui-focused fieldset {
+  border-color: #5C2771 !important;
 }
 .tutoriaspage .descripcion {
   margin-left: auto;
@@ -192,4 +213,11 @@
 }
 .tutoriaspage .crear a {
   text-decoration: none;
+}
+.tutoriaspage footer {
+  background-color: white;
+  height: -100vh;
+}
+.tutoriaspage .footer-img {
+  width: 100%;
 }/*# sourceMappingURL=Tutorias.css.map */
