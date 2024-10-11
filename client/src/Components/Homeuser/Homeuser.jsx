@@ -7,15 +7,16 @@ import { IoNotificationsOutline } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
 import "../Homeuser/homeuser.scss";
-import UnitutorLogo from '../../img/UnitutorLogo.svg'
-import Photouser from '../../img/NoPhoto.png'
-import Photorudas from '../../img/Photo4.png'
+import UnitutorLogo from '../../img/UnitutorLogo.svg';
+import Photouser from '../../img/NoPhoto.png';
+import Photorudas from '../../img/Photo4.png';
 
 const Homeuser = () => {
   const [username, setUsername] = useState('Usuario');
 
   useEffect(() => {
     const token = localStorage.getItem('token');
+    console.log('Token:', token);
     if (token) {
       try {
         const decoded = jwt_decode(token);
@@ -26,37 +27,39 @@ const Homeuser = () => {
       } catch (error) {
         console.error("Error parsing user info from token:", error);
       }
+    } else {
+      console.warn("No token found in localStorage");
     }
   }, []);
 
   const tutors = [
-    { name: 'Sergio', schedule: 'Martes - 31/2', time: '10:00 AM - 12:00 PM', mode: 'Virtual', tagline: 'Cálculo de varias variables' },
-    { name: 'Eliecer', schedule: 'Míercoles - 32/05', time: '2:00 PM - 4:00 PM', mode: 'Presencial', tagline: 'Física mecanica' },
-    { name: 'Santiago', schedule: 'Jueves - 20/12', time: '3:00 PM - 5:00 PM', mode: 'Virtual', tagline: 'Competencias ciudadanas' },
-    { name: 'Cristian', schedule: 'Viernes - 24/03', time: '9:00 AM - 11:00 AM', mode: 'Virtual', tagline: 'Ingles II' },
-    { name: 'Mateo', schedule: 'Viernes - 11/04', time: '4:00 PM - 6:00 PM', mode: 'Presencial', tagline: 'Bases de datos I' },
-    { name: 'Goku', schedule: 'Sabado - 24/12', time: '8:00 AM - 10:00 AM', mode: 'Virtual', tagline: 'Electiva libre' }
+    { name: 'Sergio', subject: 'Cálculo de varias variables', schedule: 'Martes - 31/2', time: '10:00 AM - 12:00 PM', mode: 'Virtual', tagline: 'Cálculo de varias variables' },
+    { name: 'Eliecer', subject: 'Física mecánica', schedule: 'Míercoles - 32/05', time: '2:00 PM - 4:00 PM', mode: 'Presencial', tagline: 'Física mecanica' },
+    { name: 'Santiago', subject: 'Competencias ciudadanas', schedule: 'Jueves - 20/12', time: '3:00 PM - 5:00 PM', mode: 'Virtual', tagline: 'Competencias ciudadanas' },
+    { name: 'Cristian', subject: 'Inglés II', schedule: 'Viernes - 24/03', time: '9:00 AM - 11:00 AM', mode: 'Virtual', tagline: 'Ingles II' },
+    { name: 'Mateo', subject: 'Bases de datos I', schedule: 'Viernes - 11/04', time: '4:00 PM - 6:00 PM', mode: 'Presencial', tagline: 'Bases de datos I' },
+    { name: 'Goku', subject: 'Electiva libre', schedule: 'Sábado - 24/12', time: '8:00 AM - 10:00 AM', mode: 'Virtual', tagline: 'Electiva libre' }
   ];
 
   return (
     <div className='Homeuserpage flex'>
-    <header>
-      <nav className="main-nav">
-        <div className="logo">
-          <img src={UnitutorLogo} alt="Logo Unitutor" className="unitutor-logo" />
-          <h1>UNITUTOR</h1>
-        </div>
-        <div className="search-bar">
-          <div className="search-container">
-            <FaSearch className="search-icon" />
-            <input type="text" placeholder="¿Qué tutorías estás buscando?" />
+      <header>
+        <nav className="main-nav">
+          <div className="logo">
+            <img src={UnitutorLogo} alt="Logo Unitutor" className="unitutor-logo" />
+            <h1>UNITUTOR</h1>
           </div>
-        </div>
-        <div className="user-profile">
-          <span>{username}</span>
-        </div>
-      </nav>
-    </header>
+          <div className="search-bar">
+            <div className="search-container">
+              <FaSearch className="search-icon" />
+              <input type="text" placeholder="¿Qué tutorías estás buscando?" />
+            </div>
+          </div>
+          <div className="user-profile">
+            <span>{username}</span>
+          </div>
+        </nav>
+      </header>
       <main>
         <aside className="sidebar">
           <ul>
@@ -99,7 +102,7 @@ const Homeuser = () => {
               <p>Resuelve tus dudas y fortalece tus habilidades. Nosotros te ayudamos a tener un desempeño mejor</p>
             </div>
             <img src={Photorudas} alt="rudasphoto" className="photorudas" />
-            </div>
+          </div>
 
           <div className="categories-section">
             <h3>Categorías</h3>
@@ -123,7 +126,7 @@ const Homeuser = () => {
             <div className="tutors-grid">
               {tutors.map((tutor, index) => (
                 <div className="tutor-card" key={index}>
-                 <img src={Photouser} alt="photocard" className="photouser" />
+                  <img src={Photouser} alt="photocard" className="photouser" />
                   <h4>{tutor.name}</h4>
                   <p className="tutor-subject">{tutor.subject}</p>
                   <p>Horario: {tutor.schedule}</p>
