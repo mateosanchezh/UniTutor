@@ -1,5 +1,11 @@
 @charset "UTF-8";
-html, body {
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rochester&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rochester&family=Rowdies:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rochester&family=Rowdies:wght@300;400;700&display=swap");
+html,
+body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
@@ -42,7 +48,7 @@ body {
 
 .nav-links a {
   color: white;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   margin: 15px 20px;
   text-decoration: none;
@@ -79,24 +85,28 @@ body {
   transition: all 0.3s ease;
   border: 2px solid transparent;
   border-radius: 25px;
-  width: 170px; /* Ancho reducido */
+  width: 170px;
+  /* Ancho reducido */
 }
 
 /* Estilo cuando el contenedor está expandido */
 .login-container.expanded {
   background: transparent;
   border-color: white;
-  width: 200px; /* Ancho fijo cuando está expandido */
+  width: 200px;
+  /* Ancho fijo cuando está expandido */
 }
 
 /* Botón de inicio de sesión */
 .login-button {
   background-color: transparent;
   color: white;
-  padding: 8px 12px; /* Padding reducido */
+  padding: 8px 12px;
+  /* Padding reducido */
   border: 2px solid white;
   cursor: pointer;
-  font-size: 14px; /* Tamaño de fuente reducido */
+  font-size: 14px;
+  /* Tamaño de fuente reducido */
   border-radius: 25px;
   display: flex;
   align-items: center;
@@ -115,18 +125,21 @@ body {
 /* Icono de usuario */
 .fauser {
   margin-left: 5px;
-  font-size: 16px; /* Tamaño del icono reducido */
+  font-size: 16px;
+  /* Tamaño del icono reducido */
 }
 
 /* Icono de chevron */
 .chevron {
   margin-left: 5px;
-  font-size: 12px; /* Tamaño del icono reducido */
+  font-size: 12px;
+  /* Tamaño del icono reducido */
 }
 
 /* Texto del botón de login */
 .login-text {
-  font-size: 12px; /* Tamaño de fuente reducido */
+  font-size: 12px;
+  /* Tamaño de fuente reducido */
 }
 
 /* Contenedor del formulario de login */
@@ -139,12 +152,14 @@ body {
 
 /* Expande el contenedor del formulario cuando está activo */
 .login-container.expanded .login-form-container {
-  max-height: 200px; /* Ajusta este valor según sea necesario */
+  max-height: 200px;
+  /* Ajusta este valor según sea necesario */
 }
 
 /* Formulario de login */
 .login-form {
-  padding: 12px; /* Padding reducido */
+  padding: 12px;
+  /* Padding reducido */
   width: 100%;
   box-sizing: border-box;
 }
@@ -152,7 +167,8 @@ body {
 /* Grupo de inputs */
 .login-form .input-group {
   position: relative;
-  margin-bottom: 8px; /* Margen reducido */
+  margin-bottom: 8px;
+  /* Margen reducido */
 }
 
 /* Iconos dentro de los inputs */
@@ -162,13 +178,15 @@ body {
   top: 50%;
   transform: translateY(-50%);
   color: white;
-  font-size: 14px; /* Tamaño del icono reducido */
+  font-size: 14px;
+  /* Tamaño del icono reducido */
 }
 
 /* Inputs del formulario */
 .login-form input {
   width: 100%;
-  padding: 6px 6px 6px 28px; /* Padding ajustado */
+  padding: 6px 6px 6px 28px;
+  /* Padding ajustado */
   border: 1px solid white;
   background-color: transparent;
   color: white;
@@ -188,8 +206,10 @@ body {
 /* Botón de envío del formulario */
 .login-form button[type=submit] {
   width: 100%;
-  padding: 6px; /* Padding reducido */
-  margin-top: 8px; /* Margen superior reducido */
+  padding: 6px;
+  /* Padding reducido */
+  margin-top: 8px;
+  /* Margen superior reducido */
   background-color: transparent;
   color: white;
   border: 1px solid white;
@@ -264,6 +284,10 @@ body {
   background-position: center;
   background-attachment: fixed;
   /* Estilos para el contenedor principal */
+  /* Estilos generales para los iconos */
+  /* Posición inicial de la flecha derecha */
+  /* Posición inicial de la flecha hacia abajo */
+  /* Estilos para dispositivos móviles y pantallas pequeñas */
 }
 .Unitutor .Home {
   padding: 30px;
@@ -272,6 +296,7 @@ body {
   /* Estilos para el logo de Unitutor */
   /* Contenedor para el texto principal y el botón, los organiza verticalmente */
   /* Estilos para el texto principal */
+  /* Estilos para el texto destacado */
 }
 .Unitutor .Home .content-wrapper {
   display: flex;
@@ -285,8 +310,8 @@ body {
   margin: 2px;
   font-size: 40px;
   margin-right: 10px;
+  font-weight: 500;
   font-family: "Roboto Condensed", sans-serif;
-  font-weight: 900;
   margin: 20px;
 }
 .Unitutor .Home .vertical-line {
@@ -310,15 +335,35 @@ body {
   font-size: 45px;
   margin: 10px;
   padding-left: 0;
+  font-weight: 500;
   font-family: "Roboto Condensed", sans-serif;
-  line-height: 1.2; /* Ajusta el espaciado entre líneas según sea necesario */
-  /* Estilos para el texto destacado */
+  line-height: 1.2;
+  /* Ajusta el espaciado entre líneas según sea necesario */
 }
-.Unitutor .Home h1 .fuente {
-  font-family: "Playfair Display", serif;
-  font-weight: 700; /* Negrita para el texto destacado */
-  color: white; /* Color dorado para el texto destacado, ajusta según tus preferencias */
-  font-style: italic; /* Estilo itálico para mayor contraste */
+@media (max-width: 769px) {
+  .Unitutor .Home h1 {
+    font-size: 70px;
+    text-align: center;
+    color: white;
+  }
+}
+.Unitutor .Home .fuente {
+  font-family: "Rochester", cursive;
+  font-weight: 300;
+  font-size: 55px;
+  /* Negrita para el texto destacado */
+  color: white;
+  /* Color dorado para el texto destacado, ajusta según tus preferencias */
+  font-style: normal;
+  /* Estilo itálico para mayor contraste */
+  line-height: 1.2;
+}
+@media (max-width: 768px) {
+  .Unitutor .Home .fuente {
+    font-size: 40px;
+    margin-left: 50px;
+    text-align: center;
+  }
 }
 .Unitutor .Home .explore-button {
   width: 160px;
@@ -340,6 +385,11 @@ body {
   overflow: hidden;
   position: relative;
   padding: 10px 20px;
+}
+@media (max-width: 768px) {
+  .Unitutor .Home .explore-button {
+    margin: 15px auto;
+  }
 }
 .Unitutor .Home .explore-button .button-text {
   transition: transform 0.3s ease;
@@ -389,57 +439,52 @@ body {
 .Unitutor .Home .explore-button.hovered .button-text {
   transform: translateX(-10px);
 }
-
-/* Estilos generales para los iconos */
-.icon {
+.Unitutor .icon {
   position: absolute;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
-/* Posición inicial de la flecha derecha */
-.right-arrow {
+.Unitutor .right-arrow {
   transform: translateX(100%);
   opacity: 0;
 }
-
-/* Posición inicial de la flecha hacia abajo */
-.down-arrow {
+.Unitutor .down-arrow {
   transform: translateY(-100%);
   opacity: 0;
 }
-
-/* Estilos para dispositivos móviles y pantallas pequeñas */
 @media (max-width: 768px) {
-  /* Cambia la disposición a vertical para pantallas pequeñas */
-  .content-wrapper {
+  .Unitutor {
+    /* Cambia la disposición a vertical para pantallas pequeñas */
+    /* Ajusta el margen del logo para pantallas pequeñas */
+    /* Cambia la línea vertical a horizontal en pantallas pequeñas */
+    /* Centra el texto y el botón en pantallas pequeñas */
+  }
+  .Unitutor .content-wrapper {
     flex-direction: column;
     align-items: center;
   }
-  /* Ajusta el margen del logo para pantallas pequeñas */
-  .UnitutorLogo {
+  .Unitutor .UnitutorLogo {
     margin-bottom: 20px;
   }
-  /* Cambia la línea vertical a horizontal en pantallas pequeñas */
-  .vertical-line {
+  .Unitutor .vertical-line {
     width: 100%;
     height: 2px;
     margin: 20px 0;
   }
-  /* Ajusta el tamaño y alineación del texto principal en pantallas pequeñas */
-  .Unitutor h1 {
-    font-size: 40px;
-    text-align: center;
-  }
-  /* Centra el texto y el botón en pantallas pequeñas */
-  .text-button-wrapper {
+  .Unitutor .text-button-wrapper {
     align-items: center;
     text-align: center;
+    width: 100%;
   }
-  .explore-button {
-    margin: 20px auto 0; /* Centra el botón horizontalmente y añade margen superior */
-    display: block; /* Asegura que el botón ocupe todo el ancho disponible */
+  .Unitutor .explore-button {
+    margin: 20px auto 0;
+    /* Centra el botón horizontalmente y añade margen superior */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
   }
 }
+
 /*# ASIGNATURAS */
 /* Sección de asignaturas */
 .asignaturas {
@@ -448,6 +493,15 @@ body {
   min-height: 100vh;
   height: auto;
   padding: 20px;
+  overflow-x: hidden;
+}
+@media (max-width: 768px) {
+  .asignaturas {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .asignaturas .container {
   display: flex;
@@ -468,19 +522,41 @@ body {
   padding-right: 0;
   margin-top: 20px;
 }
-@media (min-width: 768px) {
+@media (max-width: 768px) {
+  .asignaturas .container .left-section {
+    text-align: center;
+    padding-right: 0;
+    margin-top: 20px;
+  }
+}
+@media (min-width: 769px) {
   .asignaturas .container .left-section {
     padding-right: 40px;
-    margin-top: 160px;
+    margin-top: 30px;
   }
 }
 .asignaturas .container .left-section h1 {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-size: 36px;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+  font-size: 60px;
+  color: #0E0F02;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .asignaturas .container .left-section h1 {
-    font-size: 50px;
+    font-size: 40px;
+  }
+}
+.asignaturas .container .left-section .titulo2 {
+  margin-left: 50px;
+  font-family: "Rowdies", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+}
+@media (max-width: 768px) {
+  .asignaturas .container .left-section .titulo2 {
+    margin-left: 0;
   }
 }
 .asignaturas .container .right-section {
@@ -488,54 +564,57 @@ body {
   background-color: white;
   border: 1px solid white;
   border-radius: 10px;
-  padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(0, 0, 0, 0.2);
   margin-top: 20px;
 }
+@media (max-width: 768px) {
+  .asignaturas .container .right-section {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
 @media (min-width: 768px) {
   .asignaturas .container .right-section {
-    height: 500px;
+    height: 510px;
     padding: 40px;
     margin-top: 0;
   }
 }
-
-h1 {
-  font-size: 28px;
-  margin-bottom: 15px;
-}
-@media (min-width: 768px) {
-  h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-  }
-}
-
-h2 {
+.asignaturas .container h2 {
   font-size: 22px;
   margin-top: 0;
+  font-family: "Roboto Condensed", sans-serif;
 }
 @media (min-width: 768px) {
-  h2 {
+  .asignaturas .container h2 {
     font-size: 26px;
   }
 }
-
-p {
-  font-size: 14px;
-  line-height: 1.5;
+.asignaturas .container .texto {
+  font-size: 25px;
+  line-height: 1;
   color: #555;
+  margin-right: 60px;
 }
-@media (min-width: 768px) {
-  p {
-    font-size: 16px;
+@media (min-width: 769px) {
+  .asignaturas .container .texto {
+    font-size: 29px;
+    text-align: justify;
   }
 }
-
-.explorar-button {
+@media (max-width: 768px) {
+  .asignaturas .container .texto {
+    margin-right: 0;
+    text-align: center;
+  }
+}
+.asignaturas .container .explorar-button {
   width: 140px;
   height: 35px;
-  background: black;
+  background: #0E0F02;
   border: none;
   border-radius: 40px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -544,7 +623,7 @@ p {
   color: white;
   font-weight: 700;
   transition: all ease 0.5s;
-  margin: 15px 0;
+  margin: 135px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -552,18 +631,15 @@ p {
   position: relative;
   padding: 10px 20px;
 }
-@media (min-width: 768px) {
-  .explorar-button {
-    width: 160px;
-    font-size: 16px;
-    margin: 15px;
-    margin-top: 20px;
+@media (max-width: 768px) {
+  .asignaturas .container .explorar-button {
+    margin: 15px auto;
   }
 }
-.explorar-button .button-text {
+.asignaturas .container .explorar-button .button-text {
   transition: transform 0.3s ease;
 }
-.explorar-button .icon-wrapper {
+.asignaturas .container .explorar-button .icon-wrapper {
   position: absolute;
   right: 20px;
   display: flex;
@@ -573,124 +649,238 @@ p {
   height: 20px;
   overflow: hidden;
 }
-.explorar-button .icon {
+.asignaturas .container .explorar-button .icon {
   position: absolute;
   transition: all 0.3s ease;
-  color: black;
+  color: white;
   opacity: 0;
   transform: translateX(100%);
 }
-.explorar-button .right-arrow2.show {
+.asignaturas .container .explorar-button .right-arrow2.show {
   opacity: 1;
   transform: translateX(0);
   color: white;
 }
-.explorar-button .down-arrow2.show {
+.asignaturas .container .explorar-button .down-arrow2.show {
   opacity: 1;
   transform: translateY(0);
   color: white;
 }
-.explorar-button.hovered .button-text {
+.asignaturas .container .explorar-button.hovered .button-text {
   transform: translateX(-10px);
 }
-
-.popular-subjects {
+.asignaturas .container .popular-subjects {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 10px;
+  margin-top: -10px;
 }
 @media (min-width: 480px) {
-  .popular-subjects {
+  .asignaturas .container .popular-subjects {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (min-width: 768px) {
-  .popular-subjects {
+  .asignaturas .container .popular-subjects {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
-.subject-card {
+.asignaturas .container .subject-card {
   text-align: center;
   position: relative;
   overflow: hidden;
+  border-radius: 9px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-top: 10px;
 }
-.subject-card img {
+@media (max-width: 768px) {
+  .asignaturas .container .subject-card {
+    width: 90%;
+    max-width: 300px;
+  }
+}
+.asignaturas .container .subject-card img {
   width: 100%;
-  border-radius: 5px;
+  border-radius: 9px;
   margin-bottom: 5px;
   transition: transform 0.3s ease;
+  flex-grow: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-.subject-card p {
+.asignaturas .container .subject-card .subject {
   margin: 0;
-  font-size: 12px;
-  color: white;
-  font-style: italic;
+  font-size: 14px;
+  color: black;
+  text-align: center;
+  font-weight: 400;
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
 }
-.subject-card .subject-info {
+@media (max-width: 768px) {
+  .asignaturas .container .subject-card .subject {
+    font-size: 19px;
+  }
+}
+.asignaturas .container .subject-card .info-button {
+  display: none;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #0E0F02;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 767px) {
+  .asignaturas .container .subject-card .info-button {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+  }
+}
+.asignaturas .container .subject-card .info-button:active {
+  background-color: #2a2a2a;
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.asignaturas .container .subject-card .subject-info {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(100% - 27px);
-  background-color: rgba(0, 0, 0, 0.8);
+  height: calc(100% - 25px);
+  background-color: rgba(0, 0, 0, 0.6);
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
   pointer-events: none;
+  font-family: "Roboto", sans-serif;
+  border-radius: 9px;
+  text-transform: uppercase;
+  transform: translateY(-10px);
 }
-.subject-card .subject-info h3 {
-  font-size: 16px;
-  margin-bottom: 5px;
+.asignaturas .container .subject-card .subject-info h3 {
+  font-size: 10px;
+  font-style: italic;
+  font-weight: 500;
+  margin: 0;
+  padding: 5px;
+}
+.asignaturas .container .subject-card .subject-info .semester {
+  font-size: 10px;
+  margin-bottom: 7px;
   font-style: italic;
 }
-.subject-card .subject-info .semester {
-  font-size: 12px;
-  margin-bottom: 5px;
-}
-.subject-card .subject-info .description {
-  font-size: 10px;
+.asignaturas .container .subject-card .subject-info .description {
+  font-size: 8px;
   padding: 0 10px;
+  font-style: italic;
 }
-.subject-card:hover .subject-info {
-  opacity: 1;
+@media (max-width: 767px) {
+  .asignaturas .container .subject-card .subject-info {
+    position: static;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    transform: translateY(-20px);
+    background-color: rgba(14, 15, 2, 0.95);
+    border-radius: 9px;
+    padding: 0;
+    margin-top: 10px;
+  }
+  .asignaturas .container .subject-card .subject-info.show {
+    opacity: 1;
+    height: auto;
+    padding: 20px;
+    transform: translateY(0);
+  }
+  .asignaturas .container .subject-card .subject-info h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .asignaturas .container .subject-card .subject-info .semester {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  .asignaturas .container .subject-card .subject-info .description {
+    font-size: 16px;
+    padding: 0 15px;
+    line-height: 1.4;
+  }
 }
-.subject-card:hover img {
-  transform: scale(1.1);
+@media (min-width: 768px) {
+  .asignaturas .container .subject-card:hover .subject-info {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .asignaturas .container .subject-card:hover img {
+    transform: scale(1.05);
+  }
 }
-
-.UnitutorLogonegro {
-  width: 30px;
+@media (max-width: 767px) {
+  .asignaturas .container .subject-card .info-button {
+    display: block;
+  }
+  .asignaturas .container .subject-card:hover .subject-info, .asignaturas .container .subject-card:active .subject-info, .asignaturas .container .subject-card:focus .subject-info {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  .asignaturas .container .subject-card:hover img, .asignaturas .container .subject-card:active img, .asignaturas .container .subject-card:focus img {
+    transform: none;
+  }
+  .asignaturas .container .subject-card .subject-info:not(.show) {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+  }
+}
+.asignaturas .UnitutorLogonegro {
+  width: 40px;
   height: auto;
   float: right;
   margin-right: 20px;
-  margin-top: -60px;
+  margin-top: -120px;
+  transition: all 0.3s ease;
 }
-@media (min-width: 768px) {
-  .UnitutorLogonegro {
-    width: 40px;
-    margin-top: -120px;
+@media (max-width: 767px) {
+  .asignaturas .UnitutorLogonegro {
+    width: 0px;
+    margin-top: 30px;
+    margin-right: 10px;
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 /* Sección de Profesores */
 .PROFESORES {
-  background-image: url(img/Fondo1.png);
+  background-image: url(img/Fondo2.png);
   background-size: cover;
   background-position: center;
   border-top-left-radius: 25px;
-  /* Radio de esquina superior izquierda */
   border-top-right-radius: 25px;
-  /* Radio de esquina superior derecha */
   color: white;
   font-family: "Roboto", sans-serif;
+  font-weight: 300;
   margin: 0px 60px;
   padding: 20px 80px;
-  background-attachment: fixed;
 }
 
 /* Título */
@@ -698,13 +888,13 @@ p {
   font-size: 36px;
   text-align: left;
   margin-bottom: 30px;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 /* Contenedor de Profesores */
 .profesores-contenido {
   display: flex;
   justify-content: space-between;
-  /* Ajuste de separación */
   align-items: center;
   margin-bottom: 30px;
 }
@@ -714,15 +904,14 @@ p {
   text-align: left;
   font-size: 30px;
   margin-bottom: 5px;
-  /* Ajusta el margen inferior */
   margin-top: 0px;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 300;
 }
 
 .prof p {
-  font-size: 16px;
-  /* Asegúrate de que el tamaño sea apropiado */
+  font-size: 14px;
   margin-top: 0;
-  /* Elimina margen superior */
   color: white;
 }
 
@@ -745,7 +934,8 @@ p {
 }
 
 .prof {
-  transition: transform 0.3s ease-in-out; /* Aplica transición tanto en hover como al quitar el hover */
+  transition: transform 0.3s ease-in-out;
+  /* Aplica transición tanto en hover como al quitar el hover */
 }
 
 /* Clases específicas para las imágenes de los profesores */
@@ -781,6 +971,7 @@ p {
   font-size: 19px;
   max-width: 800px;
   line-height: 1.5;
+  font-family: "Roboto Flex", sans-serif;
 }
 
 .profesores2 p {
@@ -805,50 +996,38 @@ p {
   border-radius: 30px;
   width: 20%;
   height: 90px;
-  /* Mantener altura uniforme */
   border: 2px solid white;
-  /* Borde blanco */
   display: flex;
-  /* Agregar flexbox */
   flex-direction: column;
-  /* Para apilar el título y el párrafo */
   justify-content: center;
-  /* Centrar verticalmente */
   align-items: center;
-  /* Centrar horizontalmente */
   text-align: center;
-  /* Asegurarse de que el texto esté centrado */
   transition: background-color 0.5s ease;
-  /* Transición suave para el fondo */
 }
 
 .cuadro:hover {
   background-color: white;
-  /* Cambia el fondo a blanco cuando pasas el mouse */
   color: black;
-  /* Cambia el color del texto a negro */
 }
 
 .cuadro h5 {
-  font-size: 18px;
+  font-size: 17px;
   margin: 0;
-  /* Quitar margen superior e inferior */
+  font-family: "Roboto Condensed", sans-serif;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
 
 .cuadro p {
   font-size: 14px;
-  line-height: 1.4;
-  margin: 0;
-  /* Quitar margen superior e inferior */
+  line-height: 1;
   color: white;
-  margin-top: 10px;
+  margin-top: 11px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
 
 .cuadro:hover p {
   color: black;
-  /* Cambia el color del párrafo a negro al hacer hover en el cuadro */
   font-size: 14px;
-  /* Aumenta el tamaño de la fuente al hacer hover */
 }
 
 .piedepagina {
@@ -876,7 +1055,7 @@ p {
   /* Espaciado interno para cada enlace */
   font-size: 16px;
   /* Ajustar tamaño de fuente si es necesario */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 .foot a:hover {
@@ -885,7 +1064,7 @@ p {
 }
 
 footer {
-  background-color: #0E0F02;
+  background-color: #0e0f02;
   /* Cambia el color de fondo si es necesario */
   padding: 20px 0;
   /* Espaciado arriba y abajo */
@@ -905,7 +1084,7 @@ footer p {
   /* Eliminar margen para evitar espacios innecesarios */
   font-size: 16px;
   /* Ajustar tamaño de fuente si es necesario */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 .imgfooter {
@@ -979,6 +1158,7 @@ footer p {
   .PROFESORES {
     margin: 0;
     padding: 20px;
+    border-radius: 0;
   }
   .profesores-contenido {
     flex-wrap: wrap;
@@ -1023,6 +1203,19 @@ footer p {
   .cuadro {
     width: 100%;
   }
+  .cuadro h5 {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  .cuadro p {
+    font-size: 18px;
+  }
+  /* Eliminar estilos hover específicos para móviles */
+  .cuadro:hover h5,
+  .cuadro:hover p {
+    font-size: 18px;
+    color: inherit;
+  }
   .foot {
     flex-direction: column;
     align-items: center;
@@ -1059,215 +1252,4 @@ footer p {
     width: 180px;
     height: 180px;
   }
-}
-.registropage body {
-  background-color: #0E0F02;
-}
-.registropage .cuadro-registro {
-  width: 100%;
-}
-.registropage .UnitutorLog {
-  width: 20%;
-}
-
-.admin-page {
-  font-family: "Arial", sans-serif;
-  background-color: #f5f5f5;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-.admin-page header {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 10px 0;
-}
-.admin-page .header-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-.admin-page .logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 70%;
-}
-.admin-page .Unitutornegro {
-  width: 60px;
-}
-.admin-page .logo-icon {
-  width: 40px;
-  height: 40px;
-  background-color: #5E2BC9;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-weight: bold;
-  font-size: 24px;
-}
-.admin-page .logo-text {
-  font-size: 24px;
-  font-weight: 700;
-  color: black;
-  margin: 15px;
-}
-.admin-page .search-bar {
-  width: 700px;
-  border-radius: 0px;
-}
-.admin-page .search-bar .MuiOutlinedInput-input {
-  padding-left: 40px; /* Ajusta este valor según necesites */
-}
-.admin-page .buscar {
-  width: 700px;
-}
-.admin-page .search-icon,
-.admin-page .settings-icon {
-  color: #888;
-  transition: color 0.3s ease;
-}
-.admin-page .search-icon {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.admin-page .search-bar:hover .search-icon,
-.admin-page .search-bar:hover .settings-icon,
-.admin-page .search-bar:focus-within .search-icon,
-.admin-page .search-bar:focus-within .settings-icon {
-  color: #000;
-}
-.admin-page .settings-icon {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-}
-.admin-page .container {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 0 20px;
-  flex-grow: 1;
-}
-.admin-page .user-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  color: black;
-}
-.admin-page .user-row {
-  display: grid;
-  grid-template-columns: 2fr 1fr auto;
-  gap: 15px;
-  align-items: center;
-  background-color: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-.admin-page .action-buttons {
-  display: flex;
-  gap: 10px;
-}
-.admin-page .action-button {
-  background: none;
-  border: 1px solid #ccc;
-  cursor: pointer;
-  font-size: 18px;
-  color: #000; /* Changed to black */
-  padding: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4px;
-  width: 40px;
-  height: 40px;
-  transition: background-color 0.3s, color 0.3s;
-}
-.admin-page .action-button:hover {
-  background-color: #5E2BC9;
-  color: #fff;
-}
-.admin-page footer {
-  background-color: #fff;
-  padding: 20px 0;
-  margin-top: auto;
-}
-.admin-page .pagination {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-.admin-page .page-button {
-  background: none;
-  border: 1px solid #5E2BC9;
-  color: #5E2BC9;
-  padding: 5px 10px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-}
-.admin-page .flecha {
-  background: none;
-  border: 1px solid black;
-  color: black;
-  padding: 5px 10px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-}
-.admin-page .flechas {
-  height: 20px;
-}
-.admin-page .page-button:first-child {
-  border-radius: 4px 0 0 4px;
-}
-.admin-page .page-button:last-child {
-  border-radius: 0 4px 4px 0;
-}
-.admin-page .page-button:not(:first-child) {
-  border-left: none;
-}
-.admin-page .page-button.active,
-.admin-page .page-button:hover {
-  background-color: #5E2BC9;
-  color: white;
-}
-.admin-page .flecha:first-child {
-  border-radius: 4px 0 0 4px;
-}
-.admin-page .flecha:last-child {
-  border-radius: 0 4px 4px 0;
-}
-.admin-page .flecha:not(:first-child) {
-  border-left: none;
-}
-.admin-page .flecha.active,
-.admin-page .flecha:hover {
-  background-color: #5E2BC9;
-  color: white;
-}
-.admin-page .footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  border-top: 1px solid #e0e0e0;
-  padding-top: 20px;
-}
-.admin-page .social-icons {
-  display: flex;
-  gap: 15px;
-}
-.admin-page .social-icon {
-  color: black;
-  font-size: 20px;
 }/*# sourceMappingURL=App.css.map */

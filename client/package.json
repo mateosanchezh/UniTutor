@@ -12,12 +12,19 @@
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
-    "@mui/material": "^6.1.0",
+    "@fontsource-variable/onest": "^5.1.0",
+    "@mui/icons-material": "^6.1.1",
+    "@mui/material": "^6.1.1",
+    "@mui/styled-engine-sc": "^6.1.1",
+    "@mui/x-date-pickers": "^7.19.0",
     "axios": "^1.7.7",
+    "dayjs": "^1.11.13",
+    "jwt-decode": "^2.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.3.0",
     "react-router-dom": "^6.26.1",
+    "styled-components": "^6.1.13",
     "unitutor": "file:"
   },
   "devDependencies": {
@@ -30,6 +37,7 @@
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
+    "sass-embedded": "^1.79.4",
     "vite": "^5.4.1"
   }
 }

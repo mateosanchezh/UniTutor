@@ -7,6 +7,7 @@ import java.util.Set;
 @Entity
 @Table(name = "materia")
 public class Materia {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,9 +20,24 @@ public class Materia {
     private Carrera carrera;
 
     @OneToMany(mappedBy = "materia", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Tutoria> tutorias;
+    private Set<TutorMateriaSemestre> tutores;
 
-    // Getters and setters
+    // Getters y setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
     public Carrera getCarrera() {
         return carrera;
@@ -31,27 +47,11 @@ public class Materia {
         this.carrera = carrera;
     }
 
-    public Long getId() {
-        return id;
+    public Set<TutorMateriaSemestre> getTutores() {
+        return tutores;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Set<Tutoria> getTutorias() {
-        return tutorias;
-    }
-
-    public void setTutorias(Set<Tutoria> tutorias) {
-        this.tutorias = tutorias;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setTutores(Set<TutorMateriaSemestre> tutores) {
+        this.tutores = tutores;
     }
 }

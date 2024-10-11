@@ -1,0 +1,327 @@
+@charset "UTF-8";
+/* Estilos para el homeuser */
+.Homeuserpage {
+  /* General styles */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  padding-top: 60px;
+  /* Header styles */
+  /* Sidebar styles */
+  /* Main content styles */
+  /* Welcome banner styles */
+  /* Categories section */
+  /* Available tutors section */
+  /* Responsive adjustments */
+}
+.Homeuserpage .main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 60px;
+  /* Logo styles */
+  /* Search bar styles */
+  /* User profile styles */
+}
+.Homeuserpage .main-nav .logo {
+  display: flex;
+  align-items: center;
+}
+.Homeuserpage .main-nav .logo .unitutor-logo {
+  width: 50px;
+  height: auto;
+  filter: brightness(0) saturate(100%) invert(21%) sepia(65%) saturate(1880%) hue-rotate(257deg) brightness(92%) contrast(101%);
+}
+.Homeuserpage .main-nav .logo h1 {
+  color: #6b2c91;
+  font-size: 1.5rem;
+}
+.Homeuserpage .main-nav .search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.Homeuserpage .main-nav .search-bar .search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.Homeuserpage .main-nav .search-bar .search-container .search-icon {
+  position: absolute;
+  left: 10px;
+  font-size: 20px;
+  color: #6b2c91;
+}
+.Homeuserpage .main-nav .search-bar .search-container input {
+  width: 500px;
+  padding: 0.5rem;
+  padding-left: 40px; /* Espacio para el ícono */
+  border: 1px solid #6b2c91;
+  border-radius: 4px;
+  color: #6b2c91; /* Color del texto */
+}
+.Homeuserpage .main-nav .search-bar .search-container input::-moz-placeholder {
+  color: #6b2c91;
+}
+.Homeuserpage .main-nav .search-bar .search-container input::placeholder {
+  color: #6b2c91;
+}
+.Homeuserpage .main-nav .search-bar .search-container input:focus {
+  outline: none; /* Elimina el contorno predeterminado */
+  border-color: #6b2c91; /* Color del borde cuando está enfocado */
+  color: #6b2c91; /* Color del texto cuando está enfocado */
+}
+.Homeuserpage .main-nav .user-profile {
+  display: flex;
+  align-items: center;
+}
+.Homeuserpage .main-nav .user-profile span {
+  margin-left: 10px;
+}
+.Homeuserpage .sidebar {
+  width: 250px;
+  background-color: white;
+  height: calc(100vh - 60px);
+  position: fixed;
+  padding: 2rem 0;
+  top: 60px;
+  overflow-y: auto;
+}
+.Homeuserpage .sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+.Homeuserpage .sidebar ul li {
+  display: flex;
+  align-items: center;
+  margin: 40px 0;
+}
+.Homeuserpage .sidebar ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+}
+.Homeuserpage .sidebar ul li a .icon {
+  font-size: 24px;
+  margin-right: 15px;
+}
+.Homeuserpage .main-content {
+  margin-left: 250px;
+  padding: 2rem;
+  margin-top: 30px;
+}
+.Homeuserpage .main-content .welcome-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.Homeuserpage .main-content .welcome-header .fauser-icon {
+  font-size: 60px;
+  color: #6b2c91;
+  margin-right: 15px;
+  margin-left: 50px;
+}
+.Homeuserpage .main-content .welcome-header h2 {
+  margin: 0;
+}
+.Homeuserpage .welcome-banner {
+  background-color: #6b2c91;
+  color: white;
+  padding: 3rem 6rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  position: relative;
+  width: 75%;
+  height: 250px;
+}
+.Homeuserpage .welcome-banner .banner-text {
+  background-color: white;
+  color: black;
+  padding: 1.5rem;
+  flex: 1;
+  max-width: 40%;
+  position: relative;
+  z-index: 1;
+}
+.Homeuserpage .welcome-banner .photorudas {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 35.4%;
+  background-size: cover;
+  background-position: center;
+  z-index: 2;
+}
+.Homeuserpage .categories-section {
+  margin-top: 2rem;
+}
+.Homeuserpage .categories-section .categories-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.Homeuserpage .categories-section .category-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.Homeuserpage .categories-section .category-card h4 {
+  margin-bottom: 1rem;
+}
+.Homeuserpage .categories-section .category-card ul {
+  list-style: none;
+}
+.Homeuserpage .categories-section .category-card li {
+  margin-bottom: 0.5rem;
+}
+.Homeuserpage .available-tutors-section {
+  margin-top: 2rem;
+}
+.Homeuserpage .available-tutors-section .tutors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem 8rem;
+  justify-content: center;
+  margin-top: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.Homeuserpage .available-tutors-section .tutor-card {
+  background-color: black;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  width: 250px;
+  height: 450px;
+}
+.Homeuserpage .available-tutors-section .tutor-card .photouser {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 2;
+}
+.Homeuserpage .available-tutors-section .tutor-card h4 {
+  margin-bottom: 1rem;
+  color: white;
+  margin-left: 25px;
+}
+.Homeuserpage .available-tutors-section .tutor-card p {
+  margin-bottom: 0.5rem;
+  color: white;
+  margin-left: 25px;
+}
+.Homeuserpage .available-tutors-section .tutor-card .tutor-divider {
+  border: none;
+  height: 1px;
+  background-color: #ffffff;
+  margin: 0.5rem 25px 1rem;
+}
+.Homeuserpage .available-tutors-section .tutor-card .reserve-overlay {
+  position: absolute;
+  top: 242px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 242px);
+  background-color: #D9D9D9;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.Homeuserpage .available-tutors-section .tutor-card .reserve-overlay:hover {
+  opacity: 1;
+}
+.Homeuserpage .available-tutors-section .tutor-card .reserve-overlay .reserve-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 25px;
+}
+.Homeuserpage .available-tutors-section .tutor-card .reserve-overlay .reserve-text {
+  color: black;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.Homeuserpage .available-tutors-section .tutor-card .reserve-overlay .reserve-text2 {
+  color: black;
+  font-size: 1.5rem;
+}
+.Homeuserpage .available-tutors-section .tutor-card .reserve-overlay .button-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+.Homeuserpage .available-tutors-section .tutor-card .reserve-overlay .reserve-button {
+  padding: 0.8rem 3rem;
+  background-color: black;
+  color: white;
+  border: 1px solid #5c2771;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+@media (max-width: 1200px) {
+  .Homeuserpage .categories-section .categories-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .Homeuserpage .available-tutors-section .tutors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  .Homeuserpage .main-content {
+    margin-left: 0;
+  }
+  .Homeuserpage .sidebar {
+    display: none;
+  }
+  .Homeuserpage .categories-section .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .Homeuserpage .available-tutors-section .tutors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .Homeuserpage .categories-section .categories-grid,
+  .Homeuserpage .categories-section .tutors-grid,
+  .Homeuserpage .available-tutors-section .categories-grid,
+  .Homeuserpage .available-tutors-section .tutors-grid {
+    grid-template-columns: 1fr;
+  }
+  .Homeuserpage .welcome-banner {
+    padding: 2rem;
+    height: auto;
+  }
+  .Homeuserpage .welcome-banner .banner-text {
+    max-width: 100%;
+  }
+  .Homeuserpage .welcome-banner .bannerrudas-img {
+    display: none;
+  }
+  .Homeuserpage .main-nav .search-bar .search-container input {
+    width: 200px;
+  }
+}/*# sourceMappingURL=Homeuser.css.map */

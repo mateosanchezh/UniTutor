@@ -4,17 +4,21 @@ import jakarta.persistence.*;
 import com.Unitutor.UniTutor.model.enums.UserRole;
 import com.Unitutor.UniTutor.model.enums.UserEstadoCuenta;
 
+import java.util.Set;
+
 @Entity
-@Table(name = "usuarios") // Se puede especificar el nombre de la tabla
+@Table(name = "usuarios")
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @Column(name = "nombre", nullable = false)
     private String nombre;
+
+    @Column(name = "apellido", nullable = false)
+    private String apellido;
 
     @Column(name = "user", nullable = false, unique = true)
     private String user;
@@ -22,8 +26,11 @@ public class Usuario {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "contraseña", nullable = false)
-    private String contraseña;
+    @Column(name = "contrasena", nullable = false)
+    private String contrasena;
+
+    @Column(name = "telefono", nullable = false, unique = true)
+    private String telefono;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "user_role")
@@ -39,6 +46,9 @@ public class Usuario {
 
     @Column(name = "semestre")
     private Integer semestre;
+
+    @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<TutorMateriaSemestre> materiasAsignadas;
 
     // Getters y setters
     public Long getId() {
@@ -57,6 +67,14 @@ public class Usuario {
         this.nombre = nombre;
     }
 
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
     public String getUser() {
         return user;
     }
@@ -73,12 +91,20 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public UserRole getUserRole() {
@@ -111,5 +137,13 @@ public class Usuario {
 
     public void setSemestre(Integer semestre) {
         this.semestre = semestre;
+    }
+
+    public Set<TutorMateriaSemestre> getMateriasAsignadas() {
+        return materiasAsignadas;
+    }
+
+    public void setMateriasAsignadas(Set<TutorMateriaSemestre> materiasAsignadas) {
+        this.materiasAsignadas = materiasAsignadas;
     }
 }
