@@ -12,6 +12,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  content-visibility: auto;
 }
 
 body {
@@ -393,23 +394,6 @@ body {
 }
 .Unitutor .Home .explore-button .button-text {
   transition: transform 0.3s ease;
-}
-.Unitutor .Home .explore-button .login-alerts {
-  text-align: center;
-  margin-top: 10px;
-}
-.Unitutor .Home .explore-button .login-alerts .success,
-.Unitutor .Home .explore-button .login-alerts .error {
-  color: white;
-  padding: 5px 10px;
-  border-radius: 4px;
-  font-weight: bold;
-}
-.Unitutor .Home .explore-button .login-alerts .success {
-  background-color: rgba(0, 128, 0, 0.7); /* Verde semitransparente */
-}
-.Unitutor .Home .explore-button .login-alerts .error {
-  background-color: rgba(255, 0, 0, 0.7); /* Rojo semitransparente */
 }
 .Unitutor .Home .explore-button .icon-wrapper {
   position: absolute;
