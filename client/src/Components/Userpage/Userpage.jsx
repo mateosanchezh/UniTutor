@@ -7,6 +7,8 @@ import UnitutorLogo from '../../img/UnitutorLogo.svg';
 import jwt_decode from 'jwt-decode'; // Import jwt_decode
 import { Link } from 'react-router-dom';
 import './Userpage.scss';
+import Footer from './Footer';
+
 
 const Userpage = () => {
     const [username, setUsername] = useState('Usuario Desconocido');
@@ -39,11 +41,12 @@ const Userpage = () => {
                 </div>
             </div>
             <nav>
-                <a href="#">Descripción</a>
+                <a href="#" className="active">Descripción</a>
                 <a href="#">Horario</a>
                 <a href="#">Notificaciones</a>
                 <a href="#">Mensajes</a>
             </nav>
+
 
             <div className="container">
                 <div className="main-content">
@@ -70,7 +73,10 @@ const Userpage = () => {
                             <button className='crear'><Link to="/tutorias">Crear Tutorías</Link></button>
                         </div>
                         {/* Example sessions */}
+
+                        <div className='lin'></div>
                         {[...Array(5)].map((_, index) => (
+                            
                             <div className="session" key={index}>
                                 <h3>Cálculo Integral</h3>
                                 <p>Martes 13, 10:00am - 12:00pm</p>
@@ -79,11 +85,14 @@ const Userpage = () => {
                                     <button>Editar</button>
                                     <button>Eliminar</button>
                                 </div>
+                                <div className='linea'></div>
                             </div>
+                            
                         ))}
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 }

@@ -4,6 +4,26 @@
     flex-direction: column;
     overflow-x: hidden;
     
+
+    
+  
+    // Estilo personalizado para el TextField
+    .custom-textfield {
+      width: 80%;  // Ajusta el ancho que necesitas
+      
+      .MuiOutlinedInput-root {
+        border: 2px solid white;  // Cambia el borde
+        border-radius: 10px;         // Ajusta el borde redondeado
+  
+        &:hover .MuiOutlinedInput-notchedOutline {
+          border-color: rgb(207, 207, 207);    // Borde al pasar el mouse
+        }
+  
+        &.Mui-focused .MuiOutlinedInput-notchedOutline {
+          border-color: rgb(207, 207, 207);    // Borde cuando está enfocado
+        }
+      }
+    }
     
   
     header{
@@ -91,20 +111,32 @@
     
     }
   
-    .asignatura{
-        margin-top: 20px;
-        margin-bottom: 50px;
-        margin-left: auto;
-        display: grid;
-        justify-content: flex-start;
-        font-family: 'Onest Variable', sans-serif;
-  
-       
-        .select{
-            width: 100%;
-            border-radius: 12px;
-            height: 30px;
+    .asignatura {
+      margin-top: 20px;
+      margin-bottom: 50px;
+      margin-left: auto;
+      display: grid;
+      justify-content: flex-start;
+      font-family: 'Onest Variable', sans-serif;
+    
+      .custom-select {
+        width: 80%; // Ajusta el ancho del select
+        
+        .MuiOutlinedInput-root {
+          fieldset {
+            border: 2px solid #5C2771 !important; // Cambia el borde del select
+            border-radius: 20px; // Ajusta el borde redondeado
+          }
+    
+          &:hover fieldset {
+            border-color: #3a1854 !important; // Borde al pasar el mouse
+          }
+    
+          &.Mui-focused fieldset {
+            border-color: #5C2771 !important; // Borde cuando está enfocado
+          }
         }
+      }
     }
   
     .descripcion{
@@ -119,6 +151,8 @@
             width: 80%;
         }
     }
+
+    
   
     .virtual {
         margin-left: auto;
@@ -236,5 +270,16 @@
             text-decoration: none;
             
         }
+    }
+
+
+    footer{
+      background-color: white;
+      height: -100vh;
+    }
+    .footer-img{
+      
+        width: 100%;
+        
     }
   }
