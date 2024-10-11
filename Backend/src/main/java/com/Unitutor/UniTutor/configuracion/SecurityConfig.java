@@ -12,6 +12,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.Arrays;
 
@@ -22,6 +23,9 @@ public class SecurityConfig {
     @Autowired
     private JwtService jwtService;
 
+    @Autowired
+    private UserDetailsService userDetailsService; // Inyección de UserDetailsService
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -30,14 +34,14 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/api/auth/**").permitAll() // Permitir acceso a la API de autenticación
                         .requestMatchers("/").permitAll() // Permitir acceso a la raíz
-
-                        .requestMatchers("/api/tutorias/**").permitAll()
-                        .requestMatchers("/api/usuarios").permitAll() // permite el acceso de la API a usuarios.
-                        .requestMatchers("/admin").hasRole("ADMINISTRADOR") // Requiere rol ADMINISTRADOR para acceder a /admingi
+                        .requestMatchers("/api/tutorias/**").permitAll() // Permitir acceso a tutorías
+                        .requestMatchers("/api/usuarios").permitAll() // Permitir acceso a usuarios
+                        .requestMatchers("/api/materias/**").permitAll() // Asegúrate de permitir acceso a materias
+                        .requestMatchers("/admin").hasRole("ADMINISTRADOR") // Requiere rol ADMINISTRADOR para acceder a /admin
                         .anyRequest().authenticated() // Requiere autenticación para otras rutas
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // Establece que no se mantendrá el estado de sesión
-                .addFilterBefore(new JwtAuthenticationFilter(jwtService), UsernamePasswordAuthenticationFilter.class); // Agrega el filtro JWT antes del filtro de autenticación de usuario y contraseña
+                .addFilterBefore(new JwtAuthenticationFilter(jwtService, userDetailsService), UsernamePasswordAuthenticationFilter.class); // Agrega el filtro JWT antes del filtro de autenticación de usuario y contraseña
 
         return http.build();
     }
@@ -45,7 +49,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5174")); // Agrega los orígenes permitidos
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5174")); // Asegúrate de que este es el origen correcto
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Agrega los métodos permitidos
         configuration.setAllowedHeaders(Arrays.asList("*")); // Permite todos los encabezados
         configuration.setAllowCredentials(true); // Permite las credenciales

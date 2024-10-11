@@ -19,9 +19,9 @@ import java.util.List;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
-    private UserDetailsService userDetailsService = null;
+    private final UserDetailsService userDetailsService;
 
-    public JwtAuthenticationFilter(JwtService jwtService) {
+    public JwtAuthenticationFilter(JwtService jwtService, UserDetailsService userDetailsService) {
         this.jwtService = jwtService;
         this.userDetailsService = userDetailsService;
     }
@@ -41,7 +41,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = userDetailsService.loadUserByUsername(email);
 
-            if (jwtService.validateToken(jwt, userDetails.getUsername())) {
+            if (jwt != null && jwtService.validateToken(jwt, userDetails.getUsername())) {
                 String role = jwtService.extractRole(jwt); // Extrae el rol del token
 
                 // Crea un nuevo token de autenticación con el rol extraído
@@ -51,6 +51,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
                 authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+            } else {
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token inválido o expirado");
+                return;
             }
         }
 

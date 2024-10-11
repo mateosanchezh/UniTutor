@@ -1,17 +1,23 @@
 package com.Unitutor.UniTutor.service;
 
+import com.Unitutor.UniTutor.model.TutorMateriaSemestre;
 import com.Unitutor.UniTutor.model.Tutoria;
 import com.Unitutor.UniTutor.model.Usuario;
 import com.Unitutor.UniTutor.model.Materia;
 import com.Unitutor.UniTutor.model.enums.UserRole;
+import com.Unitutor.UniTutor.repository.TutorMateriaSemestreRepository;
 import com.Unitutor.UniTutor.repository.TutoriaRepository;
 import com.Unitutor.UniTutor.repository.MateriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class TutoriaService {
@@ -21,6 +27,9 @@ public class TutoriaService {
 
     @Autowired
     private MateriaRepository materiaRepository;
+
+    @Autowired
+    private TutorMateriaSemestreRepository tutorMateriaSemestreRepository;
 
     public Tutoria crearTutoria(Long idMateria, LocalDate fecha, LocalTime hora, Tutoria.Modalidad modalidad, Usuario tutor) {
         // Validar que el tutor es realmente un tutor
@@ -65,4 +74,17 @@ public class TutoriaService {
     public void eliminarTutoria(Long id) {
         tutoriaRepository.deleteById(id);
     }
+
+    public List<Tutoria> obtenerUltimasTutoriasPorTutor(Usuario tutor, int limit) {
+        Pageable pageable = PageRequest.of(0, limit);  // Limitar el número de resultados
+        return tutoriaRepository.findLastNTutoriasByTutor(tutor, pageable);
+    }
+
+    public List<Materia> obtenerMateriasPorTutor(Long tutorId) {
+        // Aquí se podría usar el repositorio de TutorMateriaSemestre para buscar las materias de un tutor
+        return tutorMateriaSemestreRepository.findByTutorId(tutorId).stream()
+                .map(tutorMateriaSemestre -> tutorMateriaSemestre.getMateria())
+                .collect(Collectors.toList());
+    }
+
 }
