@@ -4,7 +4,7 @@ import { FaUser, FaBars, FaTimes, FaEye, FaEyeSlash, FaChevronDown, FaChevronUp 
 import axios from 'axios';
 import * as jwtDecode from 'jwt-decode';
 
-const Navbar = ({ onLoginError , scrollToSection  }) => {
+const Navbar = ({ onLoginError , scrollToSection }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showLoginForm, setShowLoginForm] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -55,10 +55,12 @@ const Navbar = ({ onLoginError , scrollToSection  }) => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    setIsAuthenticated(false);
-    navigate('/');  // Redirigir al usuario a la página principal o de inicio de sesión
+    if (window.confirm("¿Estás seguro de que quieres cerrar sesión?")) {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      setIsAuthenticated(false);
+      navigate('/');  // Redirigir al usuario a la página principal o de inicio de sesión
+    }
   };
 
   useEffect(() => {

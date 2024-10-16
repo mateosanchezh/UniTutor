@@ -39,6 +39,7 @@ public class TutoriaController {
             String nombreUsuario = jwtService.extractUsername(tokenLimpio);
             Usuario tutor = usuarioRepository.findByUser(nombreUsuario);
 
+            // Verificar si el usuario es un tutor
             if (tutor == null || tutor.getUserRole() != UserRole.TUTOR) {
                 return ResponseEntity.status(403).body("Acceso denegado. Solo los tutores pueden crear tutorías.");
             }
@@ -87,20 +88,27 @@ public class TutoriaController {
     }
 
     @GetMapping("/materias")
-    public ResponseEntity<List<Materia>> obtenerMateriasPorTutor(@RequestHeader("Authorization") String token) {
-        String tokenLimpio = token.replace("Bearer ", "");
-        String username = jwtService.extractUsername(tokenLimpio);
-        Usuario tutor = usuarioRepository.findByUser(username);
+    public ResponseEntity<?> obtenerMateriasPorTutor(@RequestHeader("Authorization") String token) {
+        try {
+            String tokenLimpio = token.replace("Bearer ", "");
+            String username = jwtService.extractUsername(tokenLimpio);
+            Usuario tutor = usuarioRepository.findByUser(username);
 
-        if (tutor == null || tutor.getUserRole() != UserRole.TUTOR) {
-            return ResponseEntity.status(403).body(null);
+            if (tutor != null && tutor.getUserRole() == UserRole.TUTOR) {
+                Long tutorId = tutor.getId(); // Obtener el ID del tutor
+                List<Materia> materias = tutoriaService.obtenerMateriasPorTutor(tutorId);
+                return ResponseEntity.ok(materias);
+            } else {
+                return ResponseEntity.status(403).body("Acceso denegado. Solo los tutores pueden obtener las materias.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body("Error interno del servidor: " + e.getMessage());
         }
-
-        List<Materia> materias = tutoriaService.obtenerMateriasPorTutor(tutor.getId()); // Llamada al método no estático usando la instancia de tutoriaService
-        return ResponseEntity.ok(materias);
     }
 }
 
+// Clase interna para la solicitud de creación de tutoría
 class SolicitudTutoria {
     private Long idMateria;
     private String fecha;

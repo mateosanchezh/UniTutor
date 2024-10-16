@@ -43,10 +43,11 @@ const Tutorias = () => {
     });
     const [materias, setMaterias] = useState([]);
     const [value, setValue] = useState(dayjs());
+    const [message, setMessage] = useState('');
 
     useEffect(() => {
         const fetchMaterias = async () => {
-            const token = localStorage.getItem('token'); // Obtén el token de localStorage
+            const token = localStorage.getItem('token');
             if (!token) {
                 console.error('No se encontró el token de autenticación.');
                 return;
@@ -69,9 +70,14 @@ const Tutorias = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const token = localStorage.getItem('token'); // Obtén el token de localStorage
+        const token = localStorage.getItem('token');
         if (!token) {
             console.error('No se encontró el token de autenticación.');
+            return;
+        }
+
+        if (!formData.idMateria || !formData.hora) {
+            setMessage('Por favor completa todos los campos obligatorios.');
             return;
         }
 
@@ -84,11 +90,11 @@ const Tutorias = () => {
                     'Authorization': `Bearer ${token}`,
                 },
             });
-            console.log('Tutoría creada:', response.data);
-            // Manejar el éxito (por ejemplo, mostrar un mensaje de éxito, resetear el formulario, etc.)
+            setMessage('Tutoría creada con éxito!');
+            setFormData({ idMateria: '', fecha: '', hora: '', modalidad: 'VIRTUAL', descripcion: '' });
+            setValue(dayjs());
         } catch (error) {
-            console.error('Error al crear la tutoría:', error);
-            // Manejar el error (por ejemplo, mostrar un mensaje de error al usuario)
+            setMessage('Error al crear la tutoría: ' + error.message);
         }
     };
 
@@ -100,7 +106,7 @@ const Tutorias = () => {
         <div className='tutoriaspage'>
             <header>
                 <div className='header-top'>
-                    <img src={UnitutorLogo} alt="Logo Unitutor" className='logo'/>
+                    <img src={UnitutorLogo} alt="Logo Unitutor" className='logo' />
                     <h1>Unitutor</h1>
                     <div className="search-bar">
                         <input type="text" placeholder="¿Qué tutoría estás buscando?" />
@@ -117,48 +123,50 @@ const Tutorias = () => {
                 </div>
                 <div className='linea_horizontal'></div>
                 <div className='asignatura'>
-                <h3>Asignatura de la tutoría</h3>
-                <Box sx={{ minWidth: 120 }}>
-                    <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Asignaturas</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={formData.idMateria}
-                        label="Asignatura"
-                        onChange={(e) => {
-                            setFormData({ ...formData, idMateria: e.target.value });
-                        }}
-                        className="custom-select"
-                        MenuProps={{
-                            PaperProps: {
-                            style: {
-                                maxHeight: 200,  // Limita la altura del menú desplegable
-                            },
-                            },
-                            disableScrollLock: true, // Evita que la página se desplace al abrir el menú
-                        }}
-                        >
-                        <MenuItem value="">Selecciona una materia</MenuItem>
-                        {materias.map(materia => (
-                            <MenuItem key={materia.id} value={materia.id}>{materia.nombre}</MenuItem>
-                        ))}
-                    </Select>
-                    </FormControl>
-                </Box>
+                    <h3>Asignatura de la tutoría</h3>
+                    <Box sx={{ minWidth: 120 }}>
+                        <FormControl fullWidth>
+                            <InputLabel id="demo-simple-select-label">Asignaturas</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={formData.idMateria}
+                                label="Asignatura"
+                                onChange={(e) => {
+                                    setFormData({ ...formData, idMateria: e.target.value });
+                                }}
+                                className="custom-select"
+                                MenuProps={{
+                                    PaperProps: {
+                                        style: {
+                                            maxHeight: 200,
+                                        },
+                                    },
+                                    disableScrollLock: true,
+                                }}
+                            >
+                                <MenuItem value="">Selecciona una materia</MenuItem>
+                                {materias.map(materia => (
+                                    <MenuItem key={materia.id} value={materia.id}>{materia.nombre}</MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                    </Box>
                 </div>
 
                 <div className='descripcion'>
-                <p>Puedes escribir una descripción breve pero puntual de lo que llevarás a cabo en la tutoría, para que tus estudiantes estén mejor informados.</p>
-                <h3>Descripción (Opcional)</h3>
-                <Box component="form" noValidate autoComplete="off">
-                    <TextField
-                    label="Descripción"
-                    id="outlined-size-small"
-                    size="small"
-                    className="custom-textfield"  // Añadimos una clase personalizada aquí
-                    />
-                </Box>
+                    <p>Puedes escribir una descripción breve pero puntual de lo que llevarás a cabo en la tutoría, para que tus estudiantes estén mejor informados.</p>
+                    <h3>Descripción (Opcional)</h3>
+                    <Box component="form" noValidate autoComplete="off">
+                        <TextField
+                            label="Descripción"
+                            id="outlined-size-small"
+                            size="small"
+                            value={formData.descripcion}
+                            onChange={(e) => setFormData({ ...formData, descripcion: e.target.value })}
+                            className="custom-textfield"
+                        />
+                    </Box>
                 </div>
                 <div className='linea_horizontal'></div>
 
@@ -170,7 +178,7 @@ const Tutorias = () => {
                                 control={<Radio />}
                                 label={
                                     <div className="radio-content">
-                                        <PiDesktop className='icono_virtual'/>
+                                        <PiDesktop className='icono_virtual' />
                                         <div className="text-content">
                                             <h4>Virtual</h4>
                                             <p>Reúnete con tus estudiantes sin importar dónde te encuentres de manera rápida y puntual.</p>
@@ -224,10 +232,10 @@ const Tutorias = () => {
                 <div className='linea_horizontal'></div>
                 <button className='crear' onClick={handleSubmit}>Crear Tutoría</button>
 
-                
+                {message && <div className="message">{message}</div>}
             </div>
-           
-           <Footer/>
+
+            <Footer />
         </div>
     );
 };
