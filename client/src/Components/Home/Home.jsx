@@ -246,8 +246,8 @@ const Home = () => {
               </div>
               <div className="prof">
                 <div className="imagen prof2"></div>
-                <h4>Roberto Rudas</h4>
-                <p>Prof. Innovación y emprendimiento</p>
+                <h4>Jorge Chavarriaga</h4>
+                <p>Prof. Ingenieria de software</p>
               </div>
               <div className="prof">
                 <div className="imagen prof3"></div>
