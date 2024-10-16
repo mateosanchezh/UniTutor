@@ -5,6 +5,7 @@ import com.Unitutor.UniTutor.model.enums.UserRole;
 import com.Unitutor.UniTutor.model.enums.UserEstadoCuenta;
 
 import java.util.Set;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "usuarios")
@@ -48,6 +49,7 @@ public class Usuario {
     private Integer semestre;
 
     @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference // Agregado aquí
     private Set<TutorMateriaSemestre> materiasAsignadas;
 
     // Getters y setters
