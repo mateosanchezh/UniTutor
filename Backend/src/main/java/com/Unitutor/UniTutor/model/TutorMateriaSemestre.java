@@ -1,6 +1,7 @@
 package com.Unitutor.UniTutor.model;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "tutor_materia_semestre")
@@ -12,6 +13,7 @@ public class TutorMateriaSemestre {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_tutor", nullable = false)
+    @JsonBackReference // Agregado aquí
     private Usuario tutor;
 
     @ManyToOne(fetch = FetchType.LAZY)
