@@ -45,28 +45,33 @@ const Tutorias = () => {
     const [value, setValue] = useState(dayjs());
     const [message, setMessage] = useState('');
 
-    useEffect(() => {
-        const fetchMaterias = async () => {
-            const token = localStorage.getItem('token');
-            if (!token) {
-                console.error('No se encontró el token de autenticación.');
-                return;
-            }
+useEffect(() => {
+    const fetchMaterias = async () => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            console.error('No se encontró el token de autenticación.');
+            return;
+        }
 
-            try {
-                const response = await axios.get('http://localhost:8080/api/tutorias/materias', {
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                    },
-                });
+        try {
+            const response = await axios.get('http://localhost:8080/api/tutorias/materias', {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+            if (Array.isArray(response.data)) {
                 setMaterias(response.data);
-            } catch (error) {
-                console.error('Error al obtener las materias:', error);
+            } else {
+                console.error('Las materias no están en el formato esperado.');
             }
-        };
+        } catch (error) {
+            console.error('Error al obtener las materias:', error);
+        }
+    };
 
-        fetchMaterias();
-    }, []);
+    fetchMaterias();
+}, []);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
