@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import jwt_decode from 'jwt-decode';
-import { RiHome5Fill } from "react-icons/ri";
+import { RiHome5Fill, RiMenu3Line } from "react-icons/ri";
 import { TbBook2 } from "react-icons/tb";
 import { PiChats } from "react-icons/pi";
 import { IoNotificationsOutline } from "react-icons/io5";
@@ -13,6 +13,11 @@ import Photorudas from '../../img/Photo4.png';
 
 const Homeuser = () => {
   const [username, setUsername] = useState('Usuario');
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -57,11 +62,15 @@ const Homeuser = () => {
           </div>
           <div className="user-profile">
             <span>{username}</span>
+            <FaUserCircle className="fauser-icon" />
+          </div>
+          <div className="mobile-menu-icon" onClick={toggleSidebar}>
+            <RiMenu3Line />
           </div>
         </nav>
       </header>
       <main>
-        <aside className="sidebar">
+        <aside className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
           <ul>
             <li>
               <a href="#">
@@ -89,7 +98,8 @@ const Homeuser = () => {
             </li>
           </ul>
         </aside>
-
+        {isSidebarOpen && <div className="sidebar-overlay" onClick={toggleSidebar}></div>}
+        
         <section className="main-content">
           <div className="welcome-header">
             <FaUserCircle className="fauser-icon" />
@@ -101,11 +111,13 @@ const Homeuser = () => {
               <h2>Un aprendizaje eficiente</h2>
               <p>Resuelve tus dudas y fortalece tus habilidades. Nosotros te ayudamos a tener un desempeño mejor</p>
             </div>
-            <img src={Photorudas} alt="rudasphoto" className="photorudas" />
+            <div className="banner-image">
+              <img src={Photorudas} alt="rudasphoto" className="photorudas" />
+            </div>
           </div>
 
           <div className="categories-section">
-            <h3>Categorías</h3>
+            <h3 className='categoris-text'>Categorías</h3>
             <div className="categories-grid">
               {['Matemáticas', 'Programación', 'Inglés', 'Física y Ciencias', 'Análisis de Datos', 'Bases de Datos y Redes', 'Desarrollo Personal', 'Electivas'].map((category, index) => (
                 <div className="category-card" key={index}>

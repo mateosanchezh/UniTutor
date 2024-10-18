@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* Estilos para el homeuser */
 .Homeuserpage {
   /* General styles */
@@ -20,7 +19,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0 1rem;
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: fixed;
@@ -32,6 +31,7 @@
   /* Logo styles */
   /* Search bar styles */
   /* User profile styles */
+  /* Mobile menu icon */
 }
 .Homeuserpage .main-nav .logo {
   display: flex;
@@ -43,8 +43,9 @@
   filter: brightness(0) saturate(100%) invert(21%) sepia(65%) saturate(1880%) hue-rotate(257deg) brightness(92%) contrast(101%);
 }
 .Homeuserpage .main-nav .logo h1 {
-  color: #6b2c91;
+  color: #5C2771;
   font-size: 1.5rem;
+  margin-top: 40px;
 }
 .Homeuserpage .main-nav .search-bar {
   position: relative;
@@ -60,26 +61,29 @@
   position: absolute;
   left: 10px;
   font-size: 20px;
-  color: #6b2c91;
+  color: #5C2771;
 }
 .Homeuserpage .main-nav .search-bar .search-container input {
   width: 500px;
   padding: 0.5rem;
-  padding-left: 40px; /* Espacio para el ícono */
-  border: 1px solid #6b2c91;
-  border-radius: 4px;
-  color: #6b2c91; /* Color del texto */
+  padding-left: 40px;
+  border: 1px solid #5C2771;
+  border-radius: 10px;
+  color: #5C2771;
+  height: 25px;
 }
 .Homeuserpage .main-nav .search-bar .search-container input::-moz-placeholder {
-  color: #6b2c91;
+  color: #5C2771;
+  font-family: "Onest Variable", sans-serif;
 }
 .Homeuserpage .main-nav .search-bar .search-container input::placeholder {
-  color: #6b2c91;
+  color: #5C2771;
+  font-family: "Onest Variable", sans-serif;
 }
 .Homeuserpage .main-nav .search-bar .search-container input:focus {
-  outline: none; /* Elimina el contorno predeterminado */
-  border-color: #6b2c91; /* Color del borde cuando está enfocado */
-  color: #6b2c91; /* Color del texto cuando está enfocado */
+  outline: none;
+  border-color: #5C2771;
+  color: #5C2771;
 }
 .Homeuserpage .main-nav .user-profile {
   display: flex;
@@ -88,14 +92,27 @@
 .Homeuserpage .main-nav .user-profile span {
   margin-left: 10px;
 }
+.Homeuserpage .main-nav .user-profile .fauser-icon {
+  font-size: 40px;
+  color: #5C2771;
+  margin-left: 30px;
+}
+.Homeuserpage .main-nav .mobile-menu-icon {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
 .Homeuserpage .sidebar {
   width: 250px;
-  background-color: white;
+  background-color: #f5f5f5;
   height: calc(100vh - 60px);
   position: fixed;
-  padding: 2rem 0;
-  top: 60px;
+  margin-top: -2%;
+  top: 100px;
+  left: 0;
   overflow-y: auto;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1001;
 }
 .Homeuserpage .sidebar ul {
   list-style: none;
@@ -108,7 +125,7 @@
 }
 .Homeuserpage .sidebar ul li a {
   text-decoration: none;
-  color: #333;
+  color: black;
   font-size: 16px;
   display: flex;
   align-items: center;
@@ -130,15 +147,15 @@
 }
 .Homeuserpage .main-content .welcome-header .fauser-icon {
   font-size: 60px;
-  color: #6b2c91;
+  color: #5C2771;
   margin-right: 15px;
-  margin-left: 50px;
+  margin-left: 20px;
 }
 .Homeuserpage .main-content .welcome-header h2 {
   margin: 0;
 }
 .Homeuserpage .welcome-banner {
-  background-color: #6b2c91;
+  background-color: #5C2771;
   color: white;
   padding: 3rem 6rem;
   display: flex;
@@ -147,6 +164,7 @@
   position: relative;
   width: 75%;
   height: 250px;
+  overflow: hidden;
 }
 .Homeuserpage .welcome-banner .banner-text {
   background-color: white;
@@ -157,15 +175,21 @@
   position: relative;
   z-index: 1;
 }
-.Homeuserpage .welcome-banner .photorudas {
+.Homeuserpage .welcome-banner .banner-image {
   position: absolute;
   right: 0;
   top: 0;
   bottom: 0;
   width: 35.4%;
-  background-size: cover;
-  background-position: center;
-  z-index: 2;
+  overflow: hidden;
+}
+.Homeuserpage .welcome-banner .banner-image .photorudas {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+  -o-object-position: center;
+     object-position: center;
 }
 .Homeuserpage .categories-section {
   margin-top: 2rem;
@@ -187,6 +211,7 @@
 }
 .Homeuserpage .categories-section .category-card ul {
   list-style: none;
+  padding: 0;
 }
 .Homeuserpage .categories-section .category-card li {
   margin-bottom: 0.5rem;
@@ -215,10 +240,11 @@
 }
 .Homeuserpage .available-tutors-section .tutor-card .photouser {
   height: 250px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  z-index: 2;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .Homeuserpage .available-tutors-section .tutor-card h4 {
   margin-bottom: 1rem;
@@ -289,12 +315,26 @@
   .Homeuserpage .available-tutors-section .tutors-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .Homeuserpage .main-nav .search-bar .search-container input {
+    width: 300px;
+  }
 }
 @media (max-width: 900px) {
   .Homeuserpage .main-content {
     margin-left: 0;
   }
   .Homeuserpage .sidebar {
+    transform: translateX(250%);
+  }
+  .Homeuserpage .sidebar.open {
+    transform: translateX(170%);
+    margin-top: -6%;
+  }
+  .Homeuserpage .main-nav .mobile-menu-icon {
+    display: block;
+    margin-left: -35%;
+  }
+  .Homeuserpage .main-nav .search-bar {
     display: none;
   }
   .Homeuserpage .categories-section .categories-grid {
@@ -302,26 +342,117 @@
   }
   .Homeuserpage .available-tutors-section .tutors-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 600px) {
-  .Homeuserpage .categories-section .categories-grid,
-  .Homeuserpage .categories-section .tutors-grid,
-  .Homeuserpage .available-tutors-section .categories-grid,
-  .Homeuserpage .available-tutors-section .tutors-grid {
-    grid-template-columns: 1fr;
+    gap: 2rem;
   }
   .Homeuserpage .welcome-banner {
+    width: 90%;
     padding: 2rem;
     height: auto;
   }
   .Homeuserpage .welcome-banner .banner-text {
     max-width: 100%;
   }
-  .Homeuserpage .welcome-banner .bannerrudas-img {
+  .Homeuserpage .welcome-banner .banner-image {
     display: none;
   }
-  .Homeuserpage .main-nav .search-bar .search-container input {
-    width: 200px;
+}
+@media (max-width: 600px) {
+  .Homeuserpage .available-tutors-section h3 {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .Homeuserpage .available-tutors-section .tutors-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .Homeuserpage .available-tutors-section .tutor-card {
+    width: 80%;
+    margin: 0 auto 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    box-sizing: border-box;
+    overflow: visible;
+    height: auto;
+  }
+  .Homeuserpage .available-tutors-section .tutor-card img.photouser {
+    margin: 0 auto;
+  }
+  .Homeuserpage .available-tutors-section .tutor-card h4, .Homeuserpage .available-tutors-section .tutor-card p {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0;
+  }
+  .Homeuserpage .available-tutors-section .tutor-card .tutor-divider {
+    width: 100%;
+    margin: 10px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+  .Homeuserpage .available-tutors-section .tutor-card .reserve-overlay {
+    width: 100%;
+  }
+  .Homeuserpage .available-tutors-section .tutor-card .reserve-overlay .reserve-content, .Homeuserpage .available-tutors-section .tutor-card .reserve-overlay .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .Homeuserpage .categories-section .categories-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .Homeuserpage .categoris-text {
+    text-align: center;
+  }
+  .Homeuserpage .main-nav .logo h1 {
+    margin-top: 40px;
+  }
+  .Homeuserpage .main-nav .user-profile {
+    display: none;
+  }
+  .Homeuserpage .sidebar {
+    transform: translateX(150%);
+  }
+  .Homeuserpage .sidebar.open {
+    transform: translateX(57%);
+    margin-top: -10%;
+  }
+  .Homeuserpage .welcome-header {
+    flex-direction: column;
+  }
+  .Homeuserpage .welcome-header h2 {
+    text-align: center;
+  }
+  .Homeuserpage .welcome-header .fauser-icon {
+    margin-bottom: 10px;
+  }
+  .Homeuserpage .welcome-banner {
+    width: 90%;
+    padding: 1.5rem;
+  }
+  .Homeuserpage .welcome-banner .banner-text h2 {
+    font-size: 1.2rem;
+  }
+  .Homeuserpage .welcome-banner .banner-text p {
+    font-size: 0.9rem;
+  }
+}
+.Homeuserpage .sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+@media (max-width: 900px) {
+  .Homeuserpage .sidebar-overlay {
+    display: block;
   }
 }/*# sourceMappingURL=Homeuser.css.map */

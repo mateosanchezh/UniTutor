@@ -13,7 +13,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 0 1rem;
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: fixed;
@@ -29,14 +29,15 @@
       align-items: center;
 
       .unitutor-logo {
-        width: 50px; // Ajusta el tamaño según necesites
+        width: 50px;
         height: auto;
         filter: brightness(0) saturate(100%) invert(21%) sepia(65%) saturate(1880%) hue-rotate(257deg) brightness(92%) contrast(101%);
       }
 
       h1 {
-        color: #6b2c91;
+        color: #5C2771;
         font-size: 1.5rem;
+        margin-top: 40px;
       }
     }
 
@@ -53,27 +54,29 @@
 
         .search-icon {
           position: absolute;
-          left: 10px; // Posiciona el ícono
+          left: 10px;
           font-size: 20px;
-          color: #6b2c91; // Color del ícono
+          color: #5C2771;
         }
 
         input {
           width: 500px;
           padding: 0.5rem;
-          padding-left: 40px; /* Espacio para el ícono */
-          border: 1px solid #6b2c91;
-          border-radius: 4px;
-          color: #6b2c91; /* Color del texto */
+          padding-left: 40px;
+          border: 1px solid #5C2771;
+          border-radius: 10px;
+          color: #5C2771;
+          height: 25px;
 
           &::placeholder {
-            color: #6b2c91;
+            color: #5C2771;
+            font-family: 'Onest Variable', sans-serif;
           }
 
           &:focus {
-            outline: none; /* Elimina el contorno predeterminado */
-            border-color: #6b2c91; /* Color del borde cuando está enfocado */
-            color: #6b2c91; /* Color del texto cuando está enfocado */
+            outline: none;
+            border-color: #5C2771;
+            color: #5C2771;
           }
         }
       }
@@ -87,18 +90,35 @@
       span {
         margin-left: 10px;
       }
+
+
+      .fauser-icon {
+        font-size: 40px;
+        color: #5C2771;
+        margin-left: 30px;
+      }
+    }
+
+    /* Mobile menu icon */
+    .mobile-menu-icon {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
     }
   }
 
   /* Sidebar styles */
   .sidebar {
     width: 250px;
-    background-color: white;
+    background-color: #f5f5f5;
     height: calc(100vh - 60px);
     position: fixed;
-    padding: 2rem 0;
-    top: 60px;
+    margin-top: -2%;
+    top: 100px;
+    left: 0;
     overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1001;
 
     ul {
       list-style: none;
@@ -111,7 +131,7 @@
 
         a {
           text-decoration: none;
-          color: #333;
+          color: black;
           font-size: 16px;
           display: flex;
           align-items: center;
@@ -138,10 +158,10 @@
       margin-bottom: 1rem;
 
       .fauser-icon {
-        font-size: 60px; // Haciendo el icono más grande
-        color: #6b2c91; // Cambiando el color a morado
-        margin-right: 15px; // Espacio entre el icono y el texto
-        margin-left: 50px;
+        font-size: 60px;
+        color: #5C2771;
+        margin-right: 15px;
+        margin-left: 20px;
       }
 
       h2 {
@@ -152,7 +172,7 @@
 
   /* Welcome banner styles */
   .welcome-banner {
-    background-color: #6b2c91;
+    background-color: #5C2771;
     color: white;
     padding: 3rem 6rem;
     display: flex;
@@ -161,6 +181,7 @@
     position: relative;
     width: 75%;
     height: 250px;
+    overflow: hidden;
 
     .banner-text {
       background-color: white;
@@ -172,15 +193,20 @@
       z-index: 1;
     }
 
-    .photorudas {
+    .banner-image {
       position: absolute;
       right: 0;
       top: 0;
       bottom: 0;
       width: 35.4%;
-      background-size: cover;
-      background-position: center;
-      z-index: 2;
+      overflow: hidden;
+
+      .photorudas {
+        width: 100%;
+        height: 100%;
+        object-fit: scale-down;
+        object-position: center;
+      }
     }
   }
 
@@ -207,6 +233,7 @@
 
       ul {
         list-style: none;
+        padding: 0;
       }
 
       li {
@@ -241,10 +268,9 @@
 
       .photouser {
         height: 250px;
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        z-index: 2;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
       }
 
       h4 {
@@ -334,15 +360,43 @@
         grid-template-columns: repeat(2, 1fr);
       }
     }
+
+    .main-nav {
+      .search-bar {
+        .search-container {
+          input {
+            width: 300px;
+          }
+        }
+      }
+    }
   }
 
   @media (max-width: 900px) {
     .main-content {
       margin-left: 0;
+      
+      
     }
 
     .sidebar {
-      display: none;
+      transform: translateX(250%);
+      
+      &.open {
+        transform: translateX(170%);
+        margin-top: -6%;
+      }
+    }
+
+    .main-nav {
+      .mobile-menu-icon {
+        display: block;
+        margin-left: -35%;
+      }
+
+      .search-bar {
+        display: none;
+      }
     }
 
     .categories-section {
@@ -354,20 +408,13 @@
     .available-tutors-section {
       .tutors-grid {
         grid-template-columns: repeat(2, 1fr);
-      }
-    }
-  }
-
-  @media (max-width: 600px) {
-    .categories-section,
-    .available-tutors-section {
-      .categories-grid,
-      .tutors-grid {
-        grid-template-columns: 1fr;
+        gap: 2rem;
       }
     }
 
+    
     .welcome-banner {
+      width: 90%;
       padding: 2rem;
       height: auto;
 
@@ -375,19 +422,144 @@
         max-width: 100%;
       }
 
-      .bannerrudas-img {
+      .banner-image {
         display: none;
       }
     }
+  }
 
-    .main-nav {
-      .search-bar {
-        .search-container {
-          input {
-            width: 200px;
+  @media (max-width: 600px) {
+    .available-tutors-section {
+      h3 {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      .tutors-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+  
+      .tutor-card {
+        width: 80%;
+        margin: 0 auto 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+        box-sizing: border-box;
+
+        
+  
+        img.photouser {
+          margin: 0 auto;
+        }
+  
+        h4, p {
+          width: 100%;
+          text-align: center;
+          margin: 5px 0;
+        }
+
+        
+        .tutor-divider {
+          width: 100%;
+          margin: 10px 0;
+          border: none;
+          border-top: 1px solid #ccc;
+        }
+  
+        .reserve-overlay {
+          width: 100%;
+  
+          .reserve-content, .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
         }
+  
+        overflow: visible;
+        height: auto;
       }
+    }
+  
+    .categories-section {
+      .categories-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+  
+    .categoris-text {
+      text-align: center;
+    }
+  
+    .main-nav {
+      .logo {
+        h1 {
+          margin-top: 40px;
+        }
+      }
+  
+      .user-profile {
+        display: none;
+      }
+    }
+  
+    .sidebar {
+      transform: translateX(150%);
+      
+      &.open {
+        transform: translateX(57%);
+        margin-top: -10%;
+      }
+    }
+  
+    .welcome-header {
+      flex-direction: column;
+      
+      h2 {
+        text-align: center;
+      }
+  
+      .fauser-icon {
+        margin-bottom: 10px;
+      }
+    }
+  
+    .welcome-banner {
+      width: 90%;
+      padding: 1.5rem;
+  
+      .banner-text {
+        h2 {
+          font-size: 1.2rem;
+        }
+  
+        p {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+  
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  @media (max-width: 900px) {
+    .sidebar-overlay {
+      display: block;
     }
   }
 }
