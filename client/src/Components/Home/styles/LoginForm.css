@@ -17,8 +17,27 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
   max-width: 400px;
-  width: 50%;
-  height: 450px;
+  width: 90%;
+  height: auto;
+  min-height: 400px;
+  max-height: 80vh;
+}
+@media (max-width: 767px) {
+  .modal-content {
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 65%;
+  }
+}
+@media (min-width: 768px) {
+  .modal-content {
+    width: 50%;
+    height: auto;
+    min-height: 400px;
+  }
 }
 
 .loginformpage * {
@@ -35,7 +54,19 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  margin-top: -90px;
+  padding: 20px;
+}
+@media (max-width: 767px) {
+  .loginformpage .container {
+    align-items: center;
+    padding: 0;
+    min-height: 80vh;
+  }
+}
+@media (min-width: 768px) {
+  .loginformpage .container {
+    margin-top: 0;
+  }
 }
 .loginformpage .form-container {
   background-color: white;
@@ -43,12 +74,20 @@
   padding: 20px;
   width: 100%;
   max-width: 400px;
+  margin-top: -25%;
 }
 .loginformpage .UnitutorLogo {
-  width: 15%;
-  margin-top: -50px;
-  margin-left: 42%;
-  margin-bottom: 10px;
+  width: 60px;
+  margin: 0 auto 20px;
+  display: block;
+}
+@media (min-width: 768px) {
+  .loginformpage .UnitutorLogo {
+    width: 15%;
+    margin-top: -50px;
+    margin-left: 42%;
+    margin-bottom: 10px;
+  }
 }
 .loginformpage .form-header {
   text-align: center;
@@ -56,9 +95,14 @@
   font-family: "Onest Variable", sans-serif;
 }
 .loginformpage .title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   color: #2d3748;
+}
+@media (min-width: 768px) {
+  .loginformpage .title {
+    font-size: 24px;
+  }
 }
 .loginformpage .error-message {
   color: #f56565;
@@ -69,12 +113,17 @@
   margin-bottom: 20px;
 }
 .loginformpage .input-field {
-  width: 80%;
+  width: 100%;
   padding: 10px;
   border: 1px solid #cbd5e0;
   border-radius: 10px;
   font-size: 16px;
-  margin-left: 10%;
+}
+@media (min-width: 768px) {
+  .loginformpage .input-field {
+    width: 80%;
+    margin-left: 10%;
+  }
 }
 .loginformpage .input-field:focus {
   outline: none;
@@ -89,24 +138,40 @@
 }
 .loginformpage .input-with-icon {
   position: relative;
-  width: 105%;
+  width: 107%;
   padding: 10px;
   border-radius: 10px;
   font-size: 16px;
-  margin-left: -2%;
+  margin-left: -10px;
+}
+@media (max-width: 767px) {
+  .loginformpage .input-with-icon {
+    width: 107%;
+    margin-left: -10px;
+  }
 }
 .loginformpage .icon {
   position: absolute;
   top: 50%;
-  right: 70px;
+  right: 20px;
   transform: translateY(-50%);
   cursor: pointer;
   font-size: 1.2em;
 }
+@media (min-width: 768px) {
+  .loginformpage .icon {
+    right: 60px;
+  }
+}
 .loginformpage .forgot-password {
   text-align: left;
-  margin-left: 10%;
   margin-bottom: 20px;
+  padding: 0 10px;
+}
+@media (min-width: 768px) {
+  .loginformpage .forgot-password {
+    margin-left: 10%;
+  }
 }
 .loginformpage .forgot-password a {
   font-size: 13px;
@@ -142,7 +207,7 @@
   background-color: #f7fafc;
 }
 .loginformpage .submit-btn {
-  width: 80%;
+  width: 100%;
   padding: 10px;
   background-color: #000;
   color: white;
@@ -150,8 +215,13 @@
   border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
-  margin-left: 10%;
   font-family: "Onest Variable", sans-serif;
+}
+@media (min-width: 768px) {
+  .loginformpage .submit-btn {
+    width: 80%;
+    margin-left: 10%;
+  }
 }
 .loginformpage .submit-btn:hover {
   background-color: #2d3748;

@@ -17,12 +17,32 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
   max-width: 400px;
-  width: 50%;
-  height: 450px;
+  width: 90%;
+  height: auto;
+  min-height: 400px; // Reducido de 450px a 400px
+  max-height: 80vh; // Añadido para evitar que el modal sea demasiado alto en pantallas pequeñas
+  
+  
+  // Ajustes para centrar el modal en dispositivos móviles
+  @media (max-width: 767px) {
+    margin: auto; // Centra el modal verticalmente
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 65%;
+    
+  }
+  
+  @media (min-width: 768px) {
+    width: 50%;
+    height: auto; // Cambiado de 450px fijo a auto
+    min-height: 400px; // Asegura una altura mínima en pantallas más grandes
+    
+  }
 }
 
 .loginformpage {
-
   * {
     margin: 0;
     padding: 0;
@@ -39,29 +59,41 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    margin-top: -90px;
-  
+    padding: 20px;
+    
+    @media (max-width: 767px) {
+      align-items: center;
+      padding: 0;
+      min-height: 80vh;
+    }
+    
+    @media (min-width: 768px) {
+      margin-top: 0;
+    }
   }
   
   .form-container {
     background-color: white;
     border-radius: 8px;
-    
     padding: 20px;
     width: 100%;
     max-width: 400px;
+    margin-top: -25%;
   }
   
-
-  .UnitutorLogo{
-    width: 15%;
-    margin-top: -50px;
-    margin-left: 42%;
-    margin-bottom: 10px;
-
+  .UnitutorLogo {
+    width: 60px;
+    margin: 0 auto 20px;
+    display: block;
+    
+    @media (min-width: 768px) {
+      width: 15%;
+      margin-top: -50px;
+      margin-left: 42%;
+      margin-bottom: 10px;
+    }
   }
-
- 
+  
   .form-header {
     text-align: center;
     margin-bottom: 20px;
@@ -69,10 +101,13 @@
   }
   
   .title {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     color: #2d3748;
     
+    @media (min-width: 768px) {
+      font-size: 24px;
+    }
   }
   
   .error-message {
@@ -85,14 +120,17 @@
     margin-bottom: 20px;
   }
   
-  
   .input-field {
-    width: 80%;
+    width: 100%;
     padding: 10px;
     border: 1px solid #cbd5e0;
     border-radius: 10px;
     font-size: 16px;
-    margin-left: 10%;
+    
+    @media (min-width: 768px) {
+      width: 80%;
+      margin-left: 10%;
+    }
   
     &:focus {
       outline: none;
@@ -107,28 +145,40 @@
   
   .input-with-icon {
     position: relative;
-    width: 105%;
+    width: 107%;
     padding: 10px;
     border-radius: 10px;
     font-size: 16px;
-    margin-left: -2%;
+    margin-left: -10px;
+    
+    @media (max-width: 767px) {
+
+      width: 107%;
+      margin-left: -10px;
+    }
   }
   
   .icon {
     position: absolute;
     top: 50%;
-    right: 70px;
+    right: 20px;
     transform: translateY(-50%);
     cursor: pointer;
     font-size: 1.2em;
+    
+    @media (min-width: 768px) {
+      right: 60px;
+    }
   }
-  
-  
   
   .forgot-password {
     text-align: left;
-    margin-left: 10%;
     margin-bottom: 20px;
+    padding: 0 10px;
+    
+    @media (min-width: 768px) {
+      margin-left: 10%;
+    }
     
     a {
       font-size: 13px;
@@ -153,8 +203,6 @@
     color: #718096;
     transition: color 0.3s ease;
     
-    
-    
     &:hover {
       color: #2d3748;
     }
@@ -171,7 +219,7 @@
   }
   
   .submit-btn {
-    width: 80%;
+    width: 100%;
     padding: 10px;
     background-color: #000;
     color: white;
@@ -179,12 +227,15 @@
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
-    margin-left: 10%;
     font-family: 'Onest Variable', sans-serif;
+    
+    @media (min-width: 768px) {
+      width: 80%;
+      margin-left: 10%;
+    }
+    
     &:hover {
       background-color: #2d3748;
     }
   }
-
 }
-
